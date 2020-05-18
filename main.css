@@ -4,23 +4,36 @@
    @ Gamepad.Coder 2020: this site's HTML+CSS  
    @ Gigi Truelove 2020: this site's HTML+CSS initial concept+layout */
 
-body {
-	color: #ffffff;
-	background-color: #000000;
 
 
-	background: rgb(28,28,139);
-	background: radial-gradient(circle, rgba(28,28,139,1) 14%, rgba(0,143,190,1) 79%, rgba(0,108,130,1) 100%);
+  /* ------------------------------------------------ */
+ /*                    fonts                         */
+/* ------------------------------------------------ */
 
-	background-attachment: fixed;
-
+body{
 	/* font-family: "Palatino", serif; */
 	font-family: "Courier New", serif;
 	font-size: 18px;
-	line-height: 1.25em;
+	line-height: 1.25em;	
+	color: #ffffff;
 }
 
+h1{
+	font-family: Consolas;
+	font-size: 24px;
+}
 
+h2{
+	font-family: "Courier", Consolas, Verdana, serif;
+	/* font-size: 72px; */
+	background: -webkit-linear-gradient(#53d5ff, #4a1f84);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+nav li {
+	/* font-size: 17px; */
+}
 a:link {
 	color: #03ff3d;
 	text-decoration: none;
@@ -34,42 +47,132 @@ a:hover {
 	color: #03ff3d;
 	text-decoration: underline;
 }
-/* navigation hyperlinks are a different style
-	--> grouped with other nav items below */
-
-h1{
-	font-family: Consolas;
-	font-size: 24px;
+a.current {
+	color: #000000;
+	text-decoration: none;
 }
-h2 {
-	/* font-size: 72px; */
-	background: -webkit-linear-gradient(#53d5ff, #4a1f84);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
+span.writer_notes_on{
+	/* font-family: serif; */
+	font-size: 17px;
+	color: #999;
+}
+
+
+aside {
+	font-family: Palatino, serif;
+	/* font-size: 14px; */
+}
+.nav_ref {
+	color: #03ff3d;
+	font-family: Consolas, Verdana, serif;	
+}
+				  /* ----------- */
+				 /*  ^ fonts    */
+				/* ----------- */
+
+
+
+
+  /* ------------------------------------------------ */
+ /*              backgrounds + borders               */
+/* ------------------------------------------------ */
+
+body {
+	background-color: #000000;
+	background: rgb(28,28,139);
+	background: radial-gradient(circle, rgba(28,28,139,1) 14%, rgba(0,143,190,1) 79%, rgba(0,108,130,1) 100%);
+	background-attachment: fixed;
 	
-	border-bottom: 1.5px dotted #03993d;
-	padding: 5px;
-	font-family: "Courier", Consolas, Verdana, serif;
-}
-
-/* layout */
-header, footer, aside, nav, aritcle, .content {
-	display: block;
 }
 header {
 	background-image: url("assets/images/header.jpg");
-	width:100%;
-	overflow: auto;
-	float:left;
-
 }
-
-/* ------------------------------------------ */
-/*   Gamepad.Coder icon + text + formatting   */
-/* ------------------------------------------ */
+h2 {	
+	border-bottom: 1.5px dotted #03993d;
+}
 
 div.gc_logo{
 	background: rgba(7,7,7,0.6);
+}
+img.gc_picture{
+	border: 6px ridge  #ddd;
+}
+h1.gc_txt{
+	border: 7px outset  #777;
+}
+
+
+div.gc_hire {
+	/* border: 1px solid #fff; */
+	background: rgba(0,0,0,0.5);
+}
+
+	nav {
+		/*~ [debug] ~*/
+		/* border: 1px solid #fff; */
+	}
+	
+	nav li {		
+		border: 1px solid #f;	
+	}
+	
+	nav li a {
+		background-color: #000000;
+	}	
+	a.current {
+		background-color: #1a9b51;
+	}
+	
+
+div.the_page {
+	background-color: #032e3d;
+	border: 1px ridge #03dd3d;
+}
+.content {	
+	/*~ [debug] ~*/
+	/* border: 3px solid green; */			
+}
+aside {
+	background-color: #031b23;
+}
+	.nav_ref {
+		background-color: #000000;
+	}
+
+footer.gitlinks{
+	background-color: #031b23;
+}
+				  /* --------------------------- */
+				 /*  ^ backgrounds + borders    */
+				/* --------------------------- */
+
+
+
+
+  /* ------------------------------------------------ */
+ /*                   layouts                        */
+/* ------------------------------------------------ */
+
+h2 {
+	padding: 5px;
+}
+
+header, footer, aside, nav, aritcle, .content {
+	display: block;
+}
+
+header {
+	width:100%;
+	overflow: auto;
+	float:left;
+}
+
+
+				  /* - - - - - - - - - - - - - -  *|
+				  |*  	Gamepad.Coder  logo       *|
+				  |* - - - - - - - - - - - - - -  */
+
+div.gc_logo{
 	width: 305;
 	height: 80px;	
 	overflow: auto;
@@ -79,9 +182,11 @@ div.gc_header{
 	float: left;
 }
 img.gc_picture{
-	border: 6px ridge  #ddd;
 	
-	/* center vertically recipe found@ https://css-tricks.com/quick-css-trick-how-to-center-an-object-exactly-in-the-center/ */
+	/* center vertically recipe found@ 
+	
+	 https://css-tricks.com/quick-css-trick-how-to
+	-center-an-object-exactly-in-the-center/        */
 	
 	position: relative;
 	top: 50%;
@@ -96,25 +201,22 @@ h1.gc_txt{
 	top: 50%;
 	
 	transform: translate(0%, -50%);
-	border: 7px outset  #777;
     line-height: 200%;
 
-	margin: auto;
 	padding-left: 14px;
-	padding-right: 14px;
-	
+	padding-right: 14px;	
+	margin: auto;
 	float: left;
 }
 
-/* ------------------------------------------ */
-/* </> Gamepad.Coder icon + text + formatting */
-/* ------------------------------------------ */
+				  /* - - - - - - - - - - - - - -  *|
+				  |*  </>  Gamepad.Coder  logo    *|
+				  |* - - - - - - - - - - - - - -  */
+					
 
 div.gc_hire{
-	float: right;
-	/* border: 1px solid #fff; */
-	background: rgba(0,0,0,0.5);
 	padding: 5px;
+	float: right;
 }
 div.gc_navbar{
 	clear: both;
@@ -122,7 +224,6 @@ div.gc_navbar{
 }
 	nav{
 		text-align:center;
-		/* border: 1px solid #fff; */
 		overflow: auto;
 		/* padding: 5px 0px 5px 0px; */
 	}
@@ -130,10 +231,7 @@ div.gc_navbar{
 		display:inline-block;
 		list-style:none; 
 	}
-	nav li {
-		font-size: 17px;
-		
-		border: 1px solid #f;	
+	nav li {		
 		display: inline;
 		padding: 0px 20px 0px 20px;
 		margin: 20px 5px 20px 5px;
@@ -141,84 +239,67 @@ div.gc_navbar{
 		float: left;
 	}
 	nav li a{
-		background-color: #000000;
 		padding: 5px;
 	}
 	a.current {
-		background-color: #1a9b51;
-		color: #000000;
 		padding: 5px;
-	}
-	a.current:hover {
-		color: #000000;
-		text-decoration: none;
 	}
 
 
 div.the_page {
-	background-color: #032e3d;
-	border: 1px ridge #03dd3d;
-	padding: 5px;
 	width: 80%;
-	margin: 0px auto 150px auto;
-
 	align-items: center;
 	overflow: auto;
+	padding: 5px;
+	margin: 0px auto 150px auto;
 }
-	.content {
-		float: left;
-		width: 70%;
-		
-		/*~ [debug] ~*/
-		/* border: 3px solid green; */			
+
+	div.content {
+		width: 70%;		
 		
 		/*~ prevents sidebar from moving to bottom on zoom ~*/
 		/* margin: auto auto auto auto;			 */
 		
-		/*~   allows sidebar to move to bottom on zoom ~*/
+		/*~   allows sidebar to move to bottom		on zoom ~*/
 		margin: 10px 20px 20px 30px; 
-	}
-		article {
-			margin: auto auto 40px auto
-		}
 		
-		span.writer_notes_on{
-			/* font-family: serif; */
-			font-size: 17px;
-			color: #999;
-		}
-		p.intro_philosopher_linespacing{
+		float: left;
+	}
+	
+	  article {
+		  margin: auto auto 40px auto
+	  }
+		
+	    p.intro_philosopher_linespacing{
 			margin-bottom: 30px;
-		}
+	    }
 		
 		
 aside {
-	font-family: Palatino, serif;
-	/* font-size: 14px; */
-	background-color: #031b23;
+	width: 20%;
 	padding: 10px;
 	margin: 0px 10px auto auto;
-	width: 20%;
 	float: right;
 }
-	.nav_ref {
-		color: #03ff3d;
-		background-color: #000000;
-		font-family: Consolas, Verdana, serif;	
-		/* margin-left: 2px; */
-		margin-right: 5px;
-	}
+  .nav_ref {
+      margin-right: 5px;
+  }
+
 
 footer.gitlinks{
-	background-color: #031b23;
-	margin: 0px;
 	padding: 10px;
+	margin: 0px;
 	clear: both;
 }
 footer p.copyright{
-	
 	line-height: 1em;
 	float: right;
 }
+				  /* ------------ */
+				 /*  ^ layouts   */
+				/* ------------ */
+
+
+
 
 /* Have a wonderful day. */
