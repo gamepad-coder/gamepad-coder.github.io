@@ -10,62 +10,38 @@
  /*                    fonts                         */
 /* ------------------------------------------------ */
 
-body{
-	/* font-family: "Palatino", serif; */
-	font-family: "Courier New", serif;
-	font-size: 18px;
-	line-height: 1.25em;	
-	color: #ffffff;
-}
+	body{
+		font-family: Courier New, Courier, Palatino, Verdana, serif;
+		font-size: 16px;
+		line-height: 1.25em;	
+		color: #ffffff; 	/* #D7D7D7; */
+	}
 
-h1{
-	font-family: Consolas;
-	font-size: 24px;
-}
+	h1{	font-family: Consolas;	font-size: 24px; }
+	h2{
+		font-family: "Courier", Consolas, Verdana, serif;
+		font-size: 28px;
+		
+		background: -webkit-linear-gradient(#53d5ff, #4a1f84);
+		/* background: -webkit-linear-gradient(#53d5ff, #6d22a7); */
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+	a:link, .nav_ref {
+		color: #03ff3d;
+		text-decoration: none;
+		font-family: Consolas, Verdana, serif;
+	}
+	a:visited { color: #03ff3d; }
+	a:hover { color: #03ff3d;	text-decoration: underline;	}
+	li.current a{ color: #000000;	text-decoration: none; }
 
-h2{
-	font-family: "Courier", Consolas, Verdana, serif;
-	/* font-size: 72px; */
-	background: -webkit-linear-gradient(#53d5ff, #4a1f84);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-}
+	span.parenthetical{ font-size: 17px;	color: #999; }
 
-nav li {
-	/* font-size: 17px; */
-}
-a:link {
-	color: #03ff3d;
-	text-decoration: none;
-	font-family: Consolas, Verdana, serif;
-}
-a:visited {
-	/* color: #03703d; */
-	color: #03ff3d;
-}
-a:hover {
-	color: #03ff3d;
-	text-decoration: underline;
-}
-a.current {
-	color: #000000;
-	text-decoration: none;
-}
-span.writer_notes_on{
-	/* font-family: serif; */
-	font-size: 17px;
-	color: #999;
-}
+	aside {	font-size: 15px;	font-family: Palatino, serif; }
+	span.nav_ref {	font-size: 17px;	}
 
 
-aside {
-	font-family: Palatino, serif;
-	/* font-size: 14px; */
-}
-.nav_ref {
-	color: #03ff3d;
-	font-family: Consolas, Verdana, serif;	
-}
 				  /* ----------- */
 				 /*  ^ fonts    */
 				/* ----------- */
@@ -77,71 +53,64 @@ aside {
  /*              backgrounds + borders               */
 /* ------------------------------------------------ */
 
-body {
-	background-color: #000000;
-	background: rgb(28,28,139);
-	background: radial-gradient(circle, rgba(28,28,139,1) 14%, rgba(0,143,190,1) 79%, rgba(0,108,130,1) 100%);
-	background-attachment: fixed;
-	
-}
-header {
-	background-image: url("assets/images/header.jpg");
-}
-h2 {	
-	border-bottom: 1.5px dotted #03993d;
-}
-
-div.gc_logo{
-	background: rgba(7,7,7,0.6);
-}
-img.gc_picture{
-	border: 6px ridge  #ddd;
-}
-h1.gc_txt{
-	border: 7px outset  #777;
-}
-
-
-div.gc_hire {
-	/* border: 1px solid #fff; */
-	background: rgba(0,0,0,0.5);
-}
-
-	nav {
-		/*~ [debug] ~*/
-		/* border: 1px solid #fff; */
-	}
-	
-	nav li {		
-		border: 1px solid #f;	
-	}
-	
-	nav li a {
+	body {
 		background-color: #000000;
-	}	
-	a.current {
-		background-color: #1a9b51;
+		
+		background: rgb(43,214,252);
+		background: radial-gradient(circle, 
+			rgba(43,214,252,1) 0%,
+			rgba(49,210,226,1) 27%,
+			rgba(45,158,195,1) 77%,
+			rgba(45,146,194,1) 80%,
+			rgba(45,154,195,1) 84%,
+			rgba(44,147,190,1) 88%, 
+			rgba(0,108,130,1) 100%) ;
+		
+		background-attachment: fixed;
+		
 	}
+	header {
+		background-image: url("assets/images/header.jpg");
+	}
+	h2 {	border-bottom: 1.5px dotted #03993d;	}
+
+	div.gc_logo{    background: rgba(7,7,7,0.6);    }
+	img.gc_picture{	border: 6px ridge  #ddd;        }
+	h1.gc_txt{      border: 7px outset  #777;       }
+	div.gc_hire {   background: rgba(0,0,0,0.5);    }
+
+		ul.gc_navbar li {
+			background-color: #000000;
+		}		
+		ul.gc_navbar .current {
+			background-color: #1a9b51;		
+		}
+		.gc_hire .current {
+			background-color: #1a9b51;		
+		}
+
+	div.the_page {	background-color: #032e3d;   border: 1px ridge #03dd3d;	}
+	aside { background-color: #031b23;   border-radius: 25px; }
+		.nav_ref { background-color: #000000; }
+	footer.gitlinks{ background-color: #031b23; }
+
+
+	/* - - - - - - - - - - - - - - - - - - - - *|
+	|*    for extreme zoom + smaller screens   *|
+	/* - - - - - - - - - - - - - - - - - - - - */
 	
-
-div.the_page {
-	background-color: #032e3d;
-	border: 1px ridge #03dd3d;
-}
-.content {	
-	/*~ [debug] ~*/
-	/* border: 3px solid green; */			
-}
-aside {
-	background-color: #031b23;
-}
-	.nav_ref {
-		background-color: #000000;
+	@media all and (max-width: 900px) {
+		#asideBar {
+			border-top: 1px solid rgba(000, 222, 999, .21); 
+			border-bottom: 1px solid rgba(000, 222, 999, .31); 
+		}
+		aside p {
+			border-bottom: 1px solid rgba(222, 222, 222, .3); 
+		}
 	}
-
-footer.gitlinks{
-	background-color: #031b23;
-}
+	/* @media all */
+	
+	
 				  /* --------------------------- */
 				 /*  ^ backgrounds + borders    */
 				/* --------------------------- */
@@ -153,148 +122,216 @@ footer.gitlinks{
  /*                   layouts                        */
 /* ------------------------------------------------ */
 
-h2 {
-	padding: 5px;
-}
 
-header, footer, aside, nav, aritcle, .content {
-	display: block;
-}
-
-header {
-	width:100%;
-	overflow: auto;
-	float:left;
-}
+	header { overflow: auto;	/* border: 11px ridge #03dd3d; */ }
 
 
-				  /* - - - - - - - - - - - - - -  *|
-				  |*  	Gamepad.Coder  logo       *|
-				  |* - - - - - - - - - - - - - -  */
+	/* - - - - - - - - - - - - - -  *|
+	|*  	Gamepad.Coder  logo     *|      +hire
+	|* - - - - - - - - - - - - - -  */
 
-div.gc_logo{
-	width: 305;
-	height: 80px;	
-	overflow: auto;
-	float: left;
-}
-div.gc_header{
-	float: left;
-}
-img.gc_picture{
-	
-	/* center vertically recipe found@ 
-	
-	 https://css-tricks.com/quick-css-trick-how-to
-	-center-an-object-exactly-in-the-center/        */
-	
-	position: relative;
-	top: 50%;
-	transform: translate(0%, -50%);
-
-	margin-right: 10px;
-	margin-left: 10px;
-	float: left;
-}
-h1.gc_txt{
-	position: relative;
-	top: 50%;
-	
-	transform: translate(0%, -50%);
-    line-height: 200%;
-
-	padding-left: 14px;
-	padding-right: 14px;	
-	margin: auto;
-	float: left;
-}
-
-				  /* - - - - - - - - - - - - - -  *|
-				  |*  </>  Gamepad.Coder  logo    *|
-				  |* - - - - - - - - - - - - - -  */
-					
-
-div.gc_hire{
-	padding: 5px;
-	float: right;
-}
-div.gc_navbar{
-	clear: both;
-	margin: -10px 0px 0px 0px;
-}
-	nav{
-		text-align:center;
+	div.gc_header{
 		overflow: auto;
-		/* padding: 5px 0px 5px 0px; */
 	}
-	nav ul {
-		display:inline-block;
-		list-style:none; 
+
+		
+		div.gc_logo{
+			width: 305;
+			height: 80px;	
+			overflow: auto;
+			float: left;
+		}
+		img.gc_picture{
+		
+		  /* center vertically recipe found@ 
+		
+		   https://css-tricks.com/quick-css-trick-how-to
+		  -center-an-object-exactly-in-the-center/        */
+		
+		  position: relative;
+		  top: 50%;
+		  transform: translate(0%, -50%);
+
+		  margin-right: 10px;
+		  margin-left: 10px;
+		  float: left;
+		}
+		h1.gc_txt{
+			position: relative;
+			top: 50%;		
+			transform: translate(0%, -50%);
+			line-height: 200%;
+
+			padding-left: 14px;
+			padding-right: 14px;	
+			margin: auto;
+			float: left;
+		}
+		
+		div.gc_hire{
+			padding: 5px;
+			float: right;
+		}  
+	
+	
+	
+	/* - - - - - - - - - - - - - -  *|
+	|*      navigation bar          *|
+	|* - - - - - - - - - - - - - -  */
+
+	UL.gc_navbar{
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-around;
+		align-content: space-around;
+		padding-inline-start: 0;
+		list-style: none;
+		padding: auto;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		clear: both;
 	}
-	nav li {		
-		display: inline;
-		padding: 0px 20px 0px 20px;
-		margin: 20px 5px 20px 5px;
-		/* margin: 20px auto 20px auto; */
-		float: left;
-	}
-	nav li a{
+
+		ul.gc_navbar li{
+			padding: 10px;
+			text-align: center;
+			border-top: 1px solid rgba(255, 255, 255,0.3); 
+			border-bottom: 1px solid rgba(222, 222, 222, 0.15); 
+		}
+		ul.gc_navbar .current{
+			flex-shrink: 0;
+			min-width: 80px;
+			/* flex-grow: 0; */
+		}
+		
+
+	
+	/* - - - - - - - - - - - *|
+	|*     main content      *|
+	|* - - - - - - - - - - - */
+
+	div.the_page {
+		width: 85%;
 		padding: 5px;
+		margin: 0px auto 250px auto;
+		
+		/* WARNING/REMINDER:  "overflow: auto;" here WILL BREAK STICKY SCROLL  */
 	}
-	a.current {
-		padding: 5px;
+	div.page_flex {	
+		display: flex;
+		flex-flow: row ;
+		align-items:flex-start;
+		justify-content: space-evenly; */
 	}
 
+		div.content { flex: 0 0 70%;	margin: 10px 40px 20px 40px; }
+			
+			article {
+				padding: 0 10px;
+				margin-top: -5px;
+				margin-bottom: 40px;
+			}	
+			h2 { padding: 10px 0px; }
+			p.intro_philosopher_linespacing{
+				margin-bottom: 25px;
+			}
+			
+			
+	
+	/* - - - - - - - - - - - *|
+	|*       sidebar         *|
+	|* - - - - - - - - - - - */
+			
+	#asideBar {
+		color: silver;
+	}
+	#asideBar {
+		border-top: 1px solid rgba(222, 222, 222, 0.15); 
+		border-bottom: 1px solid rgba(255, 255, 255,0.2); 
+	}
+	#asideBar {
+		margin: 30px auto;
+		padding: 0px 10px 0px 15px;
+		position: -webkit-sticky;
+		position: sticky;
+		top: 10vh;
+		
+		max-height: 90vh;
+		overflow: auto;
+	}
+	  /*--- formatting for navigation link references ---*/
+	  a.nav_ref, .nav_ref {
+		margin-right: 5px;
+		color: #1a9b51;
+	  }
 
-div.the_page {
-	width: 80%;
-	align-items: center;
-	overflow: auto;
-	padding: 5px;
-	margin: 0px auto 150px auto;
-}
 
-	div.content {
-		width: 70%;		
-		
-		/*~ prevents sidebar from moving to bottom on zoom ~*/
-		/* margin: auto auto auto auto;			 */
-		
-		/*~   allows sidebar to move to bottom		on zoom ~*/
-		margin: 10px 20px 20px 30px; 
-		
-		float: left;
+	footer.gitlinks{
+		padding: 10px;
+		margin: 0px;
+		clear: both;
+	}
+	footer p.copyright{
+		line-height: 1em;
+		float: right;
 	}
 	
-	  article {
-		  margin: auto auto 40px auto
-	  }
+	
+	/* - - - - - - - - - - - - - - - - - - - - *|
+	|*    for extreme zoom + smaller screens   *|
+	/* - - - - - - - - - - - - - - - - - - - - */
+	
+	@media all and (max-width: 900px) {
 		
-	    p.intro_philosopher_linespacing{
-			margin-bottom: 30px;
-	    }
-		
-		
-aside {
-	width: 20%;
-	padding: 10px;
-	margin: 0px 10px auto auto;
-	float: right;
-}
-  .nav_ref {
-      margin-right: 5px;
-  }
+		/********************************************* 
+		   on smaller screen width: 
 
+		   toggle the navigation links 
+		   into a vertical list 
 
-footer.gitlinks{
-	padding: 10px;
-	margin: 0px;
-	clear: both;
-}
-footer p.copyright{
-	line-height: 1em;
-	float: right;
-}
+		   turn the main page into a column flex 
+		   add lines between paragraphs in 
+		   the "sidebar" (now above main content)
+		*********************************************/
+	
+	  
+		UL.gc_navbar {
+			justify-content: space-around;
+			flex-flow: column wrap;
+		}
+		div.the_page{
+			width: 95%;
+			padding: 0;
+		}
+		div.page_flex {
+			flex-flow: column;
+			justify-content: space-around;
+			align-items: center;
+			margin: 0;
+		}
+		#asideBar {
+			order: 1;
+			position: static;
+			padding: 0%;
+			width: 100%;
+			margin: 10px 0px auto 0px;
+			height: auto;
+		  }
+		aside p {
+			margin: 0;
+			padding-top: 5;
+			padding-bottom: 5;
+			padding-left: 20;
+			padding-left: 20;
+		}
+		div.content {
+			order: 2;
+			width: 90%;		
+		}
+	}
+	/* @media all */
+	
+	
 				  /* ------------ */
 				 /*  ^ layouts   */
 				/* ------------ */
