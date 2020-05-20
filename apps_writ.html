@@ -17,8 +17,10 @@
 	<meta name="robots" content="nofollow" />
 	<meta http-equiv="author" content="Gamepad.Coder, Gamepad-Coder" />
 	<meta http-equiv="pragma" content="no-cache" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=12.0, minimum-scale=.05, user-scalable=yes"/>
 </head>
 <body>
+<div id="website_background"></div>
 <div class="the_page">
 	<!-- backdrop + username + navigation strip -->
 	<header>
@@ -32,46 +34,55 @@
 				
 			</div>
 			<div class="gc_hire">
-						<a href="contact.html">Contact for Hire</a>
+						<li>  <a href="contact.html">Contact for Hire</a>  </li>
 			</div>
 		</div>
-		<ul class="gc_navbar">		
-				<li><a href="index.html">Home</a></li>
+		<ul id="gc_navbar">		
+				<li id="home_button"><a href="index.html">Home</a></li>
 				<li class="current"><a href="apps_writ.html">Apps Written</a></li>
 				<li><a href="docs4proj.html">Documentation for Projects</a></li>
-				<li><a href="philo_blog.html">Philosophy Blog</a></li><br>
+				<li><a href="philo_blog.html">Philosophy Blog</a></li>
 		</ul>
 	</header>	
-	<div class="content">
-		<article>
+	<div class="page_flex">
+	
+		<!-- main content -->
+		<div class="content">
+			
 			<h2>Lorem ipsum</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id ornare ipsum. Praesent ac ullamcorper risus, et aliquet neque. Mauris viverra eu ligula quis aliquet. Quisque efficitur turpis et quam ultricies, sit amet maximus nisl varius. Duis egestas in justo eget vehicula. Sed congue interdum urna eu efficitur. Pellentesque laoreet diam dui. Maecenas dolor turpis, aliquet non dapibus vitae, tempor in purus.</p>
-		</article>
-		<article>
+			<article>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id ornare ipsum. Praesent ac ullamcorper risus, et aliquet neque. Mauris viverra eu ligula quis aliquet. Quisque efficitur turpis et quam ultricies, sit amet maximus nisl varius. Duis egestas in justo eget vehicula. Sed congue interdum urna eu efficitur. Pellentesque laoreet diam dui. Maecenas dolor turpis, aliquet non dapibus vitae, tempor in purus.</p>
+			</article>
+			
 			<h2>Nullam sodales</h2>
-				<p>Nullam sodales elementum egestas. Aliquam erat volutpat. Donec lacinia lorem ac justo fermentum commodo. In ac leo nibh. Vivamus eget dui cursus, lobortis lacus vitae, fringilla mi. Etiam in ullamcorper arcu. Quisque bibendum malesuada tempor. Quisque porta consectetur massa, quis aliquet urna rhoncus sit amet. Nunc vitae posuere velit. In vitae tincidunt enim.</p>
-		</article>
-		<article>
+			<article>
+					<p>Nullam sodales elementum egestas. Aliquam erat volutpat. Donec lacinia lorem ac justo fermentum commodo. In ac leo nibh. Vivamus eget dui cursus, lobortis lacus vitae, fringilla mi. Etiam in ullamcorper arcu. Quisque bibendum malesuada tempor. Quisque porta consectetur massa, quis aliquet urna rhoncus sit amet. Nunc vitae posuere velit. In vitae tincidunt enim.</p>
+			</article>
+			
 			<h2>Aenean mollis</h2>
-				<p>Aenean mollis euismod lobortis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse ut vulputate est. Pellentesque eget elit tortor. Nunc sit amet sodales ex. Aenean ut mollis nisi, eu dapibus ante. Curabitur sit amet iaculis sem, at tristique lectus. Proin vel commodo sem, in pulvinar magna. Phasellus eget ante molestie, sodales nulla sed, rhoncus magna. Proin lorem tortor, faucibus non mauris bibendum, tristique sollicitudin ex. Nunc in fringilla sem, eget porttitor leo.</p>
-		</article>
-	</div><!-- #content -->
-	<aside>
+			<article>
+					<p>Aenean mollis euismod lobortis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse ut vulputate est. Pellentesque eget elit tortor. Nunc sit amet sodales ex. Aenean ut mollis nisi, eu dapibus ante. Curabitur sit amet iaculis sem, at tristique lectus. Proin vel commodo sem, in pulvinar magna. Phasellus eget ante molestie, sodales nulla sed, rhoncus magna. Proin lorem tortor, faucibus non mauris bibendum, tristique sollicitudin ex. Nunc in fringilla sem, eget porttitor leo.</p>
+			</article>
+		</div><!-- #content -->
+		
+		<aside id="asideBar">
 		<h3>subject</h3>
-		<ul>
-			<li><a href="">example</a></li>
-			<li><a href="">example</a></li>
-			<li><a href="">example</a></li>
-			<li><a href="">example</a></li>
-		</ul>
-		<h3>subject</h3>
-		<ul>
-			<li><a href="">example</a></li>
-			<li><a href="">example</a></li>
-			<li><a href="">example</a></li>
-			<li><a href="">example</a></li>
-		</ul>
-	</aside>
+			<ul>
+				<li><a href="">example</a></li>
+				<li><a href="">example</a></li>
+				<li><a href="">example</a></li>
+				<li><a href="">example</a></li>
+			</ul>
+			<h3>subject</h3>
+			<ul>
+				<li><a href="">example</a></li>
+				<li><a href="">example</a></li>
+				<li><a href="">example</a></li>
+				<li><a href="">example</a></li>
+			</ul>
+		</aside>
+		
+	</div><!-- .page_flex -->
 	
 	<!-- footer of main page block -->
 	<footer class="gitlinks">
@@ -97,8 +108,8 @@
 			gives this double br a nice spacing 
 		-->
 	</p>
-</footer>
-	
+</footer>	
+
 </body>
 </html>
 
