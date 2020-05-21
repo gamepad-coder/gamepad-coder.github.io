@@ -67,6 +67,7 @@
 	body {
 		background-color: #018997;
 		height: 100%;
+		/* width: 100%; */
 	}
 	#website_background {
 		z-index: -1;
@@ -92,6 +93,9 @@
 	}
 	header {
 		background-image: url("assets/images/header.jpg");
+		background-size: cover;
+		/* background-position: center center; */
+		/* height: 100%; */
 	}
 
 	div.gc_logo{    background: rgba(7,7,7,0.6);    }
@@ -102,6 +106,7 @@
 
 		#gc_navbar li {
 			background-color: #000000;
+			margin-bottom: 10px;
 		}
 		#gc_navbar .current {
 			background-color: #1a9b51;		
@@ -393,11 +398,55 @@
 		body{
 			font-size: 12px;
 		}
+		div.the_page{
+			/* width: 60%; */
+			margin: auto;
+			width: 98%;
+		}
+	}
+	@media all and (max-width: 700px) {
+		body{
+			font-size: 12px;			
+		}
+		#asideBar {
+			
+			top: 1vh;
+			max-height: 95vh;
+		}
 	}
 	@media all and (max-width: 900px) {
+		body{
+			font-size: 14px;			
+		}
+		div.the_page{
+			/* width: 60%; */
+			margin: auto;
+			width: 95%;
+			/* padding: 0; */
+		}
 		
+		div.content{
+			flex: 0 0 65%;
+			margin: 5px 10px 7px 5px;
+		}
+		article ul {
+			padding-inline-start: 10px;
+		}
+		#contact_gamepad_coder {
+			margin: 0;
+		}
+		span.tab {
+			
+			padding-left: 2px;
+		}
+	}
+	/* @media all and (orientation:portrait)  { */
+	@media all and (orientation:portrait)
+		/* , screen and (orientation:landscape) and (max-width: 900px) and (min-height:1100px) */
+	{
+			 
 		/********************************************* 
-		   on smaller screen width: 
+		   on smaller screen width: and (hover: hover) 
 
 		   toggle the navigation links 
 		   into a vertical list 
@@ -412,9 +461,8 @@
 			justify-content: space-around;
 			flex-flow: column wrap;
 		}
-		div.the_page{
-			width: 95%;
-			padding: 0;
+		#gc_navbar  li {
+			margin-bottom: 0px;
 		}
 		div.page_flex {
 			flex-flow: column;
@@ -480,7 +528,7 @@
 			flex: 0 0 65%;
 		}
 		#asideBar {
-			top: 1vh;
+			/* top: 1vh; */
 			max-height: 95vh;
 			/* this @media prevents the aside bar from being too narrow + a scrollbar: */
 		}
@@ -494,6 +542,14 @@
 		#asideBar {
 			top: 10vh;
 		}
+	}
+	@media all and (max-height: 340px) {
+		#asideBar {
+			
+			top: 1vh;
+			max-height: 95vh;
+			/* border: 10px solid blue; */
+		}		
 	}
 	
 	/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */

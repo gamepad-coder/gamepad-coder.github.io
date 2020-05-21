@@ -1,0 +1,510 @@
+/* -------------------------------------- 
+         © released under cc0  
+   --------------------------------------
+   @ Gamepad.Coder 2020: this site's HTML+CSS  
+   @ Gigi Truelove 2020: this site's HTML+CSS initial concept+layout */
+
+
+
+    /* ------------------------------------------------ */
+   /*                                                  */
+  /*                    fonts                         */
+ /*                                                  */
+/* ------------------------------------------------ */
+
+	body{
+		font-family: Courier New, Courier, Palatino, Verdana, serif;
+		font-size: 16px;
+		line-height: 1.25em;	
+		color: #ffffff; 	/* #D7D7D7; */
+	}
+
+
+	h1{	font-family: Consolas;	font-size: 24px; }
+	h2{
+		font-family: "Courier", Consolas, Verdana, serif;
+		font-size: 28px;
+		
+		background: -webkit-linear-gradient(#53d5ff, #4a1f84);
+		/* background: -webkit-linear-gradient(#53d5ff, #6d22a7); */
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+	a, .nav_ref {
+		color: #03ff3d;
+		text-decoration: none;
+		font-family: Consolas, Verdana, serif;
+	} a:hover {  text-decoration: underline;	}
+	
+
+	span.parenthetical{ color: #999; }
+
+	
+	/* #asideBar { */
+		/* color: silver; */
+	/* } */
+	/* aside {	font-size: 15px;	font-family: Palatino, serif; } */
+	/* span.nav_ref {	font-size: 17px;	} */
+
+body{
+	color: black;
+}
+
+				    /* -------------- */
+				   /*                */
+				  /*   </> fonts    */
+				 /*                */
+				/* -------------- */
+				
+
+    /* ------------------------------------------------ */
+   /*                                                  */
+  /*          NAVIGATION BAR                          */
+ /*                                                  */
+/* ------------------------------------------------ */
+
+@media all {
+	
+
+	#philosophy_header{
+		background-image: url("assets/images/contact/stock_plant.png")
+		                 ,url("assets/images/contact/stock_plant_mediumQ.jpg");
+		background-size: cover;
+		background-position: center;
+		overflow: auto;
+	}
+
+	/* - - - - - - - - - - - - - -  *|
+	|*  	Gamepad.Coder  logo     *|      +hire
+	|* - - - - - - - - - - - - - -  */
+
+	div.gc_header{  overflow: auto;  }
+	
+		.gc_logo{
+			width: 305;
+			height: 80px;	
+			overflow: auto;
+			float: left;
+		} 
+		
+		.gc_picture{
+			position: relative;
+			top: 50%;
+			transform: translate(0%, -50%);
+
+			margin-right: 10px;
+			margin-left: 10px;
+			float: left;
+		} 
+		.gc_txt{
+			position: relative;
+			top: 50%;		
+			transform: translate(0%, -50%);
+			line-height: 200%;
+
+			padding-left: 14px;
+			padding-right: 14px;	
+			margin: auto;
+			float: left;
+		}
+		
+		
+		.gc_txt{      border: 7px outset  #777;       }		
+		.gc_logo{    background: rgba(7,7,7,0.6);    }
+		.gc_picture{	border: 6px ridge  #ddd;        }
+		.gc_txt{      color: #ffffff;      }
+
+
+		.gc_hire{
+			float: right;
+			list-style: none;
+		}  
+		.gc_hire li{
+		
+			padding: 5px;
+			
+		}
+		
+		
+		
+	/* - - - - - - - - - - - - - -  *|
+	|*      navigation bar          *|
+	|* - - - - - - - - - - - - - -  */
+
+	
+	#philosophy_header li {   background-color: #2a72abd6    }
+	#philosophy_header .current a { color: #ffffff;	text-decoration: none; }
+	
+		
+	#gc_navbar{
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-around;
+		align-content: space-around;
+		padding-inline-start: 0;
+		list-style: none;
+		padding: auto;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		clear: both;
+	}
+
+		#gc_navbar li{
+			padding: 10px;
+			text-align: center;
+			border-top: 1px solid rgba(255, 255, 255,0.3); 
+			border-bottom: 1px solid rgba(222, 222, 222, 0.15); 
+		}
+		#home_button {
+			flex-shrink: 0;
+			min-width: 80px;
+			
+		}			
+					
+}
+				    
+					/* ------------------------------ */
+				   /*                                */
+				  /*     </>   NAVIGATION BAR       */
+				 /*                                */
+				/* ------------------------------ */
+
+		
+	
+	
+	
+		
+    /* ------------------------------------------------ */
+   /*                                                  */
+  /*                 FOOTER                           */
+ /*                                                  */
+/* ------------------------------------------------ */
+
+@media all {
+	
+	footer.gitlinks{
+		padding: 10px;
+		margin: 0px;
+		clear: both;
+	}
+	footer.gitlinks{ 
+		background-image:  url("assets/images/contact/stock_plant.png")
+		                 ,url("assets/images/contact/stock_plant_mediumQ.jpg");
+		/* background-size: contain; */
+		background-size: cover;
+		background-position: top;
+	} footer.gitlinks p{ 
+		padding: 20px;
+		
+		background-color: #2a72abd6; 
+	}
+	
+	footer p.copyright{
+		line-height: 1em;
+		float: right;
+	}
+	
+}
+
+				    /* ------------------------------ */
+				   /*                                */
+				  /*     </>   FOOTER               */
+				 /*                                */
+				/* ------------------------------ */
+
+		
+	
+    /* ------------------------------------------------ */
+   /*                                                  */
+  /*                 MAIN CONTENT                     */
+ /*                                                  */
+/* ------------------------------------------------ */
+
+@media all {
+	
+	body{
+		background-color: #d1d1d1;
+	}
+
+	
+	div.the_page{
+		background-color: #fffff3;
+		border: 1px ridge rgba(45,158,195,1);
+	}
+
+
+		#gc_navbar li{
+			/* background-color: #2a72ab90; */
+		}
+		#gc_navbar .current {
+			background-color: #1a9b51a9;		
+		}
+
+	
+	h2 {	border-bottom: 1.5px dotted #03993d;	}
+	
+	
+
+	
+	/* - - - - - - - - - - - *|
+	|*     main content      *|
+	|* - - - - - - - - - - - */
+
+	div.the_page {
+		width: 85%;
+		padding: 5px;
+		margin: 0px auto 250px auto;
+		
+		/* WARNING/REMINDER:  "overflow: auto;" here WILL BREAK STICKY SCROLL  */
+	}
+	div.page_flex {	
+		display: flex;
+		flex-flow: row ;
+		align-items:flex-start;
+		justify-content: space-evenly;
+	}
+
+		div.content { flex: 0 0 70%;	margin: 10px 40px 20px 40px; }
+			
+			article {
+				padding: 0 10px;
+				margin-top: -5px;
+				margin-bottom: 40px;
+			}	
+			h2 { padding: 10px 0px; }
+			p.intro_philosopher_linespacing{
+				margin-bottom: 25px;
+			}
+			
+			
+	
+	
+		
+	span.tab {  padding-left: 30px;  }
+	
+	
+}
+
+				    /* ------------------------------ */
+				   /*                                */
+				  /*     </>   MAIN CONTENT         */
+				 /*                                */
+				/* ------------------------------ */
+				
+				
+		
+    /* ------------------------------------------------ */
+   /*                                                  */
+  /*                               SIDE BAR           */
+ /*                                                  */
+/* ------------------------------------------------ */
+
+
+
+@media all {
+					
+	/* #asideBar { */
+		/* border-top: 1px solid rgba(222, 222, 222, 0.15);  */
+		/* border-bottom: 1px solid rgba(255, 255, 255,0.2);  */
+		/* background-color: #031b23;   border-radius: 25px; */
+	/* } */
+		
+	/* - - - - - - - - - - - *|
+	|*       sidebar         *|
+	|* - - - - - - - - - - - */
+			
+	#asideBar {
+		margin-top: 2em;
+		margin-right: 0px;
+		flex: auto;
+		padding: 0px 10px 0px 15px;
+		/* padding: 0px 1em 0px 1em; */
+		position: -webkit-sticky;
+		position: sticky;
+		top: 10vh;
+		/* top: 0; */
+		
+		max-height: 90vh;
+		/* max-height: 80vh; */
+		overflow: auto;
+	}
+	  /*--- formatting for navigation link references ---*/
+	  a.nav_ref, .nav_ref {
+		margin-right: 5px;
+		color: #1a9b51;
+	  }
+	  
+	  
+	
+}
+				    /* ------------------------------ */
+				   /*                                */
+				  /*     </>             SIDE BAR   */
+				 /*                                */
+				/* ------------------------------ */
+				
+	
+
+
+
+    /* ------------------------------------------------ */
+   /*                                                  */
+  /*                   layouts                        */
+ /*                                                  */
+/* ------------------------------------------------ */
+
+
+
+
+
+
+
+	/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ *|
+	|*                                                          *|
+	|*             for extreme zoom + smaller screens           *|
+	|*                                                          *|
+	|* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+	
+	
+	
+	/*------------------------------------------------------------------@*/
+	
+	@media all and (max-width: 350px) {
+		/******************************************************************
+		text goes out of bounds without this @media on small small screens
+		******************************************************************/
+		
+		body{
+			font-size: 12px;
+		}
+	}
+	
+	/*------------------------------------------------------------------@*/
+	
+	@media all and (max-width: 900px) {
+		
+		#philosophy_header .gc_hire li {   background-color: #2a72ab64;    }
+	}
+	
+	@media all and (max-width: 900px) {
+		#asideBar {
+			border-top: 1px solid rgba(000, 222, 999, .21); 
+			border-bottom: 1px solid rgba(000, 222, 999, .31); 
+		}
+		aside p {
+			border-bottom: 1px solid rgba(222, 222, 222, .3); 
+		}
+		#asideBar .skip_bottom_border {
+			border-bottom: none;
+		}
+		
+		#asideBar {
+			order: 1;
+			position: static;
+			padding: 0%;
+			/* padding: 0px 1em 0px 1em; */
+			width: 90%;
+			margin: 10px 0px auto 0px;
+			/* margin: 10px 0px auto 0px; */
+			/* height: auto; */
+			height: 100%;
+			display: block;
+			/* overflow: auto; */
+			max-height: 100%;
+		}
+		aside p {
+			/* margin: 20px 0; */
+			/* margin: 0; */
+			/* padding-top: 5; */
+			padding-bottom: 15;
+			padding-left: 20;
+			padding-left: 20;
+			/* width: 80%; */
+		}
+		div.content {
+			order: 2;
+			width: 95%;		
+		}
+	}
+	
+	@media all and (max-width: 900px) {
+		
+		/********************************************* 
+		   on smaller screen width: 
+
+		   toggle the navigation links 
+		   into a vertical list 
+
+		   turn the main page into a column flex 
+		   add lines between paragraphs in 
+		   the "sidebar" (now above main content)
+		*********************************************/
+	
+	  
+		#gc_navbar  {
+			justify-content: space-around;
+			flex-flow: column wrap;
+		}
+		div.the_page{
+			width: 95%;
+			padding: 0;
+		}
+		div.page_flex {
+			flex-flow: column;
+			justify-content: space-around;
+			align-items: center;
+			margin: 0;
+		}
+		span.tab {  padding-left: 3px;  }
+	}
+	
+	/*------------------------------------------------------------------@*/
+	
+	@media all and (min-width: 900px) and (max-width: 1100px) {
+		div.page_flex{			
+			/*~  [debug]  ~*/
+			/* border: 5px solid blue; */
+		}
+		div.content{
+			/* flex: 0 0 65%; */
+		}
+		#asideBar {
+			/* top: 1vh; */
+			/* max-height: 95vh; */
+			/* this @media prevents the aside bar from being too narrow + a scrollbar: */
+		}
+	}
+	
+	/*------------------------------------------------------------------@*/
+	
+	@media all and (min-width: 1520px) {
+		
+		div.page_flex{
+			/*~  [debug]  ~*/
+			/* border: 5px solid white; */
+		}
+		#asideBar {
+			top: 10vh;
+		}
+	}
+	
+	/*------------------------------------------------------------------@*/
+
+
+	
+						/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ *|
+						|*                                                *|
+						|*    </>   @media  screen and size cases         *|
+						|*                                                *|
+						|* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+/* Have a wonderful day. */				
