@@ -277,7 +277,7 @@
 		display: flex;
 		flex-flow: row ;
 		align-items:flex-start;
-		justify-content: space-evenly; */
+		justify-content: space-evenly;
 	}
 
 		div.content { flex: 0 0 70%;	margin: 10px 40px 20px 40px; }
@@ -299,9 +299,8 @@
 	|* - - - - - - - - - - - */
 			
 	#asideBar {
-		/* margin: 30px 0px auto auto; */
-		/* margin: 3em 0px auto auto; */
-		margin: 2em 0px auto auto;
+		margin-top: 2em;
+		margin-right: 0px;
 		flex: auto;
 		padding: 0px 10px 0px 15px;
 		/* padding: 0px 1em 0px 1em; */
@@ -312,7 +311,6 @@
 		
 		max-height: 90vh;
 		/* max-height: 80vh; */
-		/* display: block; */
 		overflow: auto;
 	}
 	  /*--- formatting for navigation link references ---*/
