@@ -39,7 +39,7 @@
 	a:hover { color: #03ff3d;	text-decoration: underline;	}
 	li.current a{ color: #000000;	text-decoration: none; }
 
-	span.parenthetical{ font-size: 17px;	color: #999; }
+	span.parenthetical{ color: #999; }
 
 	
 	#asideBar {
@@ -48,7 +48,6 @@
 	aside {	font-size: 15px;	font-family: Palatino, serif; }
 	span.nav_ref {	font-size: 17px;	}
 
-	span.tab {  padding-left: 30px;  }
 				    /* -------------- */
 				   /*                */
 				  /*   </> fonts    */
@@ -125,6 +124,11 @@
 	footer.gitlinks{ background-color: #031b23; }
 
 
+	#contact_gamepad_coder {
+			margin: 30px; 
+			padding: 20px; 
+			border:9px ridge rgba(255,255,255,.7);
+	}
 
 	/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ *|
 	|*             for extreme zoom + smaller screens           *|
@@ -325,13 +329,13 @@
 		/* overflow: auto; */
 	}
 	#div_prof {
-		background-image: url("assets/images/contact/stock_typewriter_plants.png"),url("assets/images/contact/stock_typewriter_plants_loQ.png");
+		background-image: url("assets/images/contact/stock_typewriter_plants.png"),url("assets/images/contact/stock_typewriter_plants_loQ.jpg");
 	}
 	#div_prog_lang {
-		background-image: url("assets/images/contact/stock_trackpoint.png"),url("assets/images/contact/stock_trackpoint_loQ.png");
+		background-image: url("assets/images/contact/stock_trackpoint.png"),url("assets/images/contact/stock_trackpoint_loQ.jpg");
 	}
 	#div_interests {
-		background-image: url("assets/images/contact/stock_plant.png"),url("assets/images/contact/stock_plant_loQ.png");
+		background-image: url("assets/images/contact/stock_plant.png"),url("assets/images/contact/stock_plant_loQ.jpg");
 	}
 	#div_prof, #div_prog_lang, #div_interests {
 		/* border: 3px solid white; */
@@ -371,14 +375,25 @@
 		line-height: 1em;
 		float: right;
 	}
-	
-	
+		
+	span.tab {  padding-left: 30px;  }
+
+
 
 	/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ *|
 	|*             for extreme zoom + smaller screens           *|
 	|* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 	
 	
+	@media all and (max-width: 350px) {
+		/******************************************************************
+		text goes out of bounds without this @media on small small screens
+		******************************************************************/
+		
+		body{
+			font-size: 12px;
+		}
+	}
 	@media all and (max-width: 900px) {
 		
 		/********************************************* 
@@ -452,7 +467,9 @@
 			order: 2;
 			width: 95%;		
 		}
+		span.tab {  padding-left: 3px;  }
 	}
+	
 	
 	@media all and (min-width: 900px) and (max-width: 1100px) {
 		div.page_flex{			
