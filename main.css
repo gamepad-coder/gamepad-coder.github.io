@@ -48,7 +48,7 @@
 	aside {	font-size: 15px;	font-family: Palatino, serif; }
 	span.nav_ref {	font-size: 17px;	}
 
-
+	span.tab {  padding-left: 30px;  }
 				    /* -------------- */
 				   /*                */
 				  /*   </> fonts    */
@@ -118,6 +118,10 @@
 	}
 		.nav_ref { background-color: #000000; }
 		
+		#aside_contact {
+			color: #e9e9e9;
+		}
+		
 	footer.gitlinks{ background-color: #031b23; }
 
 
@@ -134,6 +138,14 @@
 		}
 		aside p {
 			border-bottom: 1px solid rgba(222, 222, 222, .3); 
+		}
+		#asideBar .skip_bottom_border {
+			border-bottom: none;
+		}
+		
+		
+		#aside_contact{
+			color: white;
 		}
 	}
 	
@@ -287,21 +299,70 @@
 	|* - - - - - - - - - - - */
 			
 	#asideBar {
-		margin: 30px auto;
+		/* margin: 30px 0px auto auto; */
+		/* margin: 3em 0px auto auto; */
+		margin: 2em 0px auto auto;
+		flex: auto;
 		padding: 0px 10px 0px 15px;
+		/* padding: 0px 1em 0px 1em; */
 		position: -webkit-sticky;
 		position: sticky;
 		top: 10vh;
+		/* top: 0; */
 		
 		max-height: 90vh;
-		/* overflow: auto; */
+		/* max-height: 80vh; */
+		/* display: block; */
+		overflow: auto;
 	}
 	  /*--- formatting for navigation link references ---*/
 	  a.nav_ref, .nav_ref {
 		margin-right: 5px;
 		color: #1a9b51;
 	  }
-
+	#aside_contact{
+		/* padding: 0; */
+		margin: 0;
+		/* overflow: hidden; */
+		/* overflow: auto; */
+	}
+	#div_prof {
+		background-image: url("assets/images/contact/stock_typewriter_plants.png");
+	}
+	#div_prog_lang {
+		background-image: url("assets/images/contact/stock_trackpoint.png");
+	}
+	#div_interests {
+		background-image: url("assets/images/contact/stock_plant.png");
+	}
+	#div_prof, #div_prog_lang, #div_interests {
+		/* border: 3px solid white; */
+		background-size: cover; 
+		border-radius: 25px;
+		margin: 5;
+		padding: 10px;
+	}
+	#div_prog_lang{
+	}
+	#h_prof, #h_prog_lang, #h_interests {
+		text-align: center;
+		background-color: rgba(0, 0, 0, 0.3);  /* blue with opacity */
+		margin: auto -10px;
+		padding: 5px 10px;
+	/* color: white; */
+	}
+	
+	#aside_contact ul{
+		/* list-style: circle; */
+		margin-left: 0px;
+		padding-inline-start: 7px;
+	}
+	#aside_contact li{
+		padding-left: 3px;
+		font-family: Consolas, Monospace;
+		/* color: #1a9b51; */
+		color: #36aec9;
+	}
 
 	footer.gitlinks{
 		padding: 10px;
@@ -352,23 +413,73 @@
 			order: 1;
 			position: static;
 			padding: 0%;
-			width: 100%;
+			/* padding: 0px 1em 0px 1em; */
+			width: 90%;
 			margin: 10px 0px auto 0px;
-			height: auto;
+			/* margin: 10px 0px auto 0px; */
+			/* height: auto; */
+			height: 100%;
+			display: block;
+			/* overflow: auto; */
+			max-height: 100%;
 		}
 		aside p {
-			margin: 0;
-			padding-top: 5;
-			padding-bottom: 5;
+			/* margin: 20px 0; */
+			/* margin: 0; */
+			/* padding-top: 5; */
+			padding-bottom: 15;
 			padding-left: 20;
 			padding-left: 20;
+			/* width: 80%; */
 		}
+		
+			#aside_contact {
+				/* padding: auto 20px; */
+				/* list-style: circle; */
+				margin-left: auto;
+			}
+			#aside_contact ul{
+				padding-inline-start: 40px;
+				padding: 0px 60px;
+			}
+			#div_prof, #div_prog_lang, #div_interests {
+				padding-top: 30px;
+				padding-bottom: 30px;
+				/* padding: 60px; */
+			}
+			#div_interests{
+				background-position: center;
+			}
 		div.content {
 			order: 2;
 			width: 95%;		
 		}
 	}
 	
+	@media all and (min-width: 900px) and (max-width: 1100px) {
+		div.page_flex{			
+			/*~  [debug]  ~*/
+			/* border: 5px solid blue; */
+		}
+		div.content{
+			flex: 0 0 65%;
+		}
+		#asideBar {
+			top: 1vh;
+			max-height: 95vh;
+			/* this @media prevents the aside bar from being too narrow + a scrollbar: */
+		}
+	}
+	@media all and (min-width: 1520px) {
+		
+		div.page_flex{
+			/*~  [debug]  ~*/
+			/* border: 5px solid white; */
+		}
+		#asideBar {
+			top: 10vh;
+		}
+	}
 	
 	/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 	
