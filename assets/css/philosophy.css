@@ -1,3 +1,6 @@
+---
+# ensure Jekyll will process liquid in this page into the baked .css file
+---
 /* -------------------------------------- 
          © released under cc0  
    --------------------------------------
@@ -13,12 +16,15 @@
 /* ------------------------------------------------ */
 
 	body{
-		font-family: Courier New, Courier, Palatino, Verdana, serif;
-		font-size: 16px;
+		font-family: Monospace, Palatino, Verdana, serif;
+		/* font-size: 18px; */
 		line-height: 1.25em;	
-		color: #ffffff; 	/* #D7D7D7; */
+		color: black;
 	}
-
+	
+	#philosophy_header{
+		font-size: 18px;
+	}
 
 	h1{	font-family: Consolas;	font-size: 24px; }
 	h2{
@@ -37,7 +43,7 @@
 	} a:hover {  text-decoration: underline;	}
 	
 
-	span.parenthetical{ color: #999; }
+	
 
 	
 	/* #asideBar { */
@@ -46,8 +52,15 @@
 	/* aside {	font-size: 15px;	font-family: Palatino, serif; } */
 	/* span.nav_ref {	font-size: 17px;	} */
 
-body{
-	color: black;
+#page_flex a {
+	font-family: serif;	
+	color: #9027e1
+}
+#page_flex span.parenthetical{ 
+    color: #747474;
+    font-family: initial;
+    font-style: italic;
+    font-size: initial;
 }
 
 				    /* -------------- */
@@ -67,59 +80,62 @@ body{
 	
 
 	#philosophy_header{
-		background-image: url("assets/images/contact/stock_plant.png")
-		                 ,url("assets/images/contact/stock_plant_mediumQ.jpg");
+		background-image: url("{{site.baseurl}}/assets/images/contact/stock_plant.png")
+		                 ,url("{{site.baseurl}}/assets/images/contact/stock_plant_mediumQ.jpg");
 		background-size: cover;
 		background-position: center;
 		overflow: auto;
+		margin: -5px;
+		padding: 5px;
 	}
 
 	/* - - - - - - - - - - - - - -  *|
 	|*  	Gamepad.Coder  logo     *|      +hire
 	|* - - - - - - - - - - - - - -  */
 
-	div.gc_header{  overflow: auto;  }
+	#gc_header{  overflow: auto;  }
 	
-		.gc_logo{
-			width: 305;
+		#gc_logo{
+			/* width: 305; */
 			height: 80px;	
 			overflow: auto;
 			float: left;
+			padding: 0 10px;
 		} 
 		
-		.gc_picture{
-			position: relative;
-			top: 50%;
-			transform: translate(0%, -50%);
+			.gc_picture{
+				position: relative;
+				top: 50%;
+				transform: translate(0%, -50%);
 
-			margin-right: 10px;
-			margin-left: 10px;
-			float: left;
-		} 
-		.gc_txt{
-			position: relative;
-			top: 50%;		
-			transform: translate(0%, -50%);
-			line-height: 200%;
+				margin-right: 10px;
+				/* margin-left: 10px; */
+				float: left;
+			} 
+			.gc_txt{
+				position: relative;
+				top: 50%;		
+				transform: translate(0%, -50%);
+				line-height: 200%;
 
-			padding-left: 14px;
-			padding-right: 14px;	
-			margin: auto;
-			float: left;
-		}
+				padding-left: 14px;
+				padding-right: 14px;	
+				margin: auto;
+				float: left;
+			}
 		
 		
-		.gc_txt{      border: 7px outset  #777;       }		
-		.gc_logo{    background: rgba(7,7,7,0.6);    }
-		.gc_picture{	border: 6px ridge  #ddd;        }
-		.gc_txt{      color: #ffffff;      }
+		#gc_logo{    background: rgba(7,7,7,0.6);    }
+			.gc_picture{	border: 6px ridge  #ddd;        }
+			.gc_txt{      border: 7px outset  #777;       }		
+			.gc_txt{      color: #ffffff;      }
 
 
-		.gc_hire{
+		#gc_hire{
 			float: right;
 			list-style: none;
 		}  
-		.gc_hire li{
+		#gc_hire li{
 		
 			padding: 5px;
 			
@@ -160,6 +176,14 @@ body{
 			min-width: 80px;
 			
 		}			
+	
+		#gc_navbar li{
+			/* background-color: #2a72ab90; */
+		}
+		#gc_navbar .current {
+			background-color: #1a9b51a9;		
+		}
+
 					
 }
 				    
@@ -182,28 +206,50 @@ body{
 
 @media all {
 	
-	footer.gitlinks{
+	#blog_time_n_topic{
 		padding: 10px;
 		margin: 0px;
 		clear: both;
 	}
-	footer.gitlinks{ 
-		background-image:  url("assets/images/contact/stock_plant.png")
-		                 ,url("assets/images/contact/stock_plant_mediumQ.jpg");
+	#blog_time_n_topic{ 
+		background-image:  url("{{site.baseurl}}/assets/images/contact/stock_plant.png")
+		                 ,url("{{site.baseurl}}/assets/images/contact/stock_plant_mediumQ.jpg");
 		/* background-size: contain; */
 		background-size: cover;
 		background-position: top;
-	} footer.gitlinks p{ 
+		margin: -5px;
+	} #blog_time_n_topic p{ 
 		padding: 20px;
 		
 		background-color: #2a72abd6; 
 	}
 	
-	footer p.copyright{
-		line-height: 1em;
-		float: right;
+	
+	footer.floating_footer {
+		display: flex;
+		flex-flow: row;
+		justify-content: space-between;
+		place-items: flex-end;
 	}
 	
+			div.gitlinks {
+				margin-block-end: 1em;
+				margin-right: 10px;
+			}				
+			div.gitlinks a {
+				float: left;
+				font-family: serif;
+				color: #9027e1;
+				line-height: 1em;
+			}
+	
+			footer p.copyright{
+				line-height: 1em;
+				float: right;
+				
+				flex-shrink: 0;
+			}
+			
 }
 
 				    /* ------------------------------ */
@@ -227,18 +273,11 @@ body{
 	}
 
 	
-	div.the_page{
+	#the_page{
 		background-color: #fffff3;
 		border: 1px ridge rgba(45,158,195,1);
 	}
 
-
-		#gc_navbar li{
-			/* background-color: #2a72ab90; */
-		}
-		#gc_navbar .current {
-			background-color: #1a9b51a9;		
-		}
 
 	
 	h2 {	border-bottom: 1.5px dotted #03993d;	}
@@ -250,21 +289,22 @@ body{
 	|*     main content      *|
 	|* - - - - - - - - - - - */
 
-	div.the_page {
+	#the_page {
 		width: 85%;
 		padding: 5px;
+		/* padding: 0; */
 		margin: 0px auto 250px auto;
 		
 		/* WARNING/REMINDER:  "overflow: auto;" here WILL BREAK STICKY SCROLL  */
 	}
-	div.page_flex {	
+	#page_flex {	
 		display: flex;
 		flex-flow: row ;
 		align-items:flex-start;
 		justify-content: space-evenly;
 	}
 
-		div.content { flex: 0 0 70%;	margin: 10px 40px 20px 40px; }
+		#page_content { flex: 0 0 70%;	margin: 10px 40px 20px 40px; }
 			
 			article {
 				padding: 0 10px;
@@ -383,7 +423,7 @@ body{
 	
 	@media all and (max-width: 900px) {
 		
-		#philosophy_header .gc_hire li {   background-color: #2a72ab64;    }
+		#philosophy_header #gc_hire li {   background-color: #2a72ab64;    }
 	}
 	
 	@media all and (max-width: 900px) {
@@ -421,7 +461,7 @@ body{
 			padding-left: 20;
 			/* width: 80%; */
 		}
-		div.content {
+		#page_content {
 			order: 2;
 			width: 95%;		
 		}
@@ -445,11 +485,11 @@ body{
 			justify-content: space-around;
 			flex-flow: column wrap;
 		}
-		div.the_page{
+		#the_page{
 			width: 95%;
-			padding: 0;
+			/* padding: 0; */
 		}
-		div.page_flex {
+		#page_flex {
 			flex-flow: column;
 			justify-content: space-around;
 			align-items: center;
@@ -461,11 +501,11 @@ body{
 	/*------------------------------------------------------------------@*/
 	
 	@media all and (min-width: 900px) and (max-width: 1100px) {
-		div.page_flex{			
+		#page_flex{			
 			/*~  [debug]  ~*/
 			/* border: 5px solid blue; */
 		}
-		div.content{
+		#page_content{
 			/* flex: 0 0 65%; */
 		}
 		#asideBar {
@@ -479,7 +519,7 @@ body{
 	
 	@media all and (min-width: 1520px) {
 		
-		div.page_flex{
+		#page_flex{
 			/*~  [debug]  ~*/
 			/* border: 5px solid white; */
 		}

@@ -1,1 +1,5 @@
-theme: jekyll-theme-time-machine
+#baseurl: file:///C:/GitHub/gamepad-coder/gamepad-coder.github.io/_site
+collections:
+  Philosophy:
+    output: true
+ 

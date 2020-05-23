@@ -1,0 +1,171 @@
+<!-- -------------------------------------- 
+           © released under cc0  
+     --------------------------------------
+   @ Gamepad.Coder 2020: this site's HTML+CSS  
+   @ Gigi Truelove 2020: this site's HTML+CSS initial concept+layout 
+-->
+
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	
+	<title>{{ page.title }}</title>
+	<link href="/assets/css/main.css" type="text/css" rel="stylesheet" />
+	
+	
+	<link rel="preload" href="assets/images/avatar_gamepad.coder.png" as="image" />
+	<link rel="icon" 
+      type="image/png" 
+      href="assets/images/avatar_favicon_gamepad.coder.png">
+	  
+	<meta name="description" content="The professional website of Gamepad.Coder, programmer, technical writer, philospher, and all aroung great guy. -- Description written by my Wife <3; {{ page.meta_description }}" />
+	<meta name="keywords" content="professional, resume, programmer, technical writer, {{ page.meta_keywords }}" />
+	<meta name="robots" content="nofollow" />
+	<meta http-equiv="author" content="Gamepad.Coder, Gamepad-Coder" />
+	<meta http-equiv="pragma" content="no-cache" />
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=12.0, minimum-scale=.05, user-scalable=yes"/>
+	
+</head>
+<body>
+<div id="website_background"></div>
+<div id="the_page">	
+	<!-- backdrop + username + navigation strip -->
+	<header>
+	
+		<div id="gc_header">
+			<a href="/">
+				<div id="gc_logo">
+				
+						<!-- Picture of my favorite controller, 
+							 taken with phone's camera, editied in GNU Krita-->
+						<img class="gc_picture" src="assets/images/avatar_gamepad.coder.png" width="50" height="50">
+						<h1 class="gc_txt">Gamepad.Coder</h1>
+					
+				</div>
+			</a>
+			<div id="gc_hire">
+			
+						<!-- this utilizes the templating language "Liquid" : -->
+						<!-- Jekyll will { % conditionally % } give one <li> an attribute of class="current" -->
+						<!-- if the .html page importing this layout matches the title -->
+						<li
+							{%  if page.title == "Contact for Hire"  %}
+								class="current"
+							{%  endif  %}
+						>
+							<a href="contact.html">Contact for Hire</a>  
+						</li>
+			</div>
+		</div>
+		
+		<nav id="gc_navbar">
+				
+				<li id="home_button"
+					{%  if page.title == "Gamepad.Coder"  %}
+						class="current"
+					{%  endif  %}
+				>
+					<a href="/">Home</a>
+				</li>
+				
+				
+				<li
+					{%  if page.title == "Apps Written"  %}
+						class="current"
+					{%  endif  %}
+				>
+					<a href="Apps.html">Apps Written</a>
+				</li>
+				
+				
+				<li
+					{%  if page.title == "Documentation"  %}
+						class="current"
+					{%  endif  %}
+				>
+					<a href="Documentation.html">Documentation for Projects</a>
+				</li>
+				
+				
+				<li
+					{%  if page.title == "Philosophy Blog"  %}
+						class="current"
+					{%  endif  %}
+				>
+					<a href="Philosophy.html">Philosophy Blog</a></li>
+		</nav>
+		
+	</header>
+	<div id="page_flex">
+	
+		<!--   main content     -->
+		<!--   (+) optionally   -->
+		<!--   sidebar          -->
+		
+		{{ content }}
+		
+		
+	</div><!-- .page_flex -->
+	
+	<!-- footer of main page block -->
+	<footer class="gitlinks">
+		<p>
+			<!-- ----------------------------------------- 
+					what all this does: 
+					
+					if the screen is wide enough
+					
+						each link appears on its own line
+						without any spaces in between
+					
+					if the screen is narrow enough 
+					
+						each link appears 
+						on two lines
+						
+						with a space
+						in between
+			     ----------------------------------------- -->
+				 
+			<a style="float: left;" href="https://github.com/gamepad-coder/">
+			<!-- <div style="float: left;"> -->
+				<span style="float: left;">View Gamepad.Coder's&nbsp;</span>
+				<span style="float: left;">programs on GitHub.</span>
+			<!-- </div> -->
+			</a>
+			
+			
+			<div style="float: left; font-size: 11px;">&nbsp; &nbsp;</div>
+			
+			<a style="float: left; clear: left;" href="https://github.com/gamepad-coder/gamepad-coder.github.io">
+			<!-- <div style="float: left; clear: left;"> -->
+				<span style="float: left;">View this website's&nbsp;</span>
+				<span style="float: left;">source code on GitHub.</span>
+			</a>
+			<!-- </div> -->
+		</p>
+	</footer>
+									
+</div><!-- .page -->
+
+<!-- floating footer -->
+<footer>
+	<p class="copyright">
+		&copy; Gamepad.Coder 2020
+		<br>
+		<br>
+		Have a wonderful day.
+		<!-- 
+			css:p.copyright{line-height: 1em;}
+			
+			gives this double br a nice spacing 
+		-->
+	</p>
+</footer>	
+
+</body>
+</html>
+
+<!-- Have a wonderful day. -->
