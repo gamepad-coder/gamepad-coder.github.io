@@ -12,14 +12,20 @@
 
     <title>{{ page.title }}</title>
 	
-	<link rel="stylesheet" href="{{site.baseurl}}/assets/css/philosophy.css" type="text/css" />
+	<!-- <link rel="stylesheet" href="{{site.baseurl}}/assets/css/philosophy.css" type="text/css" /> -->
+	<!-- <link rel="stylesheet" href="{{ "/assets/css/philosophy.css" | relative_url }}" type="text/css" /> -->
+	<link rel="stylesheet" href="{{ "/assets/css/philosophy.css" | absolute_url }}" type="text/css" />
 	
 	
-	<link rel="preload" href="{{site.baseurl}}/assets/images/avatar_gamepad.coder.png" as="image" />
+	<!-- href="{{ "__________" | absolute_url }}" -->
+	
+	
+	
+	<link rel="preload" href="{{ "/assets/images/avatar_gamepad.coder.png" | absolute_url }}" as="image" />
 	<link rel="icon" 
       type="image/png" 
-      href="{{site.baseurl}}/assets/images/avatar_favicon_gamepad.coder.png">
-	<link rel="preload" href="{{site.baseurl}}/assets/images/contact/stock_plant_mediumQ.jpg" as="image" />
+      href="{{ "/assets/images/avatar_favicon_gamepad.coder.png" | absolute_url }}">
+	<link rel="preload" href="{{ "/assets/images/contact/stock_plant_mediumQ.jpg" | absolute_url }}" as="image" />
 	  
 	<meta name="description" content="The professional website of Gamepad.Coder, programmer, technical writer, philospher, and all aroung great guy. -- Description written by my Wife <3; philosophy blog." />
 	<meta name="keywords" content="professional, resume, programmer, technical writer, philosophy blog" />
@@ -33,52 +39,95 @@
 <body>
 <!-- <div id="website_background"></div> -->
 <div id="the_page">
+
+	
+	<!-- *************************************************************************************** -->
 	<!-- backdrop + username + navigation strip -->
 	<header id="philosophy_header">
 		<div id="gc_header">
-			<a href="/">
+			<a href="{{ "/" | absolute_url }}">
 				<div id="gc_logo">
 			
 						<!-- Picture of my favorite controller, 
 							 taken with phone's camera, editied in GNU Krita-->
-						<img class="gc_picture" src="{{site.baseurl}}/assets/images/avatar_gamepad.coder.png" width="50" height="50">
+						<img class="gc_picture" src="{{ "/assets/images/avatar_gamepad.coder.png" | absolute_url }}" width="50" height="50">
 						<h1 class="gc_txt">Gamepad.Coder</h1>
 				
 				</div>
 			</a>
 			<div id="gc_hire">
-						<li>  <a href="{{site.baseurl}}/contact.html">Contact for Hire</a>  </li>
+						<li>  <a href="{{ "/contact.html" | absolute_url }}">Contact for Hire</a>  </li>
 			</div>
 		</div>
 		<nav id="gc_navbar">		
-				<li id="home_button"><a href="{{site.baseurl}}/">Home</a></li>
-				<li><a href="{{site.baseurl}}/Apps.html">Apps Written</a></li>
-				<li><a href="{{site.baseurl}}/Documentation.html">Documentation for Projects</a></li>
-				<li class="current"><a href="{{site.baseurl}}/Philosophy.html">Philosophy Blog</a></li>
+				<li id="home_button"><a href="{{ "/" | absolute_url }}">Home</a></li>
+				<li><a href="{{ "/Apps.html" | absolute_url }}">Apps Written</a></li>
+				<li><a href="{{ "/Documentation.html" | absolute_url }}">Documentation for Projects</a></li>
+				<li class="current"><a href="{{ "/Philosophy.html" | absolute_url }}">Philosophy Blog</a></li>
 		</nav>
-	</header>	
+	</header>
+	<!-- *************************************************************************************** -->
+
+	{% capture blog_bg_url_hiQ %}/assets/images/philos/{{ page.blog_number }}.jpg{% endcapture %}
+	{% capture blog_bg_url_loQ %}/assets/images/philos/loQ/{{ page.blog_number }}.jpg{% endcapture %}
+	<header id="blog_post_title_card">
+
+		<div id="title_card_background"			
+				style="background-image: url('{{ blog_bg_url_hiQ | absolute_url }}'), 
+										url('{{ blog_bg_url_loQ | absolute_url }}');"
+		>
+			{% unless page.skip_card_metadata == true %}
+			<p id="title_card_post_number">
+				<span style="color: white;">Post:</span> [#{{page.blog_number}}]
+				<br>
+				<span style="color: white;">Time</span>: {{ page.date_written }}
+				<!-- Time: {{ page.date_written }} -->
+			</p>
+			{% endunless %}
+
+			<h1>{{ page.title }}</h1>
+			
+			{% unless page.skip_card_metadata == true %}
+			<div id="title_card_topic">
+				<b>Topic:</b>
+				<div>
+					{{- page.topic -}}
+				</div>
+			</div>
+			{% endunless %}
+		</div>
+
+		
+		
+		<div class="title_card_tag_container">
+			{% include generate_tags_under_post.html 
+				post_to_gen=page
+				tag_bg_color="green"  %}
+		</div>
+		
+
+	</header>
+
+
 	<div id="page_flex">
 	
 		<!-- main content -->
 		<div id="page_content">
 			
+
+			<!-- *********************************** -->
 			{{ content }}
+			<!-- *********************************** -->
 			
+
 		</div><!-- #content -->
 		<aside id="asideBar">
-			<h3>subject</h3>
+			<h3>Navigate this page</h3>
 			<ul>
-				<li><a href="">example</a></li>
-				<li><a href="">example</a></li>
-				<li><a href="">example</a></li>
-				<li><a href="">example</a></li>
-			</ul>
-			<h3>subject</h3>
-			<ul>
-				<li><a href="">example</a></li>
-				<li><a href="">example</a></li>
-				<li><a href="">example</a></li>
-				<li><a href="">example</a></li>
+				<li><a href="{{ "" | absolute_url }}">example</a></li>
+				<li><a href="{{ "" | absolute_url }}">example</a></li>
+				<li><a href="{{ "" | absolute_url }}">example</a></li>
+				<li><a href="{{ "" | absolute_url }}">example</a></li>
 			</ul>
 		</aside>
 		
@@ -86,11 +135,41 @@
 	
 	<!-- footer of main page block -->
 	<footer id="blog_time_n_topic">
-		<p>
-			<a href="/Philosophy/PostsByTime.html">View Philosophy Blog Posts by Time.</a>
-			<br>
-			<a href="/Philosophy/PostsByTopic.html">View Philosophy Blog Posts by Topic.</a>
-		</p>
+		<div id="blog_time_n_topic_color_bg">
+				<!-- ----------------------------------------- 
+					what all this does: 
+					
+					if the screen is wide enough
+					
+						each link appears on its own line
+						without any spaces in between
+					
+					if the screen is narrow enough 
+					
+						each link appears 
+						on two lines
+						
+						with a space
+						in between
+			     ----------------------------------------- -->
+				 
+				<a style="float: left;" href="{{ "/Philosophy/PostsByTime.html" | absolute_url }}">
+				 
+				<!-- <div style="float: left;"> -->
+					<span style="float: left;">View Philosophy Blog&nbsp;</span>
+					<span style="float: left;">Posts by Time.</span>
+				<!-- </div> -->
+				</a>
+					
+					
+				<div style="float: left; font-size: 11px;">&nbsp; &nbsp;</div>
+					
+				<a style="float: left; clear: left;" href="{{ "/Philosophy/PostsByTopic.html" | absolute_url }}">
+				<!-- <div style="float: left; clear: left;"> -->
+					<span style="float: left;">View Philosophy Blog&nbsp;</span>
+					<span style="float: left;">Posts by Topic.</span>
+				</a>
+		</div>
 	</footer>
 	
 </div><!-- .page -->
@@ -115,8 +194,14 @@
 						with a space
 						in between
 			     ----------------------------------------- -->
-				 
-			<a style="float: left;" href="https://github.com/gamepad-coder/">
+			
+			<div id="image_credits" style="float: left; margin-bottom: 40px;">
+				<span style="float: left; clear: left;" >Pictures used are free</span>
+				<br>
+				<span style="float: left; clear: left;"> + from:&nbsp;</span> 
+				<a href="https://unsplash.com/">unsplash.com</a>.
+			</div>
+			<a style="float: left; clear: left;" href="https://github.com/gamepad-coder/">
 			<!-- <div style="float: left;"> -->
 				<span style="float: left;">View Gamepad.Coder's&nbsp;</span>
 				<span style="float: left;">programs on GitHub.</span>

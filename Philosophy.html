@@ -1,9 +1,28 @@
 ---
 layout: Layout_Philosophy_Blog
 title: Philosophy Blog
+blog_number: 0
+skip_card_metadata: true
 ---
 
-	<h2>Lorem ipsum</h2>
+	<h2>TMP</h2>
+	<article>
+		<p>
+			<a href="/Philosophy/1__PlanningTheSite.html">1 planning</a>
+			<a href="/Philosophy/2__Test.html">2 Test</a>
+		</p>
+	</article>
+	<h2>HI GWEN</h2>
 	<article>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id ornare ipsum. Praesent ac ullamcorper risus, et aliquet neque. Mauris viverra eu ligula quis aliquet. Quisque efficitur turpis et quam ultricies, sit amet maximus nisl varius. Duis egestas in justo eget vehicula. Sed congue interdum urna eu efficitur. Pellentesque laoreet diam dui. Maecenas dolor turpis, aliquet non dapibus vitae, tempor in purus.</p>
+	</article>
+	<h2>TEST</h2>
+	<article>
+		<p>
+		{% assign _blog_post = site.Philosophy | where: 'blog_number', 1 | first %}
+		{% if _blog_post %}
+		  <a href="{{ _blog_post.url }}">{{ _blog_post.title }}</a>
+			<!-- <a href="/Philosophy/1__PlanningTheSite.html">1 planning</a> -->
+		{% endif %}
+		</p>
 	</article>

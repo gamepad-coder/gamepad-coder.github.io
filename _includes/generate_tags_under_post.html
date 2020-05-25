@@ -1,0 +1,18 @@
+
+{% assign tag_bg = include.tag_bg_color %}
+
+{% assign philos_post = include.post_to_gen %}
+
+
+{% for tag in philos_post.tags %}
+
+{% if tag_bg == "green" %}
+<div class="title_card_tag">
+{% endif %}
+{% if tag_bg == "purple" %}
+<div class="tag_reference">
+{% endif %}
+    <a class="tag" href="/Philosophy/PostsByTopic.html/#{{ tag | slugify }}">{{ tag }}</a>
+</div>
+{% endfor %}
+

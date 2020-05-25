@@ -1,7 +1,104 @@
 ---
 layout: Layout_Philosophy_Blog
-title: Philosophy Blog
+title: Posts by Topic
+skip_card_metadata: true
+blog_number: topic
 ---
+
+	
+	{% assign blog_posts = site.Philosophy | where_exp:"ipost", "ipost.tags != empty" | where_exp:"ipost", "ipost.tags != blank" %}
+
+	
+	
+
+	<!-- recipe from : 
+	https://longqian.me/2017/02/09/github-jekyll-tag/ -->
+
+	{% assign each_tag_used = "" %}
+	
+	{% for philo_post in blog_posts %}
+	
+		<!-- post [{{philo_post.title}}]<br> -->
+	
+	{% assign post_tags = philo_post.tags | join:'|' | append:'|' %}
+	{% assign each_tag_used = each_tag_used | append:post_tags %}
+	{% endfor %}
+	
+		<!-- before[{{each_tag_used}}]<br> -->
+	{% assign each_tag_used = each_tag_used | split:'|' | sort %}
+		<!-- after[{{each_tag_used}}]<br> -->
+	
+	
+	{% assign tag_list = "" %}
+	
+	{% for tag in each_tag_used %}
+
+			<!-- showing tag [ {{tag}} ] <br> -->
+
+		{% if tag != "" %}
+		
+			{% if tag_list == "" %}
+				{% assign tag_list = tag | split:'|' %}
+					<!-- showing tag_list [ {{tag_list}} ] <br> -->
+			{% endif %}
+			{% unless tag_list contains tag %}
+				{% assign tag_list = tag_list | join:'|' | append:'|' | append:tag | split:'|' %}
+			{% endunless %}
+
+		{% endif %}
+
+	{% endfor %}
+
+<br>
+
+{% assign counter = 1 %}
+{% for tag in tag_list %}
+	<!-- <b>test {{counter}}</b><br> -->
+	<!-- <a href="#{{ tag | slugify }}">[ {{ tag }} ]</a><br> -->
+<!-- {% increment  counter %} -->
+{% endfor %}
+
+{% for tag in tag_list %}
+	
+	<!-- ************* tag header ************* -->
+	<div class="tag_header_wrap">
+		<div class="tag_header" id="{{ tag | slugify }}">{{ tag }}</div>
+	</div>
+	<article class="article_tag_list_of_posts">
+
+		<ul>
+		
+		{% for philo_post in blog_posts %}
+			{% if philo_post.tags contains tag %}
+				<li>
+					<div class="title_and_time">
+						
+						<a class="tag_ref_to_post" href="{{ philo_post.url }}">
+							{{ philo_post.title }}
+						</a>
+						<small>[ {{ philo_post.date_written }} ]</small>
+					</div>
+				</li>
+			{% endif %}
+		{% endfor %}
+
+		</ul>
+
+		<div class="flex_container_listOfPosts">
+		{% for philo_post in blog_posts %}
+			{% if philo_post.tags contains tag %}
+				{% include generate_post_reference.html 
+						post_to_gen=philo_post
+						gen_color="purple"  %}
+				<br><br><br>
+			{% endif %}
+		{% endfor %}
+		</div>
+		
+	</article>
+{% endfor %}
+
+
 
 	<h2>Topic</h2>
 	<article>

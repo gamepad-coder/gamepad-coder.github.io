@@ -1,0 +1,45 @@
+{% if include.post_to_gen and include.post_to_gen != "" and include.post_to_gen != nil and include.post_to_gen != null %}
+
+{% assign philos_post = include.post_to_gen %} 
+
+    <div class="post_card__container">
+        
+        {% capture blog_bg_url_hiQ %}/assets/images/philos/{{ philos_post.blog_number }}.jpg{% endcapture %}
+        {% capture blog_bg_url_loQ %}/assets/images/philos/loQ/{{ philos_post.blog_number }}.jpg{% endcapture %}
+        
+        <a class="post_card__container__link" href="{{ philos_post.url | absolute_url }}">
+        <div class="post_card_background"			
+                style="background-image: url('{{ blog_bg_url_hiQ | absolute_url }}'), 
+                                        url('{{ blog_bg_url_loQ | absolute_url }}');"
+        >
+            <div class="post_card_meta">
+                <span style="color: white;">Post:</span> [#{{philos_post.blog_number}}]
+                <br>
+                <span style="color: white;">Time</span>: {{ philos_post.date_written }}
+                <!-- Time: {{ philos_post.date_written }} -->
+            </div>
+
+            <div class="post_card_title">
+
+                <p>{{ philos_post.title }}</p>
+
+            </div>
+            
+            <div class="post_card_topic">
+                <div>
+                    {{- philos_post.topic -}}
+                </div>
+            </div>
+        </div>
+        </a>
+        
+        {% unless philos_post.tags == empty or philos_post.tags == blank or philos_post.tags == nil %}
+        <div class="post_card_tag_container">
+            {% include generate_tags_under_post.html 
+                post_to_gen=philo_post
+                tag_bg_color=include.gen_color  %}
+        </div>
+        {% endunless %}
+
+    </div>
+{% endif %}

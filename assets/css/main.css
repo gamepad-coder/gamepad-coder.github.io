@@ -1,3 +1,6 @@
+---
+# ensure Jekyll will process liquid in this page into the baked .css file
+---
 /* -------------------------------------- 
          © released under cc0  
    --------------------------------------
@@ -30,8 +33,8 @@
 		font-family: "Courier", Consolas, Verdana, serif;
 		font-size: 28px;
 		
-		background: -webkit-linear-gradient(#53d5ff, #4a1f84);
-		/* background: -webkit-linear-gradient(#53d5ff, #6d22a7); */
+		/* background: -webkit-linear-gradient(#53d5ff, #4a1f84); */
+		background: -webkit-linear-gradient(#53d5ff, #6d22a7);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 	}
@@ -101,7 +104,7 @@
 		
 	}
 	header {
-		background-image: url("/assets/images/header.jpg");
+		background-image: url("{{ "/assets/images/header.jpg" | absolute_url }}");
 		background-size: cover;
 		/* background-position: center center; */
 		/* height: 100%; */
@@ -349,13 +352,13 @@
 		/* overflow: auto; */
 	}
 	#div_prof {
-		background-image: url("/assets/images/contact/stock_typewriter_plants.png"),url("/assets/images/contact/stock_typewriter_plants_loQ.jpg");
+		background-image: url("{{ "/assets/images/contact/stock_typewriter_plants.png" | absolute_url }}"),url("{{ "/assets/images/contact/stock_typewriter_plants_loQ.jpg" | absolute_url }}");
 	}
 	#div_prog_lang {
-		background-image: url("/assets/images/contact/stock_trackpoint.png"),url("/assets/images/contact/stock_trackpoint_loQ.jpg");
+		background-image: url("{{ "/assets/images/contact/stock_trackpoint.png" | absolute_url }}"),url("{{ "/assets/images/contact/stock_trackpoint_loQ.jpg" | absolute_url }}");
 	}
 	#div_interests {
-		background-image: url("/assets/images/contact/stock_plant.png"),url("/assets/images/contact/stock_plant_loQ.jpg");
+		background-image: url("{{ "/assets/images/contact/stock_plant.png" | absolute_url }}"),url("{{ "/assets/images/contact/stock_plant_loQ.jpg" | absolute_url }}");
 	}
 	#div_prof, #div_prog_lang, #div_interests {
 		/* border: 3px solid white; */
