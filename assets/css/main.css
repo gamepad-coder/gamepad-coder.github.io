@@ -367,8 +367,6 @@
 		margin: 5;
 		padding: 10px;
 	}
-	#div_prog_lang{
-	}
 	#h_prof, #h_prog_lang, #h_interests {
 		text-align: center;
 		background-color: rgba(0, 0, 0, 0.3);  /* blue with opacity */
@@ -414,9 +412,6 @@
 		text goes out of bounds without this @media on small small screens
 		******************************************************************/
 		
-		body{
-			/* font-size: 12px; */
-		}
 		#the_page{
 			/* width: 60%; */
 			/* margin: auto; */
@@ -424,9 +419,6 @@
 		}
 	}
 	@media all and (max-width: 700px) {
-		body{
-			/* font-size: 12px;			 */
-		}
 		#asideBar {
 			
 			top: 1vh;
@@ -563,6 +555,13 @@
 		}
 		#asideBar {
 			top: 10vh;
+		}
+		footer.floating_footer {
+			
+			width: 85%;
+			padding: 5px;
+			/* padding: 0; */
+			margin: 0px auto 250px auto;
 		}
 	}
 	@media all and (max-height: 340px) {
