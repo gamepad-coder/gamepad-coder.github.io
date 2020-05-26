@@ -60,10 +60,18 @@
 			</div>
 		</div>
 		<nav id="gc_navbar">		
-				<li id="home_button"><a href="{{ "/" | absolute_url }}">Home</a></li>
-				<li><a href="{{ "/Apps.html" | absolute_url }}">Apps Written</a></li>
-				<li><a href="{{ "/Documentation.html" | absolute_url }}">Documentation for Projects</a></li>
-				<li class="current"><a href="{{ "/Philosophy.html" | absolute_url }}">Philosophy Blog</a></li>
+				<a href="{{ "/" | absolute_url }}">
+					<li id="home_button">Home</li>
+				</a>
+				<a href="{{ "/Apps.html" | absolute_url }}">
+					<li>Apps Written</li>
+				</a>
+				<a href="{{ "/Documentation.html" | absolute_url }}">
+					<li>Documentation for Projects</li>
+				</a>
+				<a href="{{ "/Philosophy.html" | absolute_url }}">
+					<li class="current">Philosophy Blog</li>
+				</a>
 		</nav>
 	</header>
 	<!-- *************************************************************************************** -->
@@ -150,7 +158,6 @@
 	
 	<!-- footer of main page block -->
 	<footer id="blog_time_n_topic">
-		<div id="blog_time_n_topic_color_bg">
 				<!-- ----------------------------------------- 
 					what all this does: 
 					
@@ -168,23 +175,19 @@
 						in between
 			     ----------------------------------------- -->
 				 
-				<a style="float: left;" href="{{ "/Philosophy/PostsByTime.html" | absolute_url }}">
-				 
-				<!-- <div style="float: left;"> -->
-					<span style="float: left;">View Philosophy Blog&nbsp;</span>
-					<span style="float: left;">Posts by Time.</span>
-				<!-- </div> -->
+				<a href="{{ "/Philosophy/PostsByTime.html" | absolute_url }}">
+					<div class="blog_time_n_topic__bg">
+						<div>View Philosophy Blog</div>
+						<div>Posts by Time.&nbsp;</div>
+					</div>
 				</a>
 					
-					
-				<div style="float: left; font-size: 11px;">&nbsp; &nbsp;</div>
-					
-				<a style="float: left; clear: left;" href="{{ "/Philosophy/PostsByTopic.html" | absolute_url }}">
-				<!-- <div style="float: left; clear: left;"> -->
-					<span style="float: left;">View Philosophy Blog&nbsp;</span>
-					<span style="float: left;">Posts by Topic.</span>
+				<a href="{{ "/Philosophy/PostsByTopic.html" | absolute_url }}">
+					<div class="blog_time_n_topic__bg">
+						<div>View Philosophy Blog</div>
+						<div>Posts by Topic.</div>
+					</div>
 				</a>
-		</div>
 	</footer>
 	
 </div><!-- .page -->
