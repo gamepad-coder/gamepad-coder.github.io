@@ -77,6 +77,8 @@
 										url('http://localhost:4000/assets/images/philos/loQ/2.jpg');"
 		>
 			
+			
+			
 			<p id="title_card_post_number">
 				<span style="color: white;">Post:</span> [#2]
 				<br>
@@ -84,7 +86,7 @@
 				<!-- Time: 5/23/2020 -->
 			</p>
 			
-
+			
 			<h1>Testing the test title.</h1>
 			
 			
@@ -95,7 +97,6 @@
 			
 		</div>
 
-		
 		
 		<div class="title_card_tag_container">
 			
@@ -137,55 +138,96 @@
 	</header>
 
 
-	<div id="page_flex">
-	
-		<!-- main content -->
-		<div id="page_content">
-			
+	<div id="page_flex">			
 
 			<!-- *********************************** -->
-			<h2>Topic #1</h2>
-<p>
-    Do the lorem ipsum. Lorem ipsum.
-</p>
+			<!-- ******************************************************************* -->
+<!-- main content -->
+<div id="page_content">
+<!-- ******************************************************************* -->
 
-<h2>Topic #2</h2>
-<p>
-    Lorem loremloremloremloremloremloremloremloremloremlorem lorem lorem lorem lorem lorem lorem 
-</p>
-<p>
-    Lorem loremloremloremloremloremloremloremloremloremlorem lorem lorem lorem lorem lorem lorem 
-</p>
+    <h2 id="Section_1">Topic #1</h2>
+    <p>
+        Do the lorem ipsum. Lorem ipsum.
+    </p>
 
-<h2>Topic #3</h2>
-<p>
-    Ipsum. Ipa Ipsum.
-</p>
-<p>
-    Ipsum. Ipa Ipsum.
-</p>
-<p>
-    Ipsum. Ipa Ipsum.
-</p>
+    <h2 id="Section_2">There be dragons here.</h2>
+    <p>
+        Lorem loremloremloremloremloremloremloremloremloremlorem lorem lorem lorem lorem lorem lorem 
+    </p>
+    <p>
+        Lorem loremloremloremloremloremloremloremloremloremlorem lorem lorem lorem lorem lorem lorem 
+    </p>
 
-<h2>Topic #4</h2>
-<p>
-    Lorem. Ipsum.
-</p>
+    <h2 id="Section_3">Topic #3</h2>
+    <p>
+        Ipsum. Ipa Ipsum.
+    </p>
+    <p>
+        Ipsum. Ipa Ipsum.
+    </p>
+    <p>
+        Ipsum. Ipa Ipsum.
+    </p>
+
+    <h2 id="Section_4">Topic #4</h2>
+    <p>
+        Lorem. Ipsum.
+    </p>
+
+
+<!-- ******************************************************************* -->
+</div><!-- #content -->
+<!-- ******************************************************************* -->
 			<!-- *********************************** -->
 			
-
-		</div><!-- #content -->
 		
+		
+
+		<!-- per each blog post:
+		each <h2> tag given an id of "Section_#", 
+		if page wants navigation links generated, it specifies in its front matter options.number_of_nav_sections: # of <h2> ids -->
+
+		<!--
+			filter "map" : 
+				specify the value to be page.options{ the value stored in options.number_of_nav_sections }
+			filter "| plus: 0" :
+				ensures this var is stored as type int  
+		-->
+		
+		
+
 		<aside id="asideBar">
 			<h3>Navigate this page</h3>
 			<ul>
-				<li><a href="http://localhost:4000/">example</a></li>
-				<li><a href="http://localhost:4000/">example</a></li>
-				<li><a href="http://localhost:4000/">example</a></li>
-				<li><a href="http://localhost:4000/">example</a></li>
+				
+				
+
+				<li> 
+					<a href="http://localhost:4000/Philosophy/2__Test.html#Section_1">Topic #1</a>
+				</li>
+				
+				
+
+				<li> 
+					<a href="http://localhost:4000/Philosophy/2__Test.html#Section_2">There be dragons here.</a>
+				</li>
+				
+				
+
+				<li> 
+					<a href="http://localhost:4000/Philosophy/2__Test.html#Section_3">Topic #3</a>
+				</li>
+				
+				
+
+				<li> 
+					<a href="http://localhost:4000/Philosophy/2__Test.html#Section_4">Topic #4</a>
+				</li>
+				
 			</ul>
 		</aside>
+		
 		
 	</div><!-- .page_flex -->
 	

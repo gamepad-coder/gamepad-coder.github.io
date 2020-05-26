@@ -1,6 +1,0 @@
-baseurl: //wsl$/Debian/home/philosopher0fpeace/github/linux_Gamepad-Coder/gamepad-coder.github.io/_site
-collections:
-  Philosophy:
-    output: true
-github: [metadata]
-encoding: UTF-8

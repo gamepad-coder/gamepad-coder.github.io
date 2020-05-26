@@ -76,7 +76,9 @@
 				style="background-image: url('{{ blog_bg_url_hiQ | absolute_url }}'), 
 										url('{{ blog_bg_url_loQ | absolute_url }}');"
 		>
-			{% unless page.skip_card_metadata == true %}
+			
+			{% unless page.options contains "skip_card_metadata" %}
+			
 			<p id="title_card_post_number">
 				<span style="color: white;">Post:</span> [#{{page.blog_number}}]
 				<br>
@@ -84,10 +86,10 @@
 				<!-- Time: {{ page.date_written }} -->
 			</p>
 			{% endunless %}
-
+			
 			<h1>{{ page.title }}</h1>
 			
-			{% unless page.skip_card_metadata == true %}
+			{% unless page.options contains "skip_card_metadata" %}
 			<div id="title_card_topic">
 				<b>Topic:</b>
 				<div>
@@ -97,7 +99,6 @@
 			{% endunless %}
 		</div>
 
-		
 		
 		<div class="title_card_tag_container">
 			{% include generate_tags_under_post.html 
@@ -109,28 +110,41 @@
 	</header>
 
 
-	<div id="page_flex">
-	
-		<!-- main content -->
-		<div id="page_content">
-			
+	<div id="page_flex">			
 
 			<!-- *********************************** -->
 			{{ content }}
 			<!-- *********************************** -->
 			
-
-		</div><!-- #content -->
 		
+		{% unless page.options contains "skip_autogen_sidebar" %}
+
+		<!-- per each blog post:
+		each <h2> tag given an id of "Section_#", 
+		if page wants navigation links generated, it specifies in its front matter options.number_of_nav_sections: # of <h2> ids -->
+
+		<!--
+			filter "map" : 
+				specify the value to be page.options{ the value stored in options.number_of_nav_sections }
+			filter "| plus: 0" :
+				ensures this var is stored as type int  
+		-->
+		
+		{% assign number_of_navigation_links = page.number_of_nav_sections | plus: 0 %}
+
 		<aside id="asideBar">
 			<h3>Navigate this page</h3>
 			<ul>
-				<li><a href="{{ "" | absolute_url }}">example</a></li>
-				<li><a href="{{ "" | absolute_url }}">example</a></li>
-				<li><a href="{{ "" | absolute_url }}">example</a></li>
-				<li><a href="{{ "" | absolute_url }}">example</a></li>
+				{% for i in (1..number_of_navigation_links) %}
+				{% assign hyperlink = page.url | append: "#Section_" | append: i %}
+
+				<li> 
+					<a href="{{ hyperlink | absolute_url }}">{{ page.section_names[i] }}</a>
+				</li>
+				{% endfor %}
 			</ul>
 		</aside>
+		{% endunless %}
 		
 	</div><!-- .page_flex -->
 	

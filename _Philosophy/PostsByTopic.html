@@ -1,14 +1,23 @@
 ---
-layout: Layout_Philosophy_Blog
-title: Posts by Topic
-skip_card_metadata: true
 blog_number: topic
+
+title: Posts by Topic
+
+options:
+- skip_card_metadata
+- skip_autogen_sidebar
+
+layout: Layout_Philosophy_Blog
 ---
+
+<!-- ******************************************************************* -->
+<!-- main content -->
+<div id="page_content">
+<!-- ******************************************************************* -->
 
 	
 	{% assign blog_posts = site.Philosophy | where_exp:"ipost", "ipost.tags != empty" | where_exp:"ipost", "ipost.tags != blank" %}
 
-	
 	
 
 	<!-- recipe from : 
@@ -49,57 +58,76 @@ blog_number: topic
 
 	{% endfor %}
 
-<br>
 
-{% assign counter = 1 %}
-{% for tag in tag_list %}
-	<!-- <b>test {{counter}}</b><br> -->
-	<!-- <a href="#{{ tag | slugify }}">[ {{ tag }} ]</a><br> -->
-<!-- {% increment  counter %} -->
-{% endfor %}
+	{% assign counter = 1 %}
+	{% for tag in tag_list %}
+		<!-- <b>test {{counter}}</b><br> -->
+		<!-- <a href="#{{ tag | slugify }}">[ {{ tag }} ]</a><br> -->
+	<!-- {% increment  counter %} -->
+	{% endfor %}
 
-{% for tag in tag_list %}
-	
-	<!-- ************* tag header ************* -->
-	<div class="tag_header_wrap">
-		<div class="tag_header" id="{{ tag | slugify }}">{{ tag }}</div>
-	</div>
-	<article class="article_tag_list_of_posts">
+	<input type='checkbox' style='display: none' id="checkbox_toggle_postcards">
+	<label for="checkbox_toggle_postcards"></label>
 
-		<ul>
+	{% for tag in tag_list %}
 		
-		{% for philo_post in blog_posts %}
-			{% if philo_post.tags contains tag %}
-				<li>
-					<div class="title_and_time">
-						
-						<a class="tag_ref_to_post" href="{{ philo_post.url }}">
-							{{ philo_post.title }}
-						</a>
-						<small>[ {{ philo_post.date_written }} ]</small>
-					</div>
-				</li>
-			{% endif %}
-		{% endfor %}
-
-		</ul>
-
-		<div class="flex_container_listOfPosts">
-		{% for philo_post in blog_posts %}
-			{% if philo_post.tags contains tag %}
-				{% include generate_post_reference.html 
-						post_to_gen=philo_post
-						gen_color="purple"  %}
-			{% endif %}
-		{% endfor %}
+		<!-- ************* tag header ************* -->
+		<div class="tag_header_wrap">
+			<div class="tag_header" id="{{ tag | slugify }}">{{ tag }}</div>
 		</div>
+		<article class="article_tag_list_of_posts">
+
+			<ul>
+			
+			{% for philo_post in blog_posts %}
+				{% if philo_post.tags contains tag %}
+					<li>
+						<div class="title_and_time">
+							
+							<a class="tag_ref_to_post" href="{{ philo_post.url }}">
+								{{ philo_post.title }}
+							</a>
+							<small>[ {{ philo_post.date_written }} ]</small>
+						</div>
+					</li>
+				{% endif %}
+			{% endfor %}
+
+			</ul>
+
+			<div class="flex_container_listOfPosts">
+			{% for philo_post in blog_posts %}
+				{% if philo_post.tags contains tag %}
+					{% include generate_post_reference.html 
+							post_to_gen=philo_post
+							gen_color="purple"  %}
+				{% endif %}
+			{% endfor %}
+			</div>
+			
+		</article>
+	{% endfor %}
+
+
+<!-- ******************************************************************* -->
+</div><!-- #content -->
+<!-- ******************************************************************* -->
+
+
+
+<aside id="asideBar" class="asideBar__time">
+	<h3>Navigate this page</h3>
+	<div id="flex_navigation_tags__time">
+
 		
-	</article>
-{% endfor %}
+		{% for tag in tag_list %}
+		
+		<div class="tag_reference">
+			<a class="tag" href="/Philosophy/PostsByTopic.html#{{ tag | slugify }}">{{ tag }}</a>
+		</div>
 
+		{% endfor %}
 
-
-	<h2>Topic</h2>
-	<article>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id ornare ipsum. Praesent ac ullamcorper risus, et aliquet neque. Mauris viverra eu ligula quis aliquet. Quisque efficitur turpis et quam ultricies, sit amet maximus nisl varius. Duis egestas in justo eget vehicula. Sed congue interdum urna eu efficitur. Pellentesque laoreet diam dui. Maecenas dolor turpis, aliquet non dapibus vitae, tempor in purus.</p>
-	</article>
+	</div>
+	
+</aside>

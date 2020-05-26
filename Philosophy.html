@@ -1,28 +1,50 @@
 ---
-layout: Layout_Philosophy_Blog
-title: Philosophy Blog
 blog_number: 0
-skip_card_metadata: true
+
+title: Philosophy Blog
+
+options:
+- skip_card_metadata
+- skip_autogen_sidebar
+- display_recents_starting_at_number: 1
+
+layout: Layout_Philosophy_Blog
 ---
 
-	<h2>TMP</h2>
+<!-- ******************************************************************* -->
+<!-- main content -->
+<div id="page_content">
+<!-- ******************************************************************* -->
+
+
+{% assign min_post_recent = page.options  | map:"display_recents_starting_at_number" %}
+
+{% assign time_blog_number = "topic" %}
+{% assign topic_blog_number = "time" %}
+{% assign blog_posts = site.Philosophy | where_exp:"ipost", "ipost.blog_number != 0" | where_exp:"ipost", "ipost.blog_number != time_blog_number" | where_exp:"ipost", "ipost.blog_number != topic_blog_number"  | reverse %}
+
+
+	<h2>Latest Posts</h2>
 	<article>
-		<p>
-			<a href="/Philosophy/1__PlanningTheSite.html">1 planning</a>
-			<a href="/Philosophy/2__Test.html">2 Test</a>
-		</p>
-	</article>
-	<h2>HI GWEN</h2>
-	<article>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id ornare ipsum. Praesent ac ullamcorper risus, et aliquet neque. Mauris viverra eu ligula quis aliquet. Quisque efficitur turpis et quam ultricies, sit amet maximus nisl varius. Duis egestas in justo eget vehicula. Sed congue interdum urna eu efficitur. Pellentesque laoreet diam dui. Maecenas dolor turpis, aliquet non dapibus vitae, tempor in purus.</p>
-	</article>
-	<h2>TEST</h2>
-	<article>
-		<p>
-		{% assign _blog_post = site.Philosophy | where: 'blog_number', 1 | first %}
-		{% if _blog_post %}
-		  <a href="{{ _blog_post.url }}">{{ _blog_post.title }}</a>
-			<!-- <a href="/Philosophy/1__PlanningTheSite.html">1 planning</a> -->
+		<!-- define front matter here for # to start at
+		list all above that num  -->
+	<div class="flex_container_listOfPosts">
+	{% for post in blog_posts %}
+
+	{% assign int_min_num = min_post_recent | plus: 0 %}
+	{% assign int_blog_num = post.blog_number | plus: 0 %}
+
+		{% if int_blog_num >= int_min_num %}
+			{% include generate_post_reference.html 
+				post_to_gen=post
+				gen_color="purple"  %}
 		{% endif %}
-		</p>
+				
+	{% endfor %}
+	</div>
+
 	</article>
+
+<!-- ******************************************************************* -->
+</div><!-- #content -->
+<!-- ******************************************************************* -->
