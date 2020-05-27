@@ -1,12 +1,13 @@
 ---
-blog_number: 0
+blog_number: top
 
 title: Philosophy Blog
 
 options:
 - skip_card_metadata
 - skip_autogen_sidebar
-- display_recents_starting_at_number: 1
+
+display_recents_starting_at_number: 0
 
 layout: Layout_Philosophy_Blog
 ---
@@ -17,13 +18,23 @@ layout: Layout_Philosophy_Blog
 <!-- ******************************************************************* -->
 
 
-{% assign min_post_recent = page.options  | map:"display_recents_starting_at_number" %}
+{% assign min_post_recent = page  | map:"display_recents_starting_at_number" %}
 
-{% assign time_blog_number = "topic" %}
-{% assign topic_blog_number = "time" %}
-{% assign blog_posts = site.Philosophy | where_exp:"ipost", "ipost.blog_number != 0" | where_exp:"ipost", "ipost.blog_number != time_blog_number" | where_exp:"ipost", "ipost.blog_number != topic_blog_number"  | reverse %}
+{% assign int_min_num = min_post_recent[0] | plus: 0 %}
+
+    
+    
+{% assign string_top   = "top" %}
+{% assign string_time  = "time" %}
+{% assign string_topic = "topic" %}
+{% assign blog_posts = site.Philosophy 
+						| where_exp:"pbp",  "pbp.blog_number != string_top" 
+						| where_exp:"pbp",  "pbp.blog_number != string_time"  
+						| where_exp:"pbp",  "pbp.blog_number != string_topic"  
+						| reverse  %}
 
 
+	
 	<h2>Latest Posts</h2>
 	<article>
 		<!-- define front matter here for # to start at
@@ -31,7 +42,6 @@ layout: Layout_Philosophy_Blog
 	<div class="flex_container_listOfPosts">
 	{% for post in blog_posts %}
 
-	{% assign int_min_num = min_post_recent | plus: 0 %}
 	{% assign int_blog_num = post.blog_number | plus: 0 %}
 
 		{% if int_blog_num >= int_min_num %}

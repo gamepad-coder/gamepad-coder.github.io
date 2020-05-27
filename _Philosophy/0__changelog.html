@@ -1,0 +1,44 @@
+---
+blog_number: 0
+
+date_written: ongoing
+date_written_time: 
+
+title: "{ website changelog }"
+topic: Version Summaries.
+
+tags:
+- "#this"
+
+options:
+- skip_autogen_sidebar
+
+layout: Layout_Philosophy_Blog
+---
+
+
+<!-- ******************************************************************* -->
+<!-- main content -->
+<div id="page_content" class="fill_page_width">
+<!-- ******************************************************************* -->
+
+    {% assign post1 = site.Philosophy | where_exp:"pbpost",  "pbpost.blog_number == 1" | first %}
+    <article style="float: right;">
+        <a href="{{ post1.url | absolute_url }}">Goto: Post [#1]</a>
+    </article>
+
+    <br><br><br>
+        
+    <h2 id="Section_1">History</h2>
+    <article>
+        <div class="changelog_wrapper">
+            <div class="changelog__preserveNewines">
+                    {%- include change.log %}
+            </div>
+        </div>
+    </article>
+
+
+<!-- ******************************************************************* -->
+</div><!-- #content -->
+<!-- ******************************************************************* --> 

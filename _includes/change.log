@@ -1,0 +1,68 @@
+{% raw  %}
+[v1]
+[v2]
+[v3]
+[v4]
+[v5]
+[v6]
+[v7]
+[v8]
+[v9]
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+[v10]
+
+mainly fixes & additions to blog sub-site 
+
+[bugfix]
+│           
+├── +  [graphics]       fixed mainsite background resizing below 100% at small extremes
+│           │
+│           └──>        css:    #website_background{ .. 100vh -> 100% }
+│           
+├── +  [positioning]    blogsite unsplash shoutout had a graphical error with a 
+│                       non-floated '.' appearing above the link instead of after.
+│           
+├── +  [link color]     fixed css specificity to color links in posts purple,
+│                       doesn't affect link coloring in #tags
+│           
+├── +  [syntax]         fixed improper tag nesting in mainsite the_page:footer
+│           
+├── +  [liquid]         fixed init of int (used to start reading recent pages for on blog home page)
+│           │
+│          (-)
+│           └──>        {% assign min_post_recent = page  | map:"display_recents_starting_at_number" %}
+│           └──>        {% assign int_min_num = min_post_recent    | plus: 0 %}        
+│           │
+│          (+)
+│           └──>        {% assign min_post_recent = page  | map:"display_recents_starting_at_number" %}
+└           └──>        {% assign int_min_num = min_post_recent[0] | plus: 0 %}   
+
+[polish]
+│           
+├── +  [edge case]      desktop with landscape sized window no longer glitch overlaps areas @ extreme zooms
+│           │
+│           └──>        css:    @media .. all and (orientation:landscape) and (min-width: 1px) and (max-width: 600px)
+│
+└── +  [footer links for mobile]        mainsite footer github links are now wide div buttons in portrait + mobile views
+
+
+< new feature >
+│           
+├── +  added goto previous post
+│           
+├── +  added goto next post
+│           └└──>            underlines + nudges horiz. on hover
+│           └└──>            opacity 50% + nudges vert. on click
+│           
+├── +  added [#0] changelog page 
+│           
+├── +  added mobile friendly spacing & linking for sidebar on post pages when @ top & small screen
+│           
+└── +  minor tweaks and fixes
+
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+{% endraw %}

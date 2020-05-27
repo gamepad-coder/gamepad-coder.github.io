@@ -14,11 +14,16 @@ layout: Layout_Philosophy_Blog
 <!-- main content -->
 <div id="page_content" class="page_content__time">
 <!-- ******************************************************************* -->
+    
+    
+	{% assign string_top   = "top" %}
+	{% assign string_time  = "time" %}
+	{% assign string_topic = "topic" %}
+	{% assign blog_posts = site.Philosophy 
+							| where_exp:"pbp",  "pbp.blog_number != string_top" 
+							| where_exp:"pbp",  "pbp.blog_number != string_time"  
+							| where_exp:"pbp",  "pbp.blog_number != string_topic"  %}
 
-
-	{% assign time_blog_number = "topic" %}
-	{% assign topic_blog_number = "time" %}
-	{% assign blog_posts = site.Philosophy | where_exp:"ipost", "ipost.blog_number != 0" | where_exp:"ipost", "ipost.blog_number != time_blog_number" | where_exp:"ipost", "ipost.blog_number != topic_blog_number" %}
 
 	<h2 style="margin-bottom: 75px;">List of all posts:</h2>
 	<article class="article_tag_list_of_posts">

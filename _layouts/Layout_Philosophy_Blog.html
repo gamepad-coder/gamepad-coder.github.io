@@ -114,7 +114,7 @@
 				tag_bg_color="green"  %}
 		</div>
 		
-
+		
 	</header>
 
 
@@ -138,19 +138,29 @@
 				ensures this var is stored as type int  
 		-->
 		
-		{% assign number_of_navigation_links = page.number_of_nav_sections | plus: 0 %}
+		
+		
+		<aside id="asideBar" class="default_aside">
+			{% assign number_of_navigation_links = page.number_of_nav_sections | plus: 0 %}
 
-		<aside id="asideBar">
-			<h3>Navigate this page</h3>
+			{% unless number_of_navigation_links == 0 %}
+
+			<h3>Navigate this Post</h3>
 			<ul>
 				{% for i in (1..number_of_navigation_links) %}
 				{% assign hyperlink = page.url | append: "#Section_" | append: i %}
-
-				<li> 
-					<a href="{{ hyperlink | absolute_url }}">{{ page.section_names[i] }}</a>
-				</li>
+				
+				<a href="{{ hyperlink | absolute_url }}">
+					<li>{{ page.section_names[i] }}</li>
+				</a>
 				{% endfor %}
 			</ul>
+			{% endunless %}
+
+			<!-- ********************************************* -->
+			{% include generate_next_prev_nav.html %}
+			<!-- ********************************************* -->
+	
 		</aside>
 		{% endunless %}
 		
@@ -217,24 +227,22 @@
 				<span style="float: left; clear: left;" >Pictures used are free</span>
 				<br>
 				<span style="float: left; clear: left;"> + from:&nbsp;</span> 
-				<a href="https://unsplash.com/">unsplash.com</a>.
+				<span style="float: left; clear: left;"><a href="https://unsplash.com/">unsplash.com</a>.</span>
 			</div>
 			<a style="float: left; clear: left;" href="https://github.com/gamepad-coder/">
-			<!-- <div style="float: left;"> -->
 				<span style="float: left;">View Gamepad.Coder's&nbsp;</span>
 				<span style="float: left;">programs on GitHub.</span>
-			<!-- </div> -->
 			</a>
 			
 			
 			<div style="float: left; font-size: 11px;">&nbsp; &nbsp;</div>
 			
 			<a style="float: left; clear: left;" href="https://github.com/gamepad-coder/gamepad-coder.github.io">
-			<!-- <div style="float: left; clear: left;"> -->
+			
 				<span style="float: left;">View this website's&nbsp;</span>
 				<span style="float: left;">source code on GitHub.</span>
 			</a>
-			<!-- </div> -->
+			
 	</div>
 
 

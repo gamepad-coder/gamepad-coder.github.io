@@ -10,7 +10,7 @@
 <head>
 	<meta charset="UTF-8" />
 
-    <title>Posts by Time</title>
+    <title>{ website changelog }</title>
 	
 	<!-- <link rel="stylesheet" href="/assets/css/philosophy.css" type="text/css" /> -->
 	<!-- <link rel="stylesheet" href="/assets/css/philosophy.css" type="text/css" /> -->
@@ -81,14 +81,27 @@
 	<header id="blog_post_title_card">
 
 		<div id="title_card_background"			
-				style="background-image: url('http://localhost:4000/assets/images/philos/time.jpg'), 
-										url('http://localhost:4000/assets/images/philos/loQ/time.jpg');"
+				style="background-image: url('http://localhost:4000/assets/images/philos/0.jpg'), 
+										url('http://localhost:4000/assets/images/philos/loQ/0.jpg');"
 		>
 			
 			
 			
-			<h1>Posts by Time</h1>
+			<p id="title_card_post_number">
+				<span style="color: white;">Post:</span> [#0]
+				<br>
+				<span style="color: white;">Time</span>: ongoing
+				<!-- Time: ongoing -->
+			</p>
 			
+			
+			<h1>{ website changelog }</h1>
+			
+			
+			<div id="title_card_topic">
+				<b>Topic:</b>
+				<div>Version Summaries.</div>
+			</div>
 			
 		</div>
 
@@ -103,6 +116,14 @@
 
 
 
+<div class="title_card_tag">
+
+
+    <a class="tag" href="/Philosophy/PostsByTopic.html#this">#this</a>
+</div>
+
+
+
 		</div>
 		
 		
@@ -114,234 +135,94 @@
 			<!-- *********************************** -->
 			<!-- ******************************************************************* -->
 <!-- main content -->
-<div id="page_content" class="page_content__time">
+<div id="page_content" class="fill_page_width">
 <!-- ******************************************************************* -->
+
     
-    
-	
-	
-	
-	
+    <article style="float: right;">
+        <a href="http://localhost:4000/Philosophy/1__PlanningTheSite.html">Goto: Post [#1]</a>
+    </article>
 
-
-	<h2 style="margin-bottom: 75px;">List of all posts:</h2>
-	<article class="article_tag_list_of_posts">
-	<div class="flex_container_listOfPosts">
-		
-	
-
-		
-
- 
-
-    <div class="post_card__container">
+    <br><br><br>
         
-        
-        
-        
-        <a class="post_card__container__link" href="http://localhost:4000/Philosophy/0__changelog.html">
-        <div class="post_card_background"			
-                style="background-image: url('http://localhost:4000/assets/images/philos/0.jpg'), 
-                                        url('http://localhost:4000/assets/images/philos/loQ/0.jpg');"
-        >
-            <div class="post_card_meta">
-                <span style="color: white;">Post:</span> [#0]
-                <br>
-                <span style="color: white;">Time</span>: ongoing
-                <!-- Time: ongoing -->
-            </div>
+    <h2 id="Section_1">History</h2>
+    <article>
+        <div class="changelog_wrapper">
+            <div class="changelog__preserveNewines">
+[v1]
+[v2]
+[v3]
+[v4]
+[v5]
+[v6]
+[v7]
+[v8]
 
-            <div class="post_card_title">
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+[v9]
 
-                <p>{ website changelog }</p>
+mainly fixes & additions to blog sub-site 
 
-            </div>
-            
-            <div class="post_card_topic">
-                <div>Version Summaries.</div>
-            </div>
-        </div>
-        </a>
-        
-        
-        <div class="post_card_tag_container">
-            
+[bugfix]
+│           
+├── +  [graphics]       fixed mainsite background resizing below 100% at small extremes
+│           │
+│           └──>        css:    #website_background{ .. 100vh -> 100% }
+│           
+├── +  [positioning]    blogsite unsplash shoutout had a graphical error with a 
+│                       non-floated '.' appearing above the link instead of after.
+│           
+├── +  [link color]     fixed css specificity to color links in posts purple,
+│                       doesn't affect link coloring in #tags
+│           
+├── +  [syntax]         fixed improper tag nesting in mainsite the_page:footer
+│           
+├── +  [liquid]         fixed init of int (used to start reading recent pages for on blog home page)
+│           │
+│          (-)
+│           └──>        {% assign min_post_recent = page  | map:"display_recents_starting_at_number" %}
+│           └──>        {% assign int_min_num = min_post_recent    | plus: 0 %}        
+│           │
+│          (+)
+│           └──>        {% assign min_post_recent = page  | map:"display_recents_starting_at_number" %}
+└           └──>        {% assign int_min_num = min_post_recent[0] | plus: 0 %}   
+
+[polish]
+│           
+├── +  [edge case]      desktop with landscape sized window no longer glitch overlaps areas @ extreme zooms
+│           │
+│           └──>        css:    @media .. all and (orientation:landscape) and (min-width: 1px) and (max-width: 600px)
+│
+└── +  [footer links for mobile]        mainsite footer github links are now wide div buttons in portrait + mobile views
 
 
+< new feature >
+│           
+├── +  added goto previous post
+│           
+├── +  added goto next post
+│           └└──>            underlines + nudges horiz. on hover
+│           └└──>            opacity 50% + nudges vert. on click
+│           
+├── +  added [#0] changelog page 
+│           
+├── +  added mobile friendly spacing & linking for sidebar on post pages when @ top & small screen
+│           
+└── +  minor tweaks and fixes
 
 
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
 
-
-
-
-
-<div class="tag_reference">
-
-    <a class="tag" href="/Philosophy/PostsByTopic.html#this">#this</a>
-</div>
-
-
-
-        </div>
-        
-
-    </div>
-
-
-			
-	
-
-		
-
- 
-
-    <div class="post_card__container">
-        
-        
-        
-        
-        <a class="post_card__container__link" href="http://localhost:4000/Philosophy/1__PlanningTheSite.html">
-        <div class="post_card_background"			
-                style="background-image: url('http://localhost:4000/assets/images/philos/1.jpg'), 
-                                        url('http://localhost:4000/assets/images/philos/loQ/1.jpg');"
-        >
-            <div class="post_card_meta">
-                <span style="color: white;">Post:</span> [#1]
-                <br>
-                <span style="color: white;">Time</span>: 5/21/2020
-                <!-- Time: 5/21/2020 -->
-            </div>
-
-            <div class="post_card_title">
-
-                <p>Planning The Site</p>
-
-            </div>
-            
-            <div class="post_card_topic">
-                <div>Initial plans for this website's blog.</div>
             </div>
         </div>
-        </a>
-        
-        
-        <div class="post_card_tag_container">
-            
+    </article>
 
-
-
-
-
-
-
-
-
-<div class="tag_reference">
-
-    <a class="tag" href="/Philosophy/PostsByTopic.html#this">#this</a>
-</div>
-
-
-
-
-<div class="tag_reference">
-
-    <a class="tag" href="/Philosophy/PostsByTopic.html#developer-log">#Developer Log</a>
-</div>
-
-
-
-        </div>
-        
-
-    </div>
-
-
-			
-	
-
-		
-
- 
-
-    <div class="post_card__container">
-        
-        
-        
-        
-        <a class="post_card__container__link" href="http://localhost:4000/Philosophy/2__Test.html">
-        <div class="post_card_background"			
-                style="background-image: url('http://localhost:4000/assets/images/philos/2.jpg'), 
-                                        url('http://localhost:4000/assets/images/philos/loQ/2.jpg');"
-        >
-            <div class="post_card_meta">
-                <span style="color: white;">Post:</span> [#2]
-                <br>
-                <span style="color: white;">Time</span>: 5/23/2020
-                <!-- Time: 5/23/2020 -->
-            </div>
-
-            <div class="post_card_title">
-
-                <p>Testing the test title.</p>
-
-            </div>
-            
-            <div class="post_card_topic">
-                <div>We will now begin our national broadcast. System test.</div>
-            </div>
-        </div>
-        </a>
-        
-        
-        <div class="post_card_tag_container">
-            
-
-
-
-
-
-
-
-
-
-<div class="tag_reference">
-
-    <a class="tag" href="/Philosophy/PostsByTopic.html#about-this-site">#About_This_Site</a>
-</div>
-
-
-
-
-<div class="tag_reference">
-
-    <a class="tag" href="/Philosophy/PostsByTopic.html#developer-log">#Developer_Log</a>
-</div>
-
-
-
-
-<div class="tag_reference">
-
-    <a class="tag" href="/Philosophy/PostsByTopic.html#how-to-cheer-up-a-chicken">#How to cheer up a chicken.</a>
-</div>
-
-
-
-        </div>
-        
-
-    </div>
-
-
-			
-	
-	</div>
-	</article>
 
 <!-- ******************************************************************* -->
 </div><!-- #content -->
-<!-- ******************************************************************* -->
+<!-- ******************************************************************* --> 
 			<!-- *********************************** -->
 			
 		

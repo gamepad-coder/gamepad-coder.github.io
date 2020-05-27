@@ -4,3 +4,4 @@ collections:
     output: true
 github: [metadata]
 encoding: UTF-8
+exclude: [.notes]

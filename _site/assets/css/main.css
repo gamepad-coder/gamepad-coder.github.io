@@ -15,7 +15,7 @@
 
 	body{
 		font-family: Courier New, Courier, Palatino, Verdana, serif;
-		font-size: 16px;
+		font-size: 18px;
 		line-height: 1.25em;	
 		color: #ffffff; 	/* #D7D7D7; */
 	}
@@ -51,7 +51,7 @@
 	#asideBar {
 		color: silver;
 	}
-	aside {	font-size: 15px;	font-family: Palatino, serif; }
+	aside {	font-size: 16px;	font-family: Palatino, serif; }
 	span.nav_ref {	font-size: 17px;	}
 
 	h1.gc_txt {
@@ -96,7 +96,7 @@
 		background-attachment: fixed;		
 		background-size: cover; 
 		
-		height: 100vh;
+		height: 100%;
 		width: 100%;
 		
 	}
@@ -384,8 +384,15 @@
 		color: #36aec9;
 	}
 
+	footer.gitlinks a div { 
+		float: left;
+	}
+	footer.gitlinks a:hover div{
+		text-decoration: underline;
+	}
 	footer.gitlinks{
-		padding: 10px;
+		padding: 20px;
+		margin-top: 15px;
 		margin: 0px;
 		clear: both;
 		overflow: auto;
@@ -404,28 +411,25 @@
 	|* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 	
 	
-	@media all and (max-width: 350px) {
+	@media all and (min-width: 1px) and (max-width: 350px) {
 		/******************************************************************
 		text goes out of bounds without this @media on small small screens
 		******************************************************************/
 		
+	}
+	@media all and (max-width: 701px) {
 		#the_page{
 			/* width: 60%; */
 			/* margin: auto; */
 			width: 98%;
 		}
-	}
-	@media all and (max-width: 700px) {
 		#asideBar {
-			
 			top: 1vh;
 			max-height: 95vh;
 		}
 	}
 	@media all and (max-width: 900px) {
-		body{
-			font-size: 15px;			
-		}
+		
 		#the_page{
 			/* width: 60%; */
 			/* margin: auto; */
@@ -450,9 +454,10 @@
 			
 			padding-left: 2px;
 		}
-	}
+	} 
 	/* @media all and (orientation:portrait)  { */
-	@media all and (orientation:portrait)
+	@media all and (orientation:portrait), 
+	       all and (orientation:landscape) and (min-width: 1px) and (max-width: 600px)
 		/* , screen and (orientation:landscape) and (max-width: 900px) and (min-height:1100px) */
 	{
 			 
@@ -482,6 +487,7 @@
 			margin: 0;
 		}
 		#asideBar {
+			font-size: 20px;
 			order: 1;
 			position: static;
 			/* padding: 0%; */
@@ -529,30 +535,39 @@
 		span.tab {  padding-left: 3px;  }
 	}
 	
-	
-	@media all and (min-width: 900px) and (max-width: 1100px) {
-		#page_flex{			
-			/*~  [debug]  ~*/
-			/* border: 5px solid blue; */
+	@media all and (orientation: portrait),
+		   all and (orientation:landscape) and (min-width: 1px) and (max-width: 700px),
+		   all and (orientation:landscape) and (max-height: 500px)
+	{
+		footer.gitlinks{
+			display: flex;
+			flex-flow: column;
+			padding: 0;
+			border: 3px solid green;
 		}
+		footer.gitlinks a:hover {
+			background-color: #00455d;
+		}
+		footer.gitlinks a:active {
+			background-color: #00b1ef;
+		}
+		footer.gitlinks a{
+			padding: 20px;
+			/* margin: 10px 0; */
+		}
+	}
+	
+	
+	@media all and (min-width: 900px)  {
+		
 		div.content{
 			flex: 0 0 65%;
 		}
 		#asideBar {
-			/* top: 1vh; */
 			max-height: 95vh;
-			/* this @media prevents the aside bar from being too narrow + a scrollbar: */
 		}
 	}
 	@media all and (min-width: 1520px) {
-		
-		#page_flex{
-			/*~  [debug]  ~*/
-			/* border: 5px solid white; */
-		}
-		#asideBar {
-			top: 10vh;
-		}
 		footer.floating_footer {
 			
 			width: 85%;
