@@ -42,12 +42,16 @@ layout: Layout_Philosophy_Blog
 	<div class="flex_container_listOfPosts">
 	{% for post in blog_posts %}
 
-	{% assign int_blog_num = post.blog_number | plus: 0 %}
+		{% assign int_blog_num = post.blog_number | plus: 0 %}
 
 		{% if int_blog_num >= int_min_num %}
+			
+			<!-- ********************************************* -->
 			{% include generate_post_reference.html 
 				post_to_gen=post
-				gen_color="purple"  %}
+				gen_color="green"  %}
+			<!-- ********************************************* -->
+
 		{% endif %}
 				
 	{% endfor %}

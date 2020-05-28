@@ -206,16 +206,13 @@
 			text-align: center;
 			border-top: 1px solid rgba(255, 255, 255,0.3); 
 			border-bottom: 1px solid rgba(222, 222, 222, 0.15); 
+			/* background-color: #2a72ab90; */
 		}
 		#home_button {
 			flex-shrink: 0;
-			min-width: 80px;
-			
+			min-width: 80px;			
 		}			
-	
-		#gc_navbar li{
-			/* background-color: #2a72ab90; */
-		}
+
 		#gc_navbar .current {
 			background-color: #1a9b51a9;
 			background-color: rgba(26, 155, 81, 0.66);
@@ -355,6 +352,9 @@
 		
 		-webkit-box-shadow: -11px 10px 2px -2px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1), 0 -1px 0 rgba(0,0,0,0.5);
 		box-shadow: -11px 10px 2px -2px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1), 0 -1px 0 rgba(0,0,0,0.5);
+		
+		width: max-content;
+		width: -moz-fit-content;
 		width: fit-content;
 		
 		border-bottom: 2.9px solid #03993d;
@@ -406,21 +406,27 @@
 		
 		-webkit-box-shadow: -11px 10px 2px -2px rgba(157, 54, 159, 0.3);
 		box-shadow: -11px 10px 2px -2px rgba(157, 54, 159, 0.3);
+		
+		width: max-content;
+		width: -moz-fit-content;
 		width: fit-content;
+
 		float: left;
 	}
 
 	div.tag_reference:active {
 		margin: 6px 2px 0px 2px;
 	}
-	div.tag_reference a:hover {
+	a:hover div.tag_reference  {
 		color: #aeffc1;
 	}
-	div.tag_reference a {
+	a div.tag_reference {
 		/* color: #00e706; */
 		color: #2fdc58;
 		/* text-shadow: -1.5px 1.2px 0px rgba(0, 0, 0, 0.2); */
-		margin: 2px 3px;
+		/* margin: 2px 3px; */
+		margin: 3px 2px 8px 2px;
+		
 		text-shadow: -1.5px 1.2px 0px #15408bba;
 		font-family: serif;
 		font-family: Consolas, 'Courier New', Courier, Palatino, monospace;
@@ -518,7 +524,11 @@
 			div.post_card_meta {
 				background-color: #000000ce;
 				color: silver;
+				
+				width: max-content;
+				width: -moz-fit-content;
 				width: fit-content;
+
 				padding: 5px;
 				margin-top: 0px;
 			}
@@ -590,9 +600,12 @@
 			#title_card_post_number {
 				background-color: #000000ce;
 				color: silver;
-				width: fit-content;
 				padding: 10px;
 				margin-top: 0px;
+				
+				width: max-content;
+				width: -moz-fit-content;
+				width: fit-content;
 			}
 			#title_card_background h1 {
 				/* padding: 40px 40px; */
@@ -606,6 +619,8 @@
 				text-align: center;
 				overflow: auto;
 				line-height: 1.2em;
+				width: max-content;
+				width: -moz-fit-content;
 				width: fit-content;
 			}
 			
@@ -628,7 +643,12 @@
 			padding: 20px;
 		}
 
-		div.title_card_tag a {
+		a:hover div.title_card_tag {
+			text-decoration: underline;
+			text-decoration-color: blue;
+			/* color: silver; */
+		}
+		a div.title_card_tag {
 			color: white;
 			/* text-shadow: -3.3px 2.4px 2px rgba(0, 0, 0, 0.2); */
 			text-shadow: -2px 2px 1px rgba(12, 83, 9, 0.54);
@@ -640,7 +660,8 @@
 			color: white;
 			/* margin: 10px 10px;  */
 			/* margin: 7px 10px 7px 7px; */
-			margin: 3px 2px 3px 2px;
+			/* margin: 3px 2px 3px 2px; */
+			margin: 3px 2px 8px 2px;
 			padding: 3px;
 	
 			/* background: rgb(28, 184, 65); */
@@ -651,10 +672,16 @@
 			/* text-shadow: -3.3px 2.4px 2px rgba(0, 0, 0, 0.2); */
 			/* text-shadow: -3.3px 2.4px 2px rgba(0, 0, 0, 0.2); */
 			
-			-webkit-box-shadow: -11px 10px 2px -2px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1), 0 -1px 0 rgba(0,0,0,0.5);
-			box-shadow: -11px 10px 2px -2px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1), 0 -1px 0 rgba(0,0,0,0.5);
+			/* -webkit-box-shadow: -11px 10px 2px -2px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1), 0 -1px 0 rgba(0,0,0,0.5); */
+			/* box-shadow: -11px 10px 2px -2px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1), 0 -1px 0 rgba(0,0,0,0.5); */
 			
+			-webkit-box-shadow: -11px 10px 2px -2px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1), 0 -1px 0 rgb(0, 225, 14);
+			box-shadow: -11px 10px 2px -2px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1), 0 -1px 0 rgb(0, 225, 14);
+			
+			width: max-content;
+			width: -moz-fit-content;
 			width: fit-content;
+
 			float: left;
 		}
 		div.title_card_tag_container{
@@ -668,6 +695,10 @@
 		}
 		div.title_card_tag_container div.title_card_tag:active {
 			margin: 18px 14px 10px 14px;
+		}
+		/* div.post_card__container a.tag:active { */
+		a.tag:active {
+			transform: translate(0px,6px);
 		}
 
 }
@@ -818,7 +849,8 @@ article div.changelog__preserveNewines {
 		margin-right: 0px;
 		margin-bottom: 1em;
 		/* flex: auto; */
-		padding: 0px 10px 0px 15px;
+		/* padding: 0px 10px 0px 15px; */
+		padding: 0px 13px 0px 20px;
 		/* padding: 0px 1em 0px 1em; */
 		position: -webkit-sticky;
 		position: sticky;
@@ -862,7 +894,15 @@ article div.changelog__preserveNewines {
 		padding: 5px 10px 10px 10px;
 		margin: 5px;
 		margin-bottom: 10px;
+		
+		width: max-content;
+		width: -moz-fit-content;
 		width: fit-content;
+		transition-timing-function: ease-out;
+		/* transition: margin 2s; */
+		/* transition: transform 2s; */
+		transition: transform 0.8s;
+		transition-timing-function: cubic-bezier(1,1,1,1);
 	}
 			#asideBar #next_prev_post .arrow_symbol {
 				/* float: left; */
@@ -875,15 +915,29 @@ article div.changelog__preserveNewines {
 				display: inline-block;
 			}
 				#asideBar #next_prev_post div.to_next_post:hover {
-					margin: 5px 0 10px 10px;
+					/* margin: 5px -10px 10px 20px; */
+					/* transition: margin 0.5s; */
+					transform: translate(15px, 0px);
+					/* transition-timing-function: ease-out; */
+					transition-timing-function: cubic-bezier(.19,.75,.75,.99);
 				}
 				#asideBar #next_prev_post div.to_prev_post:hover {
-					margin: 5px 10px 10px 0;
+					/* margin: 5px 20px 10px -10px; */
+					/* transition: margin 0.5s; */
+					transform: translate(-15px, 0px);
+					/* transition-timing-function: ease-out; */
+					transition-timing-function: cubic-bezier(.19,.75,.75,.99);
 				}
-				#asideBar #next_prev_post div.to_prev_post:active,
+				/* #asideBar #next_prev_post div.to_prev_post:active, */
 				#asideBar #next_prev_post div.to_next_post:active {
 					opacity: 50%;
+					margin-top: 20px;
+					transition: margin 0s;
+				}
+				#asideBar #next_prev_post div.to_prev_post:active{
+					opacity: 50%;
 					margin-top: 10px;
+					transition: margin 0s;
 				}
 					#asideBar #next_prev_post div.to_prev_post div.to_prev_underline,
 					#asideBar #next_prev_post div.to_next_post div.to_next_underline {
@@ -980,7 +1034,11 @@ article div.changelog__preserveNewines {
 		#asideBar.default_aside h3, 
 		#asideBar.default_aside ul, 
 		#asideBar.default_aside #next_prev_post {
+			
+			width: max-content;
+			width: -moz-fit-content;
 			width: fit-content;
+
 			margin-left: auto;
 			margin-right: auto;
 			padding: 20px;

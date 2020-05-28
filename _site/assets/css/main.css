@@ -206,7 +206,11 @@
 		
 		#gc_logo{
 			/* width: 305; */
+			
+			width: max-content;
+			width: -moz-fit-content;
 			width: fit-content;
+			
 			height: 80px;	
 			overflow: auto;
 			float: left;
@@ -315,7 +319,13 @@
 			p.intro_philosopher_linespacing{
 				margin-bottom: 25px;
 			}
-			
+	
+	div.app_highlights li {
+		padding: 20px;
+	}
+	div.content img {
+		width: 100%;
+	}
 			
 	
 	/* - - - - - - - - - - - *|
@@ -383,6 +393,12 @@
 		/* color: #1a9b51; */
 		color: #36aec9;
 	}
+
+
+
+	/* - - - - - - - - - - - *|
+	|*       footer          *|
+	|* - - - - - - - - - - - */
 
 	footer.gitlinks a div { 
 		float: left;

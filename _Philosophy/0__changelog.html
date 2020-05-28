@@ -21,7 +21,7 @@ layout: Layout_Philosophy_Blog
 <!-- main content -->
 <div id="page_content" class="fill_page_width">
 <!-- ******************************************************************* -->
-
+    
     {% assign post1 = site.Philosophy | where_exp:"pbpost",  "pbpost.blog_number == 1" | first %}
     <article style="float: right;">
         <a href="{{ post1.url | absolute_url }}">Goto: Post [#1]</a>
@@ -38,6 +38,11 @@ layout: Layout_Philosophy_Blog
         </div>
     </article>
 
+    <h2>Versioning method:</h2>
+    <article>
+        <b>[version #]</b>&nbsp; &nbsp; &nbsp;&nbsp; increments after each big site addition or major feature checkpoint. <br>
+        <b>[version . sub# ]</b> increments after minor additions, tweaks, changes, bugfixes.
+    </article>
 
 <!-- ******************************************************************* -->
 </div><!-- #content -->

@@ -98,9 +98,13 @@ layout: Layout_Philosophy_Blog
 			<div class="flex_container_listOfPosts">
 			{% for philo_post in blog_posts %}
 				{% if philo_post.tags contains tag %}
+
+					<!-- ********************************************* -->
 					{% include generate_post_reference.html 
-							post_to_gen=philo_post
-							gen_color="purple"  %}
+						post_to_gen=philo_post
+						gen_color="purple"  %}
+					<!-- ********************************************* -->
+					
 				{% endif %}
 			{% endfor %}
 			</div>
@@ -122,10 +126,11 @@ layout: Layout_Philosophy_Blog
 		
 		{% for tag in tag_list %}
 		
-		<div class="tag_reference">
-			<a class="tag" href="/Philosophy/PostsByTopic.html#{{ tag | slugify }}">{{ tag }}</a>
-		</div>
-
+		<a class="tag" href="/Philosophy/PostsByTopic.html#{{ tag | slugify }}">
+			<div class="tag_reference">
+				{{ tag }}
+			</div>
+		</a>
 		{% endfor %}
 
 	</div>

@@ -35,9 +35,13 @@
         
         {% unless philos_post.tags == empty or philos_post.tags == blank or philos_post.tags == nil %}
         <div class="post_card_tag_container">
+            
+            <!-- ********************************************* -->
             {% include generate_tags_under_post.html 
                 post_to_gen=philos_post
                 tag_bg_color=include.gen_color  %}
+            <!-- ********************************************* -->
+
         </div>
         {% endunless %}
 

@@ -30,11 +30,13 @@ layout: Layout_Philosophy_Blog
 	<div class="flex_container_listOfPosts">
 		
 	{% for post in blog_posts %}
-
+	
+		<!-- ********************************************* -->
 		{% include generate_post_reference.html 
 			post_to_gen=post
-			gen_color="purple"  %}
-			
+			gen_color="green"  %}
+		<!-- ********************************************* -->
+		
 	{% endfor %}
 	</div>
 	</article>

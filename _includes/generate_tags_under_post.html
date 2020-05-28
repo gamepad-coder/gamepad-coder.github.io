@@ -3,16 +3,24 @@
 
 {% assign philos_post = include.post_to_gen %}
 
+{% assign num_tags_this_card = philos_post.tags | size %}
+
+
 
 {% for tag in philos_post.tags %}
-
-{% if tag_bg == "green" %}
-<div class="title_card_tag">
-{% endif %}
-{% if tag_bg == "purple" %}
-<div class="tag_reference">
-{% endif %}
-    <a class="tag" href="/Philosophy/PostsByTopic.html#{{ tag | slugify }}">{{ tag }}</a>
-</div>
+<a class="tag" href="/Philosophy/PostsByTopic.html#{{ tag | slugify }}"
+    style="z-index: {{ num_tags_this_card }}"
+>
+    {% assign num_tags_this_card = num_tags_this_card | minus: 1 %}
+    {% if tag_bg == "green" %}
+    <div class="title_card_tag">
+    {% endif %}
+    <!-- else was broken/not working in Jekyll's Liquid implementation at the time of this writing -->
+    {% if tag_bg == "purple" %}
+    <div class="tag_reference">
+    {% endif %}
+        {{ tag }}
+    </div>
+    
+</a>
 {% endfor %}
-

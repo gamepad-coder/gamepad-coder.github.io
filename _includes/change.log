@@ -9,8 +9,8 @@
 [v8]
 [v9]
 
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+``````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
 [v10]
 
 mainly fixes & additions to blog sub-site 
@@ -63,6 +63,54 @@ mainly fixes & additions to blog sub-site
 └── +  minor tweaks and fixes
 
 
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+``````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+[v10.1]
+
+Firefox display bugfix.
+Topic "#tags" coloring consistency across site.
+<- Prev & Next -> buttons animated now.
+
+[bugfix]
+│           
+├── +  [firefox]        Firefox does not respond to the css rule{ width: fit-content; } when fit-content() has no specific params.
+│           └─          Ammended each {width:fit-content} to also contain fallback options: 
+│                                │
+│                               (+)
+│                                └──>        width: max-content;
+│                                └──>        width: -moz-fit-content;
+│                                └──>        width: fit-content;
+│                       This should fix Firefox display on desktop + mobile too.
+└                       Chrome (desktop+mobile) and Edge (desktop at least) were already responding to the unpatched line.		                
+           
+
+[polish]
+│
+├── +  [color]      Made tag colors [on post pages] + tag colors [under post previews] have the same green background.
+│                   Kept purple background for tags on [list of topics] page to signify those purple tag buttons
+│                   serve a different function & are internal navigation links for that page.    
+│                                │
+│                               (+) also
+│                                │
+│                   Added a z-order to each tag displayed in the preview cards
+│                   (first tag items parsed in the Jekyll Liquid loop get highest values, decrements to 1)
+│           
+│                   This prevents the tag's box shadow from displaying over its left neighbor.
+│                   Vertical margin added to prevent overshadowing lower rows 
+└                   (though this still happens upon button click, but I like the split-second effect here).
+
+
+< new feature >
+│           
+├── +  added transition effect for goto next|prev post.
+│           
+├── +  added individual project pages under /App/(projectName).html
+│                                │
+└                                └──>        [~] adding summaries next.
+
+
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+``````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+
 {% endraw %}
