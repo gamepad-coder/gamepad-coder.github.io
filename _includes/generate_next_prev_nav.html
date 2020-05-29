@@ -1,50 +1,58 @@
     
-    
-    {% assign string_top   = "top" %}
-    {% assign string_time  = "time" %}
-    {% assign string_topic = "topic" %}
-    {% assign latest_blog_post = site.Philosophy 
-                            | where_exp:"pbp",  "pbp.blog_number != string_top" 
-                            | where_exp:"pbp",  "pbp.blog_number != string_time"  
-                            | where_exp:"pbp",  "pbp.blog_number != string_topic"  
-                            | reverse 
-                            | first %}
+            {%- assign string_top   = "top" -%}
+            {%- assign string_time  = "time" -%}
+            {%- assign string_topic = "topic" -%}
+            {%- assign latest_blog_post = site.Philosophy 
+                                    | where_exp:"pbp",  "pbp.blog_number != string_top" 
+                                    | where_exp:"pbp",  "pbp.blog_number != string_time"  
+                                    | where_exp:"pbp",  "pbp.blog_number != string_topic"  
+                                    | reverse 
+                                    | first -%}
 
-    
-    {% assign int_this = page.blog_number | plus: 0 %}
-    
-    {% assign int_prev = int_this | minus: 1 %}
-    {% assign int_next = int_this | plus: 1 %}
 
-    {% assign int_most_recent_post = latest_blog_post.blog_number | plus: 0 %}
+            {%- assign int_this = page.blog_number | plus: 0 -%}
 
-    <nav id="next_prev_post">
-    <!-- gen link to previous post -->
-    {% if int_this > 0 %}
-        
-        {% assign post_prev = site.Philosophy | where_exp:"pbpost",  "pbpost.blog_number == int_prev" | first %}
-        <a href="{{ post_prev.url | absolute_url }}">
-            <div class="to_prev_post">
-                <div class="to_prev_underline">
-                    <span>[#{{ int_prev }}] </span> 
-                    <div class="arrow_symbol">&#x21E6</div>
-                    <span>Previous Post</span>
-                </div>
-            </div>
-        </a>
-        
-    {% endif %}
-    <!-- gen link to next post -->
-    {% if int_this < int_most_recent_post %}
-        {% assign post_next = site.Philosophy | where_exp:"pbpost",  "pbpost.blog_number == int_next" | first %}
-        <a href="{{ post_next.url | absolute_url }}">
-            <div class="to_next_post">
-                <div class="to_next_underline">
-                    <span>Next Post</span>
-                    <div class="arrow_symbol">&#x21E8</div>
-                    <span>[#{{ int_next }}] </span> 
-                </div>
-            </div>
-        </a>
-    {% endif %}
-    </nav>
+            {%- assign int_prev = int_this | minus: 1 -%}
+            {%- assign int_next = int_this | plus: 1 -%}
+
+            {%- assign int_most_recent_post = latest_blog_post.blog_number | plus: 0 -%}
+
+            <nav id="next_prev_post">
+            
+                {%- if int_this > 0 %}
+
+                <!-- page.blog_number > 0 : -->
+                <!-- gen link to previous post -->
+                
+                {% assign post_prev = site.Philosophy | where_exp:"pbpost",  "pbpost.blog_number == int_prev" | first -%}
+                <a href="{{ post_prev.url | absolute_url }}">
+                    <div class="to_prev_post">
+                        <div class="to_prev_underline">
+                            <span>[#{{ int_prev }}] </span> 
+                            <div class="arrow_symbol">&#x21E6</div>
+                            <span>Previous Post</span>
+                        </div>
+                    </div>
+                </a>                
+                
+                {%- endif -%}
+
+                {%- if int_this < int_most_recent_post %}
+                
+                <!-- page.blog_number < most recent blog post : -->
+                <!-- gen link to next post -->
+
+                {% assign post_next = site.Philosophy | where_exp:"pbpost",  "pbpost.blog_number == int_next" | first -%}
+                <a href="{{ post_next.url | absolute_url }}">
+                    <div class="to_next_post">
+                        <div class="to_next_underline">
+                            <span>Next Post</span>
+                            <div class="arrow_symbol">&#x21E8</div>
+                            <span>[#{{ int_next }}] </span> 
+                        </div>
+                    </div>
+                </a>
+                
+                {%- endif %}
+
+            </nav>

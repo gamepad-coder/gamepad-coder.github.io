@@ -16,34 +16,48 @@ options:
 layout: Layout_Philosophy_Blog
 ---
 
+{%- comment %}
+<!-- -------------------------------------- 
+		© released under cc0  
+	--------------------------------------
+@ Gamepad.Coder 2020: this site's HTML+CSS  
+@ Gigi Truelove 2020: this site's HTML+CSS initial concept+layout 
+-->		
+{% endcomment -%}
 
-<!-- ******************************************************************* -->
-<!-- main content -->
-<div id="page_content" class="fill_page_width">
-<!-- ******************************************************************* -->
-    
-    {% assign post1 = site.Philosophy | where_exp:"pbpost",  "pbpost.blog_number == 1" | first %}
-    <article style="float: right;">
-        <a href="{{ post1.url | absolute_url }}">Goto: Post [#1]</a>
-    </article>
+        <!-- main content -->
+        <div id="page_content" class="fill_page_width">
+            
+            {% assign post1 = site.Philosophy | where_exp:"pbpost",  "pbpost.blog_number == 1" | first %}
+            <article style="float: right;">
+                <a href="{{ post1.url | absolute_url }}">Goto: Post [#1]</a>
+            </article>
 
-    <br><br><br>
-        
-    <h2 id="Section_1">History</h2>
-    <article>
-        <div class="changelog_wrapper">
-            <div class="changelog__preserveNewines">
-                    {%- include change.log %}
-            </div>
-        </div>
-    </article>
+            <br><br><br>
+                
+            <h2 id="Section_1">History</h2>
+            <article>
+                <div class="changelog_wrapper">
+                    <div class="changelog__preserveNewines">
+                            <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -- >
+                            < -- I keep track of changes to the site in a file called change.log  -- >
+                            < -- I use Jekkyll to import this file into the following scrollbox   -- >
+                            < -- using the Liquid tag:      {%raw%}{% include change.log %}{%endraw%}              -- >
+                            < -- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  -->
 
-    <h2>Versioning method:</h2>
-    <article>
-        <b>[version #]</b>&nbsp; &nbsp; &nbsp;&nbsp; increments after each big site addition or major feature checkpoint. <br>
-        <b>[version . sub# ]</b> increments after minor additions, tweaks, changes, bugfixes.
-    </article>
+                                                {% include change.log %}                                
+                            
+                            <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -- >
+                            < --                                  end of change.log file          -- >
+                            < -- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+                </div>
+            </article>
 
-<!-- ******************************************************************* -->
-</div><!-- #content -->
-<!-- ******************************************************************* --> 
+            <h2>Versioning method:</h2>
+            <article>
+                <b>[version #]</b>&nbsp; &nbsp; &nbsp;&nbsp; increments after each
+                                    big site addition or major feature checkpoint. <br>
+                <b>[version . sub# ]</b> increments after minor additions, tweaks, changes, bugfixes.
+            </article>
+
+        </div><!--main content -->

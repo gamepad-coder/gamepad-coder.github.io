@@ -112,5 +112,24 @@ Topic "#tags" coloring consistency across site.
 
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ``````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+[v10.2]
+
+[polish]
+│
+├── +  [indents]    Formatted HTML layouts & pages Jekyll inserts into them to ensure the processed output file
+│                   (and the source you see when you right click -> view source on the live site)
+│                   have tidy and consistent indentation.
+│
+├── +  [comments]   Added comments to baked HTML files indicating where Jekyll inserts 
+│                   code into _Layouts & from _Includes. 
+│
+├── +  [comments]   Used Liquid {%- tags -%} with hyphens: this removes auto-generated newlines from Liquid commands.
+│                   This whitespace is generated even for commands which produce no output.
+│                   Final processed code looks so much cleaner and more consistent now.
+│
+├── +  [general tidying]   Took long lines and broke them into shorter lines. 
+└                          This made the .html files much nicer to view and much easier to  skim.
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+``````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
 
 {% endraw %}

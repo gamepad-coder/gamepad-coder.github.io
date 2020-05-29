@@ -7,37 +7,36 @@
 
 <!doctype html>
 <html>
-<head>
-	<meta charset="UTF-8" />
+	<head>
+		<meta charset="UTF-8" />
 
-    <title>{{ page.title }}</title>
-	
-	<!-- <link rel="stylesheet" href="{{site.baseurl}}/assets/css/philosophy.css" type="text/css" /> -->
-	<!-- <link rel="stylesheet" href="{{ "/assets/css/philosophy.css" | relative_url }}" type="text/css" /> -->
-	<link rel="stylesheet" href="{{ "/assets/css/philosophy.css" | absolute_url }}" type="text/css" />
-	
-	
-	<!-- href="{{ "__________" | absolute_url }}" -->
-	
-	
-	
-	<link rel="preload" href="{{ "/assets/images/avatar_gamepad.coder.png" | absolute_url }}" as="image" />
-	<link rel="icon" 
-      type="image/png" 
-      href="{{ "/assets/images/avatar_favicon_gamepad.coder.png" | absolute_url }}">
-	<link rel="preload" href="{{ "/assets/images/contact/stock_plant_mediumQ.jpg" | absolute_url }}" as="image" />
-	  
-	<meta name="description" content="The professional website of Gamepad.Coder, programmer, technical writer, philospher, and all aroung great guy. -- Description written by my Wife <3; philosophy blog." />
-	<meta name="keywords" content="professional, resume, programmer, technical writer, philosophy blog" />
-	<meta name="robots" content="nofollow" />
-	<meta http-equiv="author" content="Gamepad.Coder, Gamepad-Coder" />
-	<meta http-equiv="pragma" content="no-cache" />
-	
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=12.0, minimum-scale=.05, user-scalable=yes"/>
-	
-</head>
+		<title>{{ page.title }}</title>
+		<link rel="stylesheet" href="{{ "/assets/css/philosophy.css" | absolute_url }}" type="text/css" />
+		
+		<link rel="preload" href="{{ "/assets/images/avatar_gamepad.coder.png" | absolute_url }}" as="image" />
+		<link rel="icon" 
+		type="image/png" 
+		href="{{ "/assets/images/avatar_favicon_gamepad.coder.png" | absolute_url }}">
+		<link rel="preload" href="{{ "/assets/images/contact/stock_plant_mediumQ.jpg" | absolute_url }}" as="image" />
+		
+		<meta name="description" 
+			  content="The professional website of Gamepad.Coder, programmer
+			          , technical writer, philospher, and all aroung great guy. 
+			          -- Description written by my Wife <3; philosophy blog." />
+		<meta name="keywords" content="professional, resume, programmer, technical writer, philosophy blog" />
+		<meta name="robots" content="nofollow" />
+		<meta http-equiv="author" content="Gamepad.Coder, Gamepad-Coder" />
+		<meta http-equiv="pragma" content="no-cache" />
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=12.0, minimum-scale=.05, user-scalable=yes"/>
+		
+	</head>
 <body>
-<!-- <div id="website_background"></div> -->
+
+
+<!-- ========================================================= -->
+<!-- #the_page contains everything inside the main page block -->
+<!-- ========================================================= -->
 <div id="the_page">
 
 	
@@ -74,84 +73,118 @@
 				</a>
 		</nav>
 	</header>
-	<!-- *************************************************************************************** -->
+	
 
+	<!-- *************************************************************************************** -->
+	<!-- Blog Page title + backdrop picture (from unsplash)  -->
+	<!-- & (if post) : Post # + Post Date + Post Summary + (if tagged) Topic hashtags -->
 	{% capture blog_bg_url_hiQ %}/assets/images/philos/{{ page.blog_number }}.jpg{% endcapture %}
-	{% capture blog_bg_url_loQ %}/assets/images/philos/loQ/{{ page.blog_number }}.jpg{% endcapture %}
+	{%- capture blog_bg_url_loQ %}/assets/images/philos/loQ/{{ page.blog_number }}.jpg{% endcapture -%}
 	<header id="blog_post_title_card">
 
 		<div id="title_card_background"			
 				style="background-image: url('{{ blog_bg_url_hiQ | absolute_url }}'), 
 										url('{{ blog_bg_url_loQ | absolute_url }}');"
 		>
-			
-			{% unless page.options contains "skip_card_metadata" %}
-			
+			{%- unless page.options contains "skip_card_metadata" %}
 			<p id="title_card_post_number">
-				<span style="color: white;">Post:</span> [#{{page.blog_number}}]
-				<br>
+				<span style="color: white;">Post:</span> [#{{page.blog_number}}] <br>
 				<span style="color: white;">Time</span>: {{ page.date_written }}
-				<!-- Time: {{ page.date_written }} -->
 			</p>
-			{% endunless %}
+			{%- endunless %}
 			
 			<h1>{{ page.title }}</h1>
 			
-			{% unless page.options contains "skip_card_metadata" %}
+			{% unless page.options contains "skip_card_metadata" -%}
 			<div id="title_card_topic">
 				<b>Topic:</b>
 				<div>
 					{{- page.topic -}}
 				</div>
 			</div>
-			{% endunless %}
+			{%- endunless %}
 		</div>
 
 		
+		{% unless page.options contains "skip_card_metadata" -%}
+
 		<div class="title_card_tag_container">
 			
-			<!-- ********************************************* -->
+			<!-- ---------------------------------------------------------------------------------
+				Jekyll generated and inserted the following from "generate_tags_under_post.html" 
+				into Layout_Philosophy_Blog.html at the line containing the Liquid include tag: 
+					{% raw %} 
+					{% include generate_tags_under_post.html 
+						post_to_gen=page
+						tag_bg_color="green"  %}
+					{% endraw %} 
+			--------------------------------------------------------------------------------- -->
+
 			{% include generate_tags_under_post.html 
 				post_to_gen=page
 				tag_bg_color="green"  %}
-			<!-- ********************************************* -->
+			
+			<!-- -------------------------------------------------------------------------
+									 end of insert from "generate_tags_under_post.html"
+			---------------------------------------------------------------------------->
 
 		</div>
 		
+		{%- endunless %}
 		
 	</header>
 
 
+	<!--   main content     -->
+	<!--   (+) optionally   -->
+	<!--   sidebar          -->
 	<div id="page_flex">			
+		
 
-			<!-- *********************************** -->
-			{{ content }}
-			<!-- *********************************** -->
+		<!-- -------------------------------------------------------------------------
+			Jekyll inserted the following from "{{ page.url }}" 
+			into Layout_Philosophy_Blog.html at the line containing the Liquid object: 
+				{% raw %} {{ content }} {% endraw %} 
+		------------------------------------------------------------------------- -->
+
+
+		{{ content }}
+
+
+		<!-- -------------------------------------------------------------------------
+									end of insert from "{{ page.url }}"   
+		---------------------------------------------------------------------------->
 			
 		
 		{% unless page.options contains "skip_autogen_sidebar" %}
 
-		<!-- per each blog post:
-		each <h2> tag given an id of "Section_#", 
-		if page wants navigation links generated, it specifies in its front matter options.number_of_nav_sections: # of <h2> ids -->
+		<!-- Per each blog post:
 
-		<!--
+			Each Section's <h2> tag has a unique id of "Section_#".
+			If a page wants navigation links generated by the layout, it specifies in its front matter: 
+				options.number_of_nav_sections: [integer] number of <h2> ids used 
+
+		-->
+
+		<!-- About the following Liquid commands : 
+
 			filter "map" : 
 				specify the value to be page.options{ the value stored in options.number_of_nav_sections }
+
 			filter "| plus: 0" :
 				ensures this var is stored as type int  
-		-->
-		
-		
+
+		-->		
 		
 		<aside id="asideBar" class="default_aside">
-			{% assign number_of_navigation_links = page.number_of_nav_sections | plus: 0 %}
+			
+			{%- assign number_of_navigation_links = page.number_of_nav_sections | plus: 0 -%}
 
 			{% unless number_of_navigation_links == 0 %}
 
 			<h3>Navigate this Post</h3>
 			<ul>
-				{% for i in (1..number_of_navigation_links) %}
+				{%- for i in (1..number_of_navigation_links) -%}
 				{% assign hyperlink = page.url | append: "#Section_" | append: i %}
 				
 				<a href="{{ hyperlink | absolute_url }}">
@@ -161,33 +194,29 @@
 			</ul>
 			{% endunless %}
 
-			<!-- ********************************************* -->
+			<!-- ---------------------------------------------------------------------------------
+				Jekyll generated and inserted the following from "generate_next_prev_nav.html" 
+				into Layout_Philosophy_Blog.html at the line containing the Liquid include tag: 
+					{% raw %} 
+					{% include generate_next_prev_nav.html %}
+					{% endraw %} 
+			--------------------------------------------------------------------------------- -->
+
 			{% include generate_next_prev_nav.html %}
-			<!-- ********************************************* -->
+
+			<!-- -------------------------------------------------------------------------
+									 end of insert from "generate_next_prev_nav.html"
+			---------------------------------------------------------------------------->
 	
 		</aside>
 		{% endunless %}
 		
+
 	</div><!-- .page_flex -->
 	
+
 	<!-- footer of main page block -->
 	<footer id="blog_time_n_topic">
-				<!-- ----------------------------------------- 
-					what all this does: 
-					
-					if the screen is wide enough
-					
-						each link appears on its own line
-						without any spaces in between
-					
-					if the screen is narrow enough 
-					
-						each link appears 
-						on two lines
-						
-						with a space
-						in between
-			     ----------------------------------------- -->
 				 
 				<a href="{{ "/Philosophy/PostsByTime.html" | absolute_url }}">
 					<div class="blog_time_n_topic__bg">
@@ -202,30 +231,19 @@
 						<div>Posts by Topic.</div>
 					</div>
 				</a>
-	</footer>
+
+	</footer><!-- footer of main page block -->
 	
-</div><!-- .page -->
-	
+
+</div><!-- #the_page -->
+<!-- ========================================================= -->
+<!-- #the_page contains everything inside the main page block -->
+<!-- ========================================================= -->
+
 
 <!-- floating footer -->
 <footer class="floating_footer">
 	<div class="gitlinks">
-			<!-- ----------------------------------------- 
-					what all this does: 
-					
-					if the screen is wide enough
-					
-						each link appears on its own line
-						without any spaces in between
-					
-					if the screen is narrow enough 
-					
-						each link appears 
-						on two lines
-						
-						with a space
-						in between
-			     ----------------------------------------- -->
 			
 			<div id="image_credits" style="float: left; margin-bottom: 40px;">
 				<span style="float: left; clear: left;" >Pictures used are free</span>
@@ -254,16 +272,12 @@
 		&copy; Gamepad.Coder 2020
 		<br>
 		<br>
-		Have a wonderful day.
-		<!-- 
-			css:p.copyright{line-height: 1em;}
-			
-			gives this double br a nice spacing 
-		-->
 	</p>
-</footer>	
+</footer><!-- floating footer -->
+
 
 </body>
 </html>
+
 
 <!-- Have a wonderful day. -->

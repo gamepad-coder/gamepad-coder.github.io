@@ -10,37 +10,33 @@ options:
 layout: Layout_Philosophy_Blog
 ---
 
-<!-- ******************************************************************* -->
-<!-- main content -->
-<div id="page_content" class="page_content__time">
-<!-- ******************************************************************* -->
-    
-    
-	{% assign string_top   = "top" %}
-	{% assign string_time  = "time" %}
-	{% assign string_topic = "topic" %}
-	{% assign blog_posts = site.Philosophy 
-							| where_exp:"pbp",  "pbp.blog_number != string_top" 
-							| where_exp:"pbp",  "pbp.blog_number != string_time"  
-							| where_exp:"pbp",  "pbp.blog_number != string_topic"  %}
+			<!-- main content -->
+			<div id="page_content" class="page_content__time">
+				
+				
+				{% assign string_top   = "top" %}
+				{% assign string_time  = "time" %}
+				{% assign string_topic = "topic" %}
+				{% assign blog_posts = site.Philosophy 
+										| where_exp:"pbp",  "pbp.blog_number != string_top" 
+										| where_exp:"pbp",  "pbp.blog_number != string_time"  
+										| where_exp:"pbp",  "pbp.blog_number != string_topic"  %}
 
 
-	<h2 style="margin-bottom: 75px;">List of all posts:</h2>
-	<article class="article_tag_list_of_posts">
-	<div class="flex_container_listOfPosts">
-		
-	{% for post in blog_posts %}
-	
-		<!-- ********************************************* -->
-		{% include generate_post_reference.html 
-			post_to_gen=post
-			gen_color="green"  %}
-		<!-- ********************************************* -->
-		
-	{% endfor %}
-	</div>
-	</article>
+				<h2 style="margin-bottom: 75px;">List of all posts:</h2>
+				<article class="article_tag_list_of_posts">
+					<div class="flex_container_listOfPosts">
+						
+					{% for post in blog_posts %}
+					
+						<!-- ********************************************* -->
+						{% include generate_post_reference.html 
+							post_to_gen=post
+							gen_color="green"  %}
+						<!-- ********************************************* -->
+						
+					{% endfor %}
+					</div>
+				</article>
 
-<!-- ******************************************************************* -->
-</div><!-- #content -->
-<!-- ******************************************************************* -->
+			</div><!-- #content -->

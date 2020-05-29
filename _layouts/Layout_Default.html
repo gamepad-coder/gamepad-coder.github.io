@@ -7,30 +7,33 @@
 
 <!doctype html>
 <html>
-<head>
-	<meta charset="UTF-8" />
-	
-	<title>{{ page.title }}</title>
-	<link href="/assets/css/main.css" type="text/css" rel="stylesheet" />
-	
-	
-	<link rel="preload" href="/assets/images/avatar_gamepad.coder.png" as="image" />
-	<link rel="icon" 
-      type="image/png" 
-      href="/assets/images/avatar_favicon_gamepad.coder.png">
-	  
-	<meta name="description" content="The professional website of Gamepad.Coder, programmer, technical writer, philospher, and all aroung great guy. -- Description written by my Wife <3; {{ page.meta_description }}" />
-	<meta name="keywords" content="professional, resume, programmer, technical writer, {{ page.meta_keywords }}" />
-	<meta name="robots" content="nofollow" />
-	<meta http-equiv="author" content="Gamepad.Coder, Gamepad-Coder" />
-	<meta http-equiv="pragma" content="no-cache" />
-	
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=12.0, minimum-scale=.05, user-scalable=yes"/>
-	
-</head>
+	<head>
+		<meta charset="UTF-8" />
+		
+		<title>{{ page.title }}</title>
+		<link rel="stylesheet" href="{{ "/assets/css/main.css" | absolute_url }}" type="text/css" />
+		
+		<link rel="preload" href="{{ "/assets/images/avatar_gamepad.coder.png" | absolute_url }}" as="image" />
+		<link rel="icon" 
+		type="image/png" 		
+		href="{{ "/assets/images/avatar_favicon_gamepad.coder.png" | absolute_url }}">
+		
+		<meta name="description" 
+			  content="The professional website of Gamepad.Coder, programmer
+					  , technical writer, philospher, and all aroung great guy.
+					  -- Description written by my Wife <3; {{ page.meta_description }}" />
+		<meta name="keywords" content="professional, resume, programmer, technical writer, {{ page.meta_keywords }}" />
+		<meta name="robots" content="nofollow" />
+		<meta http-equiv="author" content="Gamepad.Coder, Gamepad-Coder" />
+		<meta http-equiv="pragma" content="no-cache" />
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=12.0, minimum-scale=.05, user-scalable=yes"/>
+	</head>
 <body>
+
 <div id="website_background"></div>
 <div id="the_page">	
+
 	<!-- backdrop + username + navigation strip -->
 	<header>
 	
@@ -40,75 +43,84 @@
 				
 						<!-- Picture of my favorite controller, 
 							 taken with phone's camera, editied in GNU Krita-->
-						<img class="gc_picture" src="assets/images/avatar_gamepad.coder.png" width="50" height="50">
+						<img class="gc_picture" src="{{ "/assets/images/avatar_gamepad.coder.png" | absolute_url }}" width="50" height="50">
 						<h1 class="gc_txt">Gamepad.Coder</h1>
 					
 				</div>
 			</a>
 			<div id="gc_hire">
-			
+						{% comment %}  {% raw %}
 						<!-- this utilizes the templating language "Liquid" : -->
 						<!-- Jekyll will { % conditionally % } give one <li> an attribute of class="current" -->
 						<!-- if the .html page importing this layout matches the title -->
-						<li
-							{%  if page.title == "Contact for Hire"  %}
+						{% endraw %}   {%- endcomment -%}  
+						<li 
+							{%-  if page.title == "Contact for Hire"  -%}
+								{{-" "-}}
 								class="current"
-							{%  endif  %}
+							{%-  endif  -%}
 						>
 							<a href="/contact.html">Contact for Hire</a>  
 						</li>
 			</div>
 		</div>
 		
-		<nav id="gc_navbar">
-				
+		<nav id="gc_navbar">				
 				<li id="home_button"
-					{%  if page.title == "Gamepad.Coder"  %}
-						class="current"
-					{%  endif  %}
+					{%-  if page.title == "Gamepad.Coder"  -%}
+						{{-' class="current"'-}}
+					{%-  endif  -%}
 				>
 					<a href="/">Home</a>
 				</li>
-				
-				
 				<li
-					{%  if page.title == "Apps Written"  %}
+					{%-  if page.title == "Apps Written"  -%}
+						{{-" "-}}
 						class="current"
-					{%  endif  %}
+					{%-  endif  -%}
 				>
 					<a href="/Apps.html">Apps Written</a>
 				</li>
-				
-				
 				<li
-					{%  if page.title == "Documentation"  %}
+					{%- if page.title == "Documentation" -%}
+						{{-" "-}}
 						class="current"
-					{%  endif  %}
+					{%-  endif  -%}
 				>
 					<a href="/Documentation.html">Documentation for Projects</a>
 				</li>
-				
-				
 				<li
-					{%  if page.title == "Philosophy Blog"  %}
+					{%-  if page.title == "Philosophy Blog"  -%}
+						{{-" "-}}
 						class="current"
-					{%  endif  %}
+					{%-  endif  -%}
 				>
-					<a href="/Philosophy.html">Philosophy Blog</a></li>
+					<a href="/Philosophy.html">Philosophy Blog</a>
+				</li>
 		</nav>
 		
 	</header>
+
+
+	<!--   main content     -->
+	<!--   (+) optionally   -->
+	<!--   sidebar          -->
 	<div id="page_flex">
 	
-		<!--   main content     -->
-		<!--   (+) optionally   -->
-		<!--   sidebar          -->
-		
+		<!-- -------------------------------------------------------------------------
+		     Jekyll inserted the following from "{{ page.name }}" 
+			 into Layout_Default.html at the line containing the Liquid object: 
+				{% raw %} {{ content }} {% endraw %} 
+		  ------------------------------------------------------------------------- -->
+
 		{{ content }}
+		<!-- -------------------------------------------------------------------------
+		                                     end of insert from "{{ page.name }}"   
+		  ---------------------------------------------------------------------------->
 		
-		
-	</div><!-- .page_flex -->
+	</div><!-- .page_flex: main content (+sidebar) -->
 	
+
 	<!-- footer of main page block -->
 	<footer class="gitlinks">
 			<!-- ----------------------------------------- 
@@ -129,21 +141,25 @@
 			     ----------------------------------------- -->
 				 
 			<a style="float: left;" class="a_gitlinks" href="https://github.com/gamepad-coder/">
-			<!-- <div style="float: left;"> --> 
+				
 				<div>View Gamepad.Coder's&nbsp;</div>
 				<div>programs on GitHub.</div>
-			<!-- </div> -->
+				
 			</a>
 			
-			<a style="float: left; clear: left;"  class="a_gitlinks" href="https://github.com/gamepad-coder/gamepad-coder.github.io">
+			<a style="float: left; clear: left;"  class="a_gitlinks" 
+			   href="https://github.com/gamepad-coder/gamepad-coder.github.io">
 			
 				<div>View this website's&nbsp;</div>
 				<div>source code on GitHub.</div>
+
 			</a>
 			
 	</footer>
-									
+
+	
 </div><!-- .page -->
+
 
 <!-- floating footer -->
 <footer class="floating_footer">
@@ -160,7 +176,9 @@
 	</p>
 </footer>	
 
+
 </body>
 </html>
+
 
 <!-- Have a wonderful day. -->

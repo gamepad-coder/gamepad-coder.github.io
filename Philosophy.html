@@ -12,53 +12,64 @@ display_recents_starting_at_number: 0
 layout: Layout_Philosophy_Blog
 ---
 
-<!-- ******************************************************************* -->
-<!-- main content -->
-<div id="page_content">
-<!-- ******************************************************************* -->
+{%- comment -%}
+<!-- -------------------------------------- 
+		© released under cc0  
+	--------------------------------------
+@ Gamepad.Coder 2020: this site's HTML+CSS  
+@ Gigi Truelove 2020: this site's HTML+CSS initial concept+layout 
+-->		
+{%- endcomment -%}
 
+		{%- assign min_post_recent = page  | map:"display_recents_starting_at_number" -%}
 
-{% assign min_post_recent = page  | map:"display_recents_starting_at_number" %}
+		{%- assign int_min_num = min_post_recent[0] | plus: 0 -%}
 
-{% assign int_min_num = min_post_recent[0] | plus: 0 %}
-
-    
-    
-{% assign string_top   = "top" %}
-{% assign string_time  = "time" %}
-{% assign string_topic = "topic" %}
-{% assign blog_posts = site.Philosophy 
-						| where_exp:"pbp",  "pbp.blog_number != string_top" 
-						| where_exp:"pbp",  "pbp.blog_number != string_time"  
-						| where_exp:"pbp",  "pbp.blog_number != string_topic"  
-						| reverse  %}
-
-
-	
-	<h2>Latest Posts</h2>
-	<article>
-		<!-- define front matter here for # to start at
-		list all above that num  -->
-	<div class="flex_container_listOfPosts">
-	{% for post in blog_posts %}
-
-		{% assign int_blog_num = post.blog_number | plus: 0 %}
-
-		{% if int_blog_num >= int_min_num %}
 			
-			<!-- ********************************************* -->
-			{% include generate_post_reference.html 
-				post_to_gen=post
-				gen_color="green"  %}
-			<!-- ********************************************* -->
+			
+		{%- assign string_top   = "top" -%}
+		{%- assign string_time  = "time" -%}
+		{%- assign string_topic = "topic" -%}
+		{%- assign blog_posts = site.Philosophy 
+								| where_exp:"pbp",  "pbp.blog_number != string_top" 
+								| where_exp:"pbp",  "pbp.blog_number != string_time"  
+								| where_exp:"pbp",  "pbp.blog_number != string_topic"  
+								| reverse  -%}
 
-		{% endif %}
-				
-	{% endfor %}
-	</div>
+		<!-- main content -->
 
-	</article>
+		<div id="page_content">
+			
+			<h2>Latest Posts</h2>
+			<article>
+				<!-- This main page defines (in its front matter)
+					 a post number # to start at, 
+					 lists the most recent posts : 
+					 down to the specified number to stop at  -->
+		
+				<div class="flex_container_listOfPosts">
+				{% for post in blog_posts %}
 
-<!-- ******************************************************************* -->
-</div><!-- #content -->
-<!-- ******************************************************************* -->
+					<!-- ********************************************* -->
+					{%- assign int_blog_num = post.blog_number | plus: 0 -%}
+
+					{%- if int_blog_num >= int_min_num %}
+						
+						{%- include generate_post_reference.html 
+							post_to_gen=post
+							gen_color="green"  %}
+					<!-- ********************************************* -->
+
+					{%- endif -%}
+							
+				{% endfor %}
+				</div>
+
+			</article>
+
+		</div><!-- #content -->
+
+
+{%- comment -%}
+<!-- Have a wonderful day. -->
+{%- endcomment -%}
