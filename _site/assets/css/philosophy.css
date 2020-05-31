@@ -15,7 +15,7 @@
 	body{
 		font-family: Monospace, Palatino, Verdana, serif;
 		/* font-size: 18px; */
-		line-height: 1.25em;	
+		line-height: 1.5em;	
 		color: black;
 	}
 	
@@ -91,11 +91,35 @@
 }
 #page_flex span.parenthetical{ 
     color: #747474;
-    font-family: initial;
+    /* font-family: initial; */
+    font-family: monospace;
     font-style: italic;
-    font-size: initial;
+	font-size: initial;
+	text-shadow: -0.3px -0.3px 0px rgba(137, 137, 137, 0.54);
 }
-
+#page_flex span.indent{ 
+	margin-left: 40px;
+}
+#page_flex span.code{
+	background-color: rgb(40, 40, 40);
+    color: white;
+    /* padding: 1px 1px 0px 1px; */
+    padding: 3px 2px 2px 2px;
+    border-radius: 2px;
+    vertical-align: middle;
+    box-shadow: 0px 1px 0 1px #285585e6;
+    font-family: courier;
+    font-size: 15px;
+}
+#page_flex span.code_b{ 
+	background-color: rgb(40, 40, 40);
+    color: white;
+    border: 2.9px inset #033199;
+    padding: 0px;
+    border-radius: 5px;
+    /* box-shadow: inset 0px -1px 0 1px #285585e6; */
+    line-height: 2em;
+}
 				    /* -------------- */
 				   /*                */
 				  /*   </> fonts    */

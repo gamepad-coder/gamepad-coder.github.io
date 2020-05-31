@@ -42,7 +42,7 @@
 	
 	<!-- *************************************************************************************** -->
 	<!-- backdrop + username + navigation strip -->
-	<header id="philosophy_header">
+	<nav id="philosophy_header">
 		<div id="gc_header">
 			<a href="{{ "/" | absolute_url }}">
 				<div id="gc_logo">
@@ -72,7 +72,7 @@
 					<li class="current">Philosophy Blog</li>
 				</a>
 		</nav>
-	</header>
+	</nav>
 	
 
 	<!-- *************************************************************************************** -->
@@ -152,12 +152,13 @@
 
 
 		<!-- -------------------------------------------------------------------------
-									end of insert from "{{ page.url }}"   
+					end of insert from "{{ page.url }}"   
 		---------------------------------------------------------------------------->
 			
 		
 		{% unless page.options contains "skip_autogen_sidebar" %}
 
+		{%- comment -%}
 		<!-- Per each blog post:
 
 			Each Section's <h2> tag has a unique id of "Section_#".
@@ -175,6 +176,7 @@
 				ensures this var is stored as type int  
 
 		-->		
+		{%- endcomment -%}
 		
 		<aside id="asideBar" class="default_aside">
 			

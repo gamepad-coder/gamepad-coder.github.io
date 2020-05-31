@@ -74,7 +74,7 @@ Topic "#tags" coloring consistency across site.
 [bugfix]
 │           
 ├── +  [firefox]        Firefox does not respond to the css rule{ width: fit-content; } when fit-content() has no specific params.
-│           └─          Ammended each {width:fit-content} to also contain fallback options: 
+│           └─          Amended each {width:fit-content} to also contain fallback options: 
 │                                │
 │                               (+)
 │                                └──>        width: max-content;
@@ -100,7 +100,7 @@ Topic "#tags" coloring consistency across site.
 └                   (though this still happens upon button click, but I like the split-second effect here).
 
 
-< new feature >
+< new features >
 │           
 ├── +  added transition effect for goto next|prev post.
 │           
@@ -128,7 +128,29 @@ Topic "#tags" coloring consistency across site.
 │                   Final processed code looks so much cleaner and more consistent now.
 │
 ├── +  [general tidying]   Took long lines and broke them into shorter lines. 
-└                          This made the .html files much nicer to view and much easier to  skim.
+└                          This made the .html files much nicer to view and much easier to skim.
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+``````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+[v11.0]
+
+[blog post]
+│
+├── +  [updated #1]    Added brief overview of Jekyll setup + experience. 
+└                      A+ language & community & framework.
+
+[polish]
+│
+├── +  [Apps Written]   Gave each entry a picture + summary + link to its own page.
+│                           [still in progress, main task for tomorrow]
+└      
+
+< new features >
+│
+├── +  [Zoomable Images]   The Apps Written page now pops up a view of the picture when clicked,
+│                          zooms when clicked again, and click-and-drag scrolls the picture's container,
+│                          even on desktop. [update a few hours later] even when in fullscreen on desktop*
+└                          
+
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ``````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
 

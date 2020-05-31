@@ -42,7 +42,7 @@
 	
 	<!-- *************************************************************************************** -->
 	<!-- backdrop + username + navigation strip -->
-	<header id="philosophy_header">
+	<nav id="philosophy_header">
 		<div id="gc_header">
 			<a href="http://localhost:4000/">
 				<div id="gc_logo">
@@ -72,7 +72,7 @@
 					<li class="current">Philosophy Blog</li>
 				</a>
 		</nav>
-	</header>
+	</nav>
 	
 
 	<!-- *************************************************************************************** -->
@@ -152,88 +152,245 @@
 		------------------------------------------------------------------------- -->
 
 
-					<!-- main content -->
-			<div id="page_content">
+					
+		<!-- main content -->
+		<div id="page_content">
 
-				<h2 id="Section_1">So about this topic</h2>
-				<article>
-					<p>
-						At the time of this writing, I have the following:
-						<ul>
-							<li>
-								Homepage with fun scrolling sidebar.
-								<br />
-								<span class="parenthetical">Supports mobile views.</span>
-							</li>
-							<li>
-								Contact page with nice header pictures.
-								<br />
-								<span class="parenthetical">+low quality placeholders which load fast and first.</span>
-							</li>
-							<li>
-								The styling done for the philosophy blog.
-							</li>
-						</ul>
-					</p>
-					<p>
-						Next up is to refactor the site to use Jekyll.
-						
-						I'm planning on giving each page the following:
-						
+			<h2 id="Section_1">Init() + First Steps</h2>
+			<article>
+
+			<p>
+				At the time of this writing, I have the following:
+				<ul>
+					<li>
+						Homepage with fun scrolling sidebar.
+						<br />
+						<span class="parenthetical">Supports mobile views.</span>
+					</li>
+					<li>
+						Contact page with nice header pictures.
+						<br />
+						<span class="parenthetical">+low quality placeholders which load fast and first.</span>
+					</li>
+					<li>
+						The styling done for the philosophy blog.
+					</li>
+				</ul>
+			</p>
+			<p>
+				Next up is to refactor the site to use Jekyll.
+				
+				I'm planning on giving each page the following:
+				
+				<ol>
+					<li>
+						A title.
+					</li>
+					<li>
+						A cc0 picture to serve two functions:
+						<ol>
+							<li>Backdrop for the title on the article page.</li>
+							<li>Icon for the title when viewed as an icon link.</li>
+						<li style="list-style: none;">
+							(<span class="parenthetical">CC0 is a Creative Commons copyright license which effectively 
+								places a work into the Public Domain. You can read more about it 
+								<a href="https://wiki.creativecommons.org/wiki/CC0">here</a> 
+								& <a href="https://creativecommons.org/share-your-work/public-domain/cc0/">
+									here</a>.
+							</span>)
+						</li>
+						</ol>
+						A summary: displayed on the page & displayed under 
+						the icon linking to the post from other places in the Blog.
+					</li>
+				</ol>
+			</p>
+			<p>
+				I'll go ahead and make a few posts for testing and revising the layout 
+				and HTML + CSS formatting, get it reasonably polished, --> then move on to 
+				making the application highlights pages --> then move on to making my API documents with Sphinx.
+			</p>
+			<p>
+				Feeling good about this.
+			</p>
+
+			</article>
+
+			<br>
+			<br>
+			<br>
+			<br>
+
+			<h2 id="Section_2">Update and Moving Forward</h2>
+			<article>
+			
+			<p>
+				@ [ 5/30/2020 ]  @  [ 3:46 PM ] 
+			</p>
+			<p>
+				So. <a href="https://jekyllrb.com/docs/">Jekyll</a> is awesome. Documented very well, though there are a few oversights and 
+				<a href="https://stackoverflow.com/a/62077452/13536555">undocumented features</a>. 
+				The Jekyll's version of the Liquid language has a few eccentricities (<span class="parenthetical">and at times, bugs:
+				Jekyll's implementation of Liquid's {%else%} and {%elsif%} statements were 
+				completely not functioning when I began, but a recent update has patched this</span>),
+				but all-in-all I absolutely love it, and it was totally worth the days of learning (+) setup.
+
+			</p>
+			
+			<h2 id="Section_3">Brief note on a hurdle with Jekyll</h2>
+			<article style="line-height: 1.6em;">
+			<p>
+				Most unintuitive thing was casting integer variables. <br>
+				Once I got a variable out of an array, lines such as<br>
+				 (debug: item holds: {{item}} ) would output as expected:<br>
+				 <span class="code indent">(debug: item holds: 4 )</span>.<br>
+				 But then any attempts to increment it resulted in [0].
+			</p>
+			<p>
+				Complicating troubleshooting was the advice to cast Liquid variables explicitly before math operations 
+				could be applied to them using <br><span class="code indent">{% var = var | plus: 0 %}</span>.
+				<br>(<span class="parenthetical"> I believe I found references to this requirement for both to Jekyll's implementation of
+					Liquid and the official version of Liquid</span>)
+			</p>
+			<p>
+				Eventually, I discovered the debug filter <span class="code">{% var | inspect %}</span>, 
+				and found out that my item variable was actually a 1-element-long array containing the integer, 
+				and I had to access it with item[0] to get the first (and only) element.
+			</p>
+			<p>
+				Although it's really nice to output an array without any syntax indicating the internals of
+				the background programming language, this made debugging this issue a really elaborate series
+				of searches and hurdles. But I understand the design choice, and honestly 
+				(<span class="parenthetical">in the context of all you can do with Jekyll and Liquid</span>) it's incredibly polished. 
+			</p>
+			<p>
+				<span class="parenthetical">
+					Sidenote for clarification: this is more a catalogue of bread-crumbs for me to remember this journey than it is a critique. 
+					And a reminder for me to come back and contribute documentation when I'm financially stable + have enough time to do it well.
+				</span>
+			</p>
+			<p>
+				I jumped into this website project with just a month's worth of HTML+CSS understanding, 
+				and this was the only issue I encountered with Jekyll.
+			</p>
+			<p>
+				Despite these growing pains, I really enjoyed the whole experience: it's incredibly elegant, powerful, and simple.
+			</p>
+
+			</article>
+
+			<h2 id="Section_4">This Blog's<br>Jekyll Setup</h2>
+			<article style="line-height: 1.6em;">
+			
+			<p>
+				So where did I land with this integration + development journey?
+			</p>
+			<p>
+				Someplace amazing.
+			</p>
+			<p>
+				New posts just need a very minimal amount of variables added to the top, 
+				then I can just focus on defining the main content of the new post, 
+				entirely omitting the HTML for the site's header, footer, and sidebar.
+			</p>
+			<p>
+				Once I have a new post written, Jekyll's templating wraps the rest of the common HTML around it, 
+				and constructs a complete HTML page that is styled similarly to the rest of the Blog Site.
+				This is awesome, because:
+				<ul>
+					<li>
+						<u>It save a ton of time and work</u> <br>
+						(<span class="parenthetical">and a TON of rework if I change a single thing <br>
+							and need that one change applied to every single page</span>).
+					</li><br>
+					<li>
+						It lets me have separate files for 
 						<ol>
 							<li>
-								A title.
+								the blog structure,
 							</li>
 							<li>
-								A cc0 picture to serve two functions:
-								<ol>
-									<li>Backdrop for the title on the article page.</li>
-									<li>Icon for the title when viewed as an icon link.</li>
-								<li style="list-style: none;">
-									(<span class="parenthetical">CC0 is a Creative Commons copyright license which effectively places a work into the Public Domain. You can read more about it <a href="https://wiki.creativecommons.org/wiki/CC0">here</a> & <a href="https://creativecommons.org/share-your-work/public-domain/cc0/">here</a>.</span>)
-								</li>
-								</ol>
-								A summary: displayed on the page & displayed under the icon linking to the post from other places in the Blog.
+								individual blog post content
 							</li>
-							<li>
-						</ol>
-					</p>
-					<p>
-						I'll go ahead and make a few posts for testing and revising the layout and HTML + CSS formatting, get it reasonably polished, --> then move on to making the application highlights pages --> then move on to making my API documents with Sphinx.
-					</p>
-					<p>
-						Feeling good about this.
-					</p>
-				</article>
+						</ol> 
+					</li><br>
+					<li>
+						<u>It saves a TON of time and work</u>,<br> really, it's incredible.
+					</li>
+				</ul>
+			</p><br>
+			<p>
+				Similarly, I don't need to copy+paste the HTML formatting for each post header,
+				nor do I need to manually add tags below each post:
+				I've written a series of simple Liquid commands to generate the HTML 
+				for these, and call upon these utilities using Jekyll's /_Include/ feature. 
+			</p>
+			<p>
+				Any new #topics I include in a post are auto-magically added 
+				to the PostsByTopic.html page (along with automatically rendered post-previews under each tag). 
+			</p>
+			<p>
+				All posts are automatically added to the PostsByTime.html page 
+				(again, totally hands-off, the templating and Liquid code do all the repetitive lifting here).
+			</p>
+			<p>
+				All I have to do is make a new post.html file,<br> 
+				write a few variables containing 
+				<ul>
+					<li>
+						the name,
+					</li>
+					<li>
+						the tags,
+					</li>
+					<li>
+						the time written
+					</li>
+					<li>
+						the blog #
+					</li>
+				</ul>
+				add only HTML for the post's core text, <br>
+				then the automation packages it all and references it across the site.
+			</p>
+			<p>
+				I would have started playing with web design a long long time ago had I known about this sooner 
+				(<span class="parenthetical">and if I didn't have a plethora of tasks 
+					surrounding my large AutoHotkey hobby-project</span>).
+			</p>
+			
+			</article>
+			
+			<h2 id="Section_5">Concluding Remarks.</h2>
+			<article style="line-height: 1.6em;">
+			
+			<p>
+				Overall, I love Jekyll and the Liquid Language in general. 
+				Jekyll is a really powerful way to separate core page content from 
+				repeated structures. It took a good while to set up this site
+				(<span class="parenthetical"> divided pretty evenly between Jekyll experiments, 
+					CSS styling, and setting up the <a style="font-family: monospace;" href="https://docs.microsoft.com/en-us/windows/wsl/about">
+						Windows Subsystem for Linux</a> (WSL) </span>), 
+				but adding additional posts is extremely hands-off for me now.
+			</p>
 
-			</div><!-- #content -->
+			<p>
+				Wordpress seems nice. 
+			</p>
+
+			<p>
+				But I'm so glad I decided to roll my own.
+			</p>
+
+			</article>
+		</div><!-- #content -->
 
 
 
 		<!-- -------------------------------------------------------------------------
-									end of insert from "/Philosophy/1__PlanningTheSite.html"   
+					end of insert from "/Philosophy/1__PlanningTheSite.html"   
 		---------------------------------------------------------------------------->
 			
-		
-		
-
-		<!-- Per each blog post:
-
-			Each Section's <h2> tag has a unique id of "Section_#".
-			If a page wants navigation links generated by the layout, it specifies in its front matter: 
-				options.number_of_nav_sections: [integer] number of <h2> ids used 
-
-		-->
-
-		<!-- About the following Liquid commands : 
-
-			filter "map" : 
-				specify the value to be page.options{ the value stored in options.number_of_nav_sections }
-
-			filter "| plus: 0" :
-				ensures this var is stored as type int  
-
-		-->		
 		
 		<aside id="asideBar" class="default_aside">
 

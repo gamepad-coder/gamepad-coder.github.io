@@ -19,7 +19,7 @@
 	body{
 		font-family: Courier New, Courier, Palatino, Verdana, serif;
 		font-size: 18px;
-		line-height: 1.25em;	
+		line-height: 1.4em;	
 		color: #ffffff; 	/* #D7D7D7; */
 	}
 	
@@ -310,7 +310,10 @@
 		align-items:flex-start;
 		justify-content: space-evenly;
 	}
-
+		#page_content.fill_page_width {
+			flex: 0 0 90%;
+			margin-bottom: 70px;
+		}
 		div.content { flex: 0 0 70%;	margin: 10px 40px 20px 40px; }
 			
 			article {
@@ -324,13 +327,54 @@
 			}
 	
 	div.app_highlights li {
-		padding: 20px;
+		/* padding: 20px; */
 	}
 	div.content img {
 		width: 100%;
 	}
-			
+	div.app_highlights img {
+		border-radius: 5px;
+		cursor: pointer;
+		transition: 0.3s;
+	}
+	div.app_highlights img:hover {
+		/* opacity: 70%; */
+	}
+	/* The Modal (background) */
+	#myModal {
+		display: none; /* Hidden by default */
+		position: fixed; /* Stay in place */
+		z-index: 1; /* Sit on top */
+		padding-top: 10px; /* Location of the box */
+		left: 0;
+		top: 0;
+		width: 100%; /* Full width */
+		height: 100%; /* Full height */
+		overflow: auto; /*Enable scroll if needed */
+		background-color: rgb(0,0,0); /* Fallback color */
+		background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+	}
 	
+	/* Modal Content (Image) */
+	#myModal .modal-content {
+		margin: auto;
+		display: block;
+		width: auto;
+		height: auto;
+		max-width: 95vw;
+		max-height: 95vh;
+	}
+	/* Add Animation - Zoom in the Modal */
+	.modal-content, #caption {
+		animation-name: zoom;
+		animation-duration: 0.6s;
+	}
+	
+	@keyframes zoom {
+		from {transform:scale(0)}
+		to {transform:scale(1)}
+	}
+
 	/* - - - - - - - - - - - *|
 	|*       sidebar         *|
 	|* - - - - - - - - - - - */
@@ -397,7 +441,13 @@
 		color: #36aec9;
 	}
 
-
+	#asideBar.aside_appHighlights ul {
+		
+		padding-inline-start: 10px;
+	}
+	#asideBar.aside_appHighlights li {
+		padding: 3px 0;
+	}
 
 	/* - - - - - - - - - - - *|
 	|*       footer          *|
@@ -527,6 +577,7 @@
 			padding-bottom: 15px;
 			padding-left: 20px;
 			padding-left: 20px;
+			padding-left: 0;
 			/* width: 80%; */
 		}
 		
@@ -576,8 +627,12 @@
 		}
 	}
 	
-	
-	@media all and (min-width: 900px)  {
+	@media all and (max-height: 600px){
+		#asideBar.aside_appHighlights {
+			top: 3vh;
+		}
+	}
+	@media all and (min-width: 900px) and (min-height: 600px)  {
 		
 		div.content{
 			flex: 0 0 65%;
