@@ -15,57 +15,309 @@ meta_keywords: "programs, applications, apps, showcase, works"
 -->		
 {% endcomment -%}
 	
+{%- capture app_img_2do_about_loQ %}/assets/images/app_highlights/loQ/2do_tree_about.jpg{% endcapture -%}
+				
+{%- capture app_img_website_loQ %}/assets/images/app_highlights/loQ/this.jpg{% endcapture -%}
+
 		<!-- main content -->
 		<div id="page_content" class="content  app_highlights">
 
 				<!-- The Modal -->
 				<div id="myModal" class="modal">
 
-					<!-- Modal Content (The Image) -->
+					<!-- adds a container to exit on click outside picture bounds -->
+					<div id="modalClickBox" style="
+						width: 100%;
+						height: 100%;
+					"></div>
+
+					<!-- Loads the clicked image into this zoomable popup -->
 					<img class="modal-content" id="img01">
 
 				</div>
-				
-			<h2 id="h_unity">Unity Typewriter and Windowing System</h2>
+			
+			<div class="green_dot_underline_wrapper__skipTopMargin">
+				<div class="h2_wrapper">
+					<h2 id="h_unity">Unity Typewriter and Windowing System</h2>
+				</div>
+			</div>
 			<article>
 				
-				<img id="img_unitySystem" class="app_highlight_item" src="/assets/images/app_highlights/unity_windowing_sys/2013-10-22 21_50_17-Unity - 01 first test.unity - 7.24.2013 - timeline, notes, cmd - PC, Mac & Linux.png" /> 
+				<img id="img_unitySystem" class="app_highlight_item" src="{{ "/assets/images/app_highlights/unity_windowing_sys/2013-10-22 21_50_17-Unity - 01 first test.unity - 7.24.2013 - timeline, notes, cmd - PC, Mac & Linux.png" | absolute_url }}" /> 
 				<!-- <img id="img_treeview" src="{{ "/assets/images/app_highlights/" | absolute_url }}" 
 					class="app_highlight_item"/> -->
+					
+				<h3>About:</h3>
 				<p>
 					Made back in 2013. My first large experiment.
 					<br> Windows can be dragged, zoomed, grouped, 
 					<br> typed into, saved and loaded.
 				</p>
+
 				<p>
-					<!-- <a href="">
-						Click here for more pictures & details.
-					</a> -->
+					Built in the <a href="https://unity.com/">Unity</a> game development environment, and written in "UnityScript" (<span class="parenthetical">a language loosely based on JavaScript</span>). I later ported it to C# in 2014 in order to have better support for <a href="https://en.wikipedia.org/wiki/Polymorphism_(computer_science)">polymorphism</a> and <a href="https://en.wikipedia.org/wiki/Subtyping">subtyping</a>.
+				</p>
+
+				<h3>Purpose:</h3>
+				<p>
+					My initial plan was to build a framework for AR and VR (<span class="parenthetical">Augmented Reality and Virtual Reality</span>), but integrating further support for web, video, audio, and other media seemed like it was going to be a laborious task. So I decided to move on and build on top of platforms where I could easily work with existing files and code libraries, instead of writing each media utility from the ground up.
+				</p>
+				<p>
+					It was an incredibly fun project, and it was my first big trial by fire where I learned how to better manage and organize large complex projects.
+				</p>
+
+				<h3>Math:</h3>
+				<p>
+					Due to visual glitches when I initially allowed window to overlap, I ended up learning and implementing a lot of 3D Vector math. 
+					
+					I spaced windows away from the others, giving each its own plane in 3D. Then they could move around the user's screen without any anomalies nor visual chimera glitches. But placing windows further from the camera makes them smaller. So as windows are placed further away, they are proportionally resized to maintain the appearance that all of the windows were located in the same "Desktop" plane.
+				</p>
+				
+				<h3>Future Plans?</h3>
+				<p>
+					When I move back to working on 3D interfaces again, I may revisit this project, clean it with the better practices I now know, and upload a version of source code which can run on modern versions of Unity. But likely I will instead make a more elegant solution than this one. It was an incredible learning experience though.
 				</p>
 
 			</article>
 
 
-			<h2 id="h_linux">Linux Framebuffer Windowing System</h2>
-			<article>
+			<div class="green_dot_underline_wrapper">
+				<div class="h2_wrapper">
+					<h2 id="h_linux">Linux Framebuffer Windowing System</h2>
+				</div>
+			</div>
+			<article id="apps_linux_article">
+				<p style="border: 1px solid black; margin: auto; padding: 10px; max-width: 80%;">
+					<span class="parenthetical">Due to the Coronavirus pandemic, I don't presently have access to this code, but I will upload images of it when I am able.</span>
+				</p>
+
+				<h3>About:</h3>
 				<p>
-					Due to the Coronavirus, I don't presently have access to this code, but you can still:
+					Written in C, then ported to C++. Runs in a Linux terminal, and plots individual pixels to the screen. Keyboard input only.
+					<br><br>
+					Windows can be moved and resized. Windows contain lines and headers (which contain sub-sections of more headers and lines). Headers can be folded and expanded, allowing quick navigation between dense sets of hierarchical data without ever taking your hands off the keyboard.
+					<br><br>
+				</p>
+
+				<h3>Painting Pixels</h3>		
+				<p>
+					In this app the screen is rendered from blocks, like a chess board. The screen's grid of blocks does not change location nor size, but behind it is a canvas <span class="parenthetical">(which can move around)</span> filled with windows and lines and characters <span class="parenthetical">(which can also move around)</span>. Think of the screen's grid like a camera fixed in place while people move around within <span class="parenthetical">(or outside of)</span> its view. Every time the program paints pixels to the screen, the screen's grid "camera" takes a snapshot of blocks it can currently see, and displays them at actual pixel coordinates on the computer's monitor.
+					<br><br>
+				</p>
+				
+				<h3>Briefly, what this app does
+					<br>from the top down.
+				</h3>
+				<p>
+					The canvas can place windows anywhere, and can scroll to view windows placed off the screen. Windows can be moved and resized. Windows have a solid background color for each block they display within the grid system. Windows can additionally assign a default foreground color for text <span class="parenthetical">(different from the workspace's default font color)</span>. Windows contain a border of solid-colored grid elements, and a central document. The central document contains rows of lines. Lines can be one of two types: [1] a simple line of character objects to display and edit [2] or a header, which functions as a simple line, but additionally has a sub-document grouped under it. Headers can fold <span class="parenthetical">(i.e. collapse and hide their sub-document region, showing only their title)</span> and unfold. Header titles can be edited just like any other line. Sub-documents under headers can contain lines of either type. 
+					<br><br>
+					When the user selects a window, then activates it, the program shifts into line selection mode. Once the desired line is selected, the user hits [CONTROL+ENTER] to shift from line selection mode -> into editing mode. From here line characters can be typed, selected, copied, pasted, and deleted as if typing in a standard text editor. [CONTROL+ENTER] likewise shifts back from text editing mode -> back to line selection mode.
+					
+					<br><br>Lines store a <a href="https://en.wikipedia.org/wiki/Linked_list">linked-list</a> of character objects. Each character object has: a foreground color, a background color, references to neighbors, and the symbol to display at its grid coordinate. <span class="parenthetical">(To specifically differentiate, let's define "symbol" in this context to mean: a letter, number, or any visible character which results from hitting a key on a keyboard.)</span> 
+					<br><br> When the program draws to the screen, each grid element with a window will report what is located at each blocky grid coordinate. Borders for windows tell the grid to paint a single color at each pixel in that rectangle. Coordinates in a window which do contain a character object report their block's background color and which foreground color the grid should paint their symbol. When the character object tells the grid which symbol to draw, the grid looks up that symbol in the font object.
+					<br><br>The font object is a series of 2D regions I programmed manually. Each region has elements containing 1's and 0's representing pixels in a rectangle. The 1's are the pixel positions in the rectangle to draw the symbol, and the 0's represent where to draw the background color. Each typeable character on the keyboard is mapped to one of the 2D regions in the font array <span class="parenthetical">(fun example: the 2D region mapped to the space bar is all 0's, resulting in an empty box; pure background color)</span>.
+					<br><br>
+					So the grid gets the foreground, the background, and the symbol data, then paints the pixels onto the portion of the screen associated with that grid coordinate's region.
+					<br><br>This process is repeated for each window and each line on the screen until... viola! You have a screen with blocks and letters and colors.
+					<br><br>
+					Next up, how to use it.
+					<br><br>
+				</p>
+				
+				<h3>Controls:</h3>
+				<p>
+					<ul>
+						<li style="list-style-type: none;">
+							<h3 class="h3_list_header">
+								The [ESDF <img 
+									src="{{ "/assets/images/app_highlights/esdf_keys.jpg" | absolute_url }}" 
+									style=" height: 2em; 
+											display: inline-block;
+											width: auto;
+											vertical-align: middle;">
+								keys] scroll the canvas, 
+								<br> which moves all the windows in unison.
+							</h3>
+							 <ul>
+								<li>
+									This lets you scroll around and view other windows.
+								</li>
+								<li>
+									You never have to take your hands off the keyboard 
+									nor move them out of typing position <span class="parenthetical">(i.e. you never have to take your index fingers off the [f] and [j] keys)</span>.
+								</li>
+								<li>
+									The [A] and [Q] keys adjust the speed at which the canvas scrolls.
+								</li>
+								<li>
+									These controls are only deactivated when in typing mode. Otherwise they work no matter where you are in selection mode.
+								</li>
+							 </ul>
+						</li>
+
+						<li style="list-style-type: none;">
+							<h3 class="h3_list_header">
+								The <img 
+									src="{{ "/assets/images/app_highlights/ijkl_keys.jpg" | absolute_url }}" 
+									style="height: 2em; 
+											display: inline-block;
+											width: auto;
+											vertical-align: middle;">
+								keys are at the core of interaction.
+							</h3>
+							<ul>
+								 <li>
+									 The [IJKL] keys are for selection
+									 <br>across different contexts. 
+								 </li>
+								 <li>
+									The [P] and [;] keys change the scope of what is selected (from high up canvas, to low down character editing).
+								 </li>
+								 <li>
+									The [U] and [O] keys do a few different things at different levels, but it's pretty straightforward.
+								 </li>
+							</ul>
+						</li>
+
+						<li style="list-style-type: none;">
+							<h3 class="h3_list_header">
+							Let's see how keys work at each level
+							</h3>
+							<ul>								
+								<li style="list-style-type: none;">
+									<h3 class="h3_list_header">
+										When the canvas is active
+									</h3>
+									<ul>
+										<li>
+											[IJKL] keys select windows.
+											<br>
+											<div style="margin-left: 20px;">
+												<span class="parenthetical">(The canvas will automatically scroll to view any selected window if off-screen).
+												</span>
+											</div>
+										</li>
+										<li>
+											The [;] key activates the selected window.
+										</li>
+										<li>
+											The [P] key exits an active window and returns the scope to choosing windows within the canvas.
+										</li>
+										<li>
+											The [U] key toggles "move the selected window" mode. Once on, the [IJKL] keys nudge the window <span class="parenthetical">(pretend these are the arrow keys)</span>. And pressing [U] again turns off move-mode.
+										</li>
+										<li>
+											The [O] key toggles "resize the selected window" mode. [IJKL] keys resize the window. [I] and [K] shrink and expand the window vertically. [J] and [L] shrink and expand the window horizontally. Pressing [O] again turns off resize-mode.
+										</li>
+									</ul>
+								</li>
+								
+								<li style="list-style-type: none;">
+									<h3 class="h3_list_header">
+										When a window is active
+									</h3>
+									<ul>
+										<li>
+											the [I] and [k] keys allow you to select lines of text
+										</li>
+										<li>
+											the [J] and [L] keys fold and unfold headers
+											<br>
+											<div style="margin-left: 20px;">
+											<span class="parenthetical">(if the current header is selected and folded then [J] will select and scroll up to the header's parent).
+											</span>
+											</div>
+										</li>
+										<li>
+											the [U] and [O] keys go to 
+											<br>the next and previous header, respectively.
+										</li>
+										<li>
+											the ([) and ['] keys scroll the current window
+											<br>
+											<div style="margin-left: 20px;">
+												<span class="parenthetical">(similar to how the [ESDF] keys scroll the canvas)</span>
+											</div>
+										</li>
+										<li>
+											the [P] key will deactivate the window and move selection up to the canvas level.
+										</li>
+										<li>
+											the [;] key or [CTRL+ENTER] combo will activate the selected line (or header) and the program shifts into text editing mode.
+										</li>
+									</ul>
+								</li>
+								
+								<li style="list-style-type: none;">
+									<h3 class="h3_list_header">
+										When a line is active in text editing mode
+									</h3>
+									<ul>
+										<li>
+											All keyboard inputs which normally type a character will insert a character at the highlighted position.
+										</li>
+										<li>
+											The [ENTER] key will make a new line and move the highlighted position to it. The window is scrolled down one line if the user presses [ENTER] at the bottom of the window's viewable area.
+										</li>
+										<li>
+											[BACKSPACE], [DELETE], [HOME], [END], [PAGEUP], [PAGEDOWN], and the up down left right [ARROW_KEYS] function as they do in regular text editors, such as Notepad.
+										</li>
+										<li>
+											The shift key allows selecting a range of characters in a line (or lines).
+										</li>
+										<li>
+											[CTRL+C] will copy characters if there is a selection.
+										</li>
+										<li>
+											[CTRL+V] will paste characters <span class="parenthetical">(replacing any selected characters)</span>.
+										</li>
+										<li>
+											[CTRL+ENTER] will exit editing mode and return to line selection mode.
+										</li>
+									</ul>
+								</li>
+							</ul>	
+						</li>
+						
+					</ul>
+				</p>
+				
+				<h3>A bit of background.</h3>
+				<p>
+					<a href="https://en.wikipedia.org/wiki/GNU_nano">Nano</a> is a minimalistic but fantastic <a href="https://en.wikipedia.org/wiki/Command-line_interface">command-line interface</a> text editor that can be found on most Linux distributions.
 				</p>
 				<p>
-					<!-- <a href="">
-						Click here for more pictures & details.
-					</a> -->
+					It uses a code library called <a href="https://en.wikipedia.org/wiki/Ncurses">ncurses</a>, which I initially used to build the first versions of this project. Ncurses basically lets you define text and colors at positions on a grid, and it makes writing a text editor from (mostly scratch) a breeze.
+				</p>
+				<p>
+					Later I was curious about how Linux displays images, simple graphics, and command line terminals. So I began investigating <a href="https://en.wikipedia.org/wiki/Linux_framebuffer">the framebuffer</a>.
+				</p>
+				<p>
+					 In addition to using the framebuffer, I retrieved the hardware signals of my keyboard from Linux in the form of <a href="https://en.wikipedia.org/wiki/Scancode">scancodes</a>. From there I set up branches of code to account for how to react to different key presses and different combinations.
+				</p>
+				<h3>Concluding Remarks</h3>
+				<p>
+					This experiment was incredibly fun, and was my first foray into interacting with hardware on a low level. Surprisingly, the biggest utility from this project was how it made me start thinking about hardware and software in a more comprehensive way. It really bridged a gap for me between my understandings of high level frameworks &lt;-(&)-&gt; the 1's and 0's that power, organize, and encode everything above. And seeing a bit beneath the hood closer to the machine processes has given me a lasting appreciation for the history of computing in general, and for all the sub-processes that have been working inside my computers all my life.
 				</p>
 			</article>
 
 
-			<h2 id="h_treeview">AutoHotkey
-				<br> TreeView Tasklist</h2>
+			<div class="green_dot_underline_wrapper">
+				<div class="h2_wrapper">
+					<h2 id="h_treeview">AutoHotkey
+						<br> TreeView Tasklist
+					</h2>
+				</div>
+			</div>
 			<article>
 				
-				<img id="img_treeview" src="{{ "/assets/images/app_highlights/2do_tree_about.gif" | absolute_url }}" 
-					class="app_highlight_item"/>
 
+				<div class="apps_written_bg_image"			
+					style="background-image: url('{{ app_img_2do_about_loQ | absolute_url }}');"
+				>
+					<img id="img_treeview" src="{{ "/assets/images/app_highlights/2do_tree_about.gif" | absolute_url }}" 
+					class="app_highlight_item"/>
+				</div>
 
 				<p>
 					Written in AutoHotkey (<span class="parenthetical">AHK</span>).<br>
@@ -100,8 +352,13 @@ meta_keywords: "programs, applications, apps, showcase, works"
 			</article>
 				
 
-			<h2 id="h_ahk_desktop">AutoHotkey
-				<br> Scrolling Desktop with Nested Windows</h2>
+			<div class="green_dot_underline_wrapper">
+				<div class="h2_wrapper">
+					<h2 id="h_ahk_desktop">AutoHotkey
+						<br> Scrolling Desktop with Nested Windows
+					</h2>
+				</div>
+			</div>
 			<article>
 				<p>
 					<!-- <a href="">
@@ -111,8 +368,13 @@ meta_keywords: "programs, applications, apps, showcase, works"
 			</article>
 
 
-			<h2 id="h_ahk_gui_framework">AutoHotkey
-				<br> GUI Abstration Framework</h2>
+			<div class="green_dot_underline_wrapper">
+				<div class="h2_wrapper">
+					<h2 id="h_ahk_desktop">AutoHotkey
+						<br> GUI Abstration Framework</h2>
+					</h2>
+				</div>
+			</div>
 			<article>
 				<p>
 					<!-- <a href="">
@@ -122,11 +384,23 @@ meta_keywords: "programs, applications, apps, showcase, works"
 			</article>
 
 
-			<h2 id="h_thisWebsite">This Website</h2>
+			<div class="green_dot_underline_wrapper">
+				<div class="h2_wrapper">
+					<h2 id="h_thisWebsite">This Website</h2>
+				</div>
+			</div>
 			<article>
-				First time studying Web Design + Web Code.
-				Began with a portfolio concept, stayed for the fun of web design.
 
+				<div class="apps_written_bg_image"			
+					style="background-image: url('{{ app_img_website_loQ | absolute_url }}');"
+				>
+				
+					<img id="img_this" src="{{ "/assets/images/app_highlights/this.jpg" | absolute_url }}" 
+						class="app_highlight_item"/>
+
+				</div>
+				First time studying Web Design with HTML5 + CSS.
+				Began with a portfolio concept, kept working on it because it was fun.
 				<p>
 					<a href="{{ "/Philosophy/0__changelog.html" | absolute_url }}">
 						View changelog here.
@@ -151,36 +425,33 @@ meta_keywords: "programs, applications, apps, showcase, works"
 
 		<aside id="asideBar" class="aside_appHighlights">
 			<h3>Navigate This Page:</h3>
-			<ul>
-				<li> Experiments
+			
+				 Experiments
 					<ul>
 						<li>
-							<a href="{{ page.url | append: "#h_unity" | absolute_url}}">Unity Typewriter and Windowing System</a>
+							<a class="nav_ref" href="{{ page.url | append: "#h_unity" | absolute_url}}">Unity Typewriter and Windowing System</a>
 						</li>
 						<li>
-							<a href="{{ page.url | append: "#h_linux" | absolute_url}}">Linux Framebuffer Windowing System</a>
+							<a class="nav_ref" href="{{ page.url | append: "#h_linux" | absolute_url}}">Linux Framebuffer Windowing System</a>
 						</li>
 					</ul>
-				</li>
 
-				<li> AutoHotkey &nbsp; <span class="parenthetical">(AHK)</span>
+				AutoHotkey &nbsp; <span class="parenthetical">(AHK)</span>
 					<ul>
-						<li><a href="{{ page.url | append: "#h_treeview" | absolute_url}}">TreeView Tasklist</a></li>
-						<li><a href="{{ page.url | append: "#h_ahk_desktop" | absolute_url}}">Scrolling Desktop with Nested Windows</a></li>
-						<li><a href="{{ page.url | append: "#h_ahk_gui_framework" | absolute_url}}">GUI Abstration Framework</a></li>
+						<li><a class="nav_ref" href="{{ page.url | append: "#h_treeview" | absolute_url}}">TreeView Tasklist</a></li>
+						<li><a class="nav_ref" href="{{ page.url | append: "#h_ahk_desktop" | absolute_url}}">Scrolling Desktop with Nested Windows</a></li>
+						<li><a class="nav_ref" href="{{ page.url | append: "#h_ahk_gui_framework" | absolute_url}}">GUI Abstration Framework</a></li>
 					</ul>
-				</li>		
+					
 				
-				<li> Websites
+				 Websites
 					<ul>		
 						<li>
-							<a href="{{ page.url | append: "#h_thisWebsite" | absolute_url}}">This Website</a>
+							<a class="nav_ref" href="{{ page.url | append: "#h_thisWebsite" | absolute_url}}">This Website</a>
 						</li>
 					</ul>
-				</li>
-			</ul>
 			<p 
-				class="skip_bottom_border">&nbsp; info: <a href="{{ page.url | append: "#h_acronym" | absolute_url}}">Acronym Definitions</a></p>
+				class="skip_bottom_border">&nbsp; info: <a class="nav_ref" href="{{ page.url | append: "#h_acronym" | absolute_url}}">Acronym Definitions</a></p>
 		</aside>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -189,89 +460,110 @@ meta_keywords: "programs, applications, apps, showcase, works"
 		<script>
 			// Get the modal
 			var modal = document.getElementById("myModal");
+			var clickToExit = document.getElementById("modalClickBox");
 			var counter = 1;
 			
-		var clicking = false;
-		var dragging = false;
+		var b_clicking = false;
+		var b_dragging = false;
 		var previousX;
 		var previousY;
+		var b_zoomed = false;
 
 			// Get the image and insert it inside the modal - use its "alt" text as a caption
-			var img_tv = document.getElementById("img_treeview");
-			var img_unity = document.getElementById("img_unitySystem");
+			// var img_tv = document.getElementById("img_treeview");
+			// var img_unity = document.getElementById("img_unitySystem");
+			// var img_web = document.getElementById("img_this");
 			// var img = "";
-			var modalImg = document.getElementById("img01");
 
-			img_tv.onclick = function(){
-			  modal.style.display = "block";
-			  modalImg.src = this.src;
-			  console.log("here 1");
+			var modalImg = document.getElementById("img01");
+			var otherImgs = document.getElementsByTagName('img');
+			for( var i=0, len=otherImgs.length; i<len; i++ ){
+				var i_img = otherImgs[i];
+				if( i_img != modalImg ){
+					i_img.onclick = function(){
+						modalImg.src = this.src;
+						modal.style.display = "block";
+					}
+				}
 			}
-			img_unity.onclick = function(){
-			  modal.style.display = "block";
-			  modalImg.src = this.src;
-			  console.log("here 1");
-			}
+			clickToExit.onmouseup = function() { 
+				reset_modal();
+			};
 			modalImg.onmouseup = function() { 
-				console.log("here4: dragging is [" + dragging + "]");
-				if( ! dragging ){
-					
-					console.log("here 2");
+				// console.log("here4: b_dragging is [" + b_dragging + "]");
+				if( ! b_dragging ){
 					counter++;
 				}
-				dragging = false;
+				b_dragging = false;
 				if(counter==2){
 					modalImg.style.maxWidth = "150vw";
 					modalImg.style.maxHeight = "150vh";
-					// modalImg.style.transform = "scale(1.5)";
+
+					var imgWidth = modalImg.width;
+					if( imgWidth < 400 ){
+						// modalImg.style.width = "200%";
+						modalImg.style.height = "80%";
+						b_zoomed = true;
+					}
 				}
 				if( counter > 2){
-					modal.style.display = "none";
-					modalImg.style.maxWidth = "95vw";
-					modalImg.style.maxHeight = "95vh";
-					// modalImg.style.transform = "scale(1)";
-					counter = 1;
+					reset_modal();
 				}
 			};
-			
-		$("#myModal").mousedown(function(e) {
-			e.preventDefault();
-			previousX = e.clientX;
-			previousY = e.clientY;
-			clicking = true;
-		});
 
-		$(document).mouseup(function() {
-			clicking = false;
-		});
-		$(document).mousedown(function() {
-			clicking = true;
-			//   console.log("here 3");
-		});
-
-		$("#myModal").mousemove(function(e) {
-			
-			if( previousX != e.clientX || previousY != e.clientY ){
-				if (clicking) {
-					dragging = true;
-					e.preventDefault();
-					var directionX = (previousX - e.clientX) > 0 ? 1 : -1;
-					var directionY = (previousY - e.clientY) > 0 ? 1 : -1;
-					//$("#myModal").scrollLeft($("#myModal").scrollLeft() + 10 * directionX);
-					//$("#myModal").scrollTop($("#myModal").scrollTop() + 10 * directionY);
-					$("#myModal").scrollLeft($("#myModal").scrollLeft() + (previousX - e.clientX)*2);
-					$("#myModal").scrollTop($("#myModal").scrollTop() + (previousY - e.clientY)*2);
-					previousX = e.clientX;
-					previousY = e.clientY;
+			function reset_modal(){
+				if( b_zoomed ){
+					modalImg.style.height = "auto";
 				}
+
+				modal.style.display = "none";
+				modalImg.style.maxWidth = "95vw";
+				modalImg.style.maxHeight = "95vh";
+				counter = 1;
+				b_zoomed = false;
+				b_clicking = false;
+				b_dragging = false;
+
 			}
-		});
+			
+			$("#myModal").mousedown(function(e) {
+				e.preventDefault();
+				previousX = e.clientX;
+				previousY = e.clientY;
+				b_clicking = true;
+			});
+
+			$(document).mouseup(function() {
+				b_clicking = false;
+			});
+			$(document).mousedown(function() {
+				b_clicking = true;
+				//   console.log("here 3");
+			});
+
+			$("#myModal").mousemove(function(e) {
+				
+				if( previousX != e.clientX || previousY != e.clientY ){
+					if (b_clicking) {
+						b_dragging = true;
+						e.preventDefault();
+						var directionX = (previousX - e.clientX) > 0 ? 1 : -1;
+						var directionY = (previousY - e.clientY) > 0 ? 1 : -1;
+						//$("#myModal").scrollLeft($("#myModal").scrollLeft() + 10 * directionX);
+						//$("#myModal").scrollTop($("#myModal").scrollTop() + 10 * directionY);
+						$("#myModal").scrollLeft($("#myModal").scrollLeft() + (previousX - e.clientX)*2);
+						$("#myModal").scrollTop($("#myModal").scrollTop() + (previousY - e.clientY)*2);
+						previousX = e.clientX;
+						previousY = e.clientY;
+					}
+				}
+			});
 
 
 
-		$("#myModal").mouseleave(function(e) {
-			clicking = false;
-		});
+			$("#myModal").mouseleave(function(e) {
+				b_clicking = false;
+			});
 		</script>
 
 {%- comment %}

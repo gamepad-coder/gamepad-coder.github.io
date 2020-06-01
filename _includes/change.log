@@ -81,7 +81,7 @@ Topic "#tags" coloring consistency across site.
 │                                └──>        width: -moz-fit-content;
 │                                └──>        width: fit-content;
 │                       This should fix Firefox display on desktop + mobile too.
-└                       Chrome (desktop+mobile) and Edge (desktop at least) were already responding to the unpatched line.		                
+└                       Chrome (desktop+mobile) and Edge (desktop at least) were already responding to the unpatched line.
            
 
 [polish]
@@ -109,10 +109,11 @@ Topic "#tags" coloring consistency across site.
 └                                └──>        [~] adding summaries next.
 
 
-
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ``````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
 [v10.2]
+
+HTML processed output now tweaked to look more natural, polished Jekyll's comments.
 
 [polish]
 │
@@ -129,9 +130,13 @@ Topic "#tags" coloring consistency across site.
 │
 ├── +  [general tidying]   Took long lines and broke them into shorter lines. 
 └                          This made the .html files much nicer to view and much easier to skim.
+
+
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ``````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
 [v11.0]
+
+[#1] update + added Apps Written zoom & js mouse drag
 
 [blog post]
 │
@@ -150,6 +155,57 @@ Topic "#tags" coloring consistency across site.
 │                          zooms when clicked again, and click-and-drag scrolls the picture's container,
 │                          even on desktop. [update a few hours later] even when in fullscreen on desktop*
 └                          
+
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+``````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+[v12.0]
+
++changelog can also js mouse drag now, polished apps written
++Linux Framebuffer Console Windows overview
+
+[polish]
+│
+├── +  [Apps Written] 
+│           │
+│           ├──>      Changed sidebar font color & size to be consistent with home page.
+│           │
+│           ├──>      Made sidebar more readable in portrait view, added contextual margin.
+│           │
+│           ├──>      Added low quality image placeholders 
+│           │         to dl+display fast and first.
+│           │         
+│           ├──>      Going to keep highlights as one page w/o sub pages per app. (for now)
+│           │
+│           │
+│           └──>      Made sidebar more readable in portrait view, added contextual margin.
+│         
+├── +  [polished #0] 
+│           │
+│           └──>      Added consistent styling for the link to post [#1]
+│           └──>      Added a link to center the changelog
+│         
+├── +  [polished blog css] 
+│           │
+│           └──>      Next Prev button links can now be placed outside of a sidebar container 
+│                     (needed this for adding a link to post [#1] from the changelog
+└      
+
+< new features >
+│
+├── +  [click 'n drag #0] 
+│           │
+│           └──>        Added js to scroll the changelog on mouse drag
+│       
+└                          
+
+< new content >
+│
+├── +  [Apps Written] 
+│           │
+│           └──>    Added an overview of my Linux Frambuffer Windowing System.    
+└
+
 
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ``````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````

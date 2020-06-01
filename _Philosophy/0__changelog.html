@@ -27,18 +27,33 @@ layout: Layout_Philosophy_Blog
 
         <!-- main content -->
         <div id="page_content" class="fill_page_width">
-            
+
+            <span class="code" style="float: left; max-width: 140px; text-align: center;">
+    
+                <a href="{{ page.url | append: "#changelog_center_screen" | absolute_url }}">
+                    click here to center the changelog</a>
+            </span>
+                        
             {% assign post1 = site.Philosophy | where_exp:"pbpost",  "pbpost.blog_number == 1" | first %}
             <article style="float: right;">
-                <a href="{{ post1.url | absolute_url }}">Goto: Post [#1]</a>
+
+
+                <!-- <a href="{{ post1.url | absolute_url }}">Goto: Post [#1]</a> -->
+                <nav id="next_prev_post">
+
+                    {% include generate_next_prev_nav.html %}
+                </nav>
+
             </article>
 
             <br><br><br>
-                
+            <p>&nbsp;</p>
+            
             <h2 id="Section_1">History</h2>
+            <div id="changelog_center_screen" style="font-size: 1px; line-height: 2vh;">&nbsp;</div>
             <article>
                 <div class="changelog_wrapper">
-                    <div class="changelog__preserveNewines">
+                    <div id="changelog_box" class="changelog__preserveNewines">
                             <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -- >
                             < -- I keep track of changes to the site in a file called change.log  -- >
                             < -- I use Jekkyll to import this file into the following scrollbox   -- >
@@ -61,3 +76,57 @@ layout: Layout_Philosophy_Blog
             </article>
 
         </div><!--main content -->
+
+
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<!-- from
+		https://www.w3schools.com/howto/howto_css_modal_images.asp -->
+		<script>
+			// Get the changebox
+			var changeBox = document.getElementById("changelog_box");
+			
+            var clicking = false;
+            var dragging = false;
+            var previousX;
+            var previousY;
+            
+            $("#changelog_box").mousedown(function(e) {
+                e.preventDefault();
+                previousX = e.clientX;
+                previousY = e.clientY;
+                clicking = true;
+            });
+
+            $(document).mouseup(function() {
+                clicking = false;
+            });
+            $(document).mousedown(function() {
+                clicking = true;
+            });
+
+            $("#changelog_box").mousemove(function(e) {
+                
+                if( previousX != e.clientX || previousY != e.clientY ){
+                    if (clicking) {
+                        dragging = true;
+                        e.preventDefault();
+                        var directionX = (previousX - e.clientX) > 0 ? 1 : -1;
+                        var directionY = (previousY - e.clientY) > 0 ? 1 : -1;
+                        //$("#changelog_box").scrollLeft($("#changelog_box").scrollLeft() + 10 * directionX);
+                        //$("#changelog_box").scrollTop($("#changelog_box").scrollTop() + 10 * directionY);
+                        $("#changelog_box").scrollLeft($("#changelog_box").scrollLeft() + (previousX - e.clientX)*2);
+                        $("#changelog_box").scrollTop($("#changelog_box").scrollTop() + (previousY - e.clientY)*2);
+                        previousX = e.clientX;
+                        previousY = e.clientY;
+                    }
+                }
+            });
+
+
+
+            $("#changelog_box").mouseleave(function(e) {
+                clicking = false;
+            });
+		</script>
