@@ -1,9 +1,18 @@
-<!-- -------------------------------------- 
-           © released under cc0  
-     --------------------------------------
-   @ Gamepad.Coder 2020: this site's HTML+CSS  
-   @ Gigi Truelove 2020: this site's HTML+CSS initial concept+layout 
--->
+<!-- 
+
+    ------------------------------------------
+          © released under (CC0)            : 
+    ------------------------------------------
+     This site's HTML + CSS + Jekyll + Liquid.
+     This site's content.
+                           Gamepad.Coder 2021.
+    
+    --------------------------------------------------
+    https://creativecommons.org/publicdomain/zero/1.0/
+    --------------------------------------------------
+
+
+--> 
 
 <!doctype html>
 <html>
@@ -35,22 +44,24 @@
 
 
 <!-- ========================================================= -->
-<!-- #the_page contains everything inside the main page block -->
+<!-- #the_page contains everything inside the main page block  -->
 <!-- ========================================================= -->
 <div id="the_page">
 
 	
 	<!-- *************************************************************************************** -->
 	<!-- backdrop + username + navigation strip -->
-	<nav id="philosophy_header">
+	<header id="philosophy_header">
 		<div id="gc_header">
-			<a href="http://localhost:4000/">
+			<a href="http://localhost:4000/contact.html">
 				<div id="gc_logo">
 			
 						<!-- Picture of my favorite controller, 
 							 taken with phone's camera, editied in GNU Krita-->
 						<img class="gc_picture" src="http://localhost:4000/assets/images/avatar_gamepad.coder.png" width="50" height="50">
-						<h1 class="gc_txt">Gamepad.Coder</h1>
+						<h1 class="gc_email">
+							Gamepad.Coder<span id="gc_email_atSign">@</span>gmail.com
+						</h1>
 				
 				</div>
 			</a>
@@ -62,17 +73,17 @@
 				<a href="http://localhost:4000/">
 					<li id="home_button">Home</li>
 				</a>
-				<a href="http://localhost:4000/Apps.html">
-					<li>Apps Written</li>
-				</a>
 				<a href="http://localhost:4000/Documentation.html">
 					<li>Documentation for Projects</li>
+				</a>
+				<a href="http://localhost:4000/Apps.html">
+					<li>App Gallery</li>
 				</a>
 				<a href="http://localhost:4000/Philosophy.html">
 					<li class="current">Philosophy Blog</li>
 				</a>
 		</nav>
-	</nav>
+	</header>
 	
 
 	<!-- *************************************************************************************** -->
@@ -120,6 +131,7 @@
                                         </div>                
                                     </a>
                                     
+
 			
 			<!-- -------------------------------------------------------------------------
 									 end of insert from "generate_tags_under_post.html"
@@ -175,6 +187,7 @@
                 </a>
 
             </nav>
+
                 </nav>
 
             </article>
@@ -359,11 +372,6 @@ HTML processed output now tweaked to look more natural, polished Jekyll's commen
 +changelog can also js mouse drag now, polished apps written
 +Linux Framebuffer Console Windows overview
 
-[]
-│
-├── +  []    
-└            
-
 [polish]
 │
 ├── +  [Apps Written] 
@@ -395,7 +403,7 @@ HTML processed output now tweaked to look more natural, polished Jekyll's commen
 │
 ├── +  [click 'n drag #0] 
 │           │
-│           └──>        Added js to scroll the changelog on mouse drag
+│           └──>        Added js to scroll the changelog on mouse drag.
 │       
 └                          
 
@@ -404,6 +412,78 @@ HTML processed output now tweaked to look more natural, polished Jekyll's commen
 ├── +  [Apps Written] 
 │           │
 │           └──>    Added an overview of my Linux Frambuffer Windowing System.    
+└
+
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+``````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+[v13.0]
+
+========
+Summary:
+========
+
+[+] Polished navbar + sidebar + added to Home page's content.
+
+========
+Details:
+========
+
+[polish]
+│
+├── +  [license updated]
+│           │
+│           ├──>     Updated license for 2021.
+│           │
+│           ├──>     Added license to each un-baked page, 
+│           │         to make it clear that pre-rendered source pages are also CC0.
+│           │
+│           ├──>     Made scope of license broader + more explicit.
+│           │
+│           └──>     Added link to CC0 at the bottom of each license declaration:
+│                              https://creativecommons.org/publicdomain/zero/1.0/ 
+│
+├── +  [clarification]
+│           │
+│           └──>     Elaborated in the top comment on the un-baked .css files
+│                     to explain the function of the empty header.
+│                     (Jekyll will not process a file lacking a header.)
+│        
+│
+├── +  [polished main navigation bar]
+│           │
+│           ├──>     Top-left corner now contains my email address.
+│           │         (Before this version it was only my username.)
+│           │
+│           └──>     Renamed button "Apps Written" -> to "App Gallery"
+│                     (This page is now meant to be an overview for all of them,
+│                     so this text is more fitting. Since initial website conception, 
+│                     I've decided to shift main focus to the Documentation sub-site.)
+│
+│
+├── +  [polished Home page's wording]
+│           │
+│           ├──>     Minor clarifications (went through files and listed a verified wordcount).
+│           │
+│           ├──>     Added "Site Overview:" to the sidebar.
+│           │
+│           └──>     Minor changes to wording + new phrases in each section 
+│                     (except for Fun, Fun is fine the way it is :)
+│  
+├── +  [polished Home page's sidebar]
+│           │
+│           └──>     Minor CSS tweaks to make it apparent that the "Home" box is not a button 
+│                      by visually distinguishing it from the others (consistent with navbar styling)
+└ 
+
+< new content >
+│
+├── +  [Home Page] 
+│           │
+│           └──>     Added detailed site overview section.
+│                    [to-do] Collapsable regions to implement next.
+└
+
 
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ``````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
@@ -478,6 +558,7 @@ HTML processed output now tweaked to look more natural, polished Jekyll's commen
                 clicking = false;
             });
 		</script>
+
 
 
 		<!-- -------------------------------------------------------------------------

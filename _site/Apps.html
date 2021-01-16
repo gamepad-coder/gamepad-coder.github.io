@@ -1,16 +1,25 @@
-<!-- -------------------------------------- 
-           © released under cc0  
-     --------------------------------------
-   @ Gamepad.Coder 2020: this site's HTML+CSS  
-   @ Gigi Truelove 2020: this site's HTML+CSS initial concept+layout 
--->
+<!--
+
+    ------------------------------------------
+          © released under (CC0)            : 
+    ------------------------------------------
+     This site's HTML + CSS + Jekyll + Liquid.
+     This site's content.
+                           Gamepad.Coder 2021.
+    
+    --------------------------------------------------
+    https://creativecommons.org/publicdomain/zero/1.0/
+    --------------------------------------------------
+
+
+--> 
 
 <!doctype html>
 <html>
 	<head>
 		<meta charset="UTF-8" />
 		
-		<title>Apps Written</title>
+		<title>Application Gallery</title>
 		<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css" type="text/css" />
 		
 		<link rel="preload" href="http://localhost:4000/assets/images/avatar_gamepad.coder.png" as="image" />
@@ -24,6 +33,7 @@
 					  -- Description written by my Wife <3; apps written." />
 		<meta name="keywords" content="professional, resume, programmer, technical writer, programs, applications, apps, showcase, works" />
 		<meta name="robots" content="nofollow" />
+		<meta property="og:image" content="http://localhost:4000/assets/images/app_highlights/this.jpg">
 		<meta http-equiv="author" content="Gamepad.Coder, Gamepad-Coder" />
 		<meta http-equiv="pragma" content="no-cache" />
 		
@@ -34,23 +44,33 @@
 <div id="website_background"></div>
 <div id="the_page">	
 
-	<!-- backdrop + username + navigation strip -->
+	
+	<!-- The <header> contains :
+		 [] the backdrop picture 
+		 [] the avatar + username banner 
+		 [] the navigation strip 
+	-->
 	<header>
 	
 		<div id="gc_header">
-			<a href="/">
+			<a href="/contact.html">
 				<div id="gc_logo">
 				
-						<!-- Picture of my favorite controller, 
-							 taken with phone's camera, editied in GNU Krita-->
+						<!-- 
+							Picture of my favorite portable controller.
+							Photo taken with phone's camera, editied in GNU Krita. 
+						-->
 						<img class="gc_picture" src="http://localhost:4000/assets/images/avatar_gamepad.coder.png" width="50" height="50">
-						<h1 class="gc_txt">Gamepad.Coder</h1>
+						<!-- <h1 class="gc_txt" style="word-spacing: -9px;"> -->
+						<h1 class="gc_email">
+							Gamepad.Coder<span id="gc_email_atSign">@</span>gmail.com
+						</h1>
 					
 				</div>
 			</a>
 			<div id="gc_hire">
 						<li>
-							<a href="/contact.html">Contact for Hire</a>  
+							<a href="/contact.html">Contact for Hire.</a>  
 						</li>
 			</div>
 		</div>
@@ -59,11 +79,11 @@
 				<li id="home_button">
 					<a href="/">Home</a>
 				</li>
-				<li class="current">
-					<a href="/Apps.html">Apps Written</a>
-				</li>
 				<li>
 					<a href="/Documentation.html">Documentation for Projects</a>
+				</li>
+				<li class="current">
+					<a href="/Apps.html">App Gallery</a>
 				</li>
 				<li>
 					<a href="/Philosophy.html">Philosophy Blog</a>
@@ -77,12 +97,28 @@
 	<!--   (+) optionally   -->
 	<!--   sidebar          -->
 	<div id="page_flex">
-	
-		<!-- -------------------------------------------------------------------------
-		     Jekyll inserted the following from "Apps.html" 
-			 into Layout_Default.html at the line containing the Liquid object: 
-				 {{ content }}  
-		  ------------------------------------------------------------------------- -->
+		
+		<!-- -----------------------------------------------------------------------------------------------
+			 [ JEKYLL INFO ]   
+			 -----------------------------------------------------------------------------------------------
+			 
+		     Jekyll inserted the following "main content" section from "/Apps.html".
+			 It was inserted into "/_layouts/Layout_Default.html" at the line containing the Liquid object: 
+				 {{ content }} 
+			 resulting in the baked HTML page "/_site/Apps.html" 
+			 (which you are viewing now if you right clicked my website then clicked "View Source").
+			
+			 The baked HTML pages are located in the "/_site" directory here: 
+				https://github.com/gamepad-coder/gamepad-coder.github.io/tree/master/_site
+			
+			 To see what the building blocks look like before they are wired together by Jekyll 
+			 (and to see the  {{ content }}  line immediately after this comment block
+			 in "/_layouts/Layout_Default.html")
+			 
+			 look at the files in the top directory:
+				https://github.com/gamepad-coder/gamepad-coder.github.io
+				
+			 ----------------------------------------------------------------------------------------------- -->
 
 		<!-- main content -->
 		<div id="page_content" class="content  app_highlights">
@@ -489,7 +525,7 @@
 		
 
 		<aside id="asideBar" class="aside_appHighlights">
-			<h3>Navigate This Page:</h3>
+			<h3 style="text-align:center">Navigate This Page:</h3>
 			
 				 Experiments
 					<ul>
@@ -630,17 +666,23 @@
 				b_clicking = false;
 			});
 		</script>
-		<!-- -------------------------------------------------------------------------
+		
+		<!-- --------------------------------------------------------------------------
+			 [ JEKYLL INFO ]   
+			 --------------------------------------------------------------------------
 		                                     end of insert from "Apps.html"   
-		  ---------------------------------------------------------------------------->
+			 -------------------------------------------------------------------------- -->
 		
 	</div><!-- .page_flex: main content (+sidebar) -->
 	
 
 	<!-- footer of main page block -->
 	<footer class="gitlinks">
-			<!-- ----------------------------------------- 
-					what all this does: 
+	
+			<!-- ------------------------------------------------
+				 Dynamic CSS resizing for footer GitHub links:
+				 ------------------------------------------------
+					How the following works : 
 					
 					if the screen is wide enough
 					
@@ -654,7 +696,7 @@
 						
 						with a space
 						in between
-			     ----------------------------------------- -->
+			     ------------------------------------------------ -->
 				 
 			<a style="float: left;" class="a_gitlinks" href="https://github.com/gamepad-coder/">
 				
@@ -684,11 +726,16 @@
 		<br>
 		<br>
 		Have a wonderful day.
-		<!-- 
-			css:p.copyright{line-height: 1em;}
+		
+		<!-- --------------------------------------------------------
+			 Fun technical detail : 
+			 --------------------------------------------------------
+				main.css -> 
+				p.copyright{line-height: 1em;}
 			
-			gives this double br a nice spacing 
-		-->
+			 gives this double <br> a nice amount of vertical space.
+			 -------------------------------------------------------- -->
+			 
 	</p>
 </footer>	
 

@@ -1,9 +1,18 @@
-<!-- -------------------------------------- 
-           © released under cc0  
-     --------------------------------------
-   @ Gamepad.Coder 2020: this site's HTML+CSS  
-   @ Gigi Truelove 2020: this site's HTML+CSS initial concept+layout 
--->
+<!--
+
+    ------------------------------------------
+          © released under (CC0)            : 
+    ------------------------------------------
+     This site's HTML + CSS + Jekyll + Liquid.
+     This site's content.
+                           Gamepad.Coder 2021.
+    
+    --------------------------------------------------
+    https://creativecommons.org/publicdomain/zero/1.0/
+    --------------------------------------------------
+
+
+--> 
 
 <!doctype html>
 <html>
@@ -24,6 +33,7 @@
 					  -- Description written by my Wife <3; {{ page.meta_description }}" />
 		<meta name="keywords" content="professional, resume, programmer, technical writer, {{ page.meta_keywords }}" />
 		<meta name="robots" content="nofollow" />
+		<meta property="og:image" content="{{ "/assets/images/app_highlights/this.jpg" | absolute_url }}">
 		<meta http-equiv="author" content="Gamepad.Coder, Gamepad-Coder" />
 		<meta http-equiv="pragma" content="no-cache" />
 		
@@ -34,25 +44,66 @@
 <div id="website_background"></div>
 <div id="the_page">	
 
-	<!-- backdrop + username + navigation strip -->
+	
+	<!-- The <header> contains :
+		 [] the backdrop picture 
+		 [] the avatar + username banner 
+		 [] the navigation strip 
+	-->
 	<header>
 	
 		<div id="gc_header">
-			<a href="/">
+			{% if page.title != "Contact for Hire" -%}
+			<a href="/contact.html">
+			{%- endif %}
 				<div id="gc_logo">
 				
-						<!-- Picture of my favorite controller, 
-							 taken with phone's camera, editied in GNU Krita-->
+						<!-- 
+							Picture of my favorite portable controller.
+							Photo taken with phone's camera, editied in GNU Krita. 
+						-->
 						<img class="gc_picture" src="{{ "/assets/images/avatar_gamepad.coder.png" | absolute_url }}" width="50" height="50">
-						<h1 class="gc_txt">Gamepad.Coder</h1>
+						<!-- <h1 class="gc_txt" style="word-spacing: -9px;"> -->
+						<h1 class="gc_email">
+							Gamepad.Coder<span id="gc_email_atSign">@</span>gmail.com
+						</h1>
 					
 				</div>
+			{% if page.title != "Contact for Hire" -%}
 			</a>
+			{%- endif %}
 			<div id="gc_hire">
 						{% comment %}  {% raw %}
-						<!-- this utilizes the templating language "Liquid" : -->
-						<!-- Jekyll will { % conditionally % } give one <li> an attribute of class="current" -->
-						<!-- if the .html page importing this layout matches the title -->
+						
+						<!--   [ JEKYLL INFO ]   --> 
+						
+						<!-- Summary :                                                              -->
+						
+						<!--           Here I'm using Jekyll to automatically use context-clues to  -->
+						<!--           [] make a page not link to itself                            -->
+						<!--           [] style the current page's entry in the navbar.             -->
+						
+						
+						<!-- Details:                                                                            -->
+						
+						<!-- The following block (and the similar code in the following <nav id="gc_navbar">)    -->
+						<!--   utilizes the templating language "Liquid".                                        -->
+						<!--                                                                                     -->
+						<!-- Jekyll will conditionally give one <li> an attribute of class="current"             -->
+						<!--   {% if %} the .html page which wraps itself inside this "Layout_Default" template  -->
+						<!--   has the same title as the link.                                                   -->
+						<!--                                                                                     -->
+						<!-- This results in a different style (and no clickable button)                         -->
+						<!--   for the navigation item corresponding to the page the user is currently on.       -->
+						
+						<!-- Note : -->
+						
+						<!-- Because this block of HTML comments are enclosed in the tag {% comment %}   -->
+						<!-- Jekyll will ignore everything until the matching endcomment tag.            -->
+						<!-- Thus -> these notes will not appear inside the baked website                -->
+						<!--         nor in the live site's HTML.                                        -->
+						<!-- The raw tag tells Jekyll to ignore any valid Liquid tags it finds inside.   -->
+						
 						{% endraw %}   {%- endcomment -%}  
 						<li 
 							{%-  if page.title == "Contact for Hire"  -%}
@@ -60,10 +111,21 @@
 								class="current"
 							{%-  endif  -%}
 						>
-							<a href="/contact.html">Contact for Hire</a>  
+							<a href="/contact.html">Contact for Hire.</a>  
 						</li>
 			</div>
 		</div>
+		
+		{% comment -%}
+		
+		<!-- -----------------------------------------------------------------------------------------------
+			 [ JEKYLL INFO ]   
+			 -----------------------------------------------------------------------------------------------
+			 		
+			 See the previous comment block to read about how I'm using Jekyll to conditionally alter the style here.
+			 ----------------------------------------------------------------------------------------------- -->
+		
+		{%- endcomment -%}
 		
 		<nav id="gc_navbar">				
 				<li id="home_button"
@@ -74,20 +136,20 @@
 					<a href="/">Home</a>
 				</li>
 				<li
-					{%-  if page.title == "Apps Written"  -%}
-						{{-" "-}}
-						class="current"
-					{%-  endif  -%}
-				>
-					<a href="/Apps.html">Apps Written</a>
-				</li>
-				<li
 					{%- if page.title == "Documentation" -%}
 						{{-" "-}}
 						class="current"
 					{%-  endif  -%}
 				>
 					<a href="/Documentation.html">Documentation for Projects</a>
+				</li>
+				<li
+					{%-  if page.title == "Application Gallery"  -%}
+						{{-" "-}}
+						class="current"
+					{%-  endif  -%}
+				>
+					<a href="/Apps.html">App Gallery</a>
 				</li>
 				<li
 					{%-  if page.title == "Philosophy Blog"  -%}
@@ -106,25 +168,47 @@
 	<!--   (+) optionally   -->
 	<!--   sidebar          -->
 	<div id="page_flex">
-	
-		<!-- -------------------------------------------------------------------------
-		     Jekyll inserted the following from "{{ page.name }}" 
-			 into Layout_Default.html at the line containing the Liquid object: 
-				{% raw %} {{ content }} {% endraw %} 
-		  ------------------------------------------------------------------------- -->
+		
+		<!-- -----------------------------------------------------------------------------------------------
+			 [ JEKYLL INFO ]   
+			 -----------------------------------------------------------------------------------------------
+			 
+		     Jekyll inserted the following "main content" section from "/{{ page.name }}".
+			 It was inserted into "/_layouts/Layout_Default.html" at the line containing the Liquid object: 
+				{% raw %} {{ content }} {% endraw %}
+			 resulting in the baked HTML page "/_site/{{ page.name }}" 
+			 (which you are viewing now if you right clicked my website then clicked "View Source").
+			
+			 The baked HTML pages are located in the "/_site" directory here: 
+				https://github.com/gamepad-coder/gamepad-coder.github.io/tree/master/_site
+			
+			 To see what the building blocks look like before they are wired together by Jekyll 
+			 (and to see the {% raw %} {{ content }} {% endraw %} line immediately after this comment block
+			 in "/_layouts/Layout_Default.html")
+			 
+			 look at the files in the top directory:
+				https://github.com/gamepad-coder/gamepad-coder.github.io
+				
+			 ----------------------------------------------------------------------------------------------- -->
 
 		{{ content }}
-		<!-- -------------------------------------------------------------------------
+		
+		<!-- --------------------------------------------------------------------------
+			 [ JEKYLL INFO ]   
+			 --------------------------------------------------------------------------
 		                                     end of insert from "{{ page.name }}"   
-		  ---------------------------------------------------------------------------->
+			 -------------------------------------------------------------------------- -->
 		
 	</div><!-- .page_flex: main content (+sidebar) -->
 	
 
 	<!-- footer of main page block -->
 	<footer class="gitlinks">
-			<!-- ----------------------------------------- 
-					what all this does: 
+	
+			<!-- ------------------------------------------------
+				 Dynamic CSS resizing for footer GitHub links:
+				 ------------------------------------------------
+					How the following works : 
 					
 					if the screen is wide enough
 					
@@ -138,7 +222,7 @@
 						
 						with a space
 						in between
-			     ----------------------------------------- -->
+			     ------------------------------------------------ -->
 				 
 			<a style="float: left;" class="a_gitlinks" href="https://github.com/gamepad-coder/">
 				
@@ -168,11 +252,16 @@
 		<br>
 		<br>
 		Have a wonderful day.
-		<!-- 
-			css:p.copyright{line-height: 1em;}
+		
+		<!-- --------------------------------------------------------
+			 Fun technical detail : 
+			 --------------------------------------------------------
+				main.css -> 
+				p.copyright{line-height: 1em;}
 			
-			gives this double br a nice spacing 
-		-->
+			 gives this double <br> a nice amount of vertical space.
+			 -------------------------------------------------------- -->
+			 
 	</p>
 </footer>	
 

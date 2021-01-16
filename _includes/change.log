@@ -195,7 +195,7 @@ HTML processed output now tweaked to look more natural, polished Jekyll's commen
 │
 ├── +  [click 'n drag #0] 
 │           │
-│           └──>        Added js to scroll the changelog on mouse drag
+│           └──>        Added js to scroll the changelog on mouse drag.
 │       
 └                          
 
@@ -204,6 +204,76 @@ HTML processed output now tweaked to look more natural, polished Jekyll's commen
 ├── +  [Apps Written] 
 │           │
 │           └──>    Added an overview of my Linux Frambuffer Windowing System.    
+└
+
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+``````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+[v13.0]
+
+========
+Summary:
+========
+
+[+] Polished navbar + sidebar + added to Home page's content.
+
+========
+Details:
+========
+
+[polish]
+│
+├── +  [license updated]
+│           │
+│           ├──>     Updated license for 2021.
+│           │
+│           ├──>     Added license to each un-baked page, 
+│           │         to make it clear that pre-rendered source pages are also CC0.
+│           │
+│           ├──>     Made scope of license broader + more explicit.
+│           │
+│           └──>     Added link to CC0 at the bottom of each license declaration:
+│                              https://creativecommons.org/publicdomain/zero/1.0/ 
+│
+├── +  [clarification]
+│           │
+│           └──>     Elaborated in the top comment on the un-baked .css files
+│                     to explain the function of the empty header.
+│                     (Jekyll will not process a file lacking a header.)
+│        
+│
+├── +  [polished main navigation bar]
+│           │
+│           ├──>     Top-left corner now contains my email address.
+│           │         (Before this version it was only my username.)
+│           │
+│           └──>     Renamed button "Apps Written" -> to "App Gallery"
+│                     (This page is now meant to be an overview for all of them,
+│                     so this text is more fitting. Since initial website conception, 
+│                     I've decided to shift main focus to the Documentation sub-site.)
+│
+│
+├── +  [polished Home page's wording]
+│           │
+│           ├──>     Minor clarifications (went through files and listed a verified wordcount).
+│           │
+│           ├──>     Added "Site Overview:" to the sidebar.
+│           │
+│           └──>     Minor changes to wording + new phrases in each section 
+│                     (except for Fun, Fun is fine the way it is :)
+│  
+├── +  [polished Home page's sidebar]
+│           │
+│           └──>     Minor CSS tweaks to make it apparent that the "Home" box is not a button 
+│                      by visually distinguishing it from the others (consistent with navbar styling)
+└ 
+
+< new content >
+│
+├── +  [Home Page] 
+│           │
+│           └──>     Added detailed site overview section.
+│                    [to-do] Collapsable regions to implement next.
 └
 
 

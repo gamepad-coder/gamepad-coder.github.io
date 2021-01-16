@@ -1,11 +1,21 @@
 ---
-# ensure Jekyll will process liquid in this page into the baked .css file
+# The header surrounding this comment ensures Jekyll will process the Liquid in this page into the baked .css file.
 ---
-/* -------------------------------------- 
-         © released under cc0  
-   --------------------------------------
-   @ Gamepad.Coder 2020: this site's HTML+CSS  
-   @ Gigi Truelove 2020: this site's HTML+CSS initial concept+layout */
+/*
+
+    ------------------------------------------
+          © released under (CC0)            : 
+    ------------------------------------------
+     This site's HTML + CSS + Jekyll + Liquid.
+     This site's content.
+                           Gamepad.Coder 2021.
+    
+    --------------------------------------------------
+    https://creativecommons.org/publicdomain/zero/1.0/
+    --------------------------------------------------
+
+
+*/
 
 
 
@@ -94,9 +104,16 @@
 		color: silver;
 	}
 	aside {	font-size: 16px;	font-family: Palatino, serif; }
-	span.nav_ref {	font-size: 17px;	}
+	/* span.nav_ref {	font-size: 17px;	} */
+	
+	span.nav_ref_current {	
+		color: black;
+		background-color: #1a9b51;
+		border-radius: 2px;
+		padding: 4px 4px;
+	}
 
-	h1.gc_txt {
+	h1.gc_email {
 		color: white;
 	}
 				    /* -------------- */
@@ -151,7 +168,7 @@
 
 	#gc_logo{    background: rgba(7,7,7,0.6);    }
 	img.gc_picture{	border: 6px ridge  #ddd;        }
-	h1.gc_txt{      border: 7px outset  #777;       }
+	h1.gc_email{      border: 7px outset  #777;       }
 	#gc_hire li {   background: rgba(0,0,0,0.5);    }
 	#gc_hire li.current{ background-color: #1a9b51; }
 
@@ -173,7 +190,10 @@
 	#asideBar .skip_bottom_border {
 		border-bottom: none;
 	}
-		.nav_ref { background-color: #000000; }
+	
+		.nav_ref { 
+			background-color: #000000; 
+		}
 		
 		#aside_contact {
 			color: #e9e9e9;
@@ -201,8 +221,6 @@
 		aside p {
 			border-bottom: 1px solid rgba(222, 222, 222, .3); 
 		}
-		
-		
 		#aside_contact{
 			color: white;
 		}
@@ -273,7 +291,13 @@
 		  /* margin-left: 10px; */
 		  float: left;
 		}
-		h1.gc_txt{
+		
+			#gc_email_atSign{
+				margin:0 5px;
+				color: white;
+				text-decoration: none;				
+			}
+		h1.gc_email{
 			position: relative;
 			top: 50%;		
 			transform: translate(0%, -50%);
@@ -464,6 +488,10 @@
 	  a.nav_ref, .nav_ref {
 		margin-right: 5px;
 		color: #1a9b51;
+		
+		border-radius: 6px;
+		padding: 4px 5px;
+		
 	  }
 	#aside_contact{
 		/* padding: 0; */
@@ -629,6 +657,11 @@
 		/* #asideBar { 
 			being this specific causes problems for the @media overrides
 			*/ 
+		#asideBar .nav_ref {
+			
+			line-height: 2em;
+			
+		}
 		#asideBar {
 			font-size: 20px;
 			order: 1;

@@ -1,11 +1,21 @@
 ---
-# ensure Jekyll will process liquid in this page into the baked .css file
+# The header surrounding this comment ensures Jekyll will process the Liquid in this page into the baked .css file.
 ---
-/* -------------------------------------- 
-         © released under cc0  
-   --------------------------------------
-   @ Gamepad.Coder 2020: this site's HTML+CSS  
-   @ Gigi Truelove 2020: this site's HTML+CSS initial concept+layout */
+/*
+
+    ------------------------------------------
+          © released under (CC0)            : 
+    ------------------------------------------
+     This site's HTML + CSS + Jekyll + Liquid.
+     This site's content.
+                           Gamepad.Coder 2021.
+    
+    --------------------------------------------------
+    https://creativecommons.org/publicdomain/zero/1.0/
+    --------------------------------------------------
+
+
+*/
 
 
 
@@ -14,6 +24,7 @@
   /*                    fonts                         */
  /*                                                  */
 /* ------------------------------------------------ */
+
 
 	body{
 		font-family: Monospace, Palatino, Verdana, serif;
@@ -172,7 +183,12 @@
 				/* margin-left: 10px; */
 				float: left;
 			} 
-			.gc_txt{
+			#gc_email_atSign{
+				margin:0 5px;
+				color: white;
+				text-decoration: none;				
+			}
+			.gc_email{
 				position: relative;
 				top: 50%;		
 				transform: translate(0%, -50%);
@@ -187,8 +203,8 @@
 		
 		#gc_logo{    background: rgba(7,7,7,0.6);    }
 			.gc_picture{	border: 6px ridge  #ddd;        }
-			.gc_txt{      border: 7px outset  #777;       }		
-			.gc_txt{      color: #ffffff;      }
+			.gc_email{      border: 7px outset  #777;       }		
+			.gc_email{      color: #ffffff;      }
 
 
 		#gc_hire{
