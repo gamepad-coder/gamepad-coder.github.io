@@ -1,0 +1,231 @@
+{% extends "!layout.html" %}
+
+
+{% block extrahead %}
+
+	{# @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -#}
+	{% if title == 'APIs, Manuals, Tutorials' -%}
+	{#-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -#}
+	
+		<link rel="stylesheet" href="_static/css/Doc_Homepage.css" type="text/css" />
+	
+	{%-                endif                   %}
+	
+	{#- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -#}
+	{%- if title != 'APIs, Manuals, Tutorials' -%}
+	{#- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -#}
+	
+		<link rel="stylesheet" href="_static/css/Doc_Subsite.css" type="text/css" />
+	
+	{%-                endif                   %}
+
+
+{% endblock %}
+
+
+<div role="main">
+  {% block extrabody %}
+	
+	{#- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -#}
+	{%- if title == 'APIs, Manuals, Tutorials' -%}
+	{#- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -#}
+	
+	<div id="website_background">
+		<!-- The background gradient is generated in main.css and projected into this background div -->
+	</div>
+	
+	
+	<!-- The Homepage layout's <body> tag has a padding of 8px all around, this wrapper is to keep uniformity. -->
+	<div id="doc_body_offset_for_navbar">
+	
+		<div id="the_page">	
+		
+			<!-- The "gc_header" contains :
+				[1] the avatar + email banner + "Contact for Hire" button
+				[2] the navigation bar 
+				[3] the backdrop picture 
+			-->
+			<header id="gc_header">
+				<!-- [1] the avatar + email banner + "Contact for Hire" button -->
+				<div id="gc_banner">
+
+					<!-- The contact button is in the upper-right corner of the page. 
+						 To make this layout consistent on small phone screens, 
+						 I moved above the HTML for the banner under the contact button 
+						 For large screens, this HTML ordering makes no difference (using my current CSS implementation).
+
+						 The contact button will now stay in the upper-right corner using CSS float:right, 
+						 regardless of how wide or super-narrow the screen is. Happy with this design.
+					-->
+
+					<div id="gc_banner__hire">
+						<a href="/contact.html" id="navbar_1">
+								<li>
+									Contact for Hire.
+								</li>
+								
+						</a>
+					</div>
+
+					<a href="/contact.html">
+						<div id="gc_banner__logo">
+						
+								<!-- 
+									Picture of my favorite portable controller.
+									Photo taken with phone's camera, editied in GNU Krita. 
+								-->								
+								<img id="gc_banner__picture" src="/assets/images/avatar_gamepad.coder.png" width="50" height="50">
+								<h1 id="gc_banner__email">
+									Gamepad.Coder<span id="gc_banner__email_atSign">@</span>gmail.com
+								</h1>
+							
+						</div> <!-- id="gc_banner__logo" | css #gc_banner__logo -->
+					</a>
+				</div> <!-- id="gc_banner" | css #gc_banner -->
+				
+				<nav id="gc_navbar">
+					<a href="/" id="navbar_2">
+						<li id="gc_navbar__home">
+							Home
+						</li>
+					</a>
+						<li class="gc_navigation_link__current_page">
+							<span id="doc_navbar_button">
+								Documentation for Projects
+							</span>
+						</li>
+					<a href="/Apps.html" id="navbar_4">
+						<li>
+							App Gallery
+						</li>
+					</a><a href="/Philosophy.html" id="navbar_5">
+						<li>
+							Philosophy Blog
+						</li>
+					</a>
+				</nav>
+			
+			</header> <!-- id="gc_header" | css #gc_header -->
+		</div>
+	</div>
+	
+	{#  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -#}
+	{%-                  endif                    %}
+	{#- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -#}
+	
+		{{ super() }}
+	
+
+
+	
+  {% endblock %}
+</div>
+
+
+
+{% block custom__pre_nav_content %}
+
+
+	{#  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -#}
+	{%- if title != 'APIs, Manuals, Tutorials' -%}
+	{#- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -#}
+			<header id="gc_header">
+				<nav id="gc_navbar">
+					<a href="/" id="navbar_2">
+						<li id="gc_navbar__home">
+							Home
+						</li>
+					</a>
+					<a href="{{ pathto(master_doc) }}" id="navbar_3">
+						<li class="gc_navigation_link__current_page">
+							<span id="doc_navbar_button">
+								Documentation for Projects
+							</span>
+						</li>
+						<li class="gc_navigation_link__current_page__toHome">
+							<span id="doc_navbar_button">&nbsp;up to Documentation Home&nbsp;</span>
+						</li>
+					</a>
+					<a href="/Apps.html" id="navbar_4">
+						<li>
+							App Gallery
+						</li>
+					</a><a href="/Philosophy.html" id="navbar_5">
+						<li>
+							Philosophy Blog
+						</li>
+					</a>
+				</nav>
+			
+			</header> <!-- id="gc_header" | css #gc_header -->
+			
+	{#  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -#}
+	{%-                 endif                   %}
+	{#- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  #}
+	
+
+{% endblock %}
+
+
+
+
+
+
+
+{% block gc_header %}
+
+	{#  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -#}
+	{%- if title != 'APIs, Manuals, Tutorials' -%}
+	{#- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -#}
+	
+		<a href="/contact.html">
+	<div id="gc_wrapper_pc">
+		<div id="gc_banner__logo">
+
+
+			<img id="gc_banner__picture" src="/assets/images/avatar_gamepad.coder.png" width="50" height="50">
+			<h1 id="gc_banner__email">
+				Gamepad.Coder<span id="gc_banner__email_atSign">@</span>gmail.com
+			</h1>
+
+		</div>
+	</div>
+		</a>	
+			
+			
+	{#  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -#}
+	{%-                 endif                   %}
+	{#- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  #}
+{% endblock %}
+
+
+
+
+
+
+
+{% block footer %}
+
+<!-- The detached footer floating below the main central box of the page -->
+<footer class="floating_footer">
+	<p class="floating_footer_copyright">
+		
+		&copy; Gamepad.Coder 2021
+		<br>
+		<br> 
+		Have a wonderful day.
+		
+		<!-- ========================================================
+			 Fun technical detail : 
+			 ========================================================
+				main.css -> 
+				p.copyright{line-height: 1em;}
+			
+			 gives this double <br> a nice amount of vertical space.
+			 ======================================================== 
+		-->
+			 
+	</p>
+</footer><!-- class="floating_footer" | css .floating_footer -->
+{% endblock %}
+

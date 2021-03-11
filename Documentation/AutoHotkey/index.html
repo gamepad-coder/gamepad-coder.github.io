@@ -1,0 +1,633 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>AutoHotkey</title>
+  <!-- <title>AutoHotkey &mdash; NewHTMLtitle</title> /*original*/-->
+  
+
+  
+  <link rel="stylesheet" href="/Documentation/o~DocAssets/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="/Documentation/o~DocAssets/pygments.css" type="text/css" />
+
+  
+	<link rel="icon" 
+		type="image/png" 		
+		href="/assets/images/avatar_favicon_gamepad.coder.png">
+  
+  <!--[if lt IE 9]>
+    <script src="/Documentation/o~DocAssets/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="/Documentation/o~DocAssets/documentation_options.js"></script>
+        <script type="text/javascript" src="/Documentation/o~DocAssets/jquery.js"></script>
+        <script type="text/javascript" src="/Documentation/o~DocAssets/underscore.js"></script>
+        <script type="text/javascript" src="/Documentation/o~DocAssets/doctools.js"></script>
+        <script type="text/javascript" src="/Documentation/o~DocAssets/language_data.js"></script>
+    
+    <script type="text/javascript" src="/Documentation/o~DocAssets/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    
+		
+	<link rel="search" title="Search" href="/Documentation/search.html" />
+    <link rel="next" title="My AutohHotkey GUI Framework" href="Object-Oriented GUI Framework/index.html" />
+    <link rel="prev" title="APIs, Manuals, Tutorials" href="/Documentation.html" />
+
+	<link rel="stylesheet" href="/Documentation/o~DocAssets/css/Doc_Subsite.css" type="text/css" />
+
+
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+	
+
+
+	
+  
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+	    
+
+	<a href="/contact.html">
+	<div id="gc_wrapper_pc">
+		<div id="gc_banner__logo">
+
+
+			<img id="gc_banner__picture" src="/assets/images/avatar_gamepad.coder.png" width="50" height="50">
+			<h1 id="gc_banner__email">
+				Gamepad.Coder<span id="gc_banner__email_atSign">@</span>gmail.com
+			</h1>
+
+		</div>
+	</div>
+		</a>	
+			
+			
+	
+<div class="wy-side-nav-search" >
+          
+
+
+          
+			
+          <!--
+            <a href="/Documentation.html" class=""> APIs, Manuals, Tutorials
+		  -->
+          
+
+          
+          <!-- </a> -->
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+			  
+              
+              
+              
+              
+			  
+              
+            
+            
+			
+			<a href="/Documentation.html" class="icon icon-home">&nbsp;Go to Documentation Home</a>
+			
+			
+              <p class="caption"><span class="caption-text">AutoHotkey:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#" style="font-style:italic;">What is AutoHotkey?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Object-Oriented GUI Framework/index.html">My AutohHotkey GUI Framework</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Object-Oriented GUI Framework/API/index.html">API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Utilities/index.html">My AutoHotkey Utilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Utilities/2do Tree/index.html">2do Tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Utilities/Clock/index.html">Clock</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Godot:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Godot/index.html" style="font-style:italic;">What is Godot?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Godot/Projects/index.html">My Godot Experiments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Godot/HowTo/index.html">How do I &nbsp; <code class="docutils literal notranslate"><span class="pre">(</span>&#160; <span class="pre">?</span>&#160; <span class="pre">)</span></code> &nbsp; in Godot ?</a></li>
+</ul>
+
+			  
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+		  <a href="/contact.html">Gamepad.Coder@gmail.com</a>
+        
+      </nav>
+
+      
+
+
+	<header id="gc_header">
+				<nav id="gc_navbar">
+					<a href="/" id="navbar_2">
+						<li id="gc_navbar__home">
+							Home
+						</li>
+					</a>
+					<a href="/Documentation.html" id="navbar_3">
+						<li class="gc_navigation_link__current_page">
+							<span id="doc_navbar_button">
+								Documentation for Projects
+							</span>
+						</li>
+						<li class="gc_navigation_link__current_page__toHome">
+							<span id="doc_navbar_button">&nbsp;up to Documentation Home&nbsp;</span>
+						</li>
+					</a>
+					<a href="/Apps.html" id="navbar_4">
+						<li>
+							App Gallery
+						</li>
+					</a><a href="/Philosophy.html" id="navbar_5">
+						<li>
+							Philosophy Blog
+						</li>
+					</a>
+				</nav>
+			
+			</header> <!-- id="gc_header" | css #gc_header -->
+			
+	
+	
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+	  
+      <li>
+		<a href="/Documentation.html" class="icon icon-home" style="color:#2980b9;"></a> &raquo;
+      </li>
+      
+      <li style="
+        font-family: 'Courier New';"
+      >
+	    AutoHotkey
+      </li>
+      
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+			
+			<a href="/Documentation/o~SourceFiles/AutoHotkey/index.rst.txt" rel="nofollow" style="font-size: 14px;"> View page's source<br />(reStructuredText file)</a>
+			
+			
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="autohotkey">
+<h1>AutoHotkey<a class="headerlink" href="#autohotkey" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-AutoHotkey_CustomLexer notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">Whatever</span> <span class="p">{</span>
+
+  <span class="o">//</span> <span class="n">comment</span>
+  <span class="cm">/* comment</span>
+<span class="cm">     block</span>
+<span class="cm">  */</span>
+  <span class="vc">_puppies</span> <span class="o">:=</span>
+
+  <span class="nn">__New</span><span class="ss">(</span> <span class="vc">_a_thing</span> <span class="ss">)</span><span class="p">{</span>
+    <span class="n">int</span> <span class="n">hello</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="ss">(</span> <span class="mi">12</span><span class="o">+</span><span class="mf">2.34</span> <span class="ss">)</span><span class="p">;</span>
+    <span class="n">kitten</span> <span class="o">:=</span> &#39;<span class="n">m</span>&#39; <span class="o">+</span> &#39;<span class="n">e</span>&#39; <span class="o">+</span> &#39;<span class="n">o</span>&#39; <span class="o">+</span> &#39;<span class="n">w</span>&#39;<span class="c1">                     ;test</span>
+    <span class="n">string</span> <span class="vc">_puppies</span> <span class="o">=</span> <span class="s">&quot;say woof!&quot;</span> <span class="ow">and</span> <span class="vi">%kitten%</span>
+    <span class="nf">call_me</span><span class="ss">(</span><span class="mi">3</span><span class="ss">)</span>
+    <span class="nf">call_me</span><span class="ss">(</span><span class="n">int</span> <span class="n">number</span><span class="ss">)</span><span class="p">{</span>
+      <span class="k">return</span> <span class="nv">true</span>
+    <span class="p">}</span>
+    <span class="nb">#ClipboardTimeout</span>
+    <span class="k">for</span><span class="ss">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="ss">)</span><span class="p">{</span>
+      <span class="k">if</span><span class="ss">(</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">9</span> <span class="ss">)</span><span class="p">{</span>
+        <span class="kr">Msgbox</span><span class="p">,</span> <span class="nv">A_ThisFunc</span> <span class="ow">is</span> <span class="vi">%A_ThisFunc%</span>
+        <span class="k">continue</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="k">else</span><span class="p">{</span>
+        <span class="kr">MsgBox</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="n">PARSE</span> <span class="n">ERROR</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+
+<span class="p">};</span>
+</pre></div>
+</div>
+<div class="highlight-AutoHotkey_CustomLexer notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="o">^</span><span class="kp">F1</span><span class="o">::</span> <span class="kr">run</span> <span class="n">calc</span><span class="o">.</span><span class="n">exe</span><span class="c1"></span>
+<span class="c1"> ;-----------------------------------------------------</span>
+ <span class="nb">#If</span> <span class="ow">not</span> <span class="kr">GetKeyState</span><span class="ss">(</span><span class="s">&quot;NumLock&quot;</span><span class="p">,</span> <span class="s">&quot;T&quot;</span><span class="ss">)</span><span class="c1"></span>
+<span class="c1"> ;-----------------------------------------------------</span>
+ <span class="p">{</span>
+   <span class="o">&gt;^</span><span class="kp">NumpadUp</span><span class="o">::</span>
+ <span class="p">}</span>
+ <span class="nb">#If</span>
+ <span class="n">Puppies</span> <span class="o">:=</span> <span class="mi">0</span>
+ <span class="n">Kitten</span> <span class="o">:=</span> <span class="ss">(</span><span class="n">puppies</span> <span class="o">*</span> <span class="mi">3</span><span class="ss">)</span> <span class="o">+</span> <span class="mi">999</span>
+ <span class="k">class</span> <span class="n">GUI_CONTROL_BASE</span> <span class="p">{</span>
+ <span class="vc">_gui_container_hwnd</span> <span class="o">:=</span> <span class="s">&quot;&quot;</span>
+ <span class="vc">_ctrl_handle_hwnd</span> <span class="o">:=</span> <span class="s">&quot;&quot;</span>
+ <span class="vc">_ctrl_descriptor</span> <span class="o">:=</span> <span class="s">&quot;&quot;</span>
+
+             <span class="kr">GuiControlGet</span><span class="p">,</span> <span class="n">CtrlXY_</span><span class="p">,</span> <span class="n">Pos</span><span class="p">,</span> <span class="vi">%cHwnd%</span>
+ <span class="nf">toString</span><span class="ss">()</span><span class="p">{</span>
+  <span class="k">return</span> <span class="nn">this</span><span class="o">.</span><span class="vc">_ctrl_descriptor</span>
+ <span class="p">}</span>
+
+     <span class="n">Loop</span><span class="p">,</span> <span class="n">Files</span><span class="p">,</span> <span class="vi">%DIR_SPHINX%</span>\<span class="o">*.*</span><span class="p">,</span> <span class="n">DF</span>
+     <span class="p">{</span><span class="c1"></span>
+<span class="c1"> ;-------------------------------------------</span>
+<span class="c1"> ; get string for use in call</span>
+<span class="c1"> ;           Gui, Add, %cType%, option123 ..</span>
+<span class="c1"> ;-------------------------------------------</span>
+ <span class="nf">Gui_cType</span><span class="ss">()</span><span class="p">{</span>
+  <span class="k">return</span> <span class="s">&quot;[err]Gui_Control_Base -- &lt;~&gt; override me&quot;</span>
+ <span class="p">}</span>
+ <span class="nn">__New</span><span class="ss">()</span><span class="p">{</span>
+
+ <span class="p">}</span>
+ <span class="nn">__Delete</span><span class="ss">()</span><span class="p">{</span>
+  <span class="nf">cc</span><span class="ss">(</span> <span class="s">&quot;_ [delete] GUI_CONTROL_BASE :: `t __Delete()&quot;</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="s">&quot;d,ctrl,b&quot;</span> <span class="ss">)</span><span class="c1">   ;destructor,guiControl,base_class</span>
+
+
+  <span class="vc">_gui_container_hwnd</span> <span class="o">:=</span> <span class="s">&quot;&quot;</span><span class="c1"></span>
+
+<span class="c1">  ;~ tmp_out := this._ctrl_descriptor</span>
+
+<span class="c1">  ;          ( that is, keys; strings with which values are associated)&quot;</span>
+  <span class="nn">this</span><span class="o">.</span><span class="kr">Remove</span><span class="ss">(</span><span class="s">&quot;&quot;</span><span class="p">,</span> <span class="kr">Chr</span><span class="ss">(</span><span class="mi">255</span><span class="ss">))</span>
+
+  <span class="nn">this</span><span class="o">.</span><span class="nn">base</span> <span class="o">:=</span> <span class="mi">3</span>
+ <span class="p">}</span>
+
+ <span class="nf">get_ctrlHwnd</span><span class="ss">()</span><span class="p">{</span>
+  <span class="k">return</span> <span class="nn">this</span><span class="o">.</span><span class="vc">_ctrl_handle_hwnd</span>
+ <span class="p">}</span>
+
+ <span class="nf">get_container_gui_object</span><span class="ss">()</span><span class="p">{</span>
+  <span class="n">h</span> <span class="o">:=</span> <span class="nn">this</span><span class="o">.</span><span class="vc">_gui_container_hwnd</span>
+  <span class="k">if</span><span class="ss">(</span> <span class="n">h</span> <span class="ss">)</span><span class="p">{</span>
+    <span class="n">g</span> <span class="o">:=</span> <span class="n">GUI_BASE</span><span class="o">.</span><span class="nf">GUI_GET_obj_from_hwnd</span><span class="ss">(</span> <span class="n">h</span> <span class="ss">)</span>
+    <span class="k">if</span><span class="ss">(</span> <span class="o">!</span><span class="n">g</span> <span class="ss">)</span> <span class="p">{</span><span class="c1"> ;--error--;</span>
+      <span class="n">calling_objects_type</span> <span class="o">:=</span> <span class="nn">this</span><span class="o">.</span><span class="nf">Gui_cType</span><span class="ss">()</span>
+      <span class="nf">cc</span><span class="ss">(</span><span class="s">&quot;</span><span class="se">`n</span><span class="s">&quot;</span><span class="ss">)</span>
+      <span class="nf">cc</span><span class="ss">(</span><span class="s">&quot;</span><span class="se">`t</span><span class="s">g hwnd *not* in static GUI_BASE.array_of_guis[hwnd] `n&quot;</span><span class="ss">)</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">else</span><span class="p">{</span><span class="c1"> ;--error--;</span>
+
+  <span class="k">return</span> <span class="p">{</span><span class="s">&quot;x&quot;</span><span class="o">:</span><span class="n">x</span><span class="p">,</span> <span class="s">&quot;y&quot;</span><span class="o">:</span><span class="n">y</span><span class="p">}</span>
+ <span class="p">}</span>
+ <span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-AutoHotkey_CustomLexer notranslate"><div class="highlight"><pre><span></span><span class="k">gosub</span> <span class="n">latest</span>
+
+<span class="nl">latest:</span>
+  <span class="n">test</span>
+<span class="k">return</span>
+
+
+      <span class="nv">Clipboard</span> <span class="o">:=</span> <span class="n">ClipboardOld</span><span class="c1"></span>
+
+
+<span class="c1">;-----------------------------------------------------</span>
+<span class="c1">;       if NUMLOCK STATE ON == FALSE</span>
+<span class="c1">;-----------------------------------------------------</span>
+<span class="nb">#If</span> <span class="ow">not</span> <span class="kr">GetKeyState</span><span class="ss">(</span><span class="s">&quot;NumLock&quot;</span><span class="p">,</span> <span class="s">&quot;T&quot;</span><span class="ss">)</span><span class="c1"></span>
+<span class="c1">;-----------------------------------------------------</span>
+<span class="p">{</span>
+<span class="o">&gt;^</span><span class="kp">NumpadUp</span><span class="o">::</span>
+<span class="o">&gt;^</span><span class="kp">NumpadPgUp</span><span class="o">::</span><span class="c1"></span>
+<span class="c1">; msgbox % A_ThisHotkey</span>
+
+<span class="c1">; get HWND handle of current window</span>
+<span class="kr">WinGet</span><span class="p">,</span> <span class="n">HwndCurrent</span><span class="p">,</span> <span class="n">ID</span><span class="p">,</span> <span class="n">A</span>
+
+<span class="n">Puppies</span> <span class="o">:=</span> <span class="s">&quot;are Neat&quot;</span>
+<span class="n">Kittens</span> <span class="o">:=</span> <span class="s">&quot;are Neat&quot;</span><span class="c1"></span>
+
+<span class="c1">; get the Numpad___ keyname without the leading modifier characters</span>
+<span class="n">numlockOff_keyname</span> <span class="o">:=</span> <span class="kr">SubStr</span><span class="ss">(</span><span class="nv">A_ThisHotkey</span><span class="p">,</span> <span class="mi">3</span><span class="ss">)</span>
+<span class="n">numPress</span> <span class="o">:=</span> <span class="nf">get_numpad_int_from_numlockOff_keyname</span><span class="ss">(</span> <span class="n">numlockOff_keyname</span> <span class="ss">)</span><span class="c1"></span>
+
+
+<span class="c1">; store HWND in variable</span>
+<span class="c1">;  remember_win_numpad_%INTEGER_NUM_PRESSED% (+ &quot;b&quot; if layer shifted with . numpad key)</span>
+
+<span class="k">if</span><span class="ss">(</span> <span class="nv">false</span> <span class="o">==</span> <span class="n">b_numpad_layerShift</span> <span class="ss">)</span><span class="p">{</span>
+      <span class="n">remember_win_numpad_</span><span class="vi">%numPress%</span> <span class="o">:=</span> <span class="n">HwndCurrent</span>
+<span class="p">}</span>
+<span class="k">else</span><span class="p">{</span>
+      <span class="n">remember_win_numpad_</span><span class="vi">%numPress%</span><span class="n">_b</span> <span class="o">:=</span> <span class="n">HwndCurrent</span>
+<span class="p">}</span><span class="c1"></span>
+
+<span class="c1">;---------</span>
+<span class="c1">;debug</span>
+<span class="c1">;---------</span>
+<span class="c1">; out := &quot;Got keypress [&quot; A_ThisHotkey &quot;]&quot;</span>
+<span class="c1">; out .= &quot;`nwhich is numpad #[&quot; numPress &quot;]&quot;</span>
+<span class="c1">; out .= &quot;`n`nnow associated with Hwnd[&quot; HwndCurrent &quot;]&quot;</span>
+<span class="c1">; msgbox %out%</span>
+
+ <span class="k">return</span>
+<span class="p">}</span>
+<span class="nb">#If</span>
+</pre></div>
+</div>
+<p>AutoHotkey (abbreviated: “AHK” or “ahk”) is a programming language which wraps low-level procedures and functionality of the Windows Operating System into high-level, simplified commands.</p>
+<p>Examples of what you can do with short AutoHotkey scripts:</p>
+<blockquote>
+<div><ul>
+<li><div class="first line-block">
+<div class="line">Hotstrings:</div>
+<div class="line">When you type “btw” automatically replace it  with the text “by the way”  (or any other text + trigger combination you want)</div>
+</div>
+</li>
+<li><div class="first line-block">
+<div class="line">Hotkeys:</div>
+<div class="line">Remap a key combination to open the Windows Calculator</div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li>Move a window to a specific place on the screen (and optionally resize it at the same time)</li>
+<li>Move the mouse to a specific coordinate and click (or hold) a mouse button</li>
+<li>Draw lines, circles, or other images to the screen</li>
+<li>Create Graphical User Interfaces (“GUIs”) with just a few lines of code</li>
+<li>Hit F2 to bring up a list of all windows, (optionally including hidden windows),<ul>
+<li>bring any list item you left-click to the foreground</li>
+<li>close any list item you middle-click</li>
+<li>minimize any list item you right-click</li>
+</ul>
+</li>
+</ul>
+<p>The syntax of AutoHotkey is simple enough that users with no programming background can remap key combinations to launch applications (or run a few cherry-picked AutoHotkey commands), yet also robust enough to develop complex applications.</p>
+<p>Once installed, you can write AutoHotkey scripts in any text editor, save the file with the “.ahk” extension, then double-click to run your code. The AutoHotkey installer can optionally add a compiler to your Windows Explorer context menu, giving you the ability to bake “.ahk” scripts into an “.exe” executable file. These “AutoHotkey script.exe” files can either be run locally, or shared and run on Windows PCs which do not have AutoHotkey installed. _It can be useful to compile an AutoHotkey program (on a PC which already has AutoHotkey installed) when your program spans multiple files and you wish to bake them into a single executable for portability or cleanliness._</p>
+<p>The documentation is extensive but cleanly laid out, and can be read offline using the “.chm” file installed with AutoHotkey (the default location for 64-bit installations is: “C:Program FilesAutoHotkeyAutoHotkey.chm”).</p>
+<p>AutoHotkey has been around since 2003, and you can find many elegant solutions for a wide variety of use cases on the online AutoHotkey forums (ranging from simple functions like moving and listing windows -&gt; to more arcane uses, such as using AutoHotkey to interact with databases or to examine the IDs and data behind Chrome’s GUI components).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>AutoHotkey is used largely for simple scripting by hobbyists and gamers, but its built-in capabilities are versatile.</p>
+<p>For an example, look at the application <a class="reference external" href="https://www.autohotkey.com/boards/viewtopic.php?t=300">AHK Studio</a>. It is a full-fledged IDE<sup>1</sup> written entirely in AutoHotkey for the purpose of writing and managing AutoHotkey applications and projects. Personally, I’m still impressed by AHK Studio’s user interface design and functionality.</p>
+<p class="last">For those who are interested, SciTE4AutoHotkey (<a class="reference external" href="https://www.autohotkey.com/scite4ahk/">https://www.autohotkey.com/scite4ahk/</a>) is another excellent IDE for AutoHotkey. SciTE4AHK features code completion<sup>2</sup> for AHK commands, code completion for variables in the currently opened .ahk file, syntax-highlighting, a debugger with breakpoints, and variable inspection at runtime (including hierarchies of nested objects or arrays).</p>
+</div>
+<div class="section" id="want-to-know-more-about-autohotkey">
+<h2>Want to know more about AutoHotkey?<a class="headerlink" href="#want-to-know-more-about-autohotkey" title="Permalink to this headline">¶</a></h2>
+<p>AutoHotkey’s official website:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="83%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>ahk Home:</td>
+<td><a class="reference external" href="https://www.autohotkey.com/">https://www.autohotkey.com/</a></td>
+</tr>
+<tr class="row-even"><td>ahk Manual:</td>
+<td><a class="reference external" href="https://www.autohotkey.com/docs/AutoHotkey.htm">https://www.autohotkey.com/docs/AutoHotkey.htm</a></td>
+</tr>
+<tr class="row-odd"><td>ahk Forum:</td>
+<td><a class="reference external" href="https://www.autohotkey.com/boards/">https://www.autohotkey.com/boards/</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="glossary">
+<h2>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>[<sup>1</sup>] IDE:</dt>
+<dd><p class="first">Acronym for Integrated Development Environment.</p>
+<p>Refers to an application which facilitates programming. Typically IDEs include tools to assist in productively writing, running, and debugging code.</p>
+<p class="last">See: <a class="reference external" href="https://wikipedia.org/wiki/Integrated_development_environment">https://wikipedia.org/wiki/Integrated_development_environment</a>.</p>
+</dd>
+<dt>[<sup>2</sup>] Code Completion:</dt>
+<dd><p class="first">Typically a dropdown list suggesting words or commands based on context. Present in many IDEs (and even in some text editors, see <a class="reference external" href="https://notepad-plus-plus.org/">Notepad++</a>). Expedites programming by having the software remember and suggest specific variables, functions, and syntax conventions.</p>
+<p>For example, if you can only remember part of a function named “Cat_Says_Meow()”, you can type the beginning “Cat_Says_”, and code completion would present you with a dropdown item containing “Cat_Says_Meow()”. Compared to using a simple text editor, this feature allows you to remain focused on the present task (instead of sifting and searching for a half-remembered phrase, copying or re-memorizing it, scrolling back to where you began, then reorienting to your original context).</p>
+<p class="last">See: <a class="reference external" href="https://en.wikipedia.org/wiki/Intelligent_code_completion">https://en.wikipedia.org/wiki/Intelligent_code_completion</a>.</p>
+</dd>
+</dl>
+<p>todo link maybe</p>
+<ul class="simple">
+<li>Object-Oriented GUI Framework/index</li>
+<li>Utilities/index</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <br />
+	<div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="Object-Oriented GUI Framework/index.html" class="btn btn-neutral float-right" title="My AutohHotkey GUI Framework" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="/Documentation.html" class="btn btn-neutral float-left" title="APIs, Manuals, Tutorials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <br />
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div><div style="
+    text-align: right;
+	font-size: 11px;
+    ">		
+		&copy; Gamepad.Coder 2021
+		<br>
+		Have a wonderful day.
+	</div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+
+<!-- The detached footer floating below the main central box of the page -->
+<footer class="floating_footer">
+	<p class="floating_footer_copyright">
+		
+		&copy; Gamepad.Coder 2021
+		<br>
+		<br> 
+		Have a wonderful day.
+		
+		<!-- ========================================================
+			 Fun technical detail : 
+			 ========================================================
+				main.css -> 
+				p.copyright{line-height: 1em;}
+			
+			 gives this double <br> a nice amount of vertical space.
+			 ======================================================== 
+		-->
+			 
+	</p>
+</footer><!-- class="floating_footer" | css .floating_footer -->
+
+
+</body>
+</html>

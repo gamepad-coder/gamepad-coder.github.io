@@ -26,6 +26,7 @@
 /* ------------------------------------------------ */
 
 
+	/*** font ***/
 	body{
 		font-family: Monospace, Palatino, Verdana, serif;
 		/* font-size: 18px; */
@@ -33,6 +34,7 @@
 		color: black;
 	}
 	
+	/*** font ***/
 	#philosophy_header{
 		font-size: 18px;
 	}
@@ -164,9 +166,9 @@
 	|*  	Gamepad.Coder  logo     *|      +hire
 	|* - - - - - - - - - - - - - -  */
 
-	#gc_header{  overflow: auto;  }
+	#gc_banner{  overflow: auto;  }
 	
-		#gc_logo{
+		#gc_banner__logo{
 			/* width: 305; */
 			height: 80px;	
 			overflow: auto;
@@ -174,7 +176,7 @@
 			padding: 0 10px;
 		} 
 		
-			.gc_picture{
+			.gc_banner__picture{
 				position: relative;
 				top: 50%;
 				transform: translate(0%, -50%);
@@ -183,12 +185,12 @@
 				/* margin-left: 10px; */
 				float: left;
 			} 
-			#gc_email_atSign{
+			#gc_banner__email_atSign{
 				margin:0 5px;
 				color: white;
 				text-decoration: none;				
 			}
-			.gc_email{
+			.gc_banner__email{
 				position: relative;
 				top: 50%;		
 				transform: translate(0%, -50%);
@@ -201,17 +203,17 @@
 			}
 		
 		
-		#gc_logo{    background: rgba(7,7,7,0.6);    }
-			.gc_picture{	border: 6px ridge  #ddd;        }
-			.gc_email{      border: 7px outset  #777;       }		
-			.gc_email{      color: #ffffff;      }
+		#gc_banner__logo{    background: rgba(7,7,7,0.6);    }
+			.gc_banner__picture{	border: 6px ridge  #ddd;        }
+			.gc_banner__email{      border: 7px outset  #777;       }		
+			.gc_banner__email{      color: #ffffff;      }
 
 
-		#gc_hire{
+		#gc_banner__hire{
 			float: right;
 			list-style: none;
 		}  
-		#gc_hire li{
+		#gc_banner__hire li{
 		
 			padding: 5px;
 			
@@ -228,7 +230,7 @@
 		background-color: #2a72abd6;
 		background-color: rgba(42, 114, 171, 0.84);
 	}
-	#philosophy_header li.current { color: #ffffff;	text-decoration: none; }
+	#philosophy_header li.gc_navigation_link__current_page { color: #ffffff;	text-decoration: none; }
 	
 		
 	#gc_navbar{
@@ -256,7 +258,7 @@
 			min-width: 80px;			
 		}			
 
-		#gc_navbar .current {
+		#gc_navbar .gc_navigation_link__current_page {
 			background-color: #1a9b51a9;
 			background-color: rgba(26, 155, 81, 0.66);
 		}
@@ -814,8 +816,8 @@
 		article a {
 			color: #9027e1
 		}
-		#page_content { flex: 0 0 70%;	margin: 10px 40px 20px 40px; }
-		#page_content.page_content__time { flex: 0 0 95%;	margin: 0px; }
+		#the_page__main_content { flex: 0 0 70%;	margin: 10px 40px 20px 40px; }
+		#the_page__main_content.page_content__time { flex: 0 0 95%;	margin: 0px; }
 			
 			article {
 				/* padding: 0 10px;
@@ -848,7 +850,7 @@
   /*                          changelog               */
  /*                                                  */
 /* ------------------------------------------------ */
-#page_content.fill_page_width {
+#the_page__main_content.fill_page_width {
 	flex: 0 0 90%;
 	margin-bottom: 70px;
 }
@@ -1063,7 +1065,7 @@ article div.changelog__preserveNewines {
 	
 	@media all and (max-width: 900px) {
 		
-		#philosophy_header #gc_hire li {   
+		#philosophy_header #gc_banner__hire li {   
 			background-color: #2a72ab64;    
 			background-color: rgba(42, 114, 171, 0.84);
 		}
@@ -1122,7 +1124,7 @@ article div.changelog__preserveNewines {
 			padding-left: 20;
 			padding-left: 20;
 		}
-		#page_content {
+		#the_page__main_content {
 			order: 2;
 			width: 95%;
 			margin: 10px auto 20px auto;
@@ -1229,4 +1231,4 @@ article div.changelog__preserveNewines {
 	
 
 
-/* Have a wonderful day. */				
+/* Have a wonderful day. */

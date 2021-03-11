@@ -1,0 +1,255 @@
+<!--
+
+    ==========================================
+          © released under (CC0)            : 
+    ==========================================
+     This site's HTML + CSS + Jekyll + Liquid.
+     This site's content.
+                           Gamepad.Coder 2021.
+    
+    ==================================================
+    https://creativecommons.org/publicdomain/zero/1.0/
+    ==================================================
+
+
+--> 
+
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		
+		<title>Documentation</title>
+		<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css" type="text/css" />
+		
+		<link rel="preload" href="http://localhost:4000/assets/images/avatar_gamepad.coder.png" as="image" />
+		<link rel="icon" 
+		type="image/png" 		
+		href="http://localhost:4000/assets/images/avatar_favicon_gamepad.coder.png">
+		
+		<meta name="description" 
+			  content="The professional website of Gamepad.Coder, programmer
+					  , technical writer, philospher, and all aroung great guy.
+					  -- Description written by my Wife <3; Documentation for projects." />
+		<meta name="keywords" content="professional, resume, programmer, technical writer, projects documentation, docs" />
+		<meta name="robots" content="nofollow" />
+		<meta property="og:image" content="http://localhost:4000/assets/images/app_highlights/this.jpg">
+		<meta http-equiv="author" content="Gamepad.Coder, Gamepad-Coder" />
+		<meta http-equiv="pragma" content="no-cache" />
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=12.0, minimum-scale=.05, user-scalable=yes"/>
+	</head>
+<body>
+
+
+<div id="website_background">
+	<!-- The background gradient is generated in main.css and projected into this background div -->
+</div>
+
+
+<!-- This div (the_page) is the main central box of the webpage.
+	 It contains : 
+		 [] the navigation bar + avatar
+		 [] the main content of the page (+sidebar if the page defined one)
+		 [] the github links at the bottom of the main central block
+
+	 The floating footer is the only content not contained within this <div> for the "Layout_Default.html" template.
+-->
+<div id="the_page">	
+
+	
+	<!-- The "gc_header" contains :
+		[1] the avatar + email banner + "Contact for Hire" button
+		[2] the navigation bar 
+		[3] the backdrop picture 
+	-->
+	<header id="gc_header">
+	
+		<!-- [1] the avatar + email banner + "Contact for Hire" button -->
+		<div id="gc_banner">
+
+			<!-- The contact button is in the upper-right corner of the page. 
+				 To make this layout consistent on small phone screens, 
+				 I moved above the HTML for the banner under the contact button 
+				 For large screens, this HTML ordering makes no difference (using my current CSS implementation).
+
+				 The contact button will now stay in the upper-right corner using CSS float:right, 
+				 regardless of how wide or super-narrow the screen is. Happy with this design.
+			-->
+
+			<div id="gc_banner__hire"><a href="/contact.html">
+						<li>
+							Contact for Hire.
+						</li>
+						
+				</a>
+			</div>
+
+			<a href="/contact.html">
+				<div id="gc_banner__logo">
+				
+						<!-- 
+							Picture of my favorite portable controller.
+							Photo taken with phone's camera, editied in GNU Krita. 
+						-->
+						<img id="gc_banner__picture" src="http://localhost:4000/assets/images/avatar_gamepad.coder.png">
+						<h1 id="gc_banner__email">
+							Gamepad.Coder<span id="gc_banner__email_atSign">@</span>gmail.com
+						</h1>
+					
+				</div> <!-- id="gc_banner__logo" | css #gc_banner__logo -->
+			</a>
+		</div> <!-- id="gc_banner" | css #gc_banner -->
+		
+		
+		<!-- [2] the navigation bar  -->
+		<nav id="gc_navbar"><a href="/">
+				<li id="gc_navbar__home">
+					Home
+				</li>
+			</a>
+				<li class="gc_navigation_link__current_page">
+					Documentation for Projects
+				</li>
+			<a href="/Apps.html">
+				<li>
+					App Gallery
+				</li>
+			</a><a href="/Philosophy.html">
+				<li>
+					Philosophy Blog
+				</li>
+			</a>
+		</nav>
+		
+		<!-- [3] the backdrop picture
+		        is set in main.css under #gc_header
+		-->
+	
+	</header> <!-- id="gc_header" | css #gc_header -->
+
+
+	<!--   main content     -->
+	<!--   (+) optionally   -->
+	<!--   sidebar          -->
+	<div id="the_page__flex">
+		
+	<!-- ===============================================================================================
+		 [ JEKYLL INFO ]   
+		 ===============================================================================================
+	                                    begin insert from "v1_b4_sphinx__Documentation.html"          
+	
+	     Jekyll inserted the following "main content" section from "/v1_b4_sphinx__Documentation.html".
+		 It was inserted into "/_layouts/Layout_Default.html" at the line containing the Liquid object: 
+			 {{ content }} 
+		 resulting in the baked HTML page "/_site/v1_b4_sphinx__Documentation.html" 
+		 (which you are viewing now if you right clicked my website then clicked "View Source").
+		
+		 The baked HTML pages are located in the "/_site" directory here: 
+			https://github.com/gamepad-coder/gamepad-coder.github.io/tree/master/_site
+		
+		 To see what the building blocks look like before they are wired together by Jekyll 
+		 (and to see the  {{ content }}  line immediately after this comment block
+		 in "/_layouts/Layout_Default.html")
+		 
+		 look at the files in the top directory:
+			https://github.com/gamepad-coder/gamepad-coder.github.io
+			
+		 =============================================================================================== -->
+
+		<!-- main content -->
+		<div class="content">
+		
+			<h2 id="section_1">( coming soon )</h2>
+			<article>
+				[API for AHK CLASSES]
+			</article>
+		</div><!-- #content -->
+		
+		<aside id="asideBar">
+			<h3>Navigate This Page</h3>
+			<ul>
+				<a href="http://localhost:4000/v1_b4_sphinx__Documentation.html#section_1"><li>( coming soon )</li></a>
+			</ul>
+		</aside>
+		
+	<!-- ==========================================================================
+		 [ JEKYLL INFO ]   
+		 ==========================================================================
+	                                    end of insert from "v1_b4_sphinx__Documentation.html"      
+		 ========================================================================== -->
+		
+	</div><!-- id="the_page__flex" | css #the_page__flex | info: main content (+sidebar) (+github footer) -->
+	
+
+	<!-- footer of main page block -->
+	<footer class="gitlinks">
+	
+			<!-- ================================================
+				 Dynamic CSS resizing for footer GitHub links:
+				 ================================================
+					How the following works : 
+					
+					if the screen is wide enough
+					
+						each link appears on its own line
+						without any spaces in between
+					
+					if the screen is narrow enough 
+					
+						each link appears 
+						on two lines
+						
+						with a space
+						in between
+				 ================================================ 
+			-->
+				 
+			<a style="float: left;" class="a_gitlinks" href="https://github.com/gamepad-coder/">
+				
+				<div>View Gamepad.Coder's&nbsp;</div>
+				<div>programs on GitHub.</div>
+				
+			</a>
+			
+			<a style="float: left; clear: left;"  class="a_gitlinks" 
+			   href="https://github.com/gamepad-coder/gamepad-coder.github.io">
+			
+				<div>View this website's&nbsp;</div>
+				<div>source code on GitHub.</div>
+
+			</a>
+			
+	</footer><!-- class="gitlinks" | css .gitlinks -->
+
+	
+</div><!-- id="the_page" | css #the_page -->
+
+
+<!-- The detached footer floating below the main central box of the page -->
+<footer class="floating_footer">
+	<p class="floating_footer_copyright">
+		&copy; Gamepad.Coder 2021
+		<br>
+		<br>
+		Have a wonderful day.
+		
+		<!-- ========================================================
+			 Fun technical detail : 
+			 ========================================================
+				main.css -> 
+				p.copyright{line-height: 1em;}
+			
+			 gives this double <br> a nice amount of vertical space.
+			 ======================================================== 
+		-->
+			 
+	</p>
+</footer><!-- class="floating_footer" | css .floating_footer -->
+
+
+</body>
+</html>
+
+
+<!-- Have a wonderful day. -->

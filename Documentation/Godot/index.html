@@ -1,0 +1,442 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Godot</title>
+  <!-- <title>Godot &mdash; NewHTMLtitle</title> /*original*/-->
+  
+
+  
+  <link rel="stylesheet" href="/Documentation/o~DocAssets/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="/Documentation/o~DocAssets/pygments.css" type="text/css" />
+
+  
+	<link rel="icon" 
+		type="image/png" 		
+		href="/assets/images/avatar_favicon_gamepad.coder.png">
+  
+  <!--[if lt IE 9]>
+    <script src="/Documentation/o~DocAssets/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="/Documentation/o~DocAssets/documentation_options.js"></script>
+        <script type="text/javascript" src="/Documentation/o~DocAssets/jquery.js"></script>
+        <script type="text/javascript" src="/Documentation/o~DocAssets/underscore.js"></script>
+        <script type="text/javascript" src="/Documentation/o~DocAssets/doctools.js"></script>
+        <script type="text/javascript" src="/Documentation/o~DocAssets/language_data.js"></script>
+    
+    <script type="text/javascript" src="/Documentation/o~DocAssets/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    
+		
+	<link rel="search" title="Search" href="/Documentation/search.html" />
+    <link rel="next" title="My Godot Experiments" href="Projects/index.html" />
+    <link rel="prev" title="Clock" href="../AutoHotkey/Utilities/Clock/index.html" />
+
+	<link rel="stylesheet" href="/Documentation/o~DocAssets/css/Doc_Subsite.css" type="text/css" />
+
+
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+	
+
+
+	
+  
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+	    
+
+	<a href="/contact.html">
+	<div id="gc_wrapper_pc">
+		<div id="gc_banner__logo">
+
+
+			<img id="gc_banner__picture" src="/assets/images/avatar_gamepad.coder.png" width="50" height="50">
+			<h1 id="gc_banner__email">
+				Gamepad.Coder<span id="gc_banner__email_atSign">@</span>gmail.com
+			</h1>
+
+		</div>
+	</div>
+		</a>	
+			
+			
+	
+<div class="wy-side-nav-search" >
+          
+
+
+          
+			
+          <!--
+            <a href="/Documentation.html" class=""> APIs, Manuals, Tutorials
+		  -->
+          
+
+          
+          <!-- </a> -->
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+			  
+              
+              
+              
+              
+			  
+              
+            
+            
+			
+			<a href="/Documentation.html" class="icon icon-home">&nbsp;Go to Documentation Home</a>
+			
+			
+              <p class="caption"><span class="caption-text">AutoHotkey:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../AutoHotkey/index.html" style="font-style:italic;">What is AutoHotkey?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../AutoHotkey/Object-Oriented GUI Framework/index.html">My AutohHotkey GUI Framework</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../AutoHotkey/Object-Oriented GUI Framework/API/index.html">API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../AutoHotkey/Utilities/index.html">My AutoHotkey Utilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../AutoHotkey/Utilities/2do Tree/index.html">2do Tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../AutoHotkey/Utilities/Clock/index.html">Clock</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Godot:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#" style="font-style:italic;">What is Godot?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Projects/index.html">My Godot Experiments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="HowTo/index.html">How do I &nbsp; <code class="docutils literal notranslate"><span class="pre">(</span>&#160; <span class="pre">?</span>&#160; <span class="pre">)</span></code> &nbsp; in Godot ?</a></li>
+</ul>
+
+			  
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+		  <a href="/contact.html">Gamepad.Coder@gmail.com</a>
+        
+      </nav>
+
+      
+
+
+	<header id="gc_header">
+				<nav id="gc_navbar">
+					<a href="/" id="navbar_2">
+						<li id="gc_navbar__home">
+							Home
+						</li>
+					</a>
+					<a href="/Documentation.html" id="navbar_3">
+						<li class="gc_navigation_link__current_page">
+							<span id="doc_navbar_button">
+								Documentation for Projects
+							</span>
+						</li>
+						<li class="gc_navigation_link__current_page__toHome">
+							<span id="doc_navbar_button">&nbsp;up to Documentation Home&nbsp;</span>
+						</li>
+					</a>
+					<a href="/Apps.html" id="navbar_4">
+						<li>
+							App Gallery
+						</li>
+					</a><a href="/Philosophy.html" id="navbar_5">
+						<li>
+							Philosophy Blog
+						</li>
+					</a>
+				</nav>
+			
+			</header> <!-- id="gc_header" | css #gc_header -->
+			
+	
+	
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+	  
+      <li>
+		<a href="/Documentation.html" class="icon icon-home" style="color:#2980b9;"></a> &raquo;
+      </li>
+      
+      <li style="
+        font-family: 'Courier New';"
+      >
+	    Godot
+      </li>
+      
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+			
+			<a href="/Documentation/o~SourceFiles/Godot/index.rst.txt" rel="nofollow" style="font-size: 14px;"> View page's source<br />(reStructuredText file)</a>
+			
+			
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="godot">
+<h1>Godot<a class="headerlink" href="#godot" title="Permalink to this headline">¶</a></h1>
+<img alt="/Documentation/o~DocAssets/images/Godot_logo.svg" src="/Documentation/o~DocAssets/images/Godot_logo.svg" /><p>Godot is…</p>
+<ul class="simple">
+<li>free and open source software (“FOSS”)</li>
+<li>used to create both 2D and 3D games</li>
+<li>an editor (a.k.a “development environment”) to arrange and program game assets</li>
+<li>an great alternative to commercial game creation software</li>
+</ul>
+<p>Godot is also…</p>
+<ul class="simple">
+<li>a full game engine (which drives games created with the editor)</li>
+<li>elegantly designed, featuring hierarchical organization of nodes</li>
+<li>cross-platform</li>
+<li>well-documented</li>
+<li>currently being ported to run inside web browsers, thanks to a grant from Mozilla</li>
+</ul>
+<hr class="docutils" />
+<div class="section" id="official-godot-websites">
+<h2>Official Godot websites:<a class="headerlink" href="#official-godot-websites" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="69%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Godot Homepage:</td>
+<td><a class="reference external" href="https://godotengine.org/">https://godotengine.org/</a></td>
+</tr>
+<tr class="row-even"><td>Godot Documentation:</td>
+<td><a class="reference external" href="https://docs.godotengine.org/en/stable/">https://docs.godotengine.org/en/stable/</a></td>
+</tr>
+<tr class="row-odd"><td>Godot on YouTube:</td>
+<td><a class="reference external" href="https://www.youtube.com/c/GodotEngineOfficial">https://www.youtube.com/c/GodotEngineOfficial</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+<div class="section" id="download-godot-here">
+<h2>Download Godot here:<a class="headerlink" href="#download-godot-here" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="77%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Linux:</td>
+<td><a class="reference external" href="https://godotengine.org/download/linux">https://godotengine.org/download/linux</a></td>
+</tr>
+<tr class="row-even"><td>MacOS:</td>
+<td><a class="reference external" href="https://godotengine.org/download/osx">https://godotengine.org/download/osx</a></td>
+</tr>
+<tr class="row-odd"><td>Windows:</td>
+<td><a class="reference external" href="https://godotengine.org/download/windows">https://godotengine.org/download/windows</a></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The above links are the official builds, specific to each operating system.</p>
+<p>If you’d like to build Godot from its latest source code, check out these links:</p>
+<table border="1" class="last docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Godot’s Source Code</td>
+<td><a class="reference external" href="https://github.com/godotengine/godot">https://github.com/godotengine/godot</a></td>
+</tr>
+<tr class="row-even"><td>Godot’s Compilation Tutorials</td>
+<td><div class="first last line-block">
+<div class="line"><a class="reference external" href="https://docs.godotengine.org/en/stable/development/compiling/index.html">https://docs.godotengine.org/en/stable</a></div>
+<div class="line-block">
+<div class="line"><a class="reference external" href="https://docs.godotengine.org/en/stable/development/compiling/index.html">/development/compiling/index.html</a></div>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p>Depending on when (in the development cycle) you fetch and build Godot from the main branch:</p>
+<ul class="simple">
+<li>the code should be mostly stable if a major version is about to come out</li>
+<li>however, far between releases <em>(as new features are introduced and debugged
+across different operating systems and computer architectures)</em>, your build
+might be unstable.</li>
+</ul>
+<p class="last">Either way, it’s always fun to see the latest state and direction of software.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="resources">
+<h2>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
+<p>There are treasure troves of great tutorials (both video and text) created on a
+regular basis by several members of Godot’s incredible community.</p>
+<hr class="docutils" />
+<p>asdf [~]</p>
+<p>refs toc</p>
+<ul class="simple">
+<li>Projects/index.rst</li>
+<li>HowTo/index.rst</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <br />
+	<div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="Projects/index.html" class="btn btn-neutral float-right" title="My Godot Experiments" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../AutoHotkey/Utilities/Clock/index.html" class="btn btn-neutral float-left" title="Clock" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <br />
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div><div style="
+    text-align: right;
+	font-size: 11px;
+    ">		
+		&copy; Gamepad.Coder 2021
+		<br>
+		Have a wonderful day.
+	</div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+
+<!-- The detached footer floating below the main central box of the page -->
+<footer class="floating_footer">
+	<p class="floating_footer_copyright">
+		
+		&copy; Gamepad.Coder 2021
+		<br>
+		<br> 
+		Have a wonderful day.
+		
+		<!-- ========================================================
+			 Fun technical detail : 
+			 ========================================================
+				main.css -> 
+				p.copyright{line-height: 1em;}
+			
+			 gives this double <br> a nice amount of vertical space.
+			 ======================================================== 
+		-->
+			 
+	</p>
+</footer><!-- class="floating_footer" | css .floating_footer -->
+
+
+</body>
+</html>

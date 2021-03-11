@@ -1,216 +1,404 @@
-<!--
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>APIs, Manuals, Tutorials</title>
+  <!-- <title>APIs, Manuals, Tutorials &mdash; NewHTMLtitle</title> /*original*/-->
+  
 
-    ------------------------------------------
-          © released under (CC0)            : 
-    ------------------------------------------
-     This site's HTML + CSS + Jekyll + Liquid.
-     This site's content.
-                           Gamepad.Coder 2021.
-    
-    --------------------------------------------------
-    https://creativecommons.org/publicdomain/zero/1.0/
-    --------------------------------------------------
+  
+  <link rel="stylesheet" href="/Documentation/o~DocAssets/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="/Documentation/o~DocAssets/pygments.css" type="text/css" />
 
-
---> 
-
-<!doctype html>
-<html>
-	<head>
-		<meta charset="UTF-8" />
-		
-		<title>Documentation</title>
-		<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css" type="text/css" />
-		
-		<link rel="preload" href="http://localhost:4000/assets/images/avatar_gamepad.coder.png" as="image" />
-		<link rel="icon" 
+  
+	<link rel="icon" 
 		type="image/png" 		
-		href="http://localhost:4000/assets/images/avatar_favicon_gamepad.coder.png">
-		
-		<meta name="description" 
-			  content="The professional website of Gamepad.Coder, programmer
-					  , technical writer, philospher, and all aroung great guy.
-					  -- Description written by my Wife <3; Documentation for projects." />
-		<meta name="keywords" content="professional, resume, programmer, technical writer, projects documentation, docs" />
-		<meta name="robots" content="nofollow" />
-		<meta property="og:image" content="http://localhost:4000/assets/images/app_highlights/this.jpg">
-		<meta http-equiv="author" content="Gamepad.Coder, Gamepad-Coder" />
-		<meta http-equiv="pragma" content="no-cache" />
-		
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=12.0, minimum-scale=.05, user-scalable=yes"/>
-	</head>
-<body>
+		href="/assets/images/avatar_favicon_gamepad.coder.png">
+  
+  <!--[if lt IE 9]>
+    <script src="/Documentation/o~DocAssets/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="/Documentation/o~DocAssets/documentation_options.js"></script>
+        <script type="text/javascript" src="/Documentation/o~DocAssets/jquery.js"></script>
+        <script type="text/javascript" src="/Documentation/o~DocAssets/underscore.js"></script>
+        <script type="text/javascript" src="/Documentation/o~DocAssets/doctools.js"></script>
+        <script type="text/javascript" src="/Documentation/o~DocAssets/language_data.js"></script>
+    
+    <script type="text/javascript" src="/Documentation/o~DocAssets/js/theme.js"></script>
 
-<div id="website_background"></div>
-<div id="the_page">	
+    
+    <link rel="index" title="Index" href="/Documentation/genindex.html" />
+    
+		
+	<link rel="search" title="Search" href="/Documentation/search.html" />
+    <link rel="next" title="AutoHotkey" href="/Documentation/AutoHotkey/index.html" />
 
+	<link rel="stylesheet" href="/Documentation/o~DocAssets/css/Doc_Homepage.css" type="text/css" />
+
+
+
+</head>
+
+<body class="wy-body-for-nav">
+
+  <div id="website_background">
+		<!-- The background gradient is generated in main.css and projected into this background div -->
+	</div>
 	
-	<!-- The <header> contains :
-		 [] the backdrop picture 
-		 [] the avatar + username banner 
-		 [] the navigation strip 
-	-->
-	<header>
 	
-		<div id="gc_header">
-			<a href="/contact.html">
-				<div id="gc_logo">
-				
-						<!-- 
-							Picture of my favorite portable controller.
-							Photo taken with phone's camera, editied in GNU Krita. 
-						-->
-						<img class="gc_picture" src="http://localhost:4000/assets/images/avatar_gamepad.coder.png" width="50" height="50">
-						<!-- <h1 class="gc_txt" style="word-spacing: -9px;"> -->
-						<h1 class="gc_email">
-							Gamepad.Coder<span id="gc_email_atSign">@</span>gmail.com
-						</h1>
-					
-				</div>
-			</a>
-			<div id="gc_hire">
-						<li>
-							<a href="/contact.html">Contact for Hire.</a>  
-						</li>
-			</div>
-		</div>
-		
-		<nav id="gc_navbar">				
-				<li id="home_button">
-					<a href="/">Home</a>
-				</li>
-				<li class="current">
-					<a href="/Documentation.html">Documentation for Projects</a>
-				</li>
-				<li>
-					<a href="/Apps.html">App Gallery</a>
-				</li>
-				<li>
-					<a href="/Philosophy.html">Philosophy Blog</a>
-				</li>
-		</nav>
-		
-	</header>
-
-
-	<!--   main content     -->
-	<!--   (+) optionally   -->
-	<!--   sidebar          -->
-	<div id="page_flex">
-		
-		<!-- -----------------------------------------------------------------------------------------------
-			 [ JEKYLL INFO ]   
-			 -----------------------------------------------------------------------------------------------
-			 
-		     Jekyll inserted the following "main content" section from "/Documentation.html".
-			 It was inserted into "/_layouts/Layout_Default.html" at the line containing the Liquid object: 
-				 {{ content }} 
-			 resulting in the baked HTML page "/_site/Documentation.html" 
-			 (which you are viewing now if you right clicked my website then clicked "View Source").
-			
-			 The baked HTML pages are located in the "/_site" directory here: 
-				https://github.com/gamepad-coder/gamepad-coder.github.io/tree/master/_site
-			
-			 To see what the building blocks look like before they are wired together by Jekyll 
-			 (and to see the  {{ content }}  line immediately after this comment block
-			 in "/_layouts/Layout_Default.html")
-			 
-			 look at the files in the top directory:
-				https://github.com/gamepad-coder/gamepad-coder.github.io
-				
-			 ----------------------------------------------------------------------------------------------- -->
-
-		<!-- main content -->
-		<div class="content">
-		
-			<h2 id="section_1">( coming soon )</h2>
-			<article>
-				[API for AHK CLASSES]
-			</article>
-		</div><!-- #content -->
-		
-		<aside id="asideBar">
-			<h3>Navigate This Page</h3>
-			<ul>
-				<a href="http://localhost:4000/Documentation.html#section_1"><li>( coming soon )</li></a>
-			</ul>
-		</aside>
-		
-		<!-- --------------------------------------------------------------------------
-			 [ JEKYLL INFO ]   
-			 --------------------------------------------------------------------------
-		                                     end of insert from "Documentation.html"   
-			 -------------------------------------------------------------------------- -->
-		
-	</div><!-- .page_flex: main content (+sidebar) -->
+	<!-- The Homepage layout's <body> tag has a padding of 8px all around, this wrapper is to keep uniformity. -->
+	<div id="doc_body_offset_for_navbar">
 	
+		<div id="the_page">	
+		
+			<!-- The "gc_header" contains :
+				[1] the avatar + email banner + "Contact for Hire" button
+				[2] the navigation bar 
+				[3] the backdrop picture 
+			-->
+			<header id="gc_header">
+				<!-- [1] the avatar + email banner + "Contact for Hire" button -->
+				<div id="gc_banner">
 
-	<!-- footer of main page block -->
-	<footer class="gitlinks">
-	
-			<!-- ------------------------------------------------
-				 Dynamic CSS resizing for footer GitHub links:
-				 ------------------------------------------------
-					How the following works : 
-					
-					if the screen is wide enough
-					
-						each link appears on its own line
-						without any spaces in between
-					
-					if the screen is narrow enough 
-					
-						each link appears 
-						on two lines
+					<!-- The contact button is in the upper-right corner of the page. 
+						 To make this layout consistent on small phone screens, 
+						 I moved above the HTML for the banner under the contact button 
+						 For large screens, this HTML ordering makes no difference (using my current CSS implementation).
+
+						 The contact button will now stay in the upper-right corner using CSS float:right, 
+						 regardless of how wide or super-narrow the screen is. Happy with this design.
+					-->
+
+					<div id="gc_banner__hire">
+						<a href="/contact.html" id="navbar_1">
+								<li>
+									Contact for Hire.
+								</li>
+								
+						</a>
+					</div>
+
+					<a href="/contact.html">
+						<div id="gc_banner__logo">
 						
-						with a space
-						in between
-			     ------------------------------------------------ -->
-				 
-			<a style="float: left;" class="a_gitlinks" href="https://github.com/gamepad-coder/">
+								<!-- 
+									Picture of my favorite portable controller.
+									Photo taken with phone's camera, editied in GNU Krita. 
+								-->								
+								<img id="gc_banner__picture" src="/assets/images/avatar_gamepad.coder.png" width="50" height="50">
+								<h1 id="gc_banner__email">
+									Gamepad.Coder<span id="gc_banner__email_atSign">@</span>gmail.com
+								</h1>
+							
+						</div> <!-- id="gc_banner__logo" | css #gc_banner__logo -->
+					</a>
+				</div> <!-- id="gc_banner" | css #gc_banner -->
 				
-				<div>View Gamepad.Coder's&nbsp;</div>
-				<div>programs on GitHub.</div>
-				
-			</a>
+				<nav id="gc_navbar">
+					<a href="/" id="navbar_2">
+						<li id="gc_navbar__home">
+							Home
+						</li>
+					</a>
+						<li class="gc_navigation_link__current_page">
+							<span id="doc_navbar_button">
+								Documentation for Projects
+							</span>
+						</li>
+					<a href="/Apps.html" id="navbar_4">
+						<li>
+							App Gallery
+						</li>
+					</a><a href="/Philosophy.html" id="navbar_5">
+						<li>
+							Philosophy Blog
+						</li>
+					</a>
+				</nav>
 			
-			<a style="float: left; clear: left;"  class="a_gitlinks" 
-			   href="https://github.com/gamepad-coder/gamepad-coder.github.io">
-			
-				<div>View this website's&nbsp;</div>
-				<div>source code on GitHub.</div>
+			</header> <!-- id="gc_header" | css #gc_header -->
+		</div>
+	</div>
+	
+	 
+	
 
-			</a>
-			
-	</footer>
 
 	
-</div><!-- .page -->
+  
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+	    
+
+	
+<div class="wy-side-nav-search" >
+          
 
 
-<!-- floating footer -->
+          
+			
+          <!--
+            <a href="#" class=""> APIs, Manuals, Tutorials
+		  -->
+          
+
+          
+          <!-- </a> -->
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="/Documentation/search.html" method="get">
+    <input type="text" name="q" placeholder="Search" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+			  
+              
+              
+              
+              
+			  
+              
+            
+            
+			
+			
+			
+              <p class="caption"><span class="caption-text">AutoHotkey:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="/Documentation/AutoHotkey/index.html" style="font-style:italic;">What is AutoHotkey?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="/Documentation/AutoHotkey/Object-Oriented GUI Framework/index.html">My AutohHotkey GUI Framework</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="/Documentation/AutoHotkey/Object-Oriented GUI Framework/API/index.html">API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="/Documentation/AutoHotkey/Utilities/index.html">My AutoHotkey Utilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="/Documentation/AutoHotkey/Utilities/2do Tree/index.html">2do Tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/Documentation/AutoHotkey/Utilities/Clock/index.html">Clock</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Godot:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="/Documentation/Godot/index.html" style="font-style:italic;">What is Godot?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="/Documentation/Godot/Projects/index.html">My Godot Experiments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="/Documentation/Godot/HowTo/index.html">How do I &nbsp; <code class="docutils literal notranslate"><span class="pre">(</span>&#160; <span class="pre">?</span>&#160; <span class="pre">)</span></code> &nbsp; in Godot ?</a></li>
+</ul>
+
+			  
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+		  <a href="/contact.html">Gamepad.Coder@gmail.com</a>
+        
+      </nav>
+
+      
+
+
+	
+	
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+	  <li style="
+        font-family: 'Courier New';
+        color: #424040;">
+		<span class="icon icon-home" style="color:rgb(41, 128, 185);"></span>&nbsp;Documentation Home
+	  </li>
+	  
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+			
+			
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="apis-manuals-tutorials">
+<h1>APIs, Manuals, Tutorials<a class="headerlink" href="#apis-manuals-tutorials" title="Permalink to this headline">¶</a></h1>
+<p>Welcome to my documentation.</p>
+<div class="line-block">
+<div class="line">All of my programs here are free and open source,</div>
+<div class="line">licensed with <a class="reference external" href="https://creativecommons.org/share-your-work/public-domain/cc0/">Community Commons Zero</a>  (cc0).</div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<dl class="docutils">
+<dt>I plan to add more to this website and keep it online long-term.</dt>
+<dd>But for now it mainly serves as a manual for an AutoHotkey framework I wrote
+to build Graphical User Interfaces (GUIs) in AutoHotkey using Object Oriented Design (OOD).</dd>
+</dl>
+<p class="last">As time permits, I will aggregate my notes and experiments with Godot and upload them here also.</p>
+</div>
+<p>Have a great day, and enjoy.</p>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">AutoHotkey:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="/Documentation/AutoHotkey/index.html" style="font-style:italic;">What is AutoHotkey?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="/Documentation/AutoHotkey/Object-Oriented GUI Framework/index.html">My AutohHotkey GUI Framework</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="/Documentation/AutoHotkey/Object-Oriented GUI Framework/API/index.html">API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="/Documentation/AutoHotkey/Utilities/index.html">My AutoHotkey Utilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="/Documentation/AutoHotkey/Utilities/2do Tree/index.html">2do Tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="/Documentation/AutoHotkey/Utilities/Clock/index.html">Clock</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Godot:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="/Documentation/Godot/index.html" style="font-style:italic;">What is Godot?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="/Documentation/Godot/Projects/index.html">My Godot Experiments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="/Documentation/Godot/HowTo/index.html">How do I &nbsp; <code class="docutils literal notranslate"><span class="pre">(</span>&#160; <span class="pre">?</span>&#160; <span class="pre">)</span></code> &nbsp; in Godot ?</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <br />
+	<div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="/Documentation/AutoHotkey/index.html" class="btn btn-neutral float-right" title="AutoHotkey" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <br />
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div>
+			
+	<a href="/Documentation/o~SourceFiles/Documentation.rst.txt" rel="nofollow"> View what this page looked like as reStructuredText (before I used Sphinx to bake it into HTML).</a>
+	<br />
+	<hr />
+	
+    
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/gamepad-coder/gamepad-coder.github.io">custom modification</a> of this
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+
+<!-- The detached footer floating below the main central box of the page -->
 <footer class="floating_footer">
-	<p class="copyright">
-		&copy; Gamepad.Coder 2020
+	<p class="floating_footer_copyright">
+		
+		&copy; Gamepad.Coder 2021
 		<br>
-		<br>
+		<br> 
 		Have a wonderful day.
 		
-		<!-- --------------------------------------------------------
+		<!-- ========================================================
 			 Fun technical detail : 
-			 --------------------------------------------------------
+			 ========================================================
 				main.css -> 
 				p.copyright{line-height: 1em;}
 			
 			 gives this double <br> a nice amount of vertical space.
-			 -------------------------------------------------------- -->
+			 ======================================================== 
+		-->
 			 
 	</p>
-</footer>	
+</footer><!-- class="floating_footer" | css .floating_footer -->
 
 
 </body>
 </html>
-
-
-<!-- Have a wonderful day. -->

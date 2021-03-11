@@ -1,15 +1,15 @@
 <!--
 
-    ------------------------------------------
+    ==========================================
           © released under (CC0)            : 
-    ------------------------------------------
+    ==========================================
      This site's HTML + CSS + Jekyll + Liquid.
      This site's content.
                            Gamepad.Coder 2021.
     
-    --------------------------------------------------
+    ==================================================
     https://creativecommons.org/publicdomain/zero/1.0/
-    --------------------------------------------------
+    ==================================================
 
 
 --> 
@@ -41,173 +41,257 @@
 	</head>
 <body>
 
-<div id="website_background"></div>
+
+<div id="website_background">
+	<!-- The background gradient is generated in main.css and projected into this background div -->
+</div>
+
+
+<!-- This div (the_page) is the main central box of the webpage.
+	 It contains : 
+		 [] the navigation bar + avatar
+		 [] the main content of the page (+sidebar if the page defined one)
+		 [] the github links at the bottom of the main central block
+
+	 The floating footer is the only content not contained within this <div> for the "Layout_Default.html" template.
+-->
 <div id="the_page">	
 
 	
-	<!-- The <header> contains :
-		 [] the backdrop picture 
-		 [] the avatar + username banner 
-		 [] the navigation strip 
+	<!-- The "gc_header" contains :
+		[1] the avatar + email banner + "Contact for Hire" button
+		[2] the navigation bar 
+		[3] the backdrop picture 
 	-->
-	<header>
+	<header id="gc_header">
 	
-		<div id="gc_header">
+		<!-- [1] the avatar + email banner + "Contact for Hire" button -->
+		<div id="gc_banner">
+
+			{% comment -%}
+		
+			<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+			<!--   [ JEKYLL INFO ] : Liquid Tags                                                     -->
+			<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+			<!--                                                                                     -->
+			<!-- See the next [Jekyll Info] comment block (inside <nav id="gc_navbar">)              -->
+			<!-- to read about how I'm using Jekyll to conditionally alter the buton links & colors. -->
+			<!--                                                                                     -->
+			<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+			
+			{%- endcomment -%}
+
+			<!-- The contact button is in the upper-right corner of the page. 
+				 To make this layout consistent on small phone screens, 
+				 I moved above the HTML for the banner under the contact button 
+				 For large screens, this HTML ordering makes no difference (using my current CSS implementation).
+
+				 The contact button will now stay in the upper-right corner using CSS float:right, 
+				 regardless of how wide or super-narrow the screen is. Happy with this design.
+			-->
+
+			<div id="gc_banner__hire">
+				{%- if page.title != "Contact for Hire" -%}
+				<a href="/contact.html">
+				{%- endif %}
+						<li 
+							{%-  if page.title == "Contact for Hire"  -%}
+								{{-" "-}}
+								class="gc_navigation_link__current_page"
+							{%-  endif  -%}
+						>
+							Contact for Hire.
+						</li>
+						
+				{% if page.title != "Contact for Hire" -%}
+				</a>
+				{%- endif %}
+			</div>
+
 			{% if page.title != "Contact for Hire" -%}
 			<a href="/contact.html">
 			{%- endif %}
-				<div id="gc_logo">
+				<div id="gc_banner__logo">
 				
 						<!-- 
 							Picture of my favorite portable controller.
 							Photo taken with phone's camera, editied in GNU Krita. 
 						-->
-						<img class="gc_picture" src="{{ "/assets/images/avatar_gamepad.coder.png" | absolute_url }}" width="50" height="50">
-						<!-- <h1 class="gc_txt" style="word-spacing: -9px;"> -->
-						<h1 class="gc_email">
-							Gamepad.Coder<span id="gc_email_atSign">@</span>gmail.com
+						<img id="gc_banner__picture" src="{{ "/assets/images/avatar_gamepad.coder.png" | absolute_url }}">
+						<h1 id="gc_banner__email">
+							Gamepad.Coder<span id="gc_banner__email_atSign">@</span>gmail.com
 						</h1>
 					
-				</div>
+				</div> <!-- id="gc_banner__logo" | css #gc_banner__logo -->
 			{% if page.title != "Contact for Hire" -%}
 			</a>
 			{%- endif %}
-			<div id="gc_hire">
-						{% comment %}  {% raw %}
-						
-						<!--   [ JEKYLL INFO ]   --> 
-						
-						<!-- Summary :                                                              -->
-						
-						<!--           Here I'm using Jekyll to automatically use context-clues to  -->
-						<!--           [] make a page not link to itself                            -->
-						<!--           [] style the current page's entry in the navbar.             -->
-						
-						
-						<!-- Details:                                                                            -->
-						
-						<!-- The following block (and the similar code in the following <nav id="gc_navbar">)    -->
-						<!--   utilizes the templating language "Liquid".                                        -->
-						<!--                                                                                     -->
-						<!-- Jekyll will conditionally give one <li> an attribute of class="current"             -->
-						<!--   {% if %} the .html page which wraps itself inside this "Layout_Default" template  -->
-						<!--   has the same title as the link.                                                   -->
-						<!--                                                                                     -->
-						<!-- This results in a different style (and no clickable button)                         -->
-						<!--   for the navigation item corresponding to the page the user is currently on.       -->
-						
-						<!-- Note : -->
-						
-						<!-- Because this block of HTML comments are enclosed in the tag {% comment %}   -->
-						<!-- Jekyll will ignore everything until the matching endcomment tag.            -->
-						<!-- Thus -> these notes will not appear inside the baked website                -->
-						<!--         nor in the live site's HTML.                                        -->
-						<!-- The raw tag tells Jekyll to ignore any valid Liquid tags it finds inside.   -->
-						
-						{% endraw %}   {%- endcomment -%}  
-						<li 
-							{%-  if page.title == "Contact for Hire"  -%}
-								{{-" "-}}
-								class="current"
-							{%-  endif  -%}
-						>
-							<a href="/contact.html">Contact for Hire.</a>  
-						</li>
-			</div>
-		</div>
+		</div> <!-- id="gc_banner" | css #gc_banner -->
 		
-		{% comment -%}
 		
-		<!-- -----------------------------------------------------------------------------------------------
-			 [ JEKYLL INFO ]   
-			 -----------------------------------------------------------------------------------------------
-			 		
-			 See the previous comment block to read about how I'm using Jekyll to conditionally alter the style here.
-			 ----------------------------------------------------------------------------------------------- -->
-		
-		{%- endcomment -%}
-		
-		<nav id="gc_navbar">				
-				<li id="home_button"
+		<!-- [2] the navigation bar  -->
+		<nav id="gc_navbar">
+
+			{%- comment %}  {% raw %}
+			
+			
+			<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+			<!-- [ JEKYLL INFO ] : Liquid Tags                                                         -->
+			<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+			<!--                                                                                       -->
+			<!--                                                                                       -->
+			<!--             Summary :                                                                 -->
+			<!--                                                                                       -->
+			<!--             Here I'm using Jekyll to automatically use context-clues to               -->
+			<!--             [] make a page not link to itself                                         -->
+			<!--             [] style the current page's entry in the navbar.                          -->
+			<!--                                                                                       -->
+			<!--                                                                                       -->
+			<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+			<!--   Details:                                                                            -->
+			<!--                                                                                       -->
+			<!--   The following block (and the similar code in the following <nav id="gc_navbar">)    -->
+			<!--     utilizes the templating language "Liquid".                                        -->
+			<!--                                                                                       -->
+			<!--   Jekyll will conditionally give one <li> an attribute of                             -->
+			<!--                                                                                       -->
+			<!--          class="gc_navigation_link__current_page"                                     -->
+			<!--                                                                                       -->
+			<!--   {% if %} the .html page which wraps itself inside this "Layout_Default" template    -->
+			<!--   has the same title as the link.                                                     -->
+			<!--                                                                                       -->
+			<!--   This results in a different style (and no clickable button)                         -->
+			<!--     for the navigation item corresponding to the page the user is currently on.       -->
+			<!--                                                                                       -->
+			<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+			<!--   Note :                                                                              -->
+			<!--                                                                                       -->
+			<!--   Because this block of HTML comments are enclosed in the tag {% comment %}           -->
+			<!--   Jekyll will ignore everything until the matching endcomment tag.                    -->
+			<!--   Thus -> these notes will not appear inside the baked website                        -->
+			<!--           nor in the live site's HTML.                                                -->
+			<!--   The raw tag tells Jekyll to ignore any valid Liquid tags it finds inside.           -->
+			<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+			
+			{% endraw %}   {%- endcomment -%}  
+
+
+			{%- if page.title != "Gamepad.Coder" -%}
+			<a href="/">
+			{%- endif %}
+				<li id="gc_navbar__home"
 					{%-  if page.title == "Gamepad.Coder"  -%}
-						{{-' class="current"'-}}
+						{{-' class="gc_navigation_link__current_page"'-}}
 					{%-  endif  -%}
 				>
-					<a href="/">Home</a>
+					Home
 				</li>
+			{% if page.title != "Gamepad.Coder" -%}
+			</a>
+			{%- endif %}
+
+			
+			{%- if page.title != "Documentation" -%}
+			<a href="/Documentation.html">
+			{%- endif %}
 				<li
 					{%- if page.title == "Documentation" -%}
 						{{-" "-}}
-						class="current"
+						class="gc_navigation_link__current_page"
 					{%-  endif  -%}
 				>
-					<a href="/Documentation.html">Documentation for Projects</a>
+					Documentation for Projects
 				</li>
+			{% if page.title != "Documentation" -%}
+			</a>
+			{%- endif %}
+			
+				
+			{%- if page.title != "Application Gallery" -%}
+			<a href="/Apps.html">
+			{%- endif %}
 				<li
 					{%-  if page.title == "Application Gallery"  -%}
 						{{-" "-}}
-						class="current"
+						class="gc_navigation_link__current_page"
 					{%-  endif  -%}
 				>
-					<a href="/Apps.html">App Gallery</a>
+					App Gallery
 				</li>
+			{% if page.title != "Application Gallery" -%}
+			</a>
+			{%- endif %}
+			
+				
+			{%- if page.title != "Philosophy Blog" -%}
+			<a href="/Philosophy.html">
+			{%- endif %}
 				<li
 					{%-  if page.title == "Philosophy Blog"  -%}
 						{{-" "-}}
-						class="current"
+						class="gc_navigation_link__current_page"
 					{%-  endif  -%}
 				>
-					<a href="/Philosophy.html">Philosophy Blog</a>
+					Philosophy Blog
 				</li>
+			{% if page.title != "Philosophy Blog" -%}
+			</a>
+			{%- endif %}
 		</nav>
 		
-	</header>
+		<!-- [3] the backdrop picture
+		        is set in main.css under #gc_header
+		-->
+	
+	</header> <!-- id="gc_header" | css #gc_header -->
 
 
 	<!--   main content     -->
 	<!--   (+) optionally   -->
 	<!--   sidebar          -->
-	<div id="page_flex">
+	<div id="the_page__flex">
 		
-		<!-- -----------------------------------------------------------------------------------------------
-			 [ JEKYLL INFO ]   
-			 -----------------------------------------------------------------------------------------------
-			 
-		     Jekyll inserted the following "main content" section from "/{{ page.name }}".
-			 It was inserted into "/_layouts/Layout_Default.html" at the line containing the Liquid object: 
-				{% raw %} {{ content }} {% endraw %}
-			 resulting in the baked HTML page "/_site/{{ page.name }}" 
-			 (which you are viewing now if you right clicked my website then clicked "View Source").
+	<!-- ===============================================================================================
+		 [ JEKYLL INFO ]   
+		 ===============================================================================================
+	                                    begin insert from "{{ page.name }}"          
+	
+	     Jekyll inserted the following "main content" section from "/{{ page.name }}".
+		 It was inserted into "/_layouts/Layout_Default.html" at the line containing the Liquid object: 
+			{% raw %} {{ content }} {% endraw %}
+		 resulting in the baked HTML page "/_site/{{ page.name }}" 
+		 (which you are viewing now if you right clicked my website then clicked "View Source").
+		
+		 The baked HTML pages are located in the "/_site" directory here: 
+			https://github.com/gamepad-coder/gamepad-coder.github.io/tree/master/_site
+		
+		 To see what the building blocks look like before they are wired together by Jekyll 
+		 (and to see the {% raw %} {{ content }} {% endraw %} line immediately after this comment block
+		 in "/_layouts/Layout_Default.html")
+		 
+		 look at the files in the top directory:
+			https://github.com/gamepad-coder/gamepad-coder.github.io
 			
-			 The baked HTML pages are located in the "/_site" directory here: 
-				https://github.com/gamepad-coder/gamepad-coder.github.io/tree/master/_site
-			
-			 To see what the building blocks look like before they are wired together by Jekyll 
-			 (and to see the {% raw %} {{ content }} {% endraw %} line immediately after this comment block
-			 in "/_layouts/Layout_Default.html")
-			 
-			 look at the files in the top directory:
-				https://github.com/gamepad-coder/gamepad-coder.github.io
-				
-			 ----------------------------------------------------------------------------------------------- -->
+		 =============================================================================================== -->
 
 		{{ content }}
 		
-		<!-- --------------------------------------------------------------------------
-			 [ JEKYLL INFO ]   
-			 --------------------------------------------------------------------------
-		                                     end of insert from "{{ page.name }}"   
-			 -------------------------------------------------------------------------- -->
+	<!-- ==========================================================================
+		 [ JEKYLL INFO ]   
+		 ==========================================================================
+	                                    end of insert from "{{ page.name }}"      
+		 ========================================================================== -->
 		
-	</div><!-- .page_flex: main content (+sidebar) -->
+	</div><!-- id="the_page__flex" | css #the_page__flex | info: main content (+sidebar) (+github footer) -->
 	
 
 	<!-- footer of main page block -->
 	<footer class="gitlinks">
 	
-			<!-- ------------------------------------------------
+			<!-- ================================================
 				 Dynamic CSS resizing for footer GitHub links:
-				 ------------------------------------------------
+				 ================================================
 					How the following works : 
 					
 					if the screen is wide enough
@@ -222,7 +306,8 @@
 						
 						with a space
 						in between
-			     ------------------------------------------------ -->
+				 ================================================ 
+			-->
 				 
 			<a style="float: left;" class="a_gitlinks" href="https://github.com/gamepad-coder/">
 				
@@ -239,31 +324,32 @@
 
 			</a>
 			
-	</footer>
+	</footer><!-- class="gitlinks" | css .gitlinks -->
 
 	
-</div><!-- .page -->
+</div><!-- id="the_page" | css #the_page -->
 
 
-<!-- floating footer -->
+<!-- The detached footer floating below the main central box of the page -->
 <footer class="floating_footer">
-	<p class="copyright">
-		&copy; Gamepad.Coder 2020
+	<p class="floating_footer_copyright">
+		&copy; Gamepad.Coder 2021
 		<br>
 		<br>
 		Have a wonderful day.
 		
-		<!-- --------------------------------------------------------
+		<!-- ========================================================
 			 Fun technical detail : 
-			 --------------------------------------------------------
+			 ========================================================
 				main.css -> 
 				p.copyright{line-height: 1em;}
 			
 			 gives this double <br> a nice amount of vertical space.
-			 -------------------------------------------------------- -->
+			 ======================================================== 
+		-->
 			 
 	</p>
-</footer>	
+</footer><!-- class="floating_footer" | css .floating_footer -->
 
 
 </body>

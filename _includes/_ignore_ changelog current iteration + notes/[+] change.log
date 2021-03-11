@@ -1,0 +1,188 @@
+
+
+				TO DO 
+				
+				
+				make top page style consistent
+				
+				make all the rest default because 
+				it messes up the scrolling & anchor and size of scrolling sidebar
+
+
+
+
+
+Steps to import sphinx to jekyll trunk : 
+
+1
+	copy Sphinx/../build/html/* -> Jekyll/../Documentation/*
+2
+	rename index.html -> Documentation.html
+3
+	add this to top : 
+	
+---
+title: "Documentation"
+
+meta_description: Documentation for projects.
+meta_keywords: "projects documentation, docs"
+
+permalink: Documentation.html
+---
+
+4
+	regex replace 
+	find:
+		href="(?!(http|\/|#))(.*)\.html"
+	replace with:
+		href="/Documentation/\2\.html"
+5
+	ctrl+f all -> _static to /Documentation/static
+	ctrl+f all -> _sources to /Documentation/sources
+5.2
+	rename folder /Documentation/_static -> /static 
+	rename folder /Documentation/_sources -> /sources
+6
+	ctrl+f all -> Documentation/index.html to /Documentation.html
+7
+	action="search.html" -> action="/Documentation/search.html"
+	/ bug?
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+``````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+[v14.0]                                                          [2021_01_11]  @  [03-09-05 PM]  
+
+
+========
+Summary:
+========
+
+CSS organizational rewrite.
+Homepage polish + site sub-areas described. 
+Homepage expandable/colapsible regions implemented.
+
+
+========
+Details:
+========
+
+
+< new features >
+│
+├── + [Home Page] 
+│        │
+│        └──>   Added detailed site overview section with collapsible regions.
+│   
+│── + [Documentation Sub-Site]
+│        │
+└        └──>   Sphinx generated subsite integrated
+
+
+[CSS Refactor]
+│
+├── + [main.css]
+│        │
+│        ├──>   Refactored organization.
+│        │      ( Was organized by type of CSS purpose, however
+│        │        this resulted in searching through the entire file 
+│        │        to find each CSS rule for a single HTML element.
+│        │        Now in "main.css" each element is in only one place. )
+│        │      
+│        │      
+│        └──>   Replaced unique CSS Classes -> with CSS IDs (inherantly unique)
+│   
+└       
+           
+[polish]
+│
+├── + [polished main navigation bar]
+│        │
+│        ├──>   Expanded link area from just the text (eg "App Gallery")
+│        │       to encompas the entire box around the navigation buttons.
+│        │     
+│        └──>   Disabled nav link to self (eg "Home" button link inactive on home page).
+│
+│
+├── + [polished this Changelog]
+│        │
+│        ├──>   Newest changes are now at the top.
+│        │      
+│        ├──>   Added missing version history descriptions.
+│        │      
+│        ├──>   Added dates to each version in the history.
+│        │      
+│        └──>   Changed max column to be 80, manually reflowed text.
+└
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+``````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+[v13.0]
+
+========
+Summary:
+========
+
+[+] Polished navbar + sidebar + added to Home page's content.
+
+========
+Details:
+========
+
+< new content >
+│
+├── + [Home Page] 
+│       │
+│       └──>     Added detailed site overview section.
+└
+
+[polish]
+│
+├── + [license updated]
+│        │
+│        ├──>  Updated license for 2021.
+│        │     
+│        ├──>  Added license to each un-baked page (especially Jekyll .rst files). 
+│        │     Clarifies: pre-rendered source pages are also CC0.
+│        │     
+│        ├──>  Made scope of license broader + more explicit.
+│        │     
+│        └──>  Added link to CC0 at the bottom of each license declaration:
+│               https://creativecommons.org/publicdomain/zero/1.0/ 
+│
+├── + [clarification]
+│        │
+│        └──>   Elaborated in the top comment on the un-baked .css files
+│               to explain the function of the empty header.
+│               (Jekyll will not process a file lacking a header.)
+│        
+│
+├── + [polished main navigation bar]
+│        │
+│        ├──>   Top-left corner now contains my email address.
+│        │      (Before this version it was only my username.)
+│        │      
+│        └──>   Renamed button "Apps Written" -> to "App Gallery"
+│        
+│               This page is now meant to be an overview for all of them,
+│               so this text is more fitting. Since initial website conception, 
+│               I've decided to shift main focus to the Documentation sub-site.
+│     
+│     
+├── + [polished Home page's wording]
+│        │
+│        ├──>     Minor clarifications (went through files and listed a verified wordcount).
+│        │
+│        ├──>     Added "Site Overview:" to the sidebar.
+│        │
+│        └──>     Minor changes to wording + new phrases in each section 
+│                  (except for Fun, Fun is fine the way it is :)
+│     
+├── + [polished Home page's sidebar]
+│        │
+│        └──>     Minor CSS tweaks to make it apparent that the "Home" box is not a button 
+│                   by visually distinguishing it from the others (consistent with navbar styling)
+└       
+
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+``````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````

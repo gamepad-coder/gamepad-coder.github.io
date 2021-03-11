@@ -1,0 +1,695 @@
+/*
+	Jekyll header breaks Sphinx build :) 
+---
+# The header surrounding this comment ensures Jekyll will process the Liquid in this page into the baked .css file.
+---
+*/
+
+/*
+
+    ------------------------------------------
+          © released under (CC0)            : 
+    ------------------------------------------
+     This site's HTML + CSS + Jekyll + Liquid.
+     This site's content.
+                           Gamepad.Coder 2021.
+    
+    --------------------------------------------------
+    https://creativecommons.org/publicdomain/zero/1.0/
+    --------------------------------------------------
+
+
+*/
+
+	/*** code which generates the background gradient ***/	
+	#website_background {
+		z-index: -1;
+		position: fixed;
+		top: 0;
+		left: 0;
+		background: radial-gradient(circle, 
+			rgba(43,214,252,1) 0%,
+			rgba(49,210,226,1) 27%,
+			rgba(45,158,195,1) 77%,
+			rgba(45,146,194,1) 80%,
+			rgba(45,154,195,1) 84%,
+			rgba(44,147,190,1) 88%, 
+			rgba(0,108,130,1) 100%) ;
+		
+		background-position: center center;
+		background-attachment: fixed;		
+		background-size: cover; 
+		
+		height: 100%;
+		width: 100%;
+		
+	}
+	#doc_body_offset_for_navbar {
+		padding: 0 8px;
+	}
+
+	
+				    /* -------------- */
+				   /*                */
+				  /*     Links      */
+				 /*                */
+				/* -------------- */
+	
+	#gc_navbar a:link {
+		color: #03ff3d;
+		text-decoration: none;
+		font-family: Consolas, Verdana, serif;
+	}
+	#gc_navbar a:visited { color: #03ff3d; }
+	#gc_navbar a:hover { color: #03ff3d;	text-decoration: underline;	}
+	#gc_navbar a:hover span { color: #03ff3d;	text-decoration: underline;	}
+
+	
+	
+	/* #gc_banner__hire a:visited, */
+	/* #gc_banner__hire a, */
+	/* #gc_navbar a, */
+	/* #gc_navbar a:visited, */
+	/* #gc_navbar li, */
+	#navbar_1,
+	#navbar_2,
+	#navbar_3,
+	#navbar_4,
+	#navbar_5
+	{
+		color: #03ff3d;
+		text-decoration: none;
+		font-family: Consolas, Verdana, serif;		
+	}
+	
+	#gc_banner__hire a:hover,
+	#gc_navbar a:hover
+	{ 
+		color: #03ff3d;
+		text-decoration: underline;	
+	}
+	
+	#
+	{
+		color: #000000;
+	}
+	
+	
+    /* ------------------------------------------------ */
+   /*                                                  */
+  /*                   Header                         */
+ /*                                                  */
+/* ------------------------------------------------ */
+	
+	
+
+	/* - - - - - - - - - - - - - -  *|
+	|*  	<header> container      *|
+	|* - - - - - - - - - - - - - -  */
+
+
+	/*** font ***/
+	#gc_header{
+		font-size: 18px;
+		line-height: 1.4em;
+	}
+	
+	/*** layout ***/
+	#gc_header { 
+		overflow: auto;
+		/* border: 11px ridge #03dd3d; */ 
+	}
+
+
+	/*** background ***/
+	#gc_header {
+		background-image: url("/assets/images/header.jpg");
+		background-size: cover;
+		/* background-position: center center; */
+		/* height: 100%; */
+	}
+
+	
+
+	/* - - - - - - - - - - - - - -  *|
+	|*  	Gamepad.Coder  logo     *|      +hire
+	|* - - - - - - - - - - - - - -  */
+
+	
+	#gc_banner{
+		overflow: auto;
+	}
+
+	/*** background, border, color ***/
+
+		#gc_banner__logo{          background: rgba(7,7,7,0.6);    }
+		#gc_banner__picture{       border: 6px ridge  #ddd;        }
+		#gc_banner__email{         border: 7px outset  #777;       }
+		#gc_banner__email {        color: white;                   }
+		#gc_banner__email_atSign{  color: white;                   }
+		#gc_banner__hire li {      background: rgba(0,0,0,0.5);    }
+		
+	
+	 
+	/*** layout ***/
+
+		#gc_banner__logo{
+			/* width: 305; */ 
+			
+			width: max-content;
+			/* width: -moz-fit-content;
+			width: fit-content; */
+			
+			height: 80px;	
+			overflow: auto;
+			float: left;
+			padding: 0 10px;
+		}
+
+		#gc_banner__picture{
+		
+		  /* center vertically recipe found@ 
+		
+		   https://css-tricks.com/quick-css-trick-how-to
+		  -center-an-object-exactly-in-the-center/        */
+		
+		  position: relative;
+		  top: 50%;
+		  transform: translate(0%, -50%);
+
+		  width: 50px;
+		  height: 50px;
+
+		  margin-right: 10px;
+		  /* margin-left: 10px; */
+		  float: left;
+		  
+		  
+			box-sizing: content-box; /* override RTD box-sizing */
+		}
+
+		#gc_banner__email{
+			position: relative;
+			top: 50%;		
+			transform: translate(0%, -50%);
+			line-height: 200%;
+			
+			padding-left: 14px;
+			padding-right: 14px;	
+			margin: auto;
+			float: left;
+			font-family: Consolas;
+			font-size: 24px;
+		}
+		#gc_banner__email_atSign{
+			margin:0 5px;
+			text-decoration: none;				
+		}
+		
+		#gc_banner__hire{
+			float: right;
+			/* padding: 5px; */
+			list-style: none;
+		}  
+		#gc_banner__hire li{
+		/* wrapped the link in a single <li> for consistency with other navigation links */
+		/* and to make the jekyll templating less complicated */
+		
+			padding: 5px;
+			
+		}
+	
+	
+	
+	/* - - - - - - - - - - - - - -  *|
+	|*      navigation bar          *|
+	|* - - - - - - - - - - - - - -  */
+
+
+	#gc_navbar li {
+		margin-bottom: 10px;
+		margin-left: 3px;
+		margin-right: 3px;
+	}
+	
+
+	#gc_navbar{
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-around;
+		align-content: space-around;
+		padding-inline-start: 0;
+		list-style: none;
+		padding: auto;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		clear: both;
+	}
+
+		#gc_navbar li{
+			padding: 10px;
+			text-align: center;
+			border-top: 1px solid rgba(255, 255, 255,0.3); 
+			border-bottom: 1px solid rgba(222, 222, 222, 0.15); 
+		}
+
+
+
+		#gc_navbar__home{
+			/* smallest string in nav bar, looks awkward if sized smaller than this */
+			min-width: 100px;
+			/* width: 100px; */
+		}
+
+		li.gc_navigation_link__current_page { 
+			color: #000000;	
+			text-decoration: none; 	
+			font-family: Consolas, Verdana, serif;
+		}
+		#gc_navbar li {
+			background-color: #000000;
+		}
+		#gc_navbar .gc_navigation_link__current_page {
+			background-color: #1a9b51;		
+		}	
+
+
+
+	
+    /* ---------------- */
+   /*                  */
+  /*   </> Header     */
+ /*                  */
+/* ---------------- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	/* - - - - - - - - - - - - - - *|
+	|*      the_page  footer       *|
+	|* - - - - - - - - - - - - - - */
+
+	footer.gitlinks{ background-color: #031b23; }
+	
+	footer.gitlinks a div { 
+		float: left;
+	}
+	footer.gitlinks a:hover div{
+		text-decoration: underline;
+	}
+	footer.gitlinks{
+		padding: 20px;
+		margin-top: 15px;
+		margin: 0px;
+		clear: both;
+		overflow: auto;
+	}
+
+	/* - - - - - - - - - - - - - - *|
+	|*      floating  footer       *|
+	|* - - - - - - - - - - - - - - */
+	
+	/*** font + layout ***/
+	footer p.floating_footer_copyright{
+		line-height: 1em;
+		float: right;
+		
+		/** added to re-cascade over Sphinx RTD Theme **/
+		color: #ffffff;
+		font-family: Courier New, Courier, Palatino, Verdana, serif;
+		font-size: 18px;
+		
+		padding-right: 8px;
+		margin-block-start: 1em;
+		margin-block-end: 1em;
+	}
+	
+
+
+
+
+
+	
+	/* - - - - - - - - - - - *|
+	|*     main content      *|
+	|* - - - - - - - - - - - */
+
+	/*** layout ***/
+	#the_page {
+		width: 85%;
+		padding: 5px;
+		margin: 8px auto 0px auto; /** rtd edit **/
+		
+		/* margin: 0px auto 250px auto; -- original */
+		
+		box-sizing: content-box; /* override RTD box-sizing */
+		/* WARNING/REMINDER:  "overflow: auto;" here WILL BREAK STICKY SCROLL  */
+	}
+
+	/*** background + border ***/
+	#the_page {	
+		background-color: #032e3d;
+		border: 1px ridge #03dd3d;	
+	}
+	
+
+	/*** layout ***/
+	#the_page__flex {	
+		display: flex;
+		flex-flow: row ;
+		align-items:flex-start;
+		justify-content: space-evenly;
+	}
+	
+		/*** layout ***/
+		div.content { flex: 0 0 70%;	margin: 10px 40px 20px 40px; }
+			
+			article {
+				padding: 0 10px;
+				margin-top: -5px;
+				margin-bottom: 40px;
+			}	
+			h2 { padding: 10px 0px; }
+			p.intro_philosopher_linespacing{
+				margin-bottom: 25px;
+			}
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ *|
+	|*             for extreme zoom + smaller screens           *|
+	|* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+	
+	
+	
+	@media all and (max-width: 900px) {
+		#asideBar {
+			border-top: 1px solid rgba(000, 222, 999, .21); 
+			border-bottom: 1px solid rgba(000, 222, 999, .31); 
+		}
+		aside p {
+			border-bottom: 1px solid rgba(222, 222, 222, .3); 
+		}
+		#aside_contact{
+			color: white;
+		}
+	}
+	
+	
+	@media all and (min-width: 1px) and (max-width: 350px) {
+		/******************************************************************
+		text goes out of bounds without this @media on small small screens
+		******************************************************************/
+		
+	}
+	@media all and (max-width: 701px) {
+		#the_page{
+			/* width: 60%; */
+			/* margin: auto; */
+			width: 98%;
+		}
+		#asideBar {
+			top: 1vh;
+			/* max-height: 95vh; */
+		}
+	}
+	@media all and (max-width: 900px) {
+		
+		#the_page{
+			/* width: 60%; */
+			/* margin: auto; */
+			/* margin-top: auto; */
+			margin-top: 8px;
+			margin-left: auto;
+			margin-right: auto;
+			width: 95%;
+			/* padding: 0; */
+		}
+		
+		div.content{
+			flex: 0 0 65%;
+			margin: 5px 10px 7px 5px;
+		}
+		article ul {
+			padding-inline-start: 10px;
+		}
+		#contact_gamepad_coder {
+			margin: 0;
+		}
+		span.tab {
+			
+			padding-left: 2px;
+		}
+	} 
+	/* @media all and (orientation:portrait)  { */
+	@media all and (orientation:portrait), 
+	       all and (orientation:landscape) and (min-width: 1px) and (max-width: 600px)
+		/* , screen and (orientation:landscape) and (max-width: 900px) and (min-height:1100px) */
+	{
+			 
+		/********************************************* 
+		   on smaller screen width: and (hover: hover) 
+
+		   toggle the navigation links 
+		   into a vertical list 
+
+		   turn the main page into a column flex 
+		   add lines between paragraphs in 
+		   the "sidebar" (now above main content)
+		*********************************************/
+	
+		#gc_banner__email {
+			font-size: 15px;
+		}
+		#gc_navbar  {
+			justify-content: space-around;
+			flex-flow: column wrap;
+		}
+		#gc_navbar  li {
+			margin-bottom: 0px;
+		}
+		#the_page__flex {
+			flex-flow: column;
+			justify-content: space-around;
+			align-items: center;
+			margin: 0;
+		}
+		/* #asideBar { 
+			being this specific causes problems for the @media overrides
+			*/ 
+		#asideBar .nav_ref {
+			
+			line-height: 2em;
+			
+		}
+		#asideBar {
+			font-size: 20px;
+			order: 1;
+			position: static;
+			/* padding: 0%; */
+			padding: 0px 1em 0px 1em;
+			width: 90%;
+			margin: 10px 0px auto 0px;
+			/* margin: 10px 0px auto 0px; */
+			/* height: auto; */
+			height: 100%;
+			display: block;
+			/* overflow: auto; */
+			max-height: 100%;
+		}
+		aside p {
+			/* margin: 20px 0; */
+			/* margin: 0; */
+			/* padding-top: 5; */
+			padding-bottom: 15px;
+			padding-left: 20px;
+			padding-left: 20px;
+			padding-left: 0;
+			/* width: 80%; */
+		}
+		
+			#aside_contact {
+				/* padding: auto 20px; */
+				/* list-style: circle; */
+				margin-left: auto;
+			}
+			#aside_contact ul{
+				padding-inline-start: 40px;
+				padding: 0px 60px;
+			}
+			#div_prof, #div_prog_lang, #div_interests {
+				padding-top: 30px;
+				padding-bottom: 30px;
+				/* padding: 60px; */
+			}
+			#div_interests{
+				background-position: center;
+			}
+
+			
+			#asideBar.aside_appHighlights ul {
+				padding-inline-start: 10px;
+				margin-block-start: 0em;
+				margin-block-end: 1em;
+			}
+		div.content {
+			order: 2;
+			width: 95%;		
+		}
+		span.tab {  padding-left: 3px;  }
+		
+		.hide_when_portrait_mode {
+			display: none;
+		}
+	}
+	
+	@media all and (orientation: portrait),
+		   all and (orientation:landscape) and (min-width: 1px) and (max-width: 700px),
+		   all and (orientation:landscape) and (max-height: 500px)
+	{
+		footer.gitlinks{
+			display: flex;
+			flex-flow: column;
+			padding: 0;
+			border: 3px solid green;
+		}
+		footer.gitlinks a:hover {
+			background-color: #00455d;
+		}
+		footer.gitlinks a:active {
+			background-color: #00b1ef;
+		}
+		footer.gitlinks a{
+			padding: 20px;
+			/* margin: 10px 0; */
+		}
+	}
+	
+	@media all and (max-height: 600px){
+		#asideBar {
+			top: 3vh;
+		}
+	}
+	@media all and (min-width: 900px) and (min-height: 600px)  {
+		
+		div.content{
+			flex: 0 0 65%;
+		}
+		#asideBar {
+			/* max-height: 95vh; */
+		}
+	}
+	@media all and (min-width: 1520px) {
+		footer.floating_footer {
+			
+			width: 85%;
+			padding: 5px;
+			/* padding: 0; */
+			margin: 0px auto 250px auto;
+		}
+	}
+	@media all and (max-height: 340px) {
+		aside {
+			
+			top: 1vh;
+			/* max-height: 95vh; */
+			/* border: 10px solid blue; */
+		}		
+	}
+	
+	/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+	
+
+
+
+
+
+
+
+
+	/* RTD Theme overrides */
+	
+	
+	@media screen and (min-width: 1100px) {
+		
+		.wy-nav-content-wrap {
+			/* background: unset; */
+			/* background: #ffffffd9; */
+			/* background: #fffffff2; */
+			/* background: #fcfcfc; */
+			background: #efefef;
+		}
+		
+	}
+
+
+	.wy-nav-side {
+		position: absolute;
+	}
+
+
+
+	@media all and (max-width: 900px) {
+		
+		#the_page{
+			margin-top: 8px;
+		}
+	}
+
+	.wy-grid-for-nav {
+		margin: 0 auto 250px auto;
+			
+		position: relative;
+	}
+
+	@media all and (min-width: 900px) {
+		
+		.wy-grid-for-nav {
+			
+			width: 85%;
+			
+		}
+		
+	}
+	
+	/* .wy-grid-for-nav { */
+		
+		/* margin-bottom: 250px; */
+		/* position: relative; */
+	/* } */
+
+
+
+
+
+
+
+/* Have a wonderful day. */

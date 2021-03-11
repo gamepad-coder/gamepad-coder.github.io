@@ -2,102 +2,167 @@
 [v1]
 [v2]
 [v3]
-[v4]
+[v4]       [~] Note to self: paste, polish, push these during [v16] changes
 [v5]
 [v6]
 [v7]
 [v8]
 [v9]
 
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-``````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+```````````````````````````````````````````````````````````````````````````````````````````````````
 [v10]
 
-mainly fixes & additions to blog sub-site 
+========
+Summary:
+========
+
+Majority of changes:
+Bugfixes & additions to blog sub-site.
+
+
+========
+Details:
+========
+
+
+< new features >
+│           
+├── + Added goto previous post.
+│           
+├── + Added goto next post.
+│       └└──>    underlines + nudges horiz. on hover
+│       └└──>    opacity 50% + nudges vert. on click
+│           
+└── + Added mobile friendly spacing & linking for sidebar 
+        (on blog pages when @ top & using a mobile device)
+
+
+< new Content >
+│           
+└── + Added [#0] changelog page.
+
 
 [bugfix]
 │           
-├── +  [graphics]       fixed mainsite background resizing below 100% at small extremes
-│           │
-│           └──>        css:    #website_background{ .. 100vh -> 100% }
+├── + [CSS: graphics]       
+│        │
+│        └───>   [Main-Site]
+│                 Fixed background resizing below 100% at small extremes
+│                  │
+│                 (+)
+│                  └──> CSS:    #website_background{ .. 100vh -> 100% }
 │           
-├── +  [positioning]    blogsite unsplash shoutout had a graphical error with a 
-│                       non-floated '.' appearing above the link instead of after.
+├── + [CSS: layout] 
+│        │
+│        ├───>    [Blogsite] 
+│        |         Unsplash shoutout had a graphical error with a 
+│        |         non-floated '.' appearing above the link instead of after.
+│        │
+│        └───>    [Desktop, edge case]
+│                  Landscape-sized window will no longer glitch 
+│                  (previously caused areas to overlap @ extreme zooms).
+│                   |
+│                  (+)
+│                   └──> CSS added:    
+│            
+│                      @media .. all and (orientation:landscape) 
+│                      and (min-width: 1px) and (max-width: 600px)
 │           
-├── +  [link color]     fixed css specificity to color links in posts purple,
-│                       doesn't affect link coloring in #tags
+├── + [link color]       
+│        │
+│        └───>    CSS specificity now colors links in posts purple,
+│                 doesn't affect link coloring in #tags.
 │           
-├── +  [syntax]         fixed improper tag nesting in mainsite the_page:footer
+├── + [syntax]           
+│        │
+│        └───>    Fixed improper element nesting in main-site the_page:footer.
 │           
-├── +  [liquid]         fixed init of int (used to start reading recent pages for on blog home page)
+├── + [liquid]           
+│        │
+│        └─────>  Fixed init of "int" counter 
+│           |     (used for selecting recent pages for blog home page).
 │           │
 │          (-)
-│           └──>        {% assign min_post_recent = page  | map:"display_recents_starting_at_number" %}
-│           └──>        {% assign int_min_num = min_post_recent    | plus: 0 %}        
+│           └──>    {% assign min_post_recent = page  | map:"display_recents_starting_at_number" %}
+│           └──>    {% assign int_min_num = min_post_recent    | plus: 0 %}        
 │           │
 │          (+)
-│           └──>        {% assign min_post_recent = page  | map:"display_recents_starting_at_number" %}
-└           └──>        {% assign int_min_num = min_post_recent[0] | plus: 0 %}   
+│           └──>    {% assign min_post_recent = page  | map:"display_recents_starting_at_number" %}
+└           └──>    {% assign int_min_num = min_post_recent[0] | plus: 0 %}   
 
-[polish]
-│           
-├── +  [edge case]      desktop with landscape sized window no longer glitch overlaps areas @ extreme zooms
-│           │
-│           └──>        css:    @media .. all and (orientation:landscape) and (min-width: 1px) and (max-width: 600px)
+[polish] 
 │
-└── +  [footer links for mobile]        mainsite footer github links are now wide div buttons in portrait + mobile views
+└── +  [footer links for mobile]        
+        Mainsite footer github links are now 
+		wide div buttons in portrait + mobile views.
 
 
-< new feature >
-│           
-├── +  added goto previous post
-│           
-├── +  added goto next post
-│           └└──>            underlines + nudges horiz. on hover
-│           └└──>            opacity 50% + nudges vert. on click
-│           
-├── +  added [#0] changelog page 
-│           
-├── +  added mobile friendly spacing & linking for sidebar on post pages when @ top & small screen
-│           
-└── +  minor tweaks and fixes
 
 
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-``````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+```````````````````````````````````````````````````````````````````````````````````````````````````
 [v10.1]
+
+
+========
+Summary:
+========
 
 Firefox display bugfix.
 Topic "#tags" coloring consistency across site.
 <- Prev & Next -> buttons animated now.
 
+
+========
+Details:
+========
+
+
 [bugfix]
 │           
-├── +  [firefox]        Firefox does not respond to the css rule{ width: fit-content; } when fit-content() has no specific params.
-│           └─          Amended each {width:fit-content} to also contain fallback options: 
-│                                │
-│                               (+)
-│                                └──>        width: max-content;
-│                                └──>        width: -moz-fit-content;
-│                                └──>        width: fit-content;
-│                       This should fix Firefox display on desktop + mobile too.
-└                       Chrome (desktop+mobile) and Edge (desktop at least) were already responding to the unpatched line.
+├── + [firefox]                 
+│       │
+│       └───>   Firefox does not respond to the css rule
+│                 { width: fit-content; } 
+│               when fit-content() has no specific params.
+│                
+│               Amended each {width:fit-content} 
+│               to also contain fallback options: 
+│                       │
+│                      (+)
+│                       └──>        width: max-content;
+│                       └──>        width: -moz-fit-content;
+│                       └──>        width: fit-content;
+│                
+│               This should fix Firefox display on desktop + mobile too.
+│               Chrome (desktop+mobile) and Edge (desktop at least) 
+└               already responded to the unpatched line.
            
 
 [polish]
 │
-├── +  [color]      Made tag colors [on post pages] + tag colors [under post previews] have the same green background.
-│                   Kept purple background for tags on [list of topics] page to signify those purple tag buttons
-│                   serve a different function & are internal navigation links for that page.    
-│                                │
-│                               (+) also
-│                                │
-│                   Added a z-order to each tag displayed in the preview cards
-│                   (first tag items parsed in the Jekyll Liquid loop get highest values, decrements to 1)
-│           
-│                   This prevents the tag's box shadow from displaying over its left neighbor.
-│                   Vertical margin added to prevent overshadowing lower rows 
-└                   (though this still happens upon button click, but I like the split-second effect here).
+├── + [blog post #tags + color]
+│       │
+│       └───>   Tag colors [on post pages] + tag colors [under post previews] 
+│               now have the same green background.
+│               
+│               Kept purple background for tags on [list of topics] page 
+│               to signify these purple tag buttons serve a different function 
+│               (internal navigation links for different tag sections).
+│                            │
+│                     also  (+)  related
+│                            │
+│               Added a z-order to each tag displayed in the preview cards.
+│               (First tag items parsed in the Jekyll Liquid loop 
+│                get highest values, decrements to 1.)
+│               
+│               This prevents the tag's box shadow 
+│               from displaying over its left neighbor.
+│               
+│               Vertical margin added to prevent overshadowing lower rows 
+│               (while this still happens upon button click, 
+└                but I like the split-second effect here during animation).
 
 
 < new features >
@@ -109,31 +174,49 @@ Topic "#tags" coloring consistency across site.
 └                                └──>        [~] adding summaries next.
 
 
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-``````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+```````````````````````````````````````````````````````````````````````````````````````````````````
 [v10.2]
 
-HTML processed output now tweaked to look more natural, polished Jekyll's comments.
+
+========
+Summary:
+========
+
+HTML processed output now tweaked to look more natural,
+polished pre-processed and post-processed spacing of Jekyll comments.
+
+
+========
+Details:
+========
+
 
 [polish]
 │
-├── +  [indents]    Formatted HTML layouts & pages Jekyll inserts into them to ensure the processed output file
-│                   (and the source you see when you right click -> view source on the live site)
-│                   have tidy and consistent indentation.
+├── + [indents]    Formatted HTML layouts & pages Jekyll inserts into them.
+│                  Now both the (1) processed output files and 
+│                  (2) the source you see when you right click -> select "view source"
+│                  have tidy and consistent indentation.
 │
-├── +  [comments]   Added comments to baked HTML files indicating where Jekyll inserts 
-│                   code into _Layouts & from _Includes. 
+├── + [comments]   Added comments to baked HTML files indicating 
+│                  where Jekyll inserts code into _Layouts &
+│                  where Jekyll inserts code from _Includes. 
 │
-├── +  [comments]   Used Liquid {%- tags -%} with hyphens: this removes auto-generated newlines from Liquid commands.
-│                   This whitespace is generated even for commands which produce no output.
-│                   Final processed code looks so much cleaner and more consistent now.
+├── + [comments]   Used Liquid {%- tags -%} with hyphens: 
+│                  this removes auto-generated newlines from Liquid commands.
 │
-├── +  [general tidying]   Took long lines and broke them into shorter lines. 
-└                          This made the .html files much nicer to view and much easier to skim.
+│                  Important to remember: 
+│                  This whitespace is generated even for commands which produce no output.
+│
+│                  Final processed code looks so much cleaner and more consistent now.
+│
+├── + [general tidying]   Took long lines and broke them into shorter lines. 
+└                         This made the .html files much nicer to view and much easier to skim.
 
 
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-``````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+```````````````````````````````````````````````````````````````````````````````````````````````````
 [v11.0]
 
 [#1] update + added Apps Written zoom & js mouse drag
@@ -157,58 +240,71 @@ HTML processed output now tweaked to look more natural, polished Jekyll's commen
 └                          
 
 
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-``````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+```````````````````````````````````````````````````````````````````````````````````````````````````
 [v12.0]
 
-+changelog can also js mouse drag now, polished apps written
-+Linux Framebuffer Console Windows overview
+========
+Summary:
+========
 
-[polish]
-│
-├── +  [Apps Written] 
-│           │
-│           ├──>      Changed sidebar font color & size to be consistent with home page.
-│           │
-│           ├──>      Made sidebar more readable in portrait view, added contextual margin.
-│           │
-│           ├──>      Added low quality image placeholders 
-│           │         to dl+display fast and first.
-│           │         
-│           ├──>      Going to keep highlights as one page w/o sub pages per app. (for now)
-│           │
-│           │
-│           └──>      Made sidebar more readable in portrait view, added contextual margin.
-│         
-├── +  [polished #0] 
-│           │
-│           └──>      Added consistent styling for the link to post [#1]
-│           └──>      Added a link to center the changelog
-│         
-├── +  [polished blog css] 
-│           │
-│           └──>      Next Prev button links can now be placed outside of a sidebar container 
-│                     (needed this for adding a link to post [#1] from the changelog
-└      
+Changelog can also mouse drag now (via JavaScript). 
+Polished "Apps Written".
+-> Linux Framebuffer Console Windows overview
+
+
+========
+Details:
+========
+
 
 < new features >
 │
-├── +  [click 'n drag #0] 
-│           │
-│           └──>        Added js to scroll the changelog on mouse drag.
-│       
+├── + [click 'n drag #0] 
+│       │
+│       └──>        Added js to scroll the changelog on mouse drag.
+│      
 └                          
+
 
 < new content >
 │
-├── +  [Apps Written] 
-│           │
-│           └──>    Added an overview of my Linux Frambuffer Windowing System.    
+├── + [Apps Written] 
+│        │
+│        └──>    Added an overview of my Linux Frambuffer Windowing System.    
 └
 
 
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-``````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+[polish]
+│
+├── + [Apps Written] 
+│        │
+│        ├──>      Changed sidebar font color & size to be consistent with home page.
+│        │
+│        ├──>      Made sidebar more readable in portrait view, added contextual margin.
+│        │
+│        ├──>      Added low quality image placeholders 
+│        │         to dl+display fast and first.
+│        │         
+│        ├──>      Going to keep highlights as one page w/o sub pages per app. (for now)
+│        │
+│        │
+│        └──>      Made sidebar more readable in portrait view, added contextual margin.
+│         
+├── + [polished #0] 
+│        │
+│        └──>      Added consistent styling for the link to post [#1]
+│        └──>      Added a link to center the changelog
+│         
+├── + [polished blog css] 
+│        │
+│        └──>      Next Prev button links can now be placed outside of a sidebar container 
+│                  (needed this for adding a link to post [#1] from the changelog
+└      
+
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+```````````````````````````````````````````````````````````````````````````````````````````````````
 [v13.0]
 
 ========
@@ -217,67 +313,181 @@ Summary:
 
 [+] Polished navbar + sidebar + added to Home page's content.
 
+
 ========
 Details:
 ========
 
-[polish]
-│
-├── +  [license updated]
-│           │
-│           ├──>     Updated license for 2021.
-│           │
-│           ├──>     Added license to each un-baked page, 
-│           │         to make it clear that pre-rendered source pages are also CC0.
-│           │
-│           ├──>     Made scope of license broader + more explicit.
-│           │
-│           └──>     Added link to CC0 at the bottom of each license declaration:
-│                              https://creativecommons.org/publicdomain/zero/1.0/ 
-│
-├── +  [clarification]
-│           │
-│           └──>     Elaborated in the top comment on the un-baked .css files
-│                     to explain the function of the empty header.
-│                     (Jekyll will not process a file lacking a header.)
-│        
-│
-├── +  [polished main navigation bar]
-│           │
-│           ├──>     Top-left corner now contains my email address.
-│           │         (Before this version it was only my username.)
-│           │
-│           └──>     Renamed button "Apps Written" -> to "App Gallery"
-│                     (This page is now meant to be an overview for all of them,
-│                     so this text is more fitting. Since initial website conception, 
-│                     I've decided to shift main focus to the Documentation sub-site.)
-│
-│
-├── +  [polished Home page's wording]
-│           │
-│           ├──>     Minor clarifications (went through files and listed a verified wordcount).
-│           │
-│           ├──>     Added "Site Overview:" to the sidebar.
-│           │
-│           └──>     Minor changes to wording + new phrases in each section 
-│                     (except for Fun, Fun is fine the way it is :)
-│  
-├── +  [polished Home page's sidebar]
-│           │
-│           └──>     Minor CSS tweaks to make it apparent that the "Home" box is not a button 
-│                      by visually distinguishing it from the others (consistent with navbar styling)
-└ 
-
 < new content >
 │
-├── +  [Home Page] 
-│           │
-│           └──>     Added detailed site overview section.
-│                    [to-do] Collapsable regions to implement next.
+├── + [Home Page] 
+│        │
+│        └──>  Added detailed site overview section.
+└
+
+[polish]
+│
+├── + [license updated]
+│        │
+│        ├──>   Updated license for 2021.
+│        │      
+│        ├──>   Added license to each un-baked page (especially Jekyll .rst files). 
+│        │      Clarifies: pre-rendered source pages are also CC0.
+│        │      
+│        ├──>   Made scope of license broader + more explicit.
+│        │      
+│        └──>   Added link to CC0 at the bottom of each license declaration:
+│                https://creativecommons.org/publicdomain/zero/1.0/ 
+│
+├── + [clarification]
+│        │
+│        └──>   Elaborated in the top comment on the un-baked .css files
+│               to explain the function of the empty header.
+│               (Jekyll will not process a file lacking a header.)
+│        
+│
+├── + [polished main navigation bar]
+│        │
+│        ├──>   Top-left corner now contains my email address.
+│        │      (Before this version it was only my username.)
+│        │      
+│        └──>   Renamed button "Apps Written" -> to "App Gallery"
+│        
+│               This page is now meant to be an overview for all of them,
+│               so this text is more fitting. Since initial website conception, 
+│               I've decided to shift main focus to the Documentation sub-site.
+│     
+│     
+├── + [polished Home page's wording]
+│        │
+│        ├──>   Minor clarifications (went through files and listed a verified wordcount).
+│        │      
+│        ├──>   Added "Site Overview:" to the sidebar.
+│        │      
+│        └──>   Minor changes to wording + new phrases in each section 
+│                (except for Fun, Fun is fine the way it is :)
+│     
+├── + [polished Home page's sidebar]
+│        │
+│        └──>   Minor CSS tweaks to make it apparent that the "Home" box is not a button 
+│                 by visually distinguishing it from the others (consistent with navbar styling)
+└       
+
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+```````````````````````````````````````````````````````````````````````````````````````````````````
+[v14.0]                                                              [2021_01_11]  @  [03-09-05 PM]  
+
+
+========
+Summary:
+========
+
+CSS organizational rewrite.
+Homepage polish + site sub-areas described. 
+Homepage expandable/colapsible regions implemented.
+
+
+========
+Details:
+========
+
+
+< new features >
+│
+├── + [Home Page] 
+│        │
+│        └──>   Added detailed site overview section with collapsible regions.
+│   
+│── + [Documentation Sub-Site]
+│        │
+└        └──>   Sphinx generated subsite (working draft)
+
+
+[CSS Refactor]
+│
+├── + [main.css]
+│        │
+│        ├──>   Refactored organization.
+│        │      ( Was organized by type of CSS purpose, however
+│        │        this resulted in searching through the entire file 
+│        │        to find each CSS rule for a single HTML element.
+│        │        Now in "main.css" each element is in only one place. )
+│        │      
+│        │      
+│        └──>   Replaced unique CSS Classes -> with CSS IDs (inherantly unique)
+│   
+└       
+           
+[polish]
+│
+├── + [polished main navigation bar]
+│        │
+│        ├──>   Expanded link area from just the text (eg "App Gallery")
+│        │       to encompas the entire box around the navigation buttons.
+│        │     
+│        └──>   Disabled nav link to self (eg "Home" button link inactive on home page).
+│
+│
+├── + [polished this Changelog]
+│        │
+│        ├──>   Newest changes are now at the top.
+│        │      
+│        ├──>   Added missing version history descriptions.
+│        │      
+│        ├──>   Added dates to each version in the history.
+│        │      
+│        └──>   Changed max column to be 80, manually reflowed text.
 └
 
 
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-``````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````````
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+```````````````````````````````````````````````````````````````````````````````````````````````````
+[v15.0]                                                              [2021_03_10]  @  [11-14-01 PM]
+
+
+========
+Summary:
+========
+
+(1) Modified the ReadTheDocs theme for Sphinx.
+    Integrated main-site's navigation bar into Documentation sub-site.
+	Learned how to use Sphinx directives, referencing, toctree, and reStructuredText.
+
+(2) Wrote a draft mockup of the Documentation subsite. 
+    Tweaked and polished CSS.
+
+(3) Wrote an AutoHotkey script to parse the paths baked by Sphinx
+    and fix all URL references to mesh with Jekyll's input needs.
+    
+	File located in this website's GitHub under:
+      /project_root/Documentation/_Sphinx/[AHK FINALIZE SCRIPT ]  Post-process
+	   Sphinx output and place modified trunk in Jekyll's prebake Docs dir.ahk" 
+
+    Processing steps documented in the script's comments. 
+
+(4) Wrote and successfully integrated a modified custom lexer for AutoHotkey
+    for Sphinx's Pygments to process language-specific syntax and reserved words.
+
+    Sphinx's pipeline uses this custom lexer 
+    with Sphinx's Pygment style named Monokai (unmodified).
+
+    I cross-referenced the Monokai style's source code 
+    and ensured all the main AutoHotkey language elements
+    each have their own unique CSS class.
+
+(5) Finally, I wrote custom CSS rules to give a nice overall color scheme
+    to code blocks highlighted with my modified AutoHotkey lexer.
+
+
+Infinite thanks to this blog post which saved me from spending days 
+learning how to hack and inject a lexer and styler from scratch using Python:
+
+https://samprocter.com/2014/06/documenting-a-language-using-a-custom-sphinx-domain-and-pygments-lexer/
+
+
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+```````````````````````````````````````````````````````````````````````````````````````````````````
 
 {% endraw %}

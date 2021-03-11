@@ -1,0 +1,39 @@
+{% extends "!layout.html" %}
+
+{% block extrahead %}
+	<link rel="stylesheet" href="_static/css/Doc_Homepage.css" type="text/css" />
+{% endblock %}
+
+
+  {% block extrabody %} <p>test</p>{% endblock %}
+<div role="main">
+  {% block content  %}
+	
+		<header id="gc_header">
+		
+			<nav id="gc_navbar">
+				<a href="/">
+					<li id="gc_navbar__home">
+						Home
+					</li>
+				</a>
+					<li class="gc_navigation_link__current_page">
+						Documentation for Projects
+					</li>
+				<a href="/Apps.html">
+					<li>
+						App Gallery
+					</li>
+				</a><a href="/Philosophy.html">
+					<li>
+						Philosophy Blog
+					</li>
+				</a>
+			</nav>
+		
+		</header> <!-- id="gc_header" | css #gc_header -->
+
+		{{ super() }}
+		
+  {% endblock %}
+</div>

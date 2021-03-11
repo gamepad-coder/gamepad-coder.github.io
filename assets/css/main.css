@@ -18,125 +18,13 @@
 */
 
 
-
     /* ------------------------------------------------ */
    /*                                                  */
-  /*                    fonts                         */
+  /*         Common site components                   */
  /*                                                  */
 /* ------------------------------------------------ */
 
-
-	body{
-		font-family: Courier New, Courier, Palatino, Verdana, serif;
-		font-size: 18px;
-		line-height: 1.4em;	
-		color: #ffffff; 	/* #D7D7D7; */
-	}
-	
-	header{
-		font-size: 18px;
-	}
-	
-	
-	h1{	font-family: Consolas;	font-size: 24px; }
-	h2{
-		font-family: "Courier", Consolas, Verdana, serif;
-		font-size: 28px;
-		
-		/* background: -webkit-linear-gradient(#53d5ff, #4a1f84); */
-		background: -webkit-linear-gradient(#53d5ff, #6d22a7);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-	}
-	div.h2_wrapper{		
-		-webkit-box-shadow: -11px 10px 2px 1px rgba(0,0,0,0.3), inset 0px -1px 0 2px rgba(255,255,255,0.1);
-		box-shadow: -11px 10px 2px 1px rgba(0,0,0,0.3), inset 0px -1px 0 2px rgba(255,255,255,0.1);
-		background: -webkit-linear-gradient(#53d5ff, #6d22a7);
-	}
-	div.h2_wrapper h2{
-		padding: 20px 20px 15px 20px;
-		-webkit-text-fill-color: unset;
-		border-bottom: none;
-	}
-	div.green_dot_underline_wrapper__skipTopMargin,
-	div.green_dot_underline_wrapper{
-		border-bottom: 2.5px dotted #03993d;
-    	margin: 80px 0 30px 0px;
-	}
-	div.green_dot_underline_wrapper__skipTopMargin {
-    	margin: 0px 0 30px 0px;
-	}
-	article h3{
-		/* -webkit-box-shadow: -11px 10px 2px -2px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1), 0 -1px 0 rgb(0, 225, 14); */
-		/* box-shadow: -11px 10px 2px -2px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1), 0 -1px 0 rgb(0, 225, 14);			 */
-		
-		/* -webkit-box-shadow: -11px 10px 2px -2px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1), 0 -1px 0 rgb(0, 225, 14); */
-		/* box-shadow: -1px 3px 0 0px rgba(28, 160, 189, 0.47), -11px 10px 2px -2px rgba(0, 0, 0, 0.26); */
-		padding: 10px 20px;
-		margin: 50px 0 20px 0;
-		/* width: max-content; */
-		/* border: 1px solid black; */
-		/* background-color: #055359; */
-
-		-webkit-box-shadow: -11px 10px 2px -2px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1);
-		box-shadow: -11px 10px 2px -2px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1);
-		border: 1px solid rgba(28, 160, 189, 0.47);
-	}				
-	article h3.h3_list_header {
-		font-size: 18px;
-		font-weight: normal;
-		margin-top: 0;
-	}
-	a:link, .nav_ref {
-		color: #03ff3d;
-		text-decoration: none;
-		font-family: Consolas, Verdana, serif;
-	}
-	a:visited { color: #03ff3d; }
-	a:hover { color: #03ff3d;	text-decoration: underline;	}
-	a:hover span { color: #03ff3d;	text-decoration: underline;	}
-	li.current a{ color: #000000;	text-decoration: none; }
-
-	span.parenthetical{ color: #999; }
-
-	
-	#asideBar {
-		color: silver;
-	}
-	aside {	font-size: 16px;	font-family: Palatino, serif; }
-	/* span.nav_ref {	font-size: 17px;	} */
-	
-	span.nav_ref_current {	
-		color: black;
-		background-color: #1a9b51;
-		border-radius: 2px;
-		padding: 4px 4px;
-	}
-
-	h1.gc_email {
-		color: white;
-	}
-				    /* -------------- */
-				   /*                */
-				  /*   </> fonts    */
-				 /*                */
-				/* -------------- */
-
-
-
-
-    /* ------------------------------------------------ */
-   /*                                                  */
-  /*              backgrounds + borders               */
- /*                                                  */
-/* ------------------------------------------------ */
-
-
-	body {
-		background-color: #018997;
-		height: 100%;
-		/* width: 100%; */
-	}
+	/*** code which generates the background gradient ***/	
 	#website_background {
 		z-index: -1;
 		position: fixed;
@@ -159,28 +47,186 @@
 		width: 100%;
 		
 	}
-	header {
-		background-image: url("{{ "/assets/images/header.jpg" | absolute_url }}");
-		background-size: cover;
-		/* background-position: center center; */
-		/* height: 100%; */
+
+
+    /* ------------------------------------------------ */
+   /*                                                  */
+  /*         Generic Element Tags                     */
+ /*                                                  */
+/* ------------------------------------------------ */
+
+
+	/*** font ***/
+	body{
+		font-family: Courier New, Courier, Palatino, Verdana, serif;
+		font-size: 17px;
+		line-height: 1.4em;	
+		color: #ffffff; 	/* #D7D7D7; */
+	}
+	
+	/*** background ***/	
+	body {
+		background-color: #018997;
+		height: 100%;
+		/* width: 100%; */
+	}
+	
+	
+	/*** font ***/
+	h1{	
+		font-family: Consolas;
+		font-size: 24px; 
+	}
+	
+	/*** font ***/
+	h2{
+		font-family: "Courier", Consolas, Verdana, serif;
+		font-size: 28px;
+	}
+	
+	/*** background ***/	
+	h2{
+		
+		/* background: -webkit-linear-gradient(#53d5ff, #4a1f84); */
+		background: -webkit-linear-gradient(#53d5ff, #6d22a7);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+	
+	/*** background ***/
+	div.h2_wrapper{		
+		-webkit-box-shadow: -11px 10px 2px 1px rgba(0,0,0,0.3), inset 0px -1px 0 2px rgba(255,255,255,0.1);
+		box-shadow: -11px 10px 2px 1px rgba(0,0,0,0.3), inset 0px -1px 0 2px rgba(255,255,255,0.1);
+		background: -webkit-linear-gradient(#53d5ff, #6d22a7);
+	}
+	
+	/*** border + padding ***/
+	div.h2_wrapper h2{
+		border-bottom: none;
+		padding: 20px 20px 15px 20px;
+	}
+	
+	/*** font ***/
+	div.h2_wrapper h2{
+		/* 
+			required to make text display on top of the gradient fill 
+		*/
+		-webkit-text-fill-color: unset;
+	}
+	
+	/*** font ***/
+	div.green_dot_underline_wrapper__skipTopMargin,
+	div.green_dot_underline_wrapper{
+		border-bottom: 2.5px dotted #03993d;
+    	margin: 80px 0 30px 0px;
+	}
+	
+	/*** font ***/
+	div.green_dot_underline_wrapper__skipTopMargin {
+    	margin: 0px 0 30px 0px;
+	}
+	
+
+	
+	/*** border ***/
+	h2 {	border-bottom: 1.5px dotted #03993d;	}
+	
+	article h3{
+		/* -webkit-box-shadow: -11px 10px 2px -2px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1), 0 -1px 0 rgb(0, 225, 14); */
+		/* box-shadow: -11px 10px 2px -2px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1), 0 -1px 0 rgb(0, 225, 14);			 */
+		
+		/* -webkit-box-shadow: -11px 10px 2px -2px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1), 0 -1px 0 rgb(0, 225, 14); */
+		/* box-shadow: -1px 3px 0 0px rgba(28, 160, 189, 0.47), -11px 10px 2px -2px rgba(0, 0, 0, 0.26); */
+		padding: 10px 20px;
+		margin: 50px 0 20px 0;
+		/* width: max-content; */
+		/* border: 1px solid black; */
+		/* background-color: #055359; */
+
+		-webkit-box-shadow: -11px 10px 2px -2px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1);
+		box-shadow: -11px 10px 2px -2px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1);
+		border: 1px solid rgba(28, 160, 189, 0.47);
+	}
+	
+	
+	/*** font + margin ***/
+	article h3.h3_list_header {
+		font-size: 18px;
+		font-weight: normal;
+		margin-top: 0;
+	}
+	
+	/*** font ***/
+	span.parenthetical{ 
+		color: #999; 
+	}
+	
+	
+				    /* -------------- */
+				   /*                */
+				  /*     Links      */
+				 /*                */
+				/* -------------- */
+	
+	a:link, .nav_ref {
+		color: #03ff3d;
+		text-decoration: none;
+		font-family: Consolas, Verdana, serif;
+	}
+	a:visited { color: #03ff3d; }
+	a:hover { color: #03ff3d;	text-decoration: underline;	}
+	a:hover span { color: #03ff3d;	text-decoration: underline;	}
+
+	
+
+	
+	
+				    /* -------------- */
+				   /*                */
+				  /*    Sidebar     */
+				 /*                */
+				/* -------------- */
+				
+	#asideBar {
+		color: silver;
+	}
+	aside {	font-size: 16px;	font-family: Palatino, serif; }
+	/* span.nav_ref {	font-size: 17px;	} */
+	
+	span.asideBar__Home__nav_ref {	
+		color: black;
+		background-color: #1a9b51;
+		border-radius: 2px;
+		padding: 2px 4px;
+		font-family: Consolas, Verdana, serif;
+		
 	}
 
-	#gc_logo{    background: rgba(7,7,7,0.6);    }
-	img.gc_picture{	border: 6px ridge  #ddd;        }
-	h1.gc_email{      border: 7px outset  #777;       }
-	#gc_hire li {   background: rgba(0,0,0,0.5);    }
-	#gc_hire li.current{ background-color: #1a9b51; }
+	#aside_contact ul{
+		/* list-style: circle; */
+		margin-left: 0px;
+		padding-inline-start: 7px;
+	}
+	#aside_contact li{
+		padding-left: 3px;
+		font-family: Consolas, Monospace;
+		/* color: #1a9b51; */
+		color: #36aec9;
+	}
 
-		#gc_navbar li {
-			background-color: #000000;
-		}
-		#gc_navbar .current {
-			background-color: #1a9b51;		
-		}
-
-	#the_page {	background-color: #032e3d;   border: 1px ridge #03dd3d;	}
-	h2 {	border-bottom: 1.5px dotted #03993d;	}
+	#asideBar.aside_appHighlights a.nav_ref {
+		background-color: unset;
+		font-family: Palatino;
+	}
+	#asideBar.aside_appHighlights ul {
+		padding-inline-start: 10px;
+		margin-block-start: 0em;
+		margin-block-end: 0.6em;
+	}
+	#asideBar.aside_appHighlights li {
+		padding: 3px 0;
+	}
+	
 	
 	#asideBar {
 		border-top: 1px solid rgba(222, 222, 222, 0.15); 
@@ -198,85 +244,144 @@
 		#aside_contact {
 			color: #e9e9e9;
 		}
+
+
+
+	/* - - - - - - - - - - - *|
+	|*       sidebar         *|
+	|* - - - - - - - - - - - */
+			
+	#asideBar {
+		margin-top: 2em;
+		margin-right: 0px;
+		flex: auto;
+		padding: 0px 10px 0px 15px;
+		/* padding: 0px 1em 0px 1em; */
+		position: -webkit-sticky;
+		position: sticky;
+		top: 10vh;
+		/* top: 0; */
 		
-	footer.gitlinks{ background-color: #031b23; }
-
-
-	#contact_gamepad_coder {
-			margin: 30px; 
-			padding: 20px; 
-			border:9px ridge rgba(255,255,255,.7);
+		
+		max-height: 95vh;
+		/* max-height: 90vh; */
+		/* max-height: 80vh; */
+		overflow: auto;
 	}
-
-	/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ *|
-	|*             for extreme zoom + smaller screens           *|
-	|* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
-	
-	
-	@media all and (max-width: 900px) {
-		#asideBar {
-			border-top: 1px solid rgba(000, 222, 999, .21); 
-			border-bottom: 1px solid rgba(000, 222, 999, .31); 
-		}
-		aside p {
-			border-bottom: 1px solid rgba(222, 222, 222, .3); 
-		}
-		#aside_contact{
-			color: white;
-		}
+	  /*--- formatting for navigation link references ---*/
+	  a.nav_ref, .nav_ref {
+		margin-right: 5px;
+		color: #1a9b51;
+		
+		border-radius: 6px;
+		padding: 4px 5px;
+		
+	  }
+	#aside_contact{
+		/* padding: 0; */
+		margin: 0;
+		/* overflow: hidden; */
+		/* overflow: auto; */
+	}
+	#div_prof {
+		background-image: url("{{ "/assets/images/contact/stock_typewriter_plants.png" | absolute_url }}"),url("{{ "/assets/images/contact/stock_typewriter_plants_loQ.jpg" | absolute_url }}");
+	}
+	#div_prog_lang {
+		background-image: url("{{ "/assets/images/contact/stock_trackpoint.png" | absolute_url }}"),url("{{ "/assets/images/contact/stock_trackpoint_loQ.jpg" | absolute_url }}");
+	}
+	#div_interests {
+		background-image: url("{{ "/assets/images/contact/stock_plant.png" | absolute_url }}"),url("{{ "/assets/images/contact/stock_plant_loQ.jpg" | absolute_url }}");
+	}
+	#div_prof, #div_prog_lang, #div_interests {
+		/* border: 3px solid white; */
+		background-size: cover; 
+		border-radius: 25px;
+		margin: 5;
+		padding: 10px;
+	}
+	#h_prof, #h_prog_lang, #h_interests {
+		text-align: center;
+		background-color: rgba(0, 0, 0, 0.3);  /* blue with opacity */
+		margin: auto -10px;
+		padding: 5px 10px;
+	/* color: white; */
 	}
 	
 	
-	/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 	
 	
-	
-				    /* ------------------------------ */
-				   /*                                */
-				  /*   </> backgrounds + borders    */
-				 /*                                */
-				/* ------------------------------ */
-
-
-
-
     /* ------------------------------------------------ */
    /*                                                  */
-  /*                   layouts                        */
+  /*                   Header                         */
  /*                                                  */
 /* ------------------------------------------------ */
+	
+	
+
+	/* - - - - - - - - - - - - - -  *|
+	|*  	<header> container      *|
+	|* - - - - - - - - - - - - - -  */
 
 
-	header { overflow: auto;	/* border: 11px ridge #03dd3d; */ }
+	/*** font ***/
+	#gc_header{
+		font-size: 18px;
+	}
+	
+	/*** layout ***/
+	#gc_header { 
+		overflow: auto;
+		/* border: 11px ridge #03dd3d; */ 
+	}
 
+
+	/*** background ***/
+	#gc_header {
+		background-image: url("{{ "/assets/images/header.jpg" | absolute_url }}");
+		background-size: cover;
+		/* background-position: center center; */
+		/* height: 100%; */
+	}
+
+	
 
 	/* - - - - - - - - - - - - - -  *|
 	|*  	Gamepad.Coder  logo     *|      +hire
 	|* - - - - - - - - - - - - - -  */
 
-	#gc_header{
+	
+	#gc_banner{
 		overflow: auto;
 	}
-	#gc_navbar li {
-		margin-bottom: 10px;
-		margin-left: 3px;
-		margin-right: 3px;
-	}
 
+	/*** background, border, color ***/
+
+		#gc_banner__logo{          background: rgba(7,7,7,0.6);    }
+		#gc_banner__picture{       border: 6px ridge  #ddd;        }
+		#gc_banner__email{         border: 7px outset  #777;       }
+		#gc_banner__email {        color: white;                   }
+		#gc_banner__email_atSign{  color: white;                   }
+		#gc_banner__hire li {      background: rgba(0,0,0,0.5);    }
 		
-		#gc_logo{
-			/* width: 305; */
+		#gc_banner__hire li.gc_navigation_link__current_page{ background-color: #1a9b51; }
+	
+	 
+	/*** layout ***/
+
+		#gc_banner__logo{
+			/* width: 305; */ 
 			
 			width: max-content;
-			width: -moz-fit-content;
-			width: fit-content;
+			/* width: -moz-fit-content;
+			width: fit-content; */
 			
 			height: 80px;	
 			overflow: auto;
 			float: left;
 			padding: 0 10px;
 		}
-		img.gc_picture{
+
+		#gc_banner__picture{
 		
 		  /* center vertically recipe found@ 
 		
@@ -287,34 +392,36 @@
 		  top: 50%;
 		  transform: translate(0%, -50%);
 
+		  width: 50px;
+		  height: 50px;
+		  
 		  margin-right: 10px;
 		  /* margin-left: 10px; */
 		  float: left;
 		}
-		
-			#gc_email_atSign{
-				margin:0 5px;
-				color: white;
-				text-decoration: none;				
-			}
-		h1.gc_email{
+
+		#gc_banner__email{
 			position: relative;
 			top: 50%;		
 			transform: translate(0%, -50%);
 			line-height: 200%;
-
+			
 			padding-left: 14px;
 			padding-right: 14px;	
 			margin: auto;
 			float: left;
 		}
+		#gc_banner__email_atSign{
+			margin:0 5px;
+			text-decoration: none;				
+		}
 		
-		#gc_hire{
+		#gc_banner__hire{
 			float: right;
 			/* padding: 5px; */
 			list-style: none;
 		}  
-		#gc_hire li{
+		#gc_banner__hire li{
 		/* wrapped the link in a single <li> for consistency with other navigation links */
 		/* and to make the jekyll templating less complicated */
 		
@@ -327,6 +434,14 @@
 	/* - - - - - - - - - - - - - -  *|
 	|*      navigation bar          *|
 	|* - - - - - - - - - - - - - -  */
+
+
+	#gc_navbar li {
+		margin-bottom: 10px;
+		margin-left: 3px;
+		margin-right: 3px;
+	}
+	
 
 	#gc_navbar{
 		display: flex;
@@ -347,19 +462,96 @@
 			border-top: 1px solid rgba(255, 255, 255,0.3); 
 			border-bottom: 1px solid rgba(222, 222, 222, 0.15); 
 		}
-		#home_button {
-		/* smallest string in nav bar, looks awkward when it resizes smaller than this */
-		
-			flex-shrink: 0;
+
+
+
+		#gc_navbar__home{
+			/* smallest string in nav bar, looks awkward if sized smaller than this */
 			min-width: 80px;
-			
 		}
+
+		li.gc_navigation_link__current_page { 
+			color: #000000;	
+			text-decoration: none; 	
+			font-family: Consolas, Verdana, serif;
+		}
+		#gc_navbar li {
+			background-color: #000000;
+		}
+		#gc_navbar .gc_navigation_link__current_page {
+			background-color: #1a9b51;		
+		}	
+
+
+
+	
+    /* ---------------- */
+   /*                  */
+  /*   </> Header     */
+ /*                  */
+/* ---------------- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	/* - - - - - - - - - - - - - - *|
+	|*      the_page  footer       *|
+	|* - - - - - - - - - - - - - - */
+
+	footer.gitlinks{ background-color: #031b23; }
+	
+	footer.gitlinks a div { 
+		float: left;
+	}
+	footer.gitlinks a:hover div{
+		text-decoration: underline;
+	}
+	footer.gitlinks{
+		padding: 20px;
+		margin-top: 15px;
+		margin: 0px;
+		clear: both;
+		overflow: auto;
+	}
+
+	/* - - - - - - - - - - - - - - *|
+	|*      floating  footer       *|
+	|* - - - - - - - - - - - - - - */
+	
+	/*** font + layout ***/
+	footer p.floating_footer_copyright{
+		line-height: 1em;
+		float: right;
+	}
+	
+
+
+
+
+
+	/*** font : positioning ***/
+	span.indentation {  padding-left: 30px;  }
+
+
+
 
 	
 	/* - - - - - - - - - - - *|
 	|*     main content      *|
 	|* - - - - - - - - - - - */
 
+	/*** layout ***/
 	#the_page {
 		width: 85%;
 		padding: 5px;
@@ -367,16 +559,23 @@
 		
 		/* WARNING/REMINDER:  "overflow: auto;" here WILL BREAK STICKY SCROLL  */
 	}
-	#page_flex {	
+
+	/*** background + border ***/
+	#the_page {	
+		background-color: #032e3d;
+		border: 1px ridge #03dd3d;	
+	}
+	
+
+	/*** layout ***/
+	#the_page__flex {	
 		display: flex;
 		flex-flow: row ;
 		align-items:flex-start;
 		justify-content: space-evenly;
 	}
-		#page_content.fill_page_width {
-			flex: 0 0 90%;
-			margin-bottom: 70px;
-		}
+	
+		/*** layout ***/
 		div.content { flex: 0 0 70%;	margin: 10px 40px 20px 40px; }
 			
 			article {
@@ -388,6 +587,128 @@
 			p.intro_philosopher_linespacing{
 				margin-bottom: 25px;
 			}
+	
+	
+
+
+
+
+
+
+
+
+
+    /* ------------------------------------------------ */
+   /*                                                  */
+  /*     Collapsible section headers                  */
+ /*                                                  */
+/* ------------------------------------------------ */
+
+	/*  *** Source ***
+
+		Adapted from this tutorial: 
+			https://www.digitalocean.com/community/tutorials/css-collapsible
+		
+		Which describes this online example:
+			https://codepen.io/alligatorio/pen/KKzWqVX?editors=1100
+	*/
+
+	/* The entire section title bar toggles this invisible checkbox. */
+	input[type="checkbox"].toggle_collapsible_section {
+		display: none;
+	}
+
+	/* Visible label corresponding to the invisible checkbox. 
+	   Toggles the section's collapsed/hidden state. */
+	.label-toggle_collapsible_section {
+		-webkit-box-shadow: -11px 10px 2px -2px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1);
+		box-shadow: -11px 10px 2px -2px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1);
+		border: 1px solid rgba(28, 160, 189, 0.47);
+
+		font-size: 21px;
+		font-weight: bold;
+
+		display: block;
+		margin-top: 24px;
+		padding: 1rem;
+		color: #fff;
+		/* background: #0069ff; */
+		cursor: pointer;  
+		/* transition: all 0.25s ease-out; */
+		transition: color 0.25s ease-out;
+	}
+		/* Change colors on mouse-over to indicate possible action here. */
+		.label-toggle_collapsible_section:hover {
+			color: #9ffad0;
+		}
+
+		/* "::before" adds a pseudo-element before the label. 
+		Used to create a triangle using border quadrants. */
+		.label-toggle_collapsible_section::before {
+			content: " ";
+			display: inline-block;
+			border-top: 5px solid transparent;
+			border-bottom: 5px solid transparent;
+			border-left: 5px solid currentColor;
+			vertical-align: middle;
+			margin-right: 0.7rem;
+			transform: translateY(-2px);
+			
+			/* Animation */
+			transition: transform 0.25s;
+		}
+		/* Rotate the "::before" triangle when the label is clicked. */
+		.toggle_collapsible_section:checked + .label-toggle_collapsible_section::before {
+			transform: rotate(90deg) translateX(-3px);
+		}
+
+	/* Sets the section to be invisible when collapsed. */
+	.collapsible_section {
+		max-height: 0px;
+		overflow: hidden;
+		padding-left: 14px;
+		padding-right: 5px;
+		/* margin-right: -14px; */
+		margin-bottom: 10px;
+
+		/* Animation */
+		/* transition: max-height 0.65s ease-in-out 0s; */
+		/* transition: max-height 0.65s 0s; */
+		transition: max-height 0.55s;
+	}
+		.content-inner {
+			background: rgba(0, 105, 255, 0.2);
+			/* background: #023a64b3; */
+			border-bottom: 1px solid rgba(0, 105, 255, 0.45);
+			border-radius: 7px;
+			padding: 0.5rem 1rem;
+		}
+		/* Sets the expanded section's height to be nonzero 
+		   to allow animating between the changes. */
+		.toggle_collapsible_section:checked + .label-toggle_collapsible_section + .collapsible_section {
+			max-height: 2000px;
+			
+			/* Animation */
+			/* transition: max-height 0.75s ease-in-out 0s; */
+		}
+
+	
+    /* ------------------------------------------------ */
+   /*                                                  */
+  /*      Specific Page CSS                           */
+ /*                                                  */
+/* ------------------------------------------------ */
+	
+	/* - - - - - - - - - - - *|
+	|*     Home page         *|
+	|* - - - - - - - - - - - */
+
+
+
+	/* - - - - - - - - - - - *|
+	|*     Apps              *|
+	|* - - - - - - - - - - - */
+	
 	
 	div.app_highlights li {
 		/* padding: 20px; */
@@ -463,120 +784,84 @@
 	#apps_linux_article ul li{
 		padding: 10px 0;
 	}
-	/* - - - - - - - - - - - *|
-	|*       sidebar         *|
-	|* - - - - - - - - - - - */
-			
-	#asideBar {
-		margin-top: 2em;
-		margin-right: 0px;
-		flex: auto;
-		padding: 0px 10px 0px 15px;
-		/* padding: 0px 1em 0px 1em; */
-		position: -webkit-sticky;
-		position: sticky;
-		top: 10vh;
-		/* top: 0; */
-		
-		
-		max-height: 95vh;
-		/* max-height: 90vh; */
-		/* max-height: 80vh; */
-		overflow: auto;
-	}
-	  /*--- formatting for navigation link references ---*/
-	  a.nav_ref, .nav_ref {
-		margin-right: 5px;
-		color: #1a9b51;
-		
-		border-radius: 6px;
-		padding: 4px 5px;
-		
-	  }
-	#aside_contact{
-		/* padding: 0; */
-		margin: 0;
-		/* overflow: hidden; */
-		/* overflow: auto; */
-	}
-	#div_prof {
-		background-image: url("{{ "/assets/images/contact/stock_typewriter_plants.png" | absolute_url }}"),url("{{ "/assets/images/contact/stock_typewriter_plants_loQ.jpg" | absolute_url }}");
-	}
-	#div_prog_lang {
-		background-image: url("{{ "/assets/images/contact/stock_trackpoint.png" | absolute_url }}"),url("{{ "/assets/images/contact/stock_trackpoint_loQ.jpg" | absolute_url }}");
-	}
-	#div_interests {
-		background-image: url("{{ "/assets/images/contact/stock_plant.png" | absolute_url }}"),url("{{ "/assets/images/contact/stock_plant_loQ.jpg" | absolute_url }}");
-	}
-	#div_prof, #div_prog_lang, #div_interests {
-		/* border: 3px solid white; */
-		background-size: cover; 
-		border-radius: 25px;
-		margin: 5;
-		padding: 10px;
-	}
-	#h_prof, #h_prog_lang, #h_interests {
-		text-align: center;
-		background-color: rgba(0, 0, 0, 0.3);  /* blue with opacity */
-		margin: auto -10px;
-		padding: 5px 10px;
-	/* color: white; */
-	}
+
 	
-	#aside_contact ul{
-		/* list-style: circle; */
-		margin-left: 0px;
-		padding-inline-start: 7px;
-	}
-	#aside_contact li{
-		padding-left: 3px;
-		font-family: Consolas, Monospace;
-		/* color: #1a9b51; */
-		color: #36aec9;
-	}
 
-	#asideBar.aside_appHighlights a.nav_ref {
-		background-color: unset;
-		font-family: Palatino;
-	}
-	#asideBar.aside_appHighlights ul {
-		padding-inline-start: 10px;
-		margin-block-start: 0em;
-		margin-block-end: 0.6em;
-	}
-	#asideBar.aside_appHighlights li {
-		padding: 3px 0;
-	}
 
 	/* - - - - - - - - - - - *|
-	|*       footer          *|
+	|*     Contact           *|
 	|* - - - - - - - - - - - */
 
-	footer.gitlinks a div { 
-		float: left;
+
+
+	#contact_gamepad_coder {
+		margin: 30px; 
+		padding: 20px; 
+		border:9px ridge rgba(255,255,255,.7);
 	}
-	footer.gitlinks a:hover div{
-		text-decoration: underline;
-	}
-	footer.gitlinks{
-		padding: 20px;
-		margin-top: 15px;
-		margin: 0px;
-		clear: both;
-		overflow: auto;
-	}
-	footer p.copyright{
-		line-height: 1em;
-		float: right;
-	}
-		
-	span.tab {  padding-left: 30px;  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 	/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ *|
 	|*             for extreme zoom + smaller screens           *|
 	|* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
+	
+	
+	
+	@media all and (max-width: 900px) {
+		#asideBar {
+			border-top: 1px solid rgba(000, 222, 999, .21); 
+			border-bottom: 1px solid rgba(000, 222, 999, .31); 
+		}
+		aside p {
+			border-bottom: 1px solid rgba(222, 222, 222, .3); 
+		}
+		#aside_contact{
+			color: white;
+		}
+	}
 	
 	
 	@media all and (min-width: 1px) and (max-width: 350px) {
@@ -640,7 +925,9 @@
 		   the "sidebar" (now above main content)
 		*********************************************/
 	
-	  
+		#gc_banner__email {
+			font-size: 15px;
+		}
 		#gc_navbar  {
 			justify-content: space-around;
 			flex-flow: column wrap;
@@ -648,7 +935,7 @@
 		#gc_navbar  li {
 			margin-bottom: 0px;
 		}
-		#page_flex {
+		#the_page__flex {
 			flex-flow: column;
 			justify-content: space-around;
 			align-items: center;
@@ -717,6 +1004,10 @@
 			width: 95%;		
 		}
 		span.tab {  padding-left: 3px;  }
+		
+		.hide_when_portrait_mode {
+			display: none;
+		}
 	}
 	
 	@media all and (orientation: portrait),
