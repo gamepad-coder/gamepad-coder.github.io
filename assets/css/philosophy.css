@@ -355,6 +355,7 @@
 				float: left;
 				font-family: serif;
 				color: #9027e1;
+				font-style: italic;
 			}
 	
 			footer p.copyright{
@@ -857,8 +858,13 @@
 article div.changelog_wrapper {
 	display: flex;
 	/* padding: 20px; */
-    padding: 2vh;
-	outline: 3px ridge black;
+   /* padding: 2vh; */
+	outline: 5px;
+	outline-color: steelblue;
+	outline-style: double;
+	padding: 0;
+	padding-left: 1vh; 
+	
 }
 article div.changelog__preserveNewines {
 	white-space: pre;

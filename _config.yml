@@ -6,12 +6,7 @@ collections:
     output: true
 include: [
 "Documentation"
-, "Documentation/_static"
-, "Documentation/_static/css"
-, "Documentation/_static/fonts"
-, "Documentation/_static/images"
-, "Documentation/_static/js"
 ]
 github: [metadata]
 encoding: UTF-8
-exclude: [.notes,Documentation/__backup__,Documentation/_Sphinx]
+exclude: [.notes,desktop.ini,Documentation/__backup__,Documentation/_Sphinx]

@@ -1,331 +1,180 @@
 {% raw  %}
-[v1]
-[v2]
-[v3]
-[v4]       [~] Note to self: paste, polish, push these during [v16] changes
-[v5]
-[v6]
-[v7]
-[v8]
-[v9]
-
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ```````````````````````````````````````````````````````````````````````````````````````````````````
-[v10]
-
-========
-Summary:
-========
-
-Majority of changes:
-Bugfixes & additions to blog sub-site.
-
-
-========
-Details:
-========
-
-
-< new features >
-│           
-├── + Added goto previous post.
-│           
-├── + Added goto next post.
-│       └└──>    underlines + nudges horiz. on hover
-│       └└──>    opacity 50% + nudges vert. on click
-│           
-└── + Added mobile friendly spacing & linking for sidebar 
-        (on blog pages when @ top & using a mobile device)
-
-
-< new Content >
-│           
-└── + Added [#0] changelog page.
-
-
-[bugfix]
-│           
-├── + [CSS: graphics]       
-│        │
-│        └───>   [Main-Site]
-│                 Fixed background resizing below 100% at small extremes
-│                  │
-│                 (+)
-│                  └──> CSS:    #website_background{ .. 100vh -> 100% }
-│           
-├── + [CSS: layout] 
-│        │
-│        ├───>    [Blogsite] 
-│        |         Unsplash shoutout had a graphical error with a 
-│        |         non-floated '.' appearing above the link instead of after.
-│        │
-│        └───>    [Desktop, edge case]
-│                  Landscape-sized window will no longer glitch 
-│                  (previously caused areas to overlap @ extreme zooms).
-│                   |
-│                  (+)
-│                   └──> CSS added:    
-│            
-│                      @media .. all and (orientation:landscape) 
-│                      and (min-width: 1px) and (max-width: 600px)
-│           
-├── + [link color]       
-│        │
-│        └───>    CSS specificity now colors links in posts purple,
-│                 doesn't affect link coloring in #tags.
-│           
-├── + [syntax]           
-│        │
-│        └───>    Fixed improper element nesting in main-site the_page:footer.
-│           
-├── + [liquid]           
-│        │
-│        └─────>  Fixed init of "int" counter 
-│           |     (used for selecting recent pages for blog home page).
-│           │
-│          (-)
-│           └──>    {% assign min_post_recent = page  | map:"display_recents_starting_at_number" %}
-│           └──>    {% assign int_min_num = min_post_recent    | plus: 0 %}        
-│           │
-│          (+)
-│           └──>    {% assign min_post_recent = page  | map:"display_recents_starting_at_number" %}
-└           └──>    {% assign int_min_num = min_post_recent[0] | plus: 0 %}   
-
-[polish] 
-│
-└── +  [footer links for mobile]        
-        Mainsite footer github links are now 
-		wide div buttons in portrait + mobile views.
-
-
-
-
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-```````````````````````````````````````````````````````````````````````````````````````````````````
-[v10.1]
+[v16]                                                           
 
 
 ========
 Summary:
 ========
 
-Firefox display bugfix.
-Topic "#tags" coloring consistency across site.
-<- Prev & Next -> buttons animated now.
-
+   Polished Changelog.
 
 ========
 Details:
 ========
 
-
-[bugfix]
-│           
-├── + [firefox]                 
-│       │
-│       └───>   Firefox does not respond to the css rule
-│                 { width: fit-content; } 
-│               when fit-content() has no specific params.
-│                
-│               Amended each {width:fit-content} 
-│               to also contain fallback options: 
-│                       │
-│                      (+)
-│                       └──>        width: max-content;
-│                       └──>        width: -moz-fit-content;
-│                       └──>        width: fit-content;
-│                
-│               This should fix Firefox display on desktop + mobile too.
-│               Chrome (desktop+mobile) and Edge (desktop at least) 
-└               already responded to the unpatched line.
-           
-
+----------------           
 [polish]
+----------------     
 │
-├── + [blog post #tags + color]
-│       │
-│       └───>   Tag colors [on post pages] + tag colors [under post previews] 
-│               now have the same green background.
-│               
-│               Kept purple background for tags on [list of topics] page 
-│               to signify these purple tag buttons serve a different function 
-│               (internal navigation links for different tag sections).
-│                            │
-│                     also  (+)  related
-│                            │
-│               Added a z-order to each tag displayed in the preview cards.
-│               (First tag items parsed in the Jekyll Liquid loop 
-│                get highest values, decrements to 1.)
-│               
-│               This prevents the tag's box shadow 
-│               from displaying over its left neighbor.
-│               
-│               Vertical margin added to prevent overshadowing lower rows 
-│               (while this still happens upon button click, 
-└                but I like the split-second effect here during animation).
-
-
-< new features >
-│           
-├── +  added transition effect for goto next|prev post.
-│           
-├── +  added individual project pages under /App/(projectName).html
-│                                │
-└                                └──>        [~] adding summaries next.
-
-
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-```````````````````````````````````````````````````````````````````````````````````````````````````
-[v10.2]
-
-
-========
-Summary:
-========
-
-HTML processed output now tweaked to look more natural,
-polished pre-processed and post-processed spacing of Jekyll comments.
-
-
-========
-Details:
-========
-
-
-[polish]
-│
-├── + [indents]    Formatted HTML layouts & pages Jekyll inserts into them.
-│                  Now both the (1) processed output files and 
-│                  (2) the source you see when you right click -> select "view source"
-│                  have tidy and consistent indentation.
-│
-├── + [comments]   Added comments to baked HTML files indicating 
-│                  where Jekyll inserts code into _Layouts &
-│                  where Jekyll inserts code from _Includes. 
-│
-├── + [comments]   Used Liquid {%- tags -%} with hyphens: 
-│                  this removes auto-generated newlines from Liquid commands.
-│
-│                  Important to remember: 
-│                  This whitespace is generated even for commands which produce no output.
-│
-│                  Final processed code looks so much cleaner and more consistent now.
-│
-├── + [general tidying]   Took long lines and broke them into shorter lines. 
-└                         This made the .html files much nicer to view and much easier to skim.
-
-
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-```````````````````````````````````````````````````````````````````````````````````````````````````
-[v11.0]
-
-[#1] update + added Apps Written zoom & js mouse drag
-
-[blog post]
-│
-├── +  [updated #1]    Added brief overview of Jekyll setup + experience. 
-└                      A+ language & community & framework.
-
-[polish]
-│
-├── +  [Apps Written]   Gave each entry a picture + summary + link to its own page.
-│                           [still in progress, main task for tomorrow]
-└      
-
-< new features >
-│
-├── +  [Zoomable Images]   The Apps Written page now pops up a view of the picture when clicked,
-│                          zooms when clicked again, and click-and-drag scrolls the picture's container,
-│                          even on desktop. [update a few hours later] even when in fullscreen on desktop*
-└                          
-
-
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-```````````````````````````````````````````````````````````````````````````````````````````````````
-[v12.0]
-
-========
-Summary:
-========
-
-Changelog can also mouse drag now (via JavaScript). 
-Polished "Apps Written".
--> Linux Framebuffer Console Windows overview
-
-
-========
-Details:
-========
-
-
-< new features >
-│
-├── + [click 'n drag #0] 
-│       │
-│       └──>        Added js to scroll the changelog on mouse drag.
-│      
-└                          
-
-
-< new content >
-│
-├── + [Apps Written] 
+├── + [Changelog]
 │        │
-│        └──>    Added an overview of my Linux Frambuffer Windowing System.    
+│        ├──>   Changelog now lists most recent changes at the top.
+│        │     
+│        ├──>   [+] Filled in missing changes. 
+│        │       └──> Added a changelog entry for each GitHub commit.
+│        │       └──> Tidied pasted entry grammar, spelling, and spacing.
+│        │     
+│        ├──>   Added timestamp to each version in history here.
+│        │     
+│        ├──>   Tweaked CSS for Changelog's border box.
+│        │     
+│        └──>   Polished formatting for entire Changelog.
+│               Made newline (vertical spacing) consistent.
+└
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+```````````````````````````````````````````````````````````````````````````````````````````````````
+[v15]                                                                   [2021_03_10]  @  [11-14 PM]
+
+========
+Summary:
+========
+
+(1) Modified the ReadTheDocs theme for Sphinx.
+    Integrated main-site's navigation bar into Documentation sub-site.
+	Learned how to use Sphinx directives, referencing, toctree, and reStructuredText.
+
+(2) Wrote a draft mockup of the Documentation subsite. 
+    Tweaked and polished CSS.
+
+(3) Wrote an AutoHotkey script to parse the paths baked by Sphinx
+    and fix all URL references to mesh with Jekyll's input needs.
+    
+	File located in this website's GitHub under:
+      /project_root/Documentation/_Sphinx/[AHK FINALIZE SCRIPT ]  Post-process
+	   Sphinx output and place modified trunk in Jekyll's prebake Docs dir.ahk" 
+
+    Processing steps documented in the script's comments. 
+
+(4) Wrote and successfully integrated a modified custom lexer for AutoHotkey
+    for Sphinx's Pygments to process language-specific syntax and reserved words.
+
+    Sphinx's pipeline uses this custom lexer 
+    with Sphinx's Pygment style named Monokai (unmodified).
+
+    I cross-referenced the Monokai style's source code 
+    and ensured all the main AutoHotkey language elements
+    each have their own unique CSS class.
+
+(5) Finally, I wrote custom CSS rules to give a nice overall color scheme
+    to code blocks highlighted with my modified AutoHotkey lexer.
+
+
+Infinite thanks to this blog post which saved me from spending days 
+learning how to hack and inject a lexer and styler from scratch using Python:
+
+https://samprocter.com/2014/06/documenting-a-language-using-a-custom-sphinx-domain-and-pygments-lexer/
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+```````````````````````````````````````````````````````````````````````````````````````````````````
+[v14]                                                                   [2021_03_10]  @  [11-14 PM]
+
+
+========
+Summary:
+========
+
+
+   CSS organizational rewrite.
+   Homepage polish + site sub-areas described. 
+   Homepage expandable/colapsible regions implemented.
+
+
+========
+Details:
+========
+
+----------------
+< new features >
+----------------
+│
+├── + [Home Page] 
+│        │
+│        └──>   Added detailed site overview section with collapsible regions.
+│   
+│── + [Documentation Sub-Site]
+│        │
+└        └──>   Sphinx generated subsite (working draft)
+
+----------------
+[CSS Refactor]
+----------------
+│
+├── + [main.css]
+│        │
+│        ├──>   Refactored organization.
+│        │      ( Was organized by type of CSS purpose, however
+│        │        this resulted in searching through the entire file 
+│        │        to find each CSS rule for a single HTML element.
+│        │        Now in "main.css" each element is in only one place. )
+│        │      
+│        │      
+│        └──>   Replaced unique CSS Classes -> with CSS IDs (inherantly unique)
+│   
+└       
+
+----------------           
+[polish]
+----------------           
+│
+├── + [polished main navigation bar]
+│        │
+│        ├──>   Expanded link area from just the text (eg "App Gallery")
+│        │       to encompas the entire box around the navigation buttons.
+│        │     
+│        └──>   Disabled nav link to self (eg "Home" button link inactive on home page).
+│
+│
+├── + [polished this Changelog]
+│        │
+│        ├──>   Newest changes are now at the top.
+│        │      
+│        ├──>   Added missing version history descriptions.
+│        │      
+│        ├──>   Added dates to each version in the history.
+│        │      
+│        └──>   Changed max column to be 80, manually reflowed text.
 └
 
 
-[polish]
-│
-├── + [Apps Written] 
-│        │
-│        ├──>      Changed sidebar font color & size to be consistent with home page.
-│        │
-│        ├──>      Made sidebar more readable in portrait view, added contextual margin.
-│        │
-│        ├──>      Added low quality image placeholders 
-│        │         to dl+display fast and first.
-│        │         
-│        ├──>      Going to keep highlights as one page w/o sub pages per app. (for now)
-│        │
-│        │
-│        └──>      Made sidebar more readable in portrait view, added contextual margin.
-│         
-├── + [polished #0] 
-│        │
-│        └──>      Added consistent styling for the link to post [#1]
-│        └──>      Added a link to center the changelog
-│         
-├── + [polished blog css] 
-│        │
-│        └──>      Next Prev button links can now be placed outside of a sidebar container 
-│                  (needed this for adding a link to post [#1] from the changelog
-└      
-
-
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ```````````````````````````````````````````````````````````````````````````````````````````````````
-[v13.0]
+[v13]                                                                   [2021_01_16]  @  [05-29 PM]
 
 ========
 Summary:
 ========
 
-[+] Polished navbar + sidebar + added to Home page's content.
-
+   [+] Polished navbar + sidebar + added to Home page's content.
 
 ========
 Details:
 ========
 
+----------------
 < new content >
+----------------
 │
 ├── + [Home Page] 
 │        │
 │        └──>  Added detailed site overview section.
 └
 
+----------------
 [polish]
+----------------
 │
 ├── + [license updated]
 │        │
@@ -373,120 +222,797 @@ Details:
 │                 by visually distinguishing it from the others (consistent with navbar styling)
 └       
 
-
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ```````````````````````````````````````````````````````````````````````````````````````````````````
-[v14.0]                                                              [2021_01_11]  @  [03-09-05 PM]  
-
+[v12]                                                                   [2020_05_31]  @  [11-36 PM]
 
 ========
 Summary:
 ========
 
-CSS organizational rewrite.
-Homepage polish + site sub-areas described. 
-Homepage expandable/colapsible regions implemented.
-
+   Changelog can also mouse drag now (via JavaScript). 
+   Polished "Apps Written".
+   -> Linux Framebuffer Console Windows overview
 
 ========
 Details:
 ========
 
-
+----------------
 < new features >
+----------------
 │
-├── + [Home Page] 
+├── + [click 'n drag #0] 
 │        │
-│        └──>   Added detailed site overview section with collapsible regions.
-│   
-│── + [Documentation Sub-Site]
-│        │
-└        └──>   Sphinx generated subsite (working draft)
+│        └──>   Added js to scroll the changelog on mouse drag.
+│      
+└                          
 
-
-[CSS Refactor]
+----------------
+< new content >
+----------------
 │
-├── + [main.css]
+├── + [Apps Written] 
 │        │
-│        ├──>   Refactored organization.
-│        │      ( Was organized by type of CSS purpose, however
-│        │        this resulted in searching through the entire file 
-│        │        to find each CSS rule for a single HTML element.
-│        │        Now in "main.css" each element is in only one place. )
-│        │      
-│        │      
-│        └──>   Replaced unique CSS Classes -> with CSS IDs (inherantly unique)
-│   
-└       
-           
-[polish]
-│
-├── + [polished main navigation bar]
-│        │
-│        ├──>   Expanded link area from just the text (eg "App Gallery")
-│        │       to encompas the entire box around the navigation buttons.
-│        │     
-│        └──>   Disabled nav link to self (eg "Home" button link inactive on home page).
-│
-│
-├── + [polished this Changelog]
-│        │
-│        ├──>   Newest changes are now at the top.
-│        │      
-│        ├──>   Added missing version history descriptions.
-│        │      
-│        ├──>   Added dates to each version in the history.
-│        │      
-│        └──>   Changed max column to be 80, manually reflowed text.
+│        └──>   Added an overview of my Linux Frambuffer Windowing System.    
 └
 
+----------------
+[polish]
+----------------
+│
+├── + [Apps Written] 
+│        │
+│        ├──>      Changed sidebar font color & size to be consistent with home page.
+│        │
+│        ├──>      Made sidebar more readable in portrait view, added contextual margin.
+│        │
+│        ├──>      Added low quality image placeholders 
+│        │         to dl+display fast and first.
+│        │         
+│        ├──>      Going to keep highlights as one page w/o sub pages per app. (for now)
+│        │
+│        │
+│        └──>      Made sidebar more readable in portrait view, added contextual margin.
+│         
+├── + [polished #0] 
+│        │
+│        └──>      Added consistent styling for the link to post [#1]
+│        └──>      Added a link to center the changelog
+│         
+├── + [polished blog CSS] 
+│        │
+│        └──>      Next Prev button links can now be placed outside of a sidebar container 
+│                  (needed this for adding a link to post [#1] from the changelog
+└ 
 
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ```````````````````````````````````````````````````````````````````````````````````````````````````
-[v15.0]                                                              [2021_03_10]  @  [11-14-01 PM]
-
+[v11]                                                                   [2020_05_30]  @  [10-43 PM]
 
 ========
 Summary:
 ========
 
-(1) Modified the ReadTheDocs theme for Sphinx.
-    Integrated main-site's navigation bar into Documentation sub-site.
-	Learned how to use Sphinx directives, referencing, toctree, and reStructuredText.
+   Blog Post #1 update 
+   Added Apps Written zoom & js mouse drag
 
-(2) Wrote a draft mockup of the Documentation subsite. 
-    Tweaked and polished CSS.
+========
+Details:
+========
 
-(3) Wrote an AutoHotkey script to parse the paths baked by Sphinx
-    and fix all URL references to mesh with Jekyll's input needs.
-    
-	File located in this website's GitHub under:
-      /project_root/Documentation/_Sphinx/[AHK FINALIZE SCRIPT ]  Post-process
-	   Sphinx output and place modified trunk in Jekyll's prebake Docs dir.ahk" 
+----------------
+< new features >
+----------------
+│
+├── + [Zoomable Images]                   
+│        │
+│        └───>   The Apps Written page now pops up a view of the picture when clicked,
+│                zooms when clicked again, and click-and-drag scrolls the picture's container,
+│                even on desktop. [update a few hours later] even when in fullscreen on desktop*
+└                 
 
-    Processing steps documented in the script's comments. 
+----------------
+[blog post]
+----------------
+│
+├── + [updated #1]                    
+│        │
+│        └───>   Added brief overview of Jekyll setup + experience. 
+│                (A+ for: language & community & framework.)
+└
 
-(4) Wrote and successfully integrated a modified custom lexer for AutoHotkey
-    for Sphinx's Pygments to process language-specific syntax and reserved words.
+----------------
+[polish]
+----------------
+│
+├── + [Apps Written]                   
+│        │
+│        └───>   Gave each entry a picture + summary + link to its own page.
+│                [still in progress, main task for tomorrow]
+└      
 
-    Sphinx's pipeline uses this custom lexer 
-    with Sphinx's Pygment style named Monokai (unmodified).
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+```````````````````````````````````````````````````````````````````````````````````````````````````
+[v10.2]                                                                 [2020_05_29]  @  [12-23 AM]
 
-    I cross-referenced the Monokai style's source code 
-    and ensured all the main AutoHotkey language elements
-    each have their own unique CSS class.
+========
+Summary:
+========
 
-(5) Finally, I wrote custom CSS rules to give a nice overall color scheme
-    to code blocks highlighted with my modified AutoHotkey lexer.
+   HTML processed output now tweaked to look more natural,
+   polished pre-processed and post-processed spacing of Jekyll comments.
 
+========
+Details:
+========
 
-Infinite thanks to this blog post which saved me from spending days 
-learning how to hack and inject a lexer and styler from scratch using Python:
+----------------
+[polish]
+----------------
+│
+├── + [indents]    Formatted HTML layouts & pages Jekyll inserts into them.
+│                  Now both the (1) processed output files and 
+│                  (2) the source you see when you right click -> select "view source"
+│                  have tidy and consistent indentation.
+│
+├── + [comments]   Added comments to baked HTML files indicating 
+│                  where Jekyll inserts code into _Layouts &
+│                  where Jekyll inserts code from _Includes. 
+│
+├── + [comments]   Used Liquid {%- tags -%} with hyphens: 
+│                  this removes auto-generated newlines from Liquid commands.
+│
+│                  Important to remember: 
+│                  This whitespace is generated even for commands which produce no output.
+│
+│                  Final processed code looks so much cleaner and more consistent now.
+│
+├── + [general tidying]   Took long lines and broke them into shorter lines. 
+│                         This made the .html files much nicer to view and much easier to skim.
+└
 
-https://samprocter.com/2014/06/documenting-a-language-using-a-custom-sphinx-domain-and-pygments-lexer/
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+```````````````````````````````````````````````````````````````````````````````````````````````````
+[v10.1]                                                                 [2020_05_27]  @  [08-04 PM]
 
+========
+Summary:
+========
 
+   Firefox display bugfix.
+   Topic "#tags" coloring consistency across site.
+   <- Prev & Next -> buttons animated now.
 
+========
+Details:
+========
+
+----------------
+< new features >
+----------------
+│           
+├── +  added transition effect for goto next|prev post.
+│           
+├── +  added individual project pages under /App/(projectName).html
+│                                │
+│                                └──>        [~] adding summaries next.
+└
+
+----------------
+[bugfix]
+----------------
+│           
+├── + [Firefox]                 
+│       │
+│       └───>   Firefox does not respond to the CSS rule
+│                 { width: fit-content; } 
+│               when fit-content() has no specific params.
+│                
+│               Amended each {width:fit-content} 
+│               to also contain fallback options: 
+│                       │
+│                      (+)
+│                       └──>        width: max-content;
+│                       └──>        width: -moz-fit-content;
+│                       └──>        width: fit-content;
+│                
+│               This should fix Firefox display on desktop + mobile too.
+│               Chrome (desktop+mobile) and Edge (desktop at least) 
+└               already responded to the unpatched line.
+           
+----------------
+[polish]
+----------------
+│
+├── + [blog post #tags + color]
+│       │
+│       └───>   Tag colors [on post pages] + tag colors [under post previews] 
+│               now have the same green background.
+│               
+│               Kept purple background for tags on [list of topics] page 
+│               to signify these purple tag buttons serve a different function 
+│               (internal navigation links for different tag sections).
+│                            │
+│                     also  (+)  related
+│                            │
+│               Added a z-order to each tag displayed in the preview cards.
+│               (First tag items parsed in the Jekyll Liquid loop 
+│                get highest values, decrements to 1.)
+│               
+│               This prevents the tag's box shadow 
+│               from displaying over its left neighbor.
+│               
+│               Vertical margin added to prevent overshadowing lower rows 
+│               (while this still happens upon button click, 
+└                but I like the split-second effect here during animation).
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+```````````````````````````````````````````````````````````````````````````````````````````````````
+[v10]                                                                   [2020_05_26]  @  [09-48 PM]
+
+========
+Summary:
+========
+
+   Mostly bugfixes & additions to blog sub-site.
+
+========
+Details:
+========
+
+----------------
+< new features >
+----------------
+│           
+├── + Added goto previous post.
+│           
+├── + Added goto next post.
+│       └└──>    underlines + nudges horiz. on hover
+│       └└──>    opacity 50% + nudges vert. on click
+│           
+└── + Added mobile friendly spacing & linking for sidebar 
+        (on blog pages when @ top & using a mobile device)
+
+----------------
+< new Content >
+----------------
+│           
+└── + Added [#0] changelog page.
+
+----------------
+[bugfix]
+----------------
+│           
+├── + [CSS: graphics]       
+│        │
+│        └───>   [Main-Site]
+│                 Fixed background resizing below 100% at small extremes
+│                  │
+│                 (+)
+│                  └──> CSS:    #website_background{ .. 100vh -> 100% }
+│           
+├── + [CSS: layout] 
+│        │
+│        ├───>   [Blogsite] 
+│        |        Unsplash shoutout had a graphical error with a 
+│        |        non-floated '.' appearing above the link instead of after.
+│        │
+│        └───>   [Desktop, edge case]
+│                 Landscape-sized window will no longer glitch 
+│                 (previously caused areas to overlap @ extreme zooms).
+│                  |
+│                 (+)
+│                  └──> CSS added:    
+│            
+│                     @media .. all and (orientation:landscape) 
+│                     and (min-width: 1px) and (max-width: 600px)
+│           
+├── + [link color]       
+│        │
+│        └───>   CSS specificity now colors links in posts purple,
+│                doesn't affect link coloring in #tags.
+│           
+├── + [syntax]           
+│        │
+│        └───>   Fixed improper element nesting in main-site the_page:footer.
+│           
+├── + [liquid]           
+│        │
+│        └────>  Fixed init of "int" counter 
+│          |     (used for selecting recent pages for blog home page).
+│          │
+│         (-)
+│          └──>   {% assign min_post_recent = page  | map:"display_recents_starting_at_number" %}
+│          └──>   {% assign int_min_num = min_post_recent    | plus: 0 %}        
+│          │
+│         (+)
+│          └──>   {% assign min_post_recent = page  | map:"display_recents_starting_at_number" %}
+└          └──>   {% assign int_min_num = min_post_recent[0] | plus: 0 %}   
+
+----------------
+[polish] 
+----------------
+│
+├── + [footer links for mobile]        
+│       Mainsite footer github links are now 
+└		  wide div buttons in portrait + mobile views.
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+```````````````````````````````````````````````````````````````````````````````````````````````````
+[v9.1]                                                                  [2020_05_25]  @  [10-41 PM]
+
+========
+Summary:
+========
+
+   Small Blog sub-site additions + polishing.
+
+========
+Details:
+========
+
+Added to Blog sub-site
+- view by time
+- view by topic
+- links at bottom of blog pages.
+
+Tweaked card blog-preview size for smaller screens to fit more per row in landscape on phones.
+
+Minor various other tweaks and spacing patches.
+
+Expanded navigation buttons @ top to where whole box is a link and not just text
+- on Philosophy pages
+- need to update on other site pages tomorrow
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+```````````````````````````````````````````````````````````````````````````````````````````````````
+[v9]                                                                    [2020_05_25]  @  [08-17 PM]
+
+========
+Summary:
+========
+
+   Changes to Blog's main page:
+   polished topics, implemented by time, added page nav bar to blog posts.
+
+========
+Details:
+========
+
+Main blog page generates most recent posts based on a front-matter variable 
+specifying the highest post number to start at, displays in most recent order.
+
+Polished spacing for By Topic page.
+
+Added a button to toggle off image preview links for By Topic page.
+
+Added a page to view all posts by time.
+
+Remaining:
+1. autogen links: goto next goto prev post per page
+2. clean lorem ipsums if any remain
+3. have fun writing content
+4. have an epic day.
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+```````````````````````````````````````````````````````````````````````````````````````````````````
+[v8.1]                                                                  [2020_05_25]  @  [02-31 PM]
+
+========
+Summary:
+========
+
+   Bugfixes for "file.html/#tag" + missing CSS ';' + fixed footer styling for large screens
+
+========
+Details:
+========
+
+- Forgot a ';' in one or a couple CSS styles 
+  for the navigation bar translucent background color.
+  This displayed properly on most browsers 
+  but old version of Samsung mobile browser it didn't display bg color at all.
+  Hopefully this commit patches that glitch.
+- Tags references in the "View Philosophy Blog Posts by Topic." 
+  & Tag references under post titles were not properly linking,
+- "file.html/#tag_id" -> "file.html#tag_id"
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+```````````````````````````````````````````````````````````````````````````````````````````````````
+[v8]                                                                    [2020_05_25]  @  [01-31 PM]
+
+========
+Summary:
+========
+
+   Added "Tags" to Blog sub-site using 
+   - liquid templates 
+   - Jekyll includes
+     
+   Fancy CSS styling for blog "Tags".
+
+========
+Details:
+========
+
+Added a page listing each tag
+& the posts which reference each one.
+
+Tags are auto-populated by reading front-matter in Jekyll posts 
+under collection: Philosophy (folder /_Philosophy/..)
+
+Two Jekyll includes added, one as a generation method to create card previews of posts
+by reusing the title code of blog post page & reformatting it to fit in a nice flex row.
+
+Tags are clickable and animate upon click.
+
+Cards of posts nudge on hover and react by lowering opacity when clicked.
+
+2nd include method places tags under the post card.
+Also used for placing under the post page's title.
+
+A liquid {{ include.param }} is used as a switch 
+to add the CSS style depending on 
+[] if adding to a preview card or
+[] if adding to a page title.
+
+So happy & tired. Awesome progress. Almost done.
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+```````````````````````````````````````````````````````````````````````````````````````````````````
+[v6] + [v7]                                                             [2020_05_22]  @  [11-43 PM]
+
+========
+Summary:
+========
+
+   Refactored blog into Jekyll, blog polished, consistent CSS across pages
+
+========
+Details:
+========
+
+Factored out similar code & made layouts in Jekyll.
+
+Current page is detected via a Liquid conditional.
+
+Small tweaks for making nav bar & header 
+have same placement and sizing between main pages + blog pages.
+
+Fixed logo background margin.
+
+Fixed padding on Blog site to be consistent with other pages, 
+and stretched header to fill the page using:
+   -10px margin (for plant header bg)+ 10px padding 
+to keep placements consistent.
+
+Next up:
+[] finish blog template for posts
+[] create small icon /summary views for blog posts
+[] add view by tag
+[] add view by time
+
+then gallery, then begin docs in sphinx.
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+```````````````````````````````````````````````````````````````````````````````````````````````````
+[v5]                                                                    [2020_05_21]  @  [06-35 PM]
+
+========
+Summary:
+========
+
+   Added Philosophy page ; more tweaks for mobile
+
+========
+Details:
+========
+
+Added Philosophy page.
+Added Philosophy page CSS.
+Created a medium quality JPG to load as header region for philosophy page,
+JPG file sizes are amazingly small when exported at lower quality,
+amazing for placeholders.
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+```````````````````````````````````````````````````````````````````````````````````````````````````
+[v4.2]                                                                  [2020_05_21]  @  [11-48 AM]
+
+========
+Summary:
+========
+
+   LowQ Contact headers -> now .jpg's ; further mobile support tweaks
+
+========
+Details:
+========
+
+Discovered the button in the Chrome + FFox developer bar
+to preview mobile views (and different screen resolutions).
+
+Added a few more CSS edge cases, 
+for example:
+   cases applying only when screens are wider than 350px 
+   so font isn't placed offscreen.
+
+Testing .jpg's for low quality topic header backgrounds 
+for Contact page to try to (mostly) prevent empty bg while picture loads.
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+```````````````````````````````````````````````````````````````````````````````````````````````````
+[v4.1.b.patch]                                                          [2020_05_20]  @  [09-53 PM]
+
+Patched:
+   - Typo, preloaded lowQ typewriter twice.
+     (But this typo did definitively prove that the low quality images 
+     are indeed loading first (and fast!), then the high res loading over them.)
+   - This should be the last image change I have to do for a while.
+     Tomorrow is content populating day.
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+```````````````````````````````````````````````````````````````````````````````````````````````````
+[v4.1.c patch]                                                          [2020_05_20]  @  [09-31 PM]
+
+Patched:
+   - Compressed controller picture more, added as preload.
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+```````````````````````````````````````````````````````````````````````````````````````````````````
+[v4.1.b patch]                                                          [2020_05_20]  @  [09-17 PM]
+
+Patched:
+   - Compressed avatar+favicon, sized down.
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+```````````````````````````````````````````````````````````````````````````````````````````````````
+[v4.1]                                                                  [2020_05_20]  @  [08-55 PM]
+
+========
+Summary:
+========
+
+   Compressed the PNG files used as topic headers in contact sidebar. 
+   Added a low res duplicate picture to load first,
+   to be a placeholder while the higher quality image is loading.
+
+   recipe from:
+   https://stackoverflow.com/a/49585582
+
+   more info, another post:
+   https://stackoverflow.com/q/14748750
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+```````````````````````````````````````````````````````````````````````````````````````````````````
+[v4.0.b patch]                                                          [2020_05_20]  @  [08-19 PM]
+
+Patched:
+   - Added <meta charset="UTF-8" />  to <head> in HTML pages.
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+```````````````````````````````````````````````````````````````````````````````````````````````````
+[v4.0.a patch]                                                          [2020_05_20]  @  [08-16 PM]
+ 
+========
+Summary:
+========
+ 
+   --bugfix-- 
+   Setting auto margin for flex col breaks sticky sidebar in Firefox (works in Chrome)
+
+========
+Details:
+========
+
+With a flex-flow, auto margins push the content to the extreme available position.
+
+The last commit works fine in Chrome (desktop + mobile). 
+
+But the auto margin for the sticky sidebar 
+breaks the sticky sidebar feature in Firefox 
+(both on desktop and also on mobile).
+
+Patched by keeping the same top and right margins (while omitting specifying the other two).
+Works on desktop for Firefox + Chrome. About to test on mobile.
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+```````````````````````````````````````````````````````````````````````````````````````````````````
+[v4]                                                                    [2020_05_20]  @  [07-42 PM]
+
+========
+Summary:
+========
+   
+   New:
+   (+) contact page, 
+   (+) more screen zoom/size cases
+
+========
+Details:
+========
+
+Added contact page.
+Added picture backgrounds for contact sidebar.
+
+Polished sidebar's size and display for narrow screens/windows & phones.
+
+Added a middle case between default zoom on 1080p landscape monitor & mobile layout:
+  scrollbar should stay visible and on screen regardless of window placement and size now.
+
+Moving on to gallery & short description overviews next.
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+```````````````````````````````````````````````````````````````````````````````````````````````````
+[v3]                                                                    [2020_05_20]  @  [01-35 PM]
+
+========
+Summary:
+========
+
+   Pages consistent, mobile(/portrait) view layout support, minor layout tweaks
+
+========
+Details:
+========
+
+Spent hours yesterday commiting and testing.
+
+Reverted the extraneous single change commits to stable version before yesterday:
+--> this commit contains all polished changes from yesterday's removed commits, all combined.
+
+Added <meta name="viewport" .. initial-scale=1" ..> for best fit on android phone && tablet.
+(This enables support for the CSS "@media all and (max-width: ..)" selectors.)
+
+Polished code flow of CSS + made comment sections more clear.
+
+-----------------------------
+main progress and
+exploration yesterday
+-----------------------------
+
+Added a blue background to the body and made the page gradient as a <div> with ID website_background.
+
+Chrome + Firefox on Android (phones + tablets at least) 
+have a (known) glitch due to implementation of the virtual viewport and height calculation :
+  - Upon scrolling down on mobile, the navigation bar will hide.
+  - As the URL bar / address bar hides, it changes the viewport's reported height. 
+  - This affects the background image for a moment, 
+    and until the initial scroll down is released: 
+      a proportional white space appears at the bottom of the screen
+      (because the background (gradient in this case) effectively is "scrolling"
+      as the url bar changes the top of the screen loc).
+  - Upon navbar hide + initial drag release, the white area pops away 
+    and the background fills seamlessly automatically without custom html or CSS code.
+
+There seems to be an easy JQuery recipe fix which adds a page resize listener
+and dynamically preempts this white space glitch.
+  - That's beyond my present knowledge base for web 
+    && beyond the reasonable scope of putting this portfolio together this week.
+  - But noted for future should I continue fiddling with web.
+
+Moving on to project showcase page & topical description pages.
+
+Then moving on to integrate Sphinx with my AHK libraries 
+and begin cleaning and documenting and generating static pages & navigation.
+
+Then setting up a simple static blog.
+
+Then Web part is mostly done and just need to do the fun part: typing.
+
+Feeling good about this.
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+```````````````````````````````````````````````````````````````````````````````````````````````````
+[v2]                                                                    [2020_05_19]  @  [12-40 PM]
+
+========
+Summary:
+========
+
+   New:
+   sticky sidebar + polished colors
+
+========
+Details:
+========
+
+Added a sticky sidebar.
+Tweaked background gradient.
+
+Upon extreme zoom (or for mobile):
+   Nav bar and the sticky sidebar now toggle 
+   from horizontal layout -> to a column arrangement
+
+Going to do Jekyll next and make templates.
+
+Going to tweak home button for consistent size, bugfix needed.
+
+Happy with the progression.
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+```````````````````````````````````````````````````````````````````````````````````````````````````
+[v1.1]
+
+========
+Summary:
+========
+
+   Updated (the only) CSS file:
+   grouped by type
+
+========
+Details:
+========
+
+Put all the fonts together
+Put all the background+borders together
+Put all the layouts together.
+
+And had a little fun with comment headers 🎨
+
+// dev note
+Might leave the nav links alone for now, and focus on getting the main content to display well on mobile.
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+```````````````````````````````````````````````````````````````````````````````````````````````````
+[v1]
+
+========
+Summary:
+========
+
+  First draft. 
+  Jekyll installed, but abstractions not utilized yet
+
+========
+Details:
+========
+
+Basic site setup.
+
+Placeholder pages for everything except homepage.
+
+Homepage draft #1.
+
+Going to refactor navigation bar into a flex layout next.
+
+Then see if I can get the page to readjust on extreme zoom + on mobile.
+
+Then onto Jekyll + liquid templates.
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+```````````````````````````````````````````````````````````````````````````````````````````````````
+[v0]
+
+========
+Summary:
+========
+
+ initial commit-- gamepad-coder.github.io --Webpage
+
+=]
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+```````````````````````````````````````````````````````````````````````````````````````````````````
+[v_._]                                                                  [yyyy_mm_dd]  @  [hh-mm ap]  
+========
+Summary:
+========
+========
+Details:
+========
+< new Content >
+< new features >
+[bugfix]
+[polish]
+│
+├── + [ _ ]
+│        │
+│        ├──>   Updated license for 2021.
+│        │      
+│        └──>   
+└     
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ```````````````````````````````````````````````````````````````````````````````````````````````````
 
