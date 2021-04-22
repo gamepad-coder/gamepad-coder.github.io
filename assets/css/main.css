@@ -18,6 +18,7 @@
 */
 
 
+
     /* ------------------------------------------------ */
    /*                                                  */
   /*         Common site components                   */
@@ -49,11 +50,13 @@
 	}
 
 
-    /* ------------------------------------------------ */
-   /*                                                  */
-  /*         Generic Element Tags                     */
- /*                                                  */
-/* ------------------------------------------------ */
+
+
+    /* ------------------------------------------------- */
+   /*                                                   */
+  /*         Generic HTML Element Style Tweaks         */
+ /*                                                   */
+/* ------------------------------------------------- */
 
 
 	/*** font ***/
@@ -71,6 +74,10 @@
 		/* width: 100%; */
 	}
 	
+
+	/*** font : positioning ***/
+	span.indentation {  padding-left: 30px;  }
+
 	
 	/*** font ***/
 	h1{	
@@ -91,6 +98,11 @@
 		background: -webkit-linear-gradient(#53d5ff, #6d22a7);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
+	}
+	
+	/*** border ***/
+	h2 {	
+		border-bottom: 1.5px dotted #03993d;
 	}
 	
 	/*** background ***/
@@ -128,9 +140,6 @@
 	
 
 	
-	/*** border ***/
-	h2 {	border-bottom: 1.5px dotted #03993d;	}
-	
 	article h3{
 		/* -webkit-box-shadow: -11px 10px 2px -2px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1), 0 -1px 0 rgb(0, 225, 14); */
 		/* box-shadow: -11px 10px 2px -2px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1), 0 -1px 0 rgb(0, 225, 14);			 */
@@ -160,7 +169,10 @@
 	span.parenthetical{ 
 		color: #999; 
 	}
-	
+
+	.more_indented_ordered_list{
+		padding-left: 60px;
+	}
 	
 				    /* -------------- */
 				   /*                */
@@ -168,6 +180,7 @@
 				 /*                */
 				/* -------------- */
 	
+
 	a:link, .nav_ref {
 		color: #03ff3d;
 		text-decoration: none;
@@ -177,138 +190,17 @@
 	a:hover { color: #03ff3d;	text-decoration: underline;	}
 	a:hover span { color: #03ff3d;	text-decoration: underline;	}
 
-	
 
-	
-	
-				    /* -------------- */
-				   /*                */
-				  /*    Sidebar     */
-				 /*                */
-				/* -------------- */
-				
-	#asideBar {
-		color: silver;
-	}
-	aside {	font-size: 16px;	font-family: Palatino, serif; }
-	/* span.nav_ref {	font-size: 17px;	} */
-	
-	span.asideBar__Home__nav_ref {	
-		color: black;
-		background-color: #1a9b51;
-		border-radius: 2px;
-		padding: 2px 4px;
-		font-family: Consolas, Verdana, serif;
-		
-	}
-
-	#aside_contact ul{
-		/* list-style: circle; */
-		margin-left: 0px;
-		padding-inline-start: 7px;
-	}
-	#aside_contact li{
-		padding-left: 3px;
-		font-family: Consolas, Monospace;
-		/* color: #1a9b51; */
-		color: #36aec9;
-	}
-
-	#asideBar.aside_appHighlights a.nav_ref {
-		background-color: unset;
-		font-family: Palatino;
-	}
-	#asideBar.aside_appHighlights ul {
-		padding-inline-start: 10px;
-		margin-block-start: 0em;
-		margin-block-end: 0.6em;
-	}
-	#asideBar.aside_appHighlights li {
-		padding: 3px 0;
-	}
-	
-	
-	#asideBar {
-		border-top: 1px solid rgba(222, 222, 222, 0.15); 
-		border-bottom: 1px solid rgba(255, 255, 255,0.2); 
-		background-color: #031b23;   border-radius: 25px;
-	}
-	#asideBar .skip_bottom_border {
-		border-bottom: none;
-	}
-	
-		.nav_ref { 
-			background-color: #000000; 
-		}
-		
-		#aside_contact {
-			color: #e9e9e9;
-		}
+     /* ---------------------------- */
+    /*                              */
+   /*   </> Generic HTML Element   */
+  /*       Style Tweaks           */
+ /*                              */
+/* ---------------------------- */	
 
 
 
-	/* - - - - - - - - - - - *|
-	|*       sidebar         *|
-	|* - - - - - - - - - - - */
-			
-	#asideBar {
-		margin-top: 2em;
-		margin-right: 0px;
-		flex: auto;
-		padding: 0px 10px 0px 15px;
-		/* padding: 0px 1em 0px 1em; */
-		position: -webkit-sticky;
-		position: sticky;
-		top: 10vh;
-		/* top: 0; */
-		
-		
-		max-height: 95vh;
-		/* max-height: 90vh; */
-		/* max-height: 80vh; */
-		overflow: auto;
-	}
-	  /*--- formatting for navigation link references ---*/
-	  a.nav_ref, .nav_ref {
-		margin-right: 5px;
-		color: #1a9b51;
-		
-		border-radius: 6px;
-		padding: 4px 5px;
-		
-	  }
-	#aside_contact{
-		/* padding: 0; */
-		margin: 0;
-		/* overflow: hidden; */
-		/* overflow: auto; */
-	}
-	#div_prof {
-		background-image: url("{{ "/assets/images/contact/stock_typewriter_plants.png" | absolute_url }}"),url("{{ "/assets/images/contact/stock_typewriter_plants_loQ.jpg" | absolute_url }}");
-	}
-	#div_prog_lang {
-		background-image: url("{{ "/assets/images/contact/stock_trackpoint.png" | absolute_url }}"),url("{{ "/assets/images/contact/stock_trackpoint_loQ.jpg" | absolute_url }}");
-	}
-	#div_interests {
-		background-image: url("{{ "/assets/images/contact/stock_plant.png" | absolute_url }}"),url("{{ "/assets/images/contact/stock_plant_loQ.jpg" | absolute_url }}");
-	}
-	#div_prof, #div_prog_lang, #div_interests {
-		/* border: 3px solid white; */
-		background-size: cover; 
-		border-radius: 25px;
-		margin: 5;
-		padding: 10px;
-	}
-	#h_prof, #h_prog_lang, #h_interests {
-		text-align: center;
-		background-color: rgba(0, 0, 0, 0.3);  /* blue with opacity */
-		margin: auto -10px;
-		padding: 5px 10px;
-	/* color: white; */
-	}
-	
-	
-	
+
 	
     /* ------------------------------------------------ */
    /*                                                  */
@@ -316,114 +208,117 @@
  /*                                                  */
 /* ------------------------------------------------ */
 	
-	
-
 	/* - - - - - - - - - - - - - -  *|
 	|*  	<header> container      *|
 	|* - - - - - - - - - - - - - -  */
 
+		/*** font ***/
+		#gc_header{
+			font-size: 18px;
+		}
+		
+		/*** layout ***/
+		#gc_header { 
+			overflow: auto;
+			/* border: 11px ridge #03dd3d; */ 
+		}
 
-	/*** font ***/
-	#gc_header{
-		font-size: 18px;
-	}
-	
-	/*** layout ***/
-	#gc_header { 
-		overflow: auto;
-		/* border: 11px ridge #03dd3d; */ 
-	}
 
-
-	/*** background ***/
-	#gc_header {
-		background-image: url("{{ "/assets/images/header.jpg" | absolute_url }}");
-		background-size: cover;
-		/* background-position: center center; */
-		/* height: 100%; */
-	}
-
+		/*** background ***/
+		#gc_header {
+			background-image: url("{{ "/assets/images/header.jpg" | absolute_url }}"), url("{{ "/assets/images/header_lowQ.jpg" | absolute_url }}");
+			background-size: cover;
+			/* background-position: center center; */
+			/* height: 100%; */
+		}
 	
 
 	/* - - - - - - - - - - - - - -  *|
-	|*  	Gamepad.Coder  logo     *|      +hire
+	|*  	Gamepad.Coder  logo     *|
 	|* - - - - - - - - - - - - - -  */
 
-	
-	#gc_banner{
-		overflow: auto;
-	}
-
-	/*** background, border, color ***/
-
-		#gc_banner__logo{          background: rgba(7,7,7,0.6);    }
-		#gc_banner__picture{       border: 6px ridge  #ddd;        }
-		#gc_banner__email{         border: 7px outset  #777;       }
-		#gc_banner__email {        color: white;                   }
-		#gc_banner__email_atSign{  color: white;                   }
-		#gc_banner__hire li {      background: rgba(0,0,0,0.5);    }
+		/*** container ***/
 		
-		#gc_banner__hire li.gc_navigation_link__current_page{ background-color: #1a9b51; }
-	
-	 
-	/*** layout ***/
+			#gc_banner{
+				overflow: auto;
+			}
 
-		#gc_banner__logo{
-			/* width: 305; */ 
+		/*** background, border, color ***/
+
+			#gc_banner__logo{          background: rgba(7,7,7,0.6);    }
+			#gc_banner__picture{       border: 6px ridge  #ddd;        }
+			#gc_banner__email{         border: 7px outset  #777;       }
+			#gc_banner__email {        color: white;                   }
+			#gc_banner__email_atSign{  color: white;                   }
+			#gc_banner__hire li {      background: rgba(0,0,0,0.5);    }
 			
-			width: max-content;
-			/* width: -moz-fit-content;
-			width: fit-content; */
+			#gc_banner__hire li.gc_navigation_link__current_page{ background-color: #1a9b51; }
+		
+		
+		/*** layout ***/
+
+			#gc_banner__logo{
+				/* width: 305; */ 
+				
+				width: max-content;
+				/* width: -moz-fit-content;
+				width: fit-content; */
+				
+				height: 80px;	
+				overflow: auto;
+				float: left;
+				padding: 0 10px;
+			}
+
+			#gc_banner__picture{
 			
-			height: 80px;	
-			overflow: auto;
-			float: left;
-			padding: 0 10px;
-		}
-
-		#gc_banner__picture{
-		
-		  /* center vertically recipe found@ 
-		
-		   https://css-tricks.com/quick-css-trick-how-to
-		  -center-an-object-exactly-in-the-center/        */
-		
-		  position: relative;
-		  top: 50%;
-		  transform: translate(0%, -50%);
-
-		  width: 50px;
-		  height: 50px;
-		  
-		  margin-right: 10px;
-		  /* margin-left: 10px; */
-		  float: left;
-		}
-
-		#gc_banner__email{
+			/* center vertically recipe found@ 
+			
+			https://css-tricks.com/quick-css-trick-how-to
+			-center-an-object-exactly-in-the-center/        */
+			
 			position: relative;
-			top: 50%;		
+			top: 50%;
 			transform: translate(0%, -50%);
-			line-height: 200%;
+
+			width: 50px;
+			height: 50px;
 			
-			padding-left: 14px;
-			padding-right: 14px;	
-			margin: auto;
+			margin-right: 10px;
+			/* margin-left: 10px; */
 			float: left;
-		}
-		#gc_banner__email_atSign{
-			margin:0 5px;
-			text-decoration: none;				
-		}
+			}
+
+			#gc_banner__email{
+				position: relative;
+				top: 50%;		
+				transform: translate(0%, -50%);
+				line-height: 200%;
+				
+				padding-left: 14px;
+				padding-right: 14px;	
+				margin: auto;
+				float: left;
+			}
+			#gc_banner__email_atSign{
+				margin:0 5px;
+				text-decoration: none;				
+			}
 		
+	/* - - - - - - - - - - - - - -  *|
+	|*    "Contact for Hire."       *|
+	|* - - - - - - - - - - - - - -  */
+
 		#gc_banner__hire{
 			float: right;
 			/* padding: 5px; */
 			list-style: none;
-		}  
+		} 
+
 		#gc_banner__hire li{
-		/* wrapped the link in a single <li> for consistency with other navigation links */
-		/* and to make the jekyll templating less complicated */
+
+			/* wrapped the link in a single <li> for consistency with other navigation links */
+			/* and to make the jekyll templating less complicated */
 		
 			padding: 5px;
 			
@@ -435,12 +330,6 @@
 	|*      navigation bar          *|
 	|* - - - - - - - - - - - - - -  */
 
-
-	#gc_navbar li {
-		margin-bottom: 10px;
-		margin-left: 3px;
-		margin-right: 3px;
-	}
 	
 
 	#gc_navbar{
@@ -455,6 +344,12 @@
 		margin-bottom: 20px;
 		clear: both;
 	}
+
+		#gc_navbar li {
+			margin-bottom: 10px;
+			margin-left: 3px;
+			margin-right: 3px;
+		}
 
 		#gc_navbar li{
 			padding: 10px;
@@ -483,8 +378,6 @@
 		}	
 
 
-
-	
     /* ---------------- */
    /*                  */
   /*   </> Header     */
@@ -496,60 +389,15 @@
 
 
 
-
-
-
-
-
-
-
+       /* ------------------------------------------------------ */
+      /*                                                        */
+     /*   Central Page Block                                   */
+    /*                                                        */
+   /*            ("The_Page" is the div containing the       */
+  /*              central block for each page)              */
+ /*                                                        */
+/* ------------------------------------------------------ */
 	
-
-	/* - - - - - - - - - - - - - - *|
-	|*      the_page  footer       *|
-	|* - - - - - - - - - - - - - - */
-
-	footer.gitlinks{ background-color: #031b23; }
-	
-	footer.gitlinks a div { 
-		float: left;
-	}
-	footer.gitlinks a:hover div{
-		text-decoration: underline;
-	}
-	footer.gitlinks{
-		padding: 20px;
-		margin-top: 15px;
-		margin: 0px;
-		clear: both;
-		overflow: auto;
-	}
-
-	/* - - - - - - - - - - - - - - *|
-	|*      floating  footer       *|
-	|* - - - - - - - - - - - - - - */
-	
-	/*** font + layout ***/
-	footer p.floating_footer_copyright{
-		line-height: 1em;
-		float: right;
-	}
-	
-
-
-
-
-
-	/*** font : positioning ***/
-	span.indentation {  padding-left: 30px;  }
-
-
-
-
-	
-	/* - - - - - - - - - - - *|
-	|*     main content      *|
-	|* - - - - - - - - - - - */
 
 	/*** layout ***/
 	#the_page {
@@ -567,7 +415,7 @@
 	}
 	
 
-	/*** layout ***/
+	/*** internal layout ***/
 	#the_page__flex {	
 		display: flex;
 		flex-flow: row ;
@@ -576,7 +424,11 @@
 	}
 	
 		/*** layout ***/
-		div.content { flex: 0 0 70%;	margin: 10px 40px 20px 40px; }
+		/* div.content {  */
+		#the_page__main_content { 
+			flex: 0 0 70%;	
+			margin: 10px 40px 20px 40px; 
+		}
 			
 			article {
 				padding: 0 10px;
@@ -584,11 +436,432 @@
 				margin-bottom: 40px;
 			}	
 			h2 { padding: 10px 0px; }
-			p.intro_philosopher_linespacing{
-				margin-bottom: 25px;
+	
+	
+    /* -------------------------------- */
+   /*                                  */
+  /*   </> Central Page Block CSS     */
+ /*                                  */
+/* -------------------------------- */
+
+
+
+
+
+
+
+
+        /* --------------------------------------------------------------- */
+       /*                                                                 */
+      /*                     Page-Specific  CSS                          */
+     /*                                                                 */
+    /*        Miscellaneous custom CSS for specific pages.             */
+   /*        Custom page-specific CSS for the sidebar                 */
+  /*        is found in the "sticky" sidebar section                 */
+ /*                                                                 */
+/* --------------------------------------------------------------- */
+	
+
+	/* - - - - - - - - - - - *|
+	|*     Home page         *|
+	|* - - - - - - - - - - - */
+
+		p.increased_bottom_margin{
+			margin-bottom: 25px;
+		}
+		.homepage_welcome{
+			padding: 12px 0px;
+			margin-left: -25px;
+			text-align: center;
+		}
+
+	/* - - - - - - - - - - - *|
+	|*     Apps              *|
+	|* - - - - - - - - - - - */
+	
+		div.app_highlights li {
+			/* padding: 20px; */
+		}
+		
+		#the_page__main_content img {
+			width: 100%;
+		}
+		div.app_highlights img {
+			border-radius: 5px;
+			cursor: pointer;
+			transition: 0.3s;
+		}
+		div.app_highlights img:hover {
+			/* opacity: 70%; */
+		}
+		/* The Modal (background) */
+		#myModal {
+			display: none; /* Hidden by default */
+			position: fixed; /* Stay in place */
+			z-index: 1; /* Sit on top */
+			padding-top: 10px; /* Location of the box */
+			left: 0;
+			top: 0;
+			width: 100%; /* Full width */
+			height: 100%; /* Full height */
+			overflow: auto; /*Enable scroll if needed */
+			background-color: rgb(0,0,0); /* Fallback color */
+			background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+		}
+		
+		/* Modal Content (Image) */
+		#myModal .modal-content {
+			/* position: relative;
+			transform: translate(0%, -50%);
+			top: 50%; */
+			margin: auto;
+			display: inline-block;
+			width: auto;
+			height: auto;
+			vertical-align: middle;
+			max-width: 95vw;
+			max-height: 95vh;
+			
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			margin: auto;
+		}
+		/* Add Animation - Zoom in the Modal */
+		.modal-content, #caption {
+			animation-name: zoom;
+			animation-duration: 0.6s;
+		}
+		
+		@keyframes zoom {
+			from {transform:scale(0)}
+			to {transform:scale(1)}
+		}
+
+		div.apps_written_bg_image {
+			background-position: center;
+			/* background-size: contain; */
+			padding: 0;
+			overflow: auto;
+			margin-bottom: 5px;
+			background-size: 98%;
+			background-repeat: no-repeat;
+			width: auto;
+			height: auto;
+		}
+		#apps_linux_article ul li{
+			padding: 10px 0;
+		}
+
+	
+	/* - - - - - - - - - - - *|
+	|*     Contact           *|
+	|* - - - - - - - - - - - */
+
+		#contact_gamepad_coder {
+			margin: 30px; 
+			padding: 20px; 
+			border:9px ridge rgba(255,255,255,.7);
+		}
+
+		#the_page__main_content.contact_content{
+			flex: 0 0 65%;
+		}
+
+    /* --------------------------- */
+   /*                             */
+  /*   </> Page-Specific CSS     */
+ /*                             */
+/* --------------------------- */
+
+
+
+
+
+
+
+
+
+
+
+    /* ------------------------------------------------ */
+   /*                                                  */
+  /*          "Sticky" Scolling  Sidebar              */
+ /*                                                  */
+/* ------------------------------------------------ */
+
+	
+	/* - - - - - - - - - - - - - - - *|
+	|*   Common Sidebar Base Style   *|
+	|* - - - - - - - - - - - - - - - */
+
+
+		/*** font ***/
+
+		#asideBar {
+			color: silver;
+			font-size: 16px;	
+			font-family: Palatino, serif; 
+		}
+		
+
+		/*** layout ***/
+
+		#asideBar {
+			margin-top: 2em;
+			margin-right: 0px;
+			flex: auto;
+			padding: 0px 10px 0px 15px;
+			/* padding: 0px 1em 0px 1em; */
+			position: -webkit-sticky;
+			position: sticky;
+			/* top: 10vh; */
+			/* top: 0; */
+			top: 2vh;
+			
+			max-height: 95vh;
+			/* max-height: 90vh; */
+			/* max-height: 80vh; */
+			overflow: auto;
+			overflow-x: hidden;
+		}
+		
+		
+		/*** border & background color ***/
+
+			#asideBar {
+				border-top: 1px solid rgba(222, 222, 222, 0.15); 
+				border-bottom: 1px solid rgba(255, 255, 255,0.2); 
+				background-color: #031b23;   border-radius: 25px;
 			}
+
+			#asideBar .skip_bottom_border {
+				border-bottom: none;
+			}
+			
+			#aside_contact {
+				color: #e9e9e9;
+			}
+
+
+		/*** formatting for navigation link references ***/
+
+		a.nav_ref, .nav_ref {
+			margin-right: 5px;
+			color: #1a9b51;
+			
+			border-radius: 6px;
+			padding: 4px 5px;
+			
+			}
+		
+			.nav_ref { 
+				background-color: #000000; 
+			}
+
+
 	
+	/* - - - - - - - - - - - - - - *|
+	|*   Contact Page : Sidebar    *|
+	|* - - - - - - - - - - - - - - */
+			
+		#aside_contact{
+			/* padding: 0; */
+			margin: 0;
+			/* overflow: hidden; */
+			/* overflow: auto; */
+		}
+		#aside_contact_proficiencies {
+			
+			background-image: url("{{ "/assets/images/contact/stock_typewriter_plants.png" | absolute_url }}"),url("{{ "/assets/images/contact/stock_typewriter_plants_lowQ.jpg" | absolute_url }}");
+		}
+		#aside_contact_languages {
+			background-image: url("{{ "/assets/images/contact/stock_trackpoint.png" | absolute_url }}"),url("{{ "/assets/images/contact/stock_trackpoint_lowQ.jpg" | absolute_url }}");
+		}
+		#aside_contact_interests {
+			background-image: url("{{ "/assets/images/contact/stock_plant.png" | absolute_url }}"),url("{{ "/assets/images/contact/stock_plant_lowQ.jpg" | absolute_url }}");
+		}
+		#aside_contact_proficiencies, #aside_contact_languages, #aside_contact_interests {
+			/* border: 3px solid white; */
+			background-size: cover; 
+			border-radius: 25px;
+			margin: 5;
+			padding: 10px;
+		}
+		#h_prof, #h_prog_lang, #h_interests {
+			text-align: center;
+			background-color: rgba(0, 0, 0, 0.3);  /* blue with opacity */
+			margin: auto -10px;
+			padding: 5px 10px;
+		/* color: white; */
+		}
+		
+		#aside_contact ul{
+			/* list-style: circle; */
+			margin-left: 0px;
+			padding-inline-start: 7px;
+		}
+		#aside_contact li{
+			padding-left: 3px;
+			font-family: Consolas, Monospace;
+			/* color: #1a9b51; */
+			color: #36aec9;
+		}
 	
+
+	/* - - - - - - - - - - - - - - *|
+	|*     Home Page : Sidebar     *|
+	|* - - - - - - - - - - - - - - */
+		
+		span.asideBar__Home__nav_ref {	
+			color: black;
+			background-color: #1a9b51;
+			border-radius: 2px;
+			padding: 2px 4px;
+			font-family: Consolas, Verdana, serif;
+			
+		}
+		#aside_home_DocumentationPreview {
+			/* 
+				Preload low quality image, fast and first. 
+				Then paint higher quality one over it as it downloads. 
+				The first url() is displayed on "top", but
+				the second url() loads first and will display first. 
+
+				More info: 
+					https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Backgrounds_and_Borders/Using_multiple_backgrounds
+					https://stackoverflow.com/a/49585582/13536555
+			*/
+			background-image: url("{{ "/assets/images/homepage/DocumentationPreview.png" | absolute_url }}"),url("{{ "/assets/images/homepage/DocumentationPreview_lowQ.jpg" | absolute_url }}");
+		}
+		#aside_home_GalleryPreview {
+			background-image: url("{{ "/assets/images/homepage/GalleryPreview.gif" | absolute_url }}"),url("{{ "/assets/images/homepage/GalleryPreview_lowQ.jpg" | absolute_url }}");
+			background-position-y: center;
+		}
+		#aside_home_BlogPreview {
+			background-image: url("{{ "/assets/images/homepage/BlogPreview.jpg" | absolute_url }}"),url("{{ "/assets/images/homepage/BlogPreview_lowQ.jpg" | absolute_url }}");
+			background-position: bottom;
+		}		
+
+		#aside_home_DocumentationPreview, #aside_home_GalleryPreview, #aside_home_BlogPreview {
+			/* border: 3px solid white; */
+			background-size: cover; 
+			border-radius: 7px;
+			/* margin: 7px 0; */
+			/* margin: 1vh 4px; */
+			margin: 1.5vh 0px;
+			padding: 22px;
+		}
+
+		#asideBar.homepage p.overview_section {
+			margin: 0px;
+		}
+		
+		/* resizes in portrait */
+		#asideBar.homepage p.overview_description {
+			margin: 0px;
+			/* margin-bottom: 20px; */
+			/* margin-bottom: 2.7vh; */
+			margin-bottom: 3.3vh;
+		}
+		
+		
+	/* - - - - - - - - - - - - - - *|
+	|*    App Gallery : Sidebar    *|
+	|* - - - - - - - - - - - - - - */
+
+		#asideBar.aside_appHighlights a.nav_ref {
+			background-color: unset;
+			font-family: Palatino;
+		}
+		#asideBar.aside_appHighlights ul {
+			padding-inline-start: 10px;
+			margin-block-start: 0em;
+			margin-block-end: 0.6em;
+		}
+		#asideBar.aside_appHighlights li {
+			padding: 3px 0;
+		}
+		#asideBar.homepage p.portrait_padding {
+			display: none;
+		}
+	
+
+    /* ---------------- */
+   /*                  */
+  /*   </> Sidebar    */
+ /*                  */
+/* ---------------- */
+
+
+
+
+	
+
+
+
+      /* ------------------------------------------------------ */
+     /*                                                        */
+    /*   Footers                                              */
+   /*            (bottom of main block), bottom of webpage)  */
+  /*             (bottom of webpage)                        */
+ /*                                                        */
+/* ------------------------------------------------------ */
+
+	/* - - - - - - - - - - - - - - *|
+	|*      the_page  footer       *|
+	|* - - - - - - - - - - - - - - */
+
+		footer.gitlinks{ background-color: #031b23; }
+		
+		footer.gitlinks a div { 
+			float: left;
+		}
+		footer.gitlinks a:hover div{
+			text-decoration: underline;
+		}
+		footer.gitlinks{
+			padding: 20px;
+			margin-top: 15px;
+			margin: 0px;
+			clear: both;
+			overflow: auto;
+		}
+
+	/* - - - - - - - - - - - - - - *|
+	|*      floating  footer       *|
+	|* - - - - - - - - - - - - - - */
+	
+		/*** font + layout ***/
+		footer p.floating_footer_copyright{
+			line-height: 1em;
+			float: right;
+		}
+	
+    /* ---------------- */
+   /*                  */
+  /*   </> Footers    */
+ /*                  */
+/* ---------------- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -677,11 +950,13 @@
 		transition: max-height 0.55s;
 	}
 		.content-inner {
-			background: rgba(0, 105, 255, 0.2);
+			/* background: rgba(0, 105, 255, 0.2); */
 			/* background: #023a64b3; */
+			background: #1e65cd2e;
 			border-bottom: 1px solid rgba(0, 105, 255, 0.45);
 			border-radius: 7px;
 			padding: 0.5rem 1rem;
+			color: #dddddd;
 		}
 		/* Sets the expanded section's height to be nonzero 
 		   to allow animating between the changes. */
@@ -692,134 +967,11 @@
 			/* transition: max-height 0.75s ease-in-out 0s; */
 		}
 
-	
-    /* ------------------------------------------------ */
-   /*                                                  */
-  /*      Specific Page CSS                           */
- /*                                                  */
-/* ------------------------------------------------ */
-	
-	/* - - - - - - - - - - - *|
-	|*     Home page         *|
-	|* - - - - - - - - - - - */
-
-
-
-	/* - - - - - - - - - - - *|
-	|*     Apps              *|
-	|* - - - - - - - - - - - */
-	
-	
-	div.app_highlights li {
-		/* padding: 20px; */
-	}
-	div.content img {
-		width: 100%;
-	}
-	div.app_highlights img {
-		border-radius: 5px;
-		cursor: pointer;
-		transition: 0.3s;
-	}
-	div.app_highlights img:hover {
-		/* opacity: 70%; */
-	}
-	/* The Modal (background) */
-	#myModal {
-		display: none; /* Hidden by default */
-		position: fixed; /* Stay in place */
-		z-index: 1; /* Sit on top */
-		padding-top: 10px; /* Location of the box */
-		left: 0;
-		top: 0;
-		width: 100%; /* Full width */
-		height: 100%; /* Full height */
-		overflow: auto; /*Enable scroll if needed */
-		background-color: rgb(0,0,0); /* Fallback color */
-		background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
-	}
-	
-	/* Modal Content (Image) */
-	#myModal .modal-content {
-		/* position: relative;
-		transform: translate(0%, -50%);
-		top: 50%; */
-		margin: auto;
-		display: inline-block;
-		width: auto;
-		height: auto;
-		vertical-align: middle;
-		max-width: 95vw;
-		max-height: 95vh;
-		
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		margin: auto;
-	}
-	/* Add Animation - Zoom in the Modal */
-	.modal-content, #caption {
-		animation-name: zoom;
-		animation-duration: 0.6s;
-	}
-	
-	@keyframes zoom {
-		from {transform:scale(0)}
-		to {transform:scale(1)}
-	}
-
-	div.apps_written_bg_image {
-		background-position: center;
-		/* background-size: contain; */
-		padding: 0;
-		overflow: auto;
-		margin-bottom: 5px;
-		background-size: 98%;
-		background-repeat: no-repeat;
-		width: auto;
-		height: auto;
-	}
-	#apps_linux_article ul li{
-		padding: 10px 0;
-	}
-
-	
-
-
-	/* - - - - - - - - - - - *|
-	|*     Contact           *|
-	|* - - - - - - - - - - - */
-
-
-
-	#contact_gamepad_coder {
-		margin: 30px; 
-		padding: 20px; 
-		border:9px ridge rgba(255,255,255,.7);
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    /* --------------------- */
+   /*   </> Collapsible     */
+  /*        Section        */
+ /*        Headers        */
+/* --------------------- */
 
 
 
@@ -851,7 +1003,7 @@
 	
 	
 	@media all and (max-width: 900px) {
-		#asideBar {
+		/* #asideBar {
 			border-top: 1px solid rgba(000, 222, 999, .21); 
 			border-bottom: 1px solid rgba(000, 222, 999, .31); 
 		}
@@ -860,7 +1012,7 @@
 		}
 		#aside_contact{
 			color: white;
-		}
+		} */
 	}
 	
 	
@@ -883,22 +1035,32 @@
 	}
 	@media all and (max-width: 900px) {
 		
+		body {
+			margin-left: 1px;
+			margin-right: 1px;
+			margin-top: 1px;
+		}
 		#the_page{
 			/* width: 60%; */
+			/* width: 95%; */
 			/* margin: auto; */
-			margin-top: auto;
-			margin-left: auto;
-			margin-right: auto;
-			width: 95%;
+			/* margin-left: auto; */
+			/* margin-right: auto; */
 			/* padding: 0; */
-		}
-		
-		div.content{
+			
+			width: unset;
+			border: unset;
+			margin-top: 5px;
+			margin-left: 4px;
+			margin-right: 4px;
+		}		
+		#the_page__main_content {
 			flex: 0 0 65%;
 			margin: 5px 10px 7px 5px;
 		}
 		article ul {
-			padding-inline-start: 10px;
+			/* padding-inline-start: 10px; */
+			padding-inline-start: 20px;
 		}
 		#contact_gamepad_coder {
 			margin: 0;
@@ -925,6 +1087,9 @@
 		   the "sidebar" (now above main content)
 		*********************************************/
 	
+		#the_page__main_content  {
+			/* font-size: 15px; */
+		}
 		#gc_banner__email {
 			font-size: 15px;
 		}
@@ -975,6 +1140,39 @@
 			/* width: 80%; */
 		}
 		
+		#asideBar {
+			border-top: 1px solid rgba(000, 222, 999, .21); 
+			border-bottom: 1px solid rgba(000, 222, 999, .31); 
+		}
+			
+			#asideBar.homepage .nav_ref {
+				line-height: 1.5em; 
+			}
+			#asideBar.homepage p {
+				padding: 0;
+			}
+			#asideBar.homepage p.portrait_padding {
+				/* hidden in landscape, display in portrait */
+				display: block;
+			}
+			#asideBar.homepage p.overview_section {
+				/* padding-top: 15px; */
+				padding-top: 52px;
+			}			
+			#asideBar.homepage p.overview_description {
+				margin: 0px;
+			}
+			#aside_home_DocumentationPreview, #aside_home_GalleryPreview, #aside_home_BlogPreview {
+				margin: 12px 0px;
+				padding: 50px;
+			}
+
+
+
+			#aside_contact{
+				color: white;
+			}
+
 			#aside_contact {
 				/* padding: auto 20px; */
 				/* list-style: circle; */
@@ -984,12 +1182,12 @@
 				padding-inline-start: 40px;
 				padding: 0px 60px;
 			}
-			#div_prof, #div_prog_lang, #div_interests {
+			#aside_contact_proficiencies, #aside_contact_languages, #aside_contact_interests {
 				padding-top: 30px;
 				padding-bottom: 30px;
 				/* padding: 60px; */
 			}
-			#div_interests{
+			#aside_contact_interests{
 				background-position: center;
 			}
 
@@ -999,7 +1197,8 @@
 				margin-block-start: 0em;
 				margin-block-end: 1em;
 			}
-		div.content {
+
+		#the_page__main_content {
 			order: 2;
 			width: 95%;		
 		}
@@ -1039,7 +1238,7 @@
 	}
 	@media all and (min-width: 900px) and (min-height: 600px)  {
 		
-		div.content{
+		#the_page__main_content {
 			flex: 0 0 65%;
 		}
 		#asideBar {
@@ -1064,6 +1263,27 @@
 		}		
 	}
 	
+	@media all and (max-width: 230px) {
+		#the_page{
+			/* width: 60%; */
+			/* margin: auto; */
+			width: 100%;
+			font-size: 10px;
+		}
+		h2 {
+			font-size: 14px;
+		}
+		.more_indented_ordered_list {
+			padding-left: 10px;
+		}
+		.label-toggle_collapsible_section {
+			font-size: 12px;
+		}
+		#asideBar {
+			top: 0vh;
+		}
+	}
+
 	/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
 	
 	

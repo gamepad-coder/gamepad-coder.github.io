@@ -46,6 +46,7 @@
 	}
 	#doc_body_offset_for_navbar {
 		padding: 0 8px;
+		/* margin: 1px; */
 	}
 
 	
@@ -111,7 +112,7 @@
 	/*** font ***/
 	#gc_header{
 		font-size: 18px;
-		line-height: 1.4em;
+		/* line-height: 1.4em; */
 	}
 	
 	/*** layout ***/
@@ -410,18 +411,6 @@
 	
 	
 	
-	@media all and (max-width: 900px) {
-		#asideBar {
-			border-top: 1px solid rgba(000, 222, 999, .21); 
-			border-bottom: 1px solid rgba(000, 222, 999, .31); 
-		}
-		aside p {
-			border-bottom: 1px solid rgba(222, 222, 222, .3); 
-		}
-		#aside_contact{
-			color: white;
-		}
-	}
 	
 	
 	@media all and (min-width: 1px) and (max-width: 350px) {
@@ -436,22 +425,28 @@
 			/* margin: auto; */
 			width: 98%;
 		}
-		#asideBar {
-			top: 1vh;
-			/* max-height: 95vh; */
-		}
 	}
 	@media all and (max-width: 900px) {
-		
+		#doc_body_offset_for_navbar {
+			/* padding: 0 8px;  -- setting above, when > 900px */
+			padding: 0 0;
+			margin: 1px;
+		}
 		#the_page{
 			/* width: 60%; */
 			/* margin: auto; */
 			/* margin-top: auto; */
-			margin-top: 8px;
-			margin-left: auto;
-			margin-right: auto;
-			width: 95%;
+			/* margin-top: 8px; */
+			/* margin-left: auto; */
+			/* margin-right: auto; */
+			/* width: 95%; */
 			/* padding: 0; */
+
+			width: unset;
+			border: unset;
+			margin-top: 5px;
+			margin-left: 4px;
+			margin-right: 4px;
 		}
 		
 		div.content{
@@ -486,6 +481,9 @@
 		   the "sidebar" (now above main content)
 		*********************************************/
 	
+		#gc_header {
+			line-height: 1.3em;
+		}
 		#gc_banner__email {
 			font-size: 15px;
 		}
@@ -502,64 +500,7 @@
 			align-items: center;
 			margin: 0;
 		}
-		/* #asideBar { 
-			being this specific causes problems for the @media overrides
-			*/ 
-		#asideBar .nav_ref {
-			
-			line-height: 2em;
-			
-		}
-		#asideBar {
-			font-size: 20px;
-			order: 1;
-			position: static;
-			/* padding: 0%; */
-			padding: 0px 1em 0px 1em;
-			width: 90%;
-			margin: 10px 0px auto 0px;
-			/* margin: 10px 0px auto 0px; */
-			/* height: auto; */
-			height: 100%;
-			display: block;
-			/* overflow: auto; */
-			max-height: 100%;
-		}
-		aside p {
-			/* margin: 20px 0; */
-			/* margin: 0; */
-			/* padding-top: 5; */
-			padding-bottom: 15px;
-			padding-left: 20px;
-			padding-left: 20px;
-			padding-left: 0;
-			/* width: 80%; */
-		}
 		
-			#aside_contact {
-				/* padding: auto 20px; */
-				/* list-style: circle; */
-				margin-left: auto;
-			}
-			#aside_contact ul{
-				padding-inline-start: 40px;
-				padding: 0px 60px;
-			}
-			#div_prof, #div_prog_lang, #div_interests {
-				padding-top: 30px;
-				padding-bottom: 30px;
-				/* padding: 60px; */
-			}
-			#div_interests{
-				background-position: center;
-			}
-
-			
-			#asideBar.aside_appHighlights ul {
-				padding-inline-start: 10px;
-				margin-block-start: 0em;
-				margin-block-end: 1em;
-			}
 		div.content {
 			order: 2;
 			width: 95%;		
@@ -593,18 +534,11 @@
 		}
 	}
 	
-	@media all and (max-height: 600px){
-		#asideBar {
-			top: 3vh;
-		}
-	}
+	
 	@media all and (min-width: 900px) and (min-height: 600px)  {
 		
 		div.content{
 			flex: 0 0 65%;
-		}
-		#asideBar {
-			/* max-height: 95vh; */
 		}
 	}
 	@media all and (min-width: 1520px) {
@@ -615,14 +549,6 @@
 			/* padding: 0; */
 			margin: 0px auto 250px auto;
 		}
-	}
-	@media all and (max-height: 340px) {
-		aside {
-			
-			top: 1vh;
-			/* max-height: 95vh; */
-			/* border: 10px solid blue; */
-		}		
 	}
 	
 	/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
@@ -655,12 +581,15 @@
 		position: absolute;
 	}
 
+	.wy-nav-side.shift {
+		position: fixed;
+	}
 
 
 	@media all and (max-width: 900px) {
 		
 		#the_page{
-			margin-top: 8px;
+			/* margin-top: 8px; */
 		}
 	}
 

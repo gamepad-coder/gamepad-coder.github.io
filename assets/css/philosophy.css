@@ -170,13 +170,15 @@
 	
 		#gc_banner__logo{
 			/* width: 305; */
+			
+			width: max-content;
 			height: 80px;	
 			overflow: auto;
 			float: left;
 			padding: 0 10px;
 		} 
 		
-			.gc_banner__picture{
+			#gc_banner__picture{
 				position: relative;
 				top: 50%;
 				transform: translate(0%, -50%);
@@ -190,7 +192,7 @@
 				color: white;
 				text-decoration: none;				
 			}
-			.gc_banner__email{
+			#gc_banner__email{
 				position: relative;
 				top: 50%;		
 				transform: translate(0%, -50%);
@@ -204,9 +206,9 @@
 		
 		
 		#gc_banner__logo{    background: rgba(7,7,7,0.6);    }
-			.gc_banner__picture{	border: 6px ridge  #ddd;        }
-			.gc_banner__email{      border: 7px outset  #777;       }		
-			.gc_banner__email{      color: #ffffff;      }
+			#gc_banner__picture{	border: 6px ridge  #ddd;        }
+			#gc_banner__email{      border: 7px outset  #777;       }		
+			#gc_banner__email{      color: #ffffff;      }
 
 
 		#gc_banner__hire{
@@ -1078,6 +1080,13 @@ article div.changelog__preserveNewines {
 	}
 	
 	@media all and (max-width: 900px) {
+
+		body {
+			margin-left: 1px;
+			margin-right: 1px;
+			margin-top: 1px;
+		}
+
 		#asideBar {
 			border-top: 1px solid rgba(000, 222, 999, .21); 
 			border-bottom: 1px solid rgba(000, 222, 999, .31); 
@@ -1179,7 +1188,12 @@ article div.changelog__preserveNewines {
 			flex-flow: column wrap;
 		}
 		#the_page{
-			width: 95%;
+			/* width: 95%;  */
+			width: unset;
+			border: unset;
+			margin-top: 5px;
+			margin-left: 4px;
+			margin-right: 4px;
 		}
 		#page_flex {
 			flex-flow: column;
@@ -1218,6 +1232,15 @@ article div.changelog__preserveNewines {
 		}
 	}
 	
+	/*------------------------------------------------------------------@*/
+	@media all and (max-width: 600px) {
+
+		#gc_banner__email {
+			font-size: 15px;
+		}
+
+	}
+
 	/*------------------------------------------------------------------@*/
 
 

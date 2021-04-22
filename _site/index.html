@@ -158,14 +158,19 @@
 		 =============================================================================================== -->
 
 		<!-- main content -->
-		<div class="content">
+		<div id="the_page__main_content">
 		
 			
 			<h2>About this website:</h2>
 			<article>
 					<p>
+						
+						<p class="homepage_welcome">Welcome to the <span class="asideBar__Home__nav_ref">Home</span> page!</p>
+			
+					</p>
+					<p>
 						I am currently seeking a job as a technical writer, so I created this website to serve two purposes:
-						<ol style="padding-left:60px">
+						<ol class="more_indented_ordered_list">
 							<li>
 								Showcase my personal documentation.
 							</li>
@@ -173,6 +178,9 @@
 								Contextually display my different writing styles.
 							</li>
 						</ol>
+					</p>
+					<p>
+						After finding a job, I'll continue to add tutorials and program walkthroughs <span class="parenthetical">(and I'll ensure current documentation URLs remain valid, regardless of any future tweaks)</span>.
 					</p>
 			</article>
 			
@@ -183,16 +191,46 @@
 					<input id="home__collapsible_section_1" class="toggle_collapsible_section" type="checkbox">
 					<label for="home__collapsible_section_1" class="label-toggle_collapsible_section">The Documentation section.</label>
 					<div class="collapsible_section">
-						<div class="content-inner">							
+						<div class="content-inner">
+							<p style="
+								font-weight: bold;
+								font-size: x-large;
+								color: aqua;
+							"> Current State: </p>
 							<p>
-								The <a href="/Documentation.html">Documentation</a> section is the primary focus of this website, at the moment.
-							</p>
-							<p>(TO-DO) Manuals, API calls, tutorials, and directions for extending my open-source programs will be 
-								presented in this portion of this website.
+								The <a href="/Documentation.html" class="nav_ref">Documentation</a> section is the primary focus of this website, at the moment.
 							</p>
 							<p>
-								(TO-DO) At the time of this writing, I'm preparing to release my object-oriented encapsulation library 
-								for AutoHotkey's GUI <span class="parenthetical">(graphical user interface)</span> functions.
+								For the sake of presenting a learn portfolio, there is currently only one application, 
+								but it is thoroughly documented.
+								<br /><br />								
+								"Program Launcher" is a small script I wrote years ago in AutoHotkey. 
+								I use it every day, but the initial version was not extensible 
+								<span class="parenthetical">(and definitely not in a clean 
+									nor clear enough state to distribute online)</span>.
+								So I decided to rewrite it and expand it from scratch, documenting each step and algorithm.
+								<br /><br />								
+								The result is a clean, well-designed program which you can configure easily with
+								a graphical user interface.
+								<br /><br />								
+								Pictures, an overview, and a comprehensive walkthrough 
+								can be found under the AutoHotkey topic
+								inside this website's <a href="/Documentation.html" class="nav_ref">Documentation</a> section.
+							</p>				
+							<p style="
+								font-weight: bold;
+								font-size: x-large;
+								color: aqua;
+							"> Future Plans: </p>
+							<p>
+								Manuals, API calls, tutorials, and guides 
+								for extending my open-source programs will be 
+								added to the Documentation area. 
+								<br /><br />
+								As I experiment more with Godot, I'll add tutorials for both basic and advanced scripting.
+								<br /><br />
+								I'm also planning to add a topic to the Documentation
+								outlining how the Documentation section itself was built.
 							</p>
 						</div>
 						<div>
@@ -203,10 +241,29 @@
 							</p>
 							<p>
 								<span class="parenthetical">
-								I truly love writing documentation and tutorials. 
-								System design and analysis is a compulsive hobby for me. 
+								I began writing extensively commented code in college, 
+								and ever since graduation I've been extremely grateful for the great 
+								practices and habits my professors instilled in me. 
+								<br /><br />
+								Concise but complete documentation
+								prevents mistakes, eliminates ambiguity, and
+								increases productivity. But good documentation itself 
+								has an overall zen and peaceful aesthetic, 
+								formed from precise and practical blocks, which I never tire of. 
+								<br /><br />
+								System exploration, analysis, and design are compulsive hobbies for me. 
 								I thoroughly enjoy learning about and memorizing complex systems.
-								However, to me, it is even more satisfying to take a complex internal understanding -&gt; and portray it as a clean, straighforward, delineated progression. When considering your audience may include a range of (a) novices (b) those with partial understanding and (c) those with intimate understanding, it's always a fascinating puzzle to solve with a balance. If my passion is not evident in the Documentation section of my website, I hope my cleanliness and presentation will show at least my competence.
+								<br /><br />
+								However, to me, it is even more satisfying to take a complex internal understanding 
+								-&gt; and portray it as a clean, straightforward, delineated progression. 
+								When considering your audience may include a range of <br />								
+								(a) novices <br />
+								(b) those with partial understanding and <br />
+								(c) those with intimate understanding, <br />
+								it's always a fascinating puzzle to solve with a balance. 
+								<br /><br />
+								If my passion is not evident in the Documentation section of my website, 
+								I hope my cleanliness and presentation will show at least my competence.
 								</span>
 							</p>
 						</div>
@@ -217,22 +274,24 @@
 					<div class="collapsible_section">
 						<div class="content-inner">
 							<p>
-								In the <a href="/Apps.html">Application Gallery</a> you will find 
+								In the <a href="/Apps.html" class="nav_ref">Application Gallery</a> you will find 
 								a brief overview of my favorite personal projects and experiments.
 								<br><br>
 								Includes pictures if you're in a hurry, and expandable overviews per project if you're curious.
 								<br><br>
-								I (TO-DO) have uploaded several productivity utilities written in AutoHotkey which you can download and use on Windows. These are all free, open source, and uploaded to GitHub repositories.
+								I have uploaded several productivity utilities written in AutoHotkey 
+								which you can download and use on Windows Operating Systems. 
+								These are all free, open source, and uploaded to GitHub repositories.
 							</p>	
 						</div>
 					</div>
 
 					<input id="home__collapsible_section_3" class="toggle_collapsible_section" type="checkbox">
-					<label for="home__collapsible_section_3" class="label-toggle_collapsible_section">The Philsophy Blog.</label>
+					<label for="home__collapsible_section_3" class="label-toggle_collapsible_section">The Philosophy Blog.</label>
 					<div class="collapsible_section">
 						<div class="content-inner">							
 							<p>
-								My more casual writing styles can be found in the <a href="/Philosophy.html">Philosophy Blog</a>. There I have assembled some personal essays. For fun, I have also included a few short stories and poems.
+								My more casual writing styles can be found in the <a href="/Philosophy.html" class="nav_ref">Philosophy Blog</a>. There I have assembled some personal essays. For fun, I have also included a few short stories and poems.
 							</p>
 						</div>
 						<div>							
@@ -243,8 +302,8 @@
 							</p>
 							<p>
 								<span class="parenthetical">
-								I write frequently for fun, so keep in mind the writing found in my Philsophy Blog is not catered to any specific audience other than myself.<br><br>
-								It should nevertheless prove to be insightful for potential employers: uninhibited writing tends to reveal the interal methodologies of thought and organization of the author.						
+								I write frequently for fun, so keep in mind the writing found in my Philosophy Blog is not catered to any specific audience other than myself.<br><br>
+								It should nevertheless prove to be insightful for potential employers: uninhibited writing tends to reveal the internal methodologies of thought and organization of the author.						
 								</span>
 							</p>
 						</div>
@@ -275,11 +334,11 @@
 			<h2>I am a writer.</h2>
 			<article>
 					<p>
-						I think incessantly, and as a byproduct: I write a lot.
+						I think incessantly, and as a byproduct I write about many topics in a variety of styles. 
 					</p>
-					<p class="intro_philosopher_linespacing">
-						I've been programming for 15 years, verbosely writing documentation for personal projects 
-						for 10 years, and learning web design since May 2020 <span class="parenthetical">(the month I was furloughed from my job at a book store due to Covid-19)</span>.
+					<p class="increased_bottom_margin">
+						Casually, I enjoy exhaustively and precisely writing on philosophical topics, 
+						but in a professional setting I cater to the tone of the context and the needs of the audience.
 					</p>
 					<!-- 
 							[~] Add overview of strengths with writing styles.
@@ -312,7 +371,8 @@
 								and poetry
 							</li>
 						</ul>
-						I have written at least 240,000 words over the last decade.
+						I have written at least 880,000 words over the last decade. <span class="parenthetical">
+						(Verified word count, but not complete: I will update this occasionally as I sift through my old hard-drives.)</span>
 						<!--
 						Combining all of my personal code + documentation, essays <span class="parenthetical">(on mediacraft, philosophy, ethics, human nature, self improvement, brains, and the subconscious)</span>,
 						notes <span class="parenthetical">(on ideas for future projects, design principles, brainstorms, 
@@ -324,6 +384,10 @@
 			
 			<h2>I am a programmer.</h2>
 			<article>
+				<p>
+					I've been programming for 15 years, verbosely writing documentation for personal projects 
+					for 10 years, and learning web design since May 2020.
+				</p>
 				<p>
 					My main life goal is to create a GNU desktop environment specifically 
 					<span class="parenthetical">(and comprehensively)</span> tailored for education, 
@@ -434,29 +498,49 @@
 			
 			<h2 style="border-bottom: none;">Enjoy =)</h2>
 			
-		</div><!-- .content -->
+		</div><!-- #the_page__main_content -->
 			
 		<!-- sidebar -->
-		<aside id="asideBar">
+		<aside id="asideBar" class="homepage">
 			
-			<p class="skip_bottom_border hide_when_portrait_mode">Welcome to the <span class="asideBar__Home__nav_ref">Home</span> page!</p>
+			<!-- <p class="skip_bottom_border hide_when_portrait_mode">Welcome to the <span class="asideBar__Home__nav_ref">Home</span> page!</p> -->
 			
-			<hr class="hide_when_portrait_mode">
+			<!-- <hr class="hide_when_portrait_mode"> -->
 			
-			<h3 style="text-align:center">Quick Navigation</h3>
+			<h3 style="text-align:center; margin-bottom:15px;">Quick Overview</h3>
 			
-			<p>
-				<a class="nav_ref" href="Documentation.html">Documentation for Projects</a>:<br>
-				Manuals, overviews, and tutorials for my open-source APIs. 
+			
+			<p class="overview_section">
+				<a class="nav_ref" href="Documentation.html">Documentation for Projects</a>:
 			</p>
-			<p>
-				<a class="nav_ref" href="Apps.html">App Gallery</a>:<br>
-				Highlights a few of my personal programs.
+			<a href="Documentation.html">
+				<div id="aside_home_DocumentationPreview"></div>
+			</a>
+			<p class="overview_description">
+				Manuals and walkthroughs for my open-source code. Tutorials for AutoHotkey and Godot. 
 			</p>
-			<p class="skip_bottom_border">
-				<a class="nav_ref" href="Philosophy.html">Philosophy Blog</a>:<br>
+			
+			<p class="overview_section">
+				<a class="nav_ref" href="Apps.html">App Gallery</a>:
+			</p>
+			<a href="Apps.html">
+				<div id="aside_home_GalleryPreview"></div>
+			</a>
+			<p class="overview_description">
+				Highlights! Pictures and summaries of my programs.
+			</p>
+			
+			<p class="overview_section">
+				<a class="nav_ref" href="Philosophy.html">Philosophy Blog</a>:
+			</p>
+			<a href="Philosophy.html">
+				<div id="aside_home_BlogPreview"></div>
+			</a>
+			<p class="overview_description">
 				Thoughts, essays, musing. Topics include game design, habits + human nature, epistemology, and ontology. 
 			</p>
+			
+			<p style="padding-bottom:50px;" class="portrait_padding"></p>
 		</aside><!-- sidebar -->
 		
 	<!-- ==========================================================================

@@ -53,21 +53,21 @@
 	<!-- backdrop + username + navigation strip -->
 	<header id="philosophy_header">
 		<div id="gc_banner">
+			<div id="gc_banner__hire">
+						<li>  <a href="http://localhost:4000/contact.html">Contact for Hire</a>  </li>
+			</div>
 			<a href="http://localhost:4000/contact.html">
 				<div id="gc_banner__logo">
 			
 						<!-- Picture of my favorite controller, 
 							 taken with phone's camera, editied in GNU Krita-->
-						<img class="gc_banner__picture" src="http://localhost:4000/assets/images/avatar_gamepad.coder.png" width="50" height="50">
-						<h1 class="gc_banner__email">
+						<img id="gc_banner__picture" src="http://localhost:4000/assets/images/avatar_gamepad.coder.png" width="50" height="50">
+						<h1 id="gc_banner__email">
 							Gamepad.Coder<span id="gc_banner__email_atSign">@</span>gmail.com
 						</h1>
 				
 				</div>
 			</a>
-			<div id="gc_banner__hire">
-						<li>  <a href="http://localhost:4000/contact.html">Contact for Hire</a>  </li>
-			</div>
 		</div>
 		<nav id="gc_navbar">		
 				<a href="http://localhost:4000/">
@@ -215,7 +215,163 @@
 
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ```````````````````````````````````````````````````````````````````````````````````````````````````
-[v16]                                                           
+[v17]                                                                   [2021_04_21]  @  [09-25 PM]    
+
+
+========
+Summary:
+========
+
+   Polished Home page and fine tuned CSS. 
+   Provided more width for text and main content at smaller resolutions.
+
+   Should make the exerience much nicer and less clausterphobic on phones.
+
+
+========
+Details:
+========
+
+----------------
+< new Content >
+----------------
+│
+├── + [Home page]
+│        │
+│        └──>   [+] Added images to "sticky" sidebar
+└
+
+----------------
+[bugfix]
+----------------
+│
+├── + [Documentation]
+│        │
+│        └──>  Fixed the sidebar not appearing when on the Docs top page.
+│
+│                      Details:
+│
+│              The normal Read-The-Docs sidebar from the Sphinx_RTD_Theme
+│              has a CSS rule "position:fixed;". 
+│              
+│              In order to display the consistent site header at the top of each main page 
+│              (reachable through the navigation buttons at the very top)
+│              I've changed this CSS rule to "position:absolute;". 
+│              
+│              However, as an oversight I forgot to account for the side-effects 
+│              when using this CSS rule on a mobile device or in portrait mode.
+│              
+│              Before this fix, when you pressed the "hamburger" menu button 
+│              (trivia: the name for the menu icon with three horizontal lines)
+│              it was not displaying properly.
+│              
+│              Fortunately, the fix was simple. The RTD Sphinx theme automatically 
+│              appends an additional class named "shift" to the navigation container 
+│              which holds the sidebar (which, whether hidden or not, always
+│              has at least the class "wy-nav-side").
+│
+│              Thanks to the design of the RTD Sphinx theme, there is one CSS rule 
+│              which applies to ".wy-nav-side" to make it absolute, 
+│              and another CSS rule applied to ".wy-nav-side.shift" to make it fixed, 
+│              only when the hamburger button is clicked.
+│              
+│              CSS is incredible and elegant. Can safely say at this point I love it.
+│              
+├── + [Changelog]
+│        │
+│        └──> Forgot to escape HTML tags inside the change log.
+│             I'm using Jekyll to copy my changelog into the Blog Entry #0.
+│             
+│             Since some of the comments refer to Jekyll code, 
+│             the entire block is wrapped in a {&#x25; raw &#x25;} and {&#x25; endraw &#x25;} tag pair,
+│             which tells Jekyll not to process anything in between.
+│             
+│             However, I forgot that HTML will interpret (sometimes) 
+│             additional open tags as the user having forgotten the close div tag, 
+│             and will open a new HTML element in the DOM. 
+│             
+│             Example: 
+│             
+│               "Today I added a new &lt;div&gt;container&lt;/div&gt; for some new feature!"
+│             
+│             When jekyll inserted this div inside the notes into the changelog div in Blog #0
+│             the web browser interpreted the nested notes containing the 
+│             &lt;div&gt;'s as part of the website (sometimes a good feature, here unintentional)
+│             and suddenly the &lt;div id="changelog_box"&gt; (which contains all this text) 
+│             was ended prematurely, and the notes accidentially became HTML code.
+│             
+│             Double-edged sword and whatnot.
+│             
+│             This is now corrected, all future HTML references in the changelog will be
+│             mentioned with entity encodings only, and this changelog page should no longer 
+│             be severely broken :)
+│             
+│             See the file Jekyll inserts into Blog #0 here: https://gamepad-coder.github.io/changelog
+└
+
+----------------
+[polish]
+----------------
+│
+├── + [Home page]
+│        │
+│        ├──>   Updated wordcount after scraping hdd from 2015~2016.
+│        │     
+│        └──>   Brief tone polish + added minor details.
+└
+
+
+----------------
+[CSS Polish]
+----------------
+│
+├── + [Home page]
+│        │
+│        ├──>   Tweaked CSS for Home screen.
+│        │
+│        │      For phones (and when desktop window is resized < 900px wide)
+│        │       └──> Central page block's green border will disappear.
+│        │       └──> Expanded central block width, 
+│        │            to give more screen real-estate
+│        │            the functional portions (text) over the aesthetic portions.
+│        │
+│        │      Minor tweaks:
+│        │       └──> Rewired central block to use a CSS id instead of a class; 
+│        │            changed the central page container 
+│        │            from:    &lt;div class="content"&gt;
+│        │            to:      &lt;div id="the_page__main_content"&gt;.
+│        │            Now page-specific needs can be scoped in the CSS.
+│        │            HTML Example:
+│        │               &lt;div id="the_page__main_content" class="contact_content"&gt;
+│        │            CSS Example:
+│        │               #the_page__main_content.contact_content
+│        │            (The previous implementation was a leftover design
+│        │             from when I was first learning CSS, 
+│        │             this is much cleaner, clearer, and flexible.)
+│        └      
+│        
+├── + [Documentation]
+│        │
+│        └──>   Migrated new CSS changes (above, main site header and expanded width)
+│               to the top Documentation page. 
+│                
+│               (Note: the rest of the Docs use a different, more stereotypical layout.
+│                But the top Docs page has a nav bar that must match the header found
+│                similarly on the Home, Gallery, and Blog pages. 
+│                
+│                This keeps the user oriented when they navigate between these
+│                top pages, and gives the appearance of a continuous "menu", 
+│                no matter the device or orientation.
+│                
+├── + [Blog]
+│        │
+│        └──>   Migrated new CSS changes (above, main site header and expanded width)
+│               to the overall Blog CSS rules.
+└
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+```````````````````````````````````````````````````````````````````````````````````````````````````
+[v16]                                                                   [2021_03_31]  @  [12-03 PM]  
 
 
 ========
@@ -223,6 +379,7 @@ Summary:
 ========
 
    Polished Changelog.
+
 
 ========
 Details:
@@ -300,7 +457,6 @@ https://samprocter.com/2014/06/documenting-a-language-using-a-custom-sphinx-doma
 Summary:
 ========
 
-
    CSS organizational rewrite.
    Homepage polish + site sub-areas described. 
    Homepage expandable/colapsible regions implemented.
@@ -372,6 +528,7 @@ Summary:
 ========
 
    [+] Polished navbar + sidebar + added to Home page's content.
+
 
 ========
 Details:
@@ -448,6 +605,7 @@ Summary:
    Polished "Apps Written".
    -> Linux Framebuffer Console Windows overview
 
+
 ========
 Details:
 ========
@@ -511,6 +669,7 @@ Summary:
    Blog Post #1 update 
    Added Apps Written zoom & js mouse drag
 
+
 ========
 Details:
 ========
@@ -557,6 +716,7 @@ Summary:
    HTML processed output now tweaked to look more natural,
    polished pre-processed and post-processed spacing of Jekyll comments.
 
+
 ========
 Details:
 ========
@@ -597,6 +757,7 @@ Summary:
    Firefox display bugfix.
    Topic "#tags" coloring consistency across site.
    <- Prev & Next -> buttons animated now.
+
 
 ========
 Details:
@@ -670,6 +831,7 @@ Summary:
 ========
 
    Mostly bugfixes & additions to blog sub-site.
+
 
 ========
 Details:
@@ -762,6 +924,7 @@ Summary:
 
    Small Blog sub-site additions + polishing.
 
+
 ========
 Details:
 ========
@@ -789,6 +952,7 @@ Summary:
 
    Changes to Blog's main page:
    polished topics, implemented by time, added page nav bar to blog posts.
+
 
 ========
 Details:
@@ -819,6 +983,7 @@ Summary:
 
    Bugfixes for "file.html/#tag" + missing CSS ';' + fixed footer styling for large screens
 
+
 ========
 Details:
 ========
@@ -845,6 +1010,7 @@ Summary:
    - Jekyll includes
      
    Fancy CSS styling for blog "Tags".
+
 
 ========
 Details:
@@ -883,6 +1049,7 @@ Summary:
 
    Refactored blog into Jekyll, blog polished, consistent CSS across pages
 
+
 ========
 Details:
 ========
@@ -919,6 +1086,7 @@ Summary:
 
    Added Philosophy page ; more tweaks for mobile
 
+
 ========
 Details:
 ========
@@ -938,6 +1106,7 @@ Summary:
 ========
 
    LowQ Contact headers -> now .jpg's ; further mobile support tweaks
+
 
 ========
 Details:
@@ -1002,7 +1171,7 @@ Summary:
 [v4.0.b patch]                                                          [2020_05_20]  @  [08-19 PM]
 
 Patched:
-   - Added <meta charset="UTF-8" />  to <head> in HTML pages.
+   - Added &lt;meta charset="UTF-8" /&gt;  to &lt;head&gt; in HTML pages.
 
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ```````````````````````````````````````````````````````````````````````````````````````````````````
@@ -1014,6 +1183,7 @@ Summary:
  
    --bugfix-- 
    Setting auto margin for flex col breaks sticky sidebar in Firefox (works in Chrome)
+
 
 ========
 Details:
@@ -1042,6 +1212,7 @@ Summary:
    (+) contact page, 
    (+) more screen zoom/size cases
 
+
 ========
 Details:
 ========
@@ -1066,6 +1237,7 @@ Summary:
 
    Pages consistent, mobile(/portrait) view layout support, minor layout tweaks
 
+
 ========
 Details:
 ========
@@ -1075,7 +1247,7 @@ Spent hours yesterday commiting and testing.
 Reverted the extraneous single change commits to stable version before yesterday:
 --> this commit contains all polished changes from yesterday's removed commits, all combined.
 
-Added <meta name="viewport" .. initial-scale=1" ..> for best fit on android phone && tablet.
+Added &lt;meta name="viewport" .. initial-scale=1" ..&gt; for best fit on android phone && tablet.
 (This enables support for the CSS "@media all and (max-width: ..)" selectors.)
 
 Polished code flow of CSS + made comment sections more clear.
@@ -1085,7 +1257,7 @@ main progress and
 exploration yesterday
 -----------------------------
 
-Added a blue background to the body and made the page gradient as a <div> with ID website_background.
+Added a blue background to the body and made the page gradient as a &lt;div&gt; with ID website_background.
 
 Chrome + Firefox on Android (phones + tablets at least) 
 have a (known) glitch due to implementation of the virtual viewport and height calculation :
@@ -1127,6 +1299,7 @@ Summary:
    New:
    sticky sidebar + polished colors
 
+
 ========
 Details:
 ========
@@ -1155,6 +1328,7 @@ Summary:
    Updated (the only) CSS file:
    grouped by type
 
+
 ========
 Details:
 ========
@@ -1178,6 +1352,7 @@ Summary:
 
   First draft. 
   Jekyll installed, but abstractions not utilized yet
+
 
 ========
 Details:

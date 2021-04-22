@@ -53,21 +53,21 @@
 	<!-- backdrop + username + navigation strip -->
 	<header id="philosophy_header">
 		<div id="gc_banner">
+			<div id="gc_banner__hire">
+						<li>  <a href="{{ "/contact.html" | absolute_url }}">Contact for Hire</a>  </li>
+			</div>
 			<a href="{{ "/contact.html" | absolute_url }}">
 				<div id="gc_banner__logo">
 			
 						<!-- Picture of my favorite controller, 
 							 taken with phone's camera, editied in GNU Krita-->
-						<img class="gc_banner__picture" src="{{ "/assets/images/avatar_gamepad.coder.png" | absolute_url }}" width="50" height="50">
-						<h1 class="gc_banner__email">
+						<img id="gc_banner__picture" src="{{ "/assets/images/avatar_gamepad.coder.png" | absolute_url }}" width="50" height="50">
+						<h1 id="gc_banner__email">
 							Gamepad.Coder<span id="gc_banner__email_atSign">@</span>gmail.com
 						</h1>
 				
 				</div>
 			</a>
-			<div id="gc_banner__hire">
-						<li>  <a href="{{ "/contact.html" | absolute_url }}">Contact for Hire</a>  </li>
-			</div>
 		</div>
 		<nav id="gc_navbar">		
 				<a href="{{ "/" | absolute_url }}">
