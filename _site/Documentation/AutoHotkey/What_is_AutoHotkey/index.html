@@ -1,0 +1,716 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>What is AutoHotkey?</title>
+  <!-- <title>What is AutoHotkey? &mdash; NewHTMLtitle</title> /*original*/-->
+  
+
+  
+  <link rel="stylesheet" href="/Documentation/o~DocAssets/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="/Documentation/o~DocAssets/pygments.css" type="text/css" />
+
+  
+	<link rel="icon" 
+		type="image/png" 		
+		href="/assets/images/avatar_favicon_gamepad.coder.png">
+  
+  <!--[if lt IE 9]>
+    <script src="/Documentation/o~DocAssets/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="/Documentation/o~DocAssets/documentation_options.js"></script>
+        <script type="text/javascript" src="/Documentation/o~DocAssets/jquery.js"></script>
+        <script type="text/javascript" src="/Documentation/o~DocAssets/underscore.js"></script>
+        <script type="text/javascript" src="/Documentation/o~DocAssets/doctools.js"></script>
+        <script type="text/javascript" src="/Documentation/o~DocAssets/language_data.js"></script>
+    
+    <script type="text/javascript" src="/Documentation/o~DocAssets/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    
+		
+	<link rel="search" title="Search" href="/Documentation/search.html" />
+    <link rel="next" title="My AutoHotkey Utilities" href="../Utilities/index.html" />
+    <link rel="prev" title="APIs, Manuals, Tutorials" href="/Documentation.html" />
+
+	<link rel="stylesheet" href="/Documentation/o~DocAssets/css/Doc_Subsite.css" type="text/css" />
+
+
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+	
+
+
+	
+  
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+	    
+
+	<a href="/contact.html">
+	<div id="gc_wrapper_pc">
+		<div id="gc_banner__logo">
+
+
+			<img id="gc_banner__picture" src="/assets/images/avatar_gamepad.coder.png" width="50" height="50">
+			<h1 id="gc_banner__email">
+				Gamepad.Coder<span id="gc_banner__email_atSign">@</span>gmail.com
+			</h1>
+
+		</div>
+	</div>
+		</a>	
+			
+			
+	
+<div class="wy-side-nav-search" >
+          
+
+
+          
+			
+          <!--
+            <a href="/Documentation.html" class=""> APIs, Manuals, Tutorials
+		  -->
+          
+
+          
+          <!-- </a> -->
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+			  
+              
+              
+              
+              
+			  
+              
+            
+            
+				<a href="/Documentation.html" class="icon icon-home">&nbsp;Go to Documentation Home</a>
+			        
+			
+              <p class="caption"><a class="caption-manually-inserted-link" href="/Documentation/AutoHotkey/index.html"><span class="caption-text">AutoHotkey:</span></a></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#" style="font-style:italic;">What is AutoHotkey?</a><ul>
+<li class="toctree-l2 samePageSectionHeaderLI"><a class="reference internal samePageSectionHeader" href="#autohotkey-overview">AutoHotkey Overview</a></li>
+<li class="toctree-l2 samePageSectionHeaderLI"><a class="reference internal samePageSectionHeader" href="#resources-for-autohotkey">Resources for AutoHotkey</a></li>
+<li class="toctree-l2 samePageSectionHeaderLI"><a class="reference internal samePageSectionHeader" href="#first-steps-with-autohotkey">First Steps with AutoHotkey</a></li>
+<li class="toctree-l2 samePageSectionHeaderLI"><a class="reference internal samePageSectionHeader" href="#examples-of-what-you-can-do-br-with-short-autohotkey-scripts">Examples of what you can do <br /> with short AutoHotkey scripts:</a></li>
+<li class="toctree-l2 samePageSectionHeaderLI"><a class="reference internal samePageSectionHeader" href="#baking-an-autohotkey-script-br-into-an-executable-file">Baking an AutoHotkey Script <br /> into an Executable File</a></li>
+<li class="toctree-l2 samePageSectionHeaderLI"><a class="reference internal samePageSectionHeader" href="#glossary">Glossary</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Utilities/index.html">My AutoHotkey Utilities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Utilities/Emulate_Numberpad/index.html">Emulate Numberpad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Utilities/Program_Launcher/index.html">Program Launcher</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Utilities/Program_Launcher/User_Guide/index.html">User Guide</a><ul>
+<li class="toctree-l4 samePageSectionHeaderLI"><a class="reference internal samePageSectionHeader" href="../Utilities/Program_Launcher/User_Guide/index.html#basics">Basics</a></li>
+<li class="toctree-l4 samePageSectionHeaderLI"><a class="reference internal samePageSectionHeader" href="../Utilities/Program_Launcher/User_Guide/index.html#how-to-use-the-settings-window">How to Use the Settings Window</a></li>
+<li class="toctree-l4 samePageSectionHeaderLI"><a class="reference internal samePageSectionHeader" href="../Utilities/Program_Launcher/User_Guide/index.html#the-settings-file">The Settings File</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Utilities/Program_Launcher/Code/index.html">Code</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Utilities/Program_Launcher/Code/Walkthrough/index.html">Walkthrough</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Utilities/Program_Launcher/Code/Functions_and_Variables/index.html">Functions and Variables</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../Utilities/Program_Launcher/Code/Functions_and_Variables/Class_Placeholder_1/index.html">Class_PLaceholder_1</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../Utilities/Program_Launcher/Code/Complete_Script/index.html">Complete Script</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><a class="caption-manually-inserted-link" href="/Documentation/Godot/index.html"><span class="caption-text">Godot:</span></a></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../Godot/index.html" style="font-style:italic;">What is Godot?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Godot/HowTo/index.html">How do I &nbsp; <code class="docutils literal notranslate"><span class="pre">(</span>&#160; <span class="pre">?</span>&#160; <span class="pre">)</span></code> &nbsp; in Godot ?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../Godot/Projects/index.html">My Godot Experiments</a></li>
+</ul>
+
+			  
+            
+          
+        </div>
+        
+      </div>
+      
+      <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+          <a href="../Utilities/index.html" class="btn btn-neutral SIDEBAR-NAV-BTN float-right" title="My AutoHotkey Utilities" accesskey="n" rel="next"> <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <a href="/Documentation.html" class="btn btn-neutral SIDEBAR-NAV-BTN float-left" title="APIs, Manuals, Tutorials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> </a>
+      </div>
+
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+		  <a href="/contact.html">Gamepad.Coder@gmail.com</a>
+        
+      </nav>
+
+      
+
+
+	<header id="gc_header">
+				<nav id="gc_navbar">
+					<a href="/" id="navbar_2">
+						<li id="gc_navbar__home">
+							Home
+						</li>
+					</a>
+					<a href="/Documentation.html" id="navbar_3">
+						<li class="gc_navigation_link__current_page">
+							<span id="doc_navbar_button">
+								Documentation for Projects
+							</span>
+						</li>
+						<li class="gc_navigation_link__current_page__toHome">
+							<span id="doc_navbar_button">&nbsp;up to Documentation Home&nbsp;</span>
+						</li>
+					</a>
+					<a href="/Apps.html" id="navbar_4">
+						<li>
+							App Gallery
+						</li>
+					</a><a href="/Philosophy.html" id="navbar_5">
+						<li>
+							Philosophy Blog
+						</li>
+					</a>
+				</nav>
+			
+			</header> <!-- id="gc_header" | css #gc_header -->
+			
+	
+	
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+	  
+      <li>
+		<a href="/Documentation.html" class="icon icon-home" style="color:#2980b9;"></a>&nbsp;<span class="breadcrumb_arrow">&raquo;</span>&nbsp;
+      </li>
+      
+      <li style="
+        font-family: 'Courier New';"
+      >
+	    What is AutoHotkey?
+      </li>
+      
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+			
+			<a href="/Documentation/o~SourceFiles/AutoHotkey/What_is_AutoHotkey/index.rst.txt" rel="nofollow" style="font-size: 14px;"> View page's source<br />(reStructuredText file)</a>
+			
+			
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="what-is-autohotkey">
+<h1>What is AutoHotkey?<a class="headerlink" href="#what-is-autohotkey" title="Permalink to this headline">¶</a></h1>
+<p><br /></p>
+<img alt="ahk_logo__two_rows.svg" src="ahk_logo__two_rows.svg" /><p>AutoHotkey (abbreviated: “AHK” or “ahk”) is a free, open-source programming
+language which wraps low-level procedures and functionality of the Windows
+Operating System into high-level, simplified commands. I am not affiliated with
+AutoHotkey’s development, but I’ve been using and enjoying it for over a decade.</p>
+<p><br /></p>
+<p><br /></p>
+<div class="section" id="autohotkey-overview">
+<h2>AutoHotkey Overview<a class="headerlink" href="#autohotkey-overview" title="Permalink to this headline">¶</a></h2>
+<p>The syntax of AutoHotkey is simple enough that users with no programming
+background can remap key combinations (called <em>hotkeys</em>) to launch their
+favorite applications.</p>
+<p>An AutoHotkey script containing the following 3 lines will launch Window’s
+Notepad.exe whenever the user presses the hotkey <kbd class="kbd docutils literal notranslate">Windows`+:kbd:`F1</kbd> :</p>
+<div class="highlight-AutoHotkey_CustomLexer notranslate"><div class="highlight"><pre><span></span><span class="n">#F1</span><span class="o">::</span>
+       <span class="kr">Run</span><span class="p">,</span> <span class="n">notepad</span><span class="o">.</span><span class="n">exe</span>
+<span class="k">return</span>
+</pre></div>
+</div>
+<p>Starting out, beginners can also assign hotkeys
+to trigger a few cherry-picked <a class="reference external" href="https://www.autohotkey.com/docs/commands/index.htm">AutoHotkey commands</a>.</p>
+<p>Yet AutoHotkey is also robust enough that users have developed more complex applications such as
+word processors, picture galleries, database viewers, web scrapers, and even
+<a class="reference external" href="https://www.autohotkey.com/boards/viewtopic.php?t=6071">procedural fractal art</a>.</p>
+<p>In addition to expediting the jumping-off point for code via hotkeys,
+AutoHotkey also has a feature called <em>hotstrings</em>. With hotstring mapping,
+you can define a simple shorthand phrase that you want to automatically
+expand whenever you type it. For example, you can configure an AutoHotkey script
+to insert the text “for what it’s worth” whenever you type the <em>hotstring</em> “fwiw” and press
+<kbd class="kbd docutils literal notranslate">Enter</kbd> with the following line of code:</p>
+<div class="highlight-AutoHotkey_CustomLexer notranslate"><div class="highlight"><pre><span></span><span class="o">::</span><span class="n">fwiw</span><span class="o">::</span><span class="k">for</span> <span class="n">what</span> <span class="n">it</span>&#39;<span class="n">s</span> <span class="n">worth</span>
+</pre></div>
+</div>
+<p>See the <a class="reference internal" href="#ahkintrohotstringexample"><span class="std std-ref">hotstring example below</span></a> for more details.</p>
+<p>Whether you’re an advanced power user with a million apps you want to bind to
+each function key, a graphic interface designer who wants to prototype some
+basic windows quickly, or if you just want to open your music player faster,
+AutoHotkey has something to offer you.</p>
+<p>To summarize: AutoHotkey is a framework that can help you expedite your common
+workflows, whatever they might be.</p>
+<p><br /></p>
+<p><br /></p>
+</div>
+<div class="section" id="resources-for-autohotkey">
+<h2>Resources for AutoHotkey<a class="headerlink" href="#resources-for-autohotkey" title="Permalink to this headline">¶</a></h2>
+<p><strong>The Community Forums:</strong></p>
+<p>AutoHotkey has been around since 2003. As you learn about, tinker with,
+and explore the AutoHotkey language you can typically find many elegant
+solutions, example scripts, and forum discussions
+for almost every problem you face.</p>
+<p>The community surrounding AutoHotkey is still active, and you can peruse and
+find a wide variety of scripts and tutorials <a class="reference external" href="https://www.autohotkey.com/boards/">on the online AutoHotkey forums</a>
+ranging from simple recipes and solutions for moving and listing windows,
+to technical help with a variety of common syntax mistakes and design hints.
+There are even a few users who have posted comprehensive guides over the years
+describing how to use AutoHotkey’s arrays, objects, classes in great and
+exhaustive detail.</p>
+<p>As you experiment, never be afraid to go to your favorite search engine
+and type in <code class="docutils literal notranslate"><span class="pre">my</span> <span class="pre">topic,</span> <span class="pre">ahk</span></code>. I’ve been surprised by how many high-quality
+AutoHotkey forum posts I’ve consistently found over the years by adding <code class="docutils literal notranslate"><span class="pre">ahk</span></code>
+to an otherwise generic search query.</p>
+<p><strong>The Official Documentation:</strong></p>
+<p>And the <a class="reference external" href="https://www.autohotkey.com/docs/">official documentation for AutoHotkey</a>
+is excellent. The entire manual is extensive but cleanly laid out, and can even be
+read offline using the <code class="docutils literal notranslate"><span class="pre">.chm</span></code> file installed with AutoHotkey. By default this
+help file will be installed to this location on your hard drive: <code class="docutils literal notranslate"><span class="pre">C:\Program</span>
+<span class="pre">Files\AutoHotkey\AutoHotkey.chm</span></code> (for 64-bit
+installations).</p>
+<p><strong>Links to Help You Get Started:</strong></p>
+<p>AutoHotkey is a simple and powerful language. If you’ve never programmed before, it
+can be a fun place to start.</p>
+<p><em>Download and learn more at the official AutoHotkey website:</em></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="38%" />
+<col width="62%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">AutoHotkey Home</div>
+<div class="line">&nbsp; (download here):</div>
+</div>
+</td>
+<td><a class="reference external" href="https://www.autohotkey.com/">https://www.autohotkey.com/</a></td>
+</tr>
+<tr class="row-even"><td>AutoHotkey Manual:</td>
+<td><a class="reference external" href="https://www.autohotkey.com/docs/AutoHotkey.htm">https://www.autohotkey.com/docs/AutoHotkey.htm</a></td>
+</tr>
+<tr class="row-odd"><td>AutoHotkey Forum:</td>
+<td><a class="reference external" href="https://www.autohotkey.com/boards/">https://www.autohotkey.com/boards/</a></td>
+</tr>
+<tr class="row-even"><td><div class="first last line-block">
+<div class="line">AutoHotkey Beginner</div>
+<div class="line">&nbsp; Tutorial:</div>
+</div>
+</td>
+<td><a class="reference external" href="https://www.autohotkey.com/docs/Tutorial.htm">https://www.autohotkey.com/docs/Tutorial.htm</a></td>
+</tr>
+</tbody>
+</table>
+<p><em>Read AutoHotkey’s source code:</em></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="38%" />
+<col width="62%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>AutoHotkey Source Code:</td>
+<td><a class="reference external" href="https://github.com/Lexikos/AutoHotkey_L/">https://github.com/Lexikos/AutoHotkey_L/</a></td>
+</tr>
+</tbody>
+</table>
+<p><em>Read a bit about its history here:</em></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="82%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Wikipedia:</td>
+<td><a class="reference external" href="https://en.wikipedia.org/wiki/AutoHotkey#History">https://en.wikipedia.org/wiki/AutoHotkey#History</a></td>
+</tr>
+<tr class="row-even"><td>History:</td>
+<td><a class="reference external" href="https://www.autohotkey.com/foundation/history.html">https://www.autohotkey.com/foundation/history.html</a></td>
+</tr>
+<tr class="row-odd"><td><div class="first last line-block">
+<div class="line">The transition</div>
+<div class="line">to AutoHotkey_L</div>
+</div>
+</td>
+<td><a class="reference external" href="https://autohotkey.com/board/topic/58864-my-status-and-website-changes/">https://autohotkey.com/board/topic/58864-my-status-and-website-changes/</a></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p>Interested in programming with AutoHotkey? Need a development tool?</p>
+<p>If you install AutoHotkey, you can start coding right away using <code class="docutils literal notranslate"><span class="pre">notepad.exe</span></code>
+which is available on every edition of Windows. But if you want something
+more robust and comfortable….</p>
+<p><strong>For Beginners and Enthusiasts:</strong></p>
+<div class="line-block">
+<div class="line">Look no further than Notepad++!</div>
+<div class="line"><a class="reference external" href="https://notepad-plus-plus.org/">https://notepad-plus-plus.org/</a></div>
+<div class="line"><br /></div>
+<div class="line">If you want to set up syntax-highlighting, the recipe I used can be found here:</div>
+<div class="line"><a class="reference external" href="https://www.autohotkey.com/boards/viewtopic.php?t=50">https://www.autohotkey.com/boards/viewtopic.php?t=50</a></div>
+</div>
+<p><strong>For Advanced Users:</strong></p>
+<div class="line-block">
+<div class="line">Look no further than SciTE4AutoHotkey!</div>
+<div class="line"><a class="reference external" href="https://www.autohotkey.com/scite4ahk/">https://www.autohotkey.com/scite4ahk/</a></div>
+</div>
+<p>SciTE4AHK is an excellent IDE<a class="footnote-reference" href="#id5" id="id1">[2]</a> for
+AutoHotkey. It features built-in code completion<a class="footnote-reference" href="#id6" id="id2">[3]</a> for AHK
+commands, code completion for variables in the currently opened .ahk file,
+syntax-highlighting, a debugger with breakpoints, and variable inspection at
+runtime (including hierarchies of nested objects or arrays).</p>
+<div class="last line-block">
+<div class="line">You can read discussions about its development and history here:</div>
+<div class="line"><a class="reference external" href="https://www.autohotkey.com/boards/viewtopic.php?f=61&amp;t=62">https://www.autohotkey.com/boards/viewtopic.php?f=61&amp;t=62</a></div>
+</div>
+</div>
+<p><br /></p>
+<p><br /></p>
+</div>
+<div class="section" id="first-steps-with-autohotkey">
+<h2>First Steps with AutoHotkey<a class="headerlink" href="#first-steps-with-autohotkey" title="Permalink to this headline">¶</a></h2>
+<p>One of the greatest things about AutoHotkey is you can type some code in a text
+editor like Notepad.exe or Notepad++, give the text file the <code class="docutils literal notranslate"><span class="pre">.ahk</span></code> extension,
+and it automatically becomes an executable script.</p>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p class="last">If you’re interested in trying out AutoHotkey,
+the official documentation has an excellent Beginner Tutorial
+here: <a class="reference external" href="https://www.autohotkey.com/docs/Tutorial.htm">https://www.autohotkey.com/docs/Tutorial.htm</a>.
+(For future reference, this tutorial is listed as <code class="docutils literal notranslate"><span class="pre">Tutorial</span> <span class="pre">(quick</span> <span class="pre">start)</span></code> in
+the AutoHotkey documentation’s table of contents.)</p>
+</div>
+<p>Once you’ve installed AutoHotkey with the official installer, you can write
+AutoHotkey scripts in any text editor.</p>
+<ul class="simple">
+<li>After typing some code, save it with the extension <code class="docutils literal notranslate"><span class="pre">.ahk</span></code>
+and your executable script file will be ready.</li>
+<li>Alternatively, you can save your code as a <code class="docutils literal notranslate"><span class="pre">.txt</span></code> file
+then rename this file in Windows Explorer to have the <code class="docutils literal notranslate"><span class="pre">.ahk</span></code> extension instead
+<em>(for example: renaming my_script.txt to my_script.ahk)</em>. And voila, as soon
+as your file has the <code class="docutils literal notranslate"><span class="pre">.ahk</span></code> extension, your script is ready to run!</li>
+</ul>
+<p>Double-click this file to run your code!</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can exit an AutoHotkey script at any time by right-clicking green “H”
+icon in the Notification Area, then selecting “Exit”. If you have more than
+one AutoHotkey script running, hover over each icon until you see a tooltip
+pop up. The tooltip will display the filename of the running script.</p>
+</div>
+<p><br /></p>
+<p><br /></p>
+</div>
+<div class="section" id="examples-of-what-you-can-do-br-with-short-autohotkey-scripts">
+<h2>Examples of what you can do <br /> with short AutoHotkey scripts:<a class="headerlink" href="#examples-of-what-you-can-do-br-with-short-autohotkey-scripts" title="Permalink to this headline">¶</a></h2>
+<p>Since there is already an amazing <a class="reference external" href="https://www.autohotkey.com/docs/Tutorial.htm">Beginner Tutorial</a>
+inside the official AutoHotkey documentation, I’m not going to reinvent the wheel.</p>
+<p>But to give a better idea of what AutoHotkey can do, and what the syntax looks like,
+I’ve made some examples here. But if you’re looking for where to start,
+download SciTE4AHK, and read the Beginner Tutorial.</p>
+<p>Once you’ve installed AutoHotkey, you can do the following.</p>
+<p><strong>Hotstrings:</strong></p>
+<blockquote>
+<div><ul id="ahkintrohotstringexample">
+<li><p class="first"><strong>Hotstrings:</strong></p>
+<div class="highlight-AutoHotkey_CustomLexer notranslate"><div class="highlight"><pre><span></span><span class="o">::</span><span class="n">btw</span><span class="o">::</span><span class="n">by</span> <span class="n">the</span> <span class="n">way</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">Make a new text file and copy/paste or write the above line. Save the file as “btw.ahk”.</div>
+<div class="line"><br /></div>
+<div class="line">To run your new script, double-click the script in Windows Explorer to run it.
+You will see a little green “H” appear in your Notification Area.</div>
+<div class="line"><br /></div>
+<div class="line">Open a text editor. Type “btw”, then press one of the following “ending
+keys” to trigger the hotstring:</div>
+</div>
+<blockquote>
+<div><ul class="simple">
+<li><kbd class="kbd docutils literal notranslate">Space</kbd></li>
+<li><kbd class="kbd docutils literal notranslate">Enter</kbd></li>
+<li><kbd class="kbd docutils literal notranslate">.</kbd></li>
+</ul>
+</div></blockquote>
+<div class="line-block">
+<div class="line">and your “btw” text will automatically be replaced with the text “by the way”!</div>
+<div class="line"><br /></div>
+<div class="line">If you want to type “btw” without replacing the text, type “btw” then
+press <kbd class="kbd docutils literal notranslate">Esc</kbd> before pressing any other keys to cancel the next keystroke
+from triggering your hotstring.</div>
+<div class="line"><br /></div>
+<div class="line">The hotstring “ending keys” can be configured.</div>
+<div class="line">By default, these are the keys which will trigger a hotstring replacement:</div>
+</div>
+<blockquote>
+<div><ul class="simple">
+<li><kbd class="kbd docutils literal notranslate">Space</kbd>, <kbd class="kbd docutils literal notranslate">Enter</kbd>, <kbd class="kbd docutils literal notranslate">Tab</kbd>
+, <kbd class="kbd docutils literal notranslate">.</kbd> <kbd class="kbd docutils literal notranslate">-</kbd>, <kbd class="kbd docutils literal notranslate">(</kbd>, <kbd class="kbd docutils literal notranslate">)</kbd>, <kbd class="kbd docutils literal notranslate">[</kbd>, <kbd class="kbd docutils literal notranslate">]</kbd>
+, <kbd class="kbd docutils literal notranslate">{</kbd>, <kbd class="kbd docutils literal notranslate">}</kbd>, <kbd class="kbd docutils literal notranslate">'</kbd>, <kbd class="kbd docutils literal notranslate">:</kbd>, <kbd class="kbd docutils literal notranslate">;</kbd>, <kbd class="kbd docutils literal notranslate">&quot;</kbd>
+, <kbd class="kbd docutils literal notranslate">/</kbd>, <kbd class="kbd docutils literal notranslate">\</kbd>, <kbd class="kbd docutils literal notranslate">,</kbd>, <kbd class="kbd docutils literal notranslate">?</kbd>, <kbd class="kbd docutils literal notranslate">!</kbd></li>
+</ul>
+</div></blockquote>
+<p>You can optionally have hotstrings trigger as soon as they are typed by using
+the “asterisk option” like this:</p>
+<div class="highlight-AutoHotkey_CustomLexer notranslate"><div class="highlight"><pre><span></span><span class="o">:*:</span><span class="n">by</span> <span class="n">the</span> <span class="n">way</span><span class="o">::</span><span class="n">by</span> <span class="n">the</span> <span class="n">way</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line">You can read more about hotstrings here:</div>
+<div class="line"><a class="reference external" href="https://www.autohotkey.com/docs/Hotstrings.htm">https://www.autohotkey.com/docs/Hotstrings.htm</a></div>
+</div>
+</li>
+<li><div class="first line-block">
+<div class="line">Hotkeys:</div>
+<div class="line">Remap a key combination to open the Windows Calculator</div>
+</div>
+</li>
+<li><p class="first">Move a window to a specific place on the screen (and optionally resize it at the same time)</p>
+</li>
+<li><p class="first">Move the mouse to a specific coordinate and click (or hold) a mouse button</p>
+</li>
+<li><p class="first">Draw lines, circles, or other images to the screen</p>
+</li>
+<li><p class="first">Create Graphical User Interfaces (“GUIs”) with just a few lines of code</p>
+</li>
+<li><p class="first">Hit F2 to bring up a list of all windows, (optionally including hidden windows),</p>
+<ul class="simple">
+<li>bring any list item you left-click to the foreground</li>
+<li>close any list item you middle-click</li>
+<li>minimize any list item you right-click</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<p><br /></p>
+<p><br /></p>
+</div>
+<div class="section" id="baking-an-autohotkey-script-br-into-an-executable-file">
+<h2>Baking an AutoHotkey Script <br /> into an Executable File<a class="headerlink" href="#baking-an-autohotkey-script-br-into-an-executable-file" title="Permalink to this headline">¶</a></h2>
+<p>You might be saying, “That’s nice and all, but what if I want to make an
+official executable with AutoHotkey to impress my friends?” (Or you might
+be thinking “But what about portability, do I need to make a <code class="docutils literal notranslate"><span class="pre">.zip</span></code> every
+time I want to distribute my code?”)</p>
+<p>The AutoHotkey installer can optionally add a compiler<a class="footnote-reference" href="#id4" id="id3">[1]</a> to your Windows
+Explorer context menu, giving you the ability to bake <code class="docutils literal notranslate"><span class="pre">.ahk</span></code> scripts into a single
+<code class="docutils literal notranslate"><span class="pre">.exe</span></code> executable file. These <code class="docutils literal notranslate"><span class="pre">AutoHotkey</span> <span class="pre">script.exe</span></code> files can either be run
+locally, or shared and run on Windows PCs which do not have AutoHotkey
+installed.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Compiling your <code class="docutils literal notranslate"><span class="pre">.ahk</span></code> scripts into an <code class="docutils literal notranslate"><span class="pre">.exe</span></code> file
+can even be useful if your PC already has AutoHotkey installed.
+For example, if your program spans multiple files then you
+can to bake them all into a single executable for portability or cleanliness.</p>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="glossary">
+<h2>Glossary<a class="headerlink" href="#glossary" title="Permalink to this headline">¶</a></h2>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[1]</a></td><td><p class="first">Compiler:
+A compiler is a program which takes souce code and translates it into another
+programming language. Typically when you hear the phrase “this code was compiled”,
+it means that a human-readable text file was turned into an execuable program
+which can now be launched by a user.</p>
+<p class="last">See: <a class="reference external" href="https://en.wikipedia.org/wiki/Compiler">https://en.wikipedia.org/wiki/Compiler</a>.</p>
+</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id5" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[2]</a></td><td><p class="first">IDE:
+Acronym for Integrated Development Environment.</p>
+<p>Refers to an application which facilitates programming. Typically IDEs
+include tools to assist in productively writing, running, and debugging code.</p>
+<p class="last">See: <a class="reference external" href="https://wikipedia.org/wiki/Integrated_development_environment">https://wikipedia.org/wiki/Integrated_development_environment</a>.</p>
+</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id6" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[3]</a></td><td><p class="first">Code Completion:
+Typically a dropdown list suggesting words or commands based on context.
+Present in many IDEs (and even in some text editors, see <a class="reference external" href="https://notepad-plus-plus.org/">Notepad++</a>). Expedites programming by having the
+software remember and suggest specific variables, functions, and syntax
+conventions.</p>
+<p>For example, if you can only remember part of a function named
+“Cat_Says_Meow()”, you can type the beginning “Cat_Says_”, and code
+completion would present you with a dropdown item containing
+“Cat_Says_Meow()”. Compared to using a simple text editor, this feature
+allows you to remain focused on the present task (instead of sifting and
+searching for a half-remembered phrase, copying or re-memorizing it,
+scrolling back to where you began, then reorienting to your original
+context).</p>
+<p class="last">See: <a class="reference external" href="https://en.wikipedia.org/wiki/Intelligent_code_completion">https://en.wikipedia.org/wiki/Intelligent_code_completion</a>.</p>
+</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <br />
+	<div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../Utilities/index.html" class="btn btn-neutral float-right" title="My AutoHotkey Utilities" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="/Documentation.html" class="btn btn-neutral float-left" title="APIs, Manuals, Tutorials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+  </div>
+
+  <br />
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div><div style="
+    text-align: right;
+	font-size: 11px;
+    ">		
+		&copy; Gamepad.Coder 2021
+		<br>
+		Have a wonderful day.
+	</div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+
+<!-- The detached footer floating below the main central box of the page -->
+<footer class="floating_footer">
+	<p class="floating_footer_copyright">
+		
+		&copy; Gamepad.Coder 2021
+		<br>
+		<br> 
+		Have a wonderful day.
+		
+		<!-- ========================================================
+			 Fun technical detail : 
+			 ========================================================
+				main.css -> 
+				p.copyright{line-height: 1em;}
+			
+			 gives this double <br> a nice amount of vertical space.
+			 ======================================================== 
+		-->
+			 
+	</p>
+</footer><!-- class="floating_footer" | css .floating_footer -->
+
+
+</body>
+</html>

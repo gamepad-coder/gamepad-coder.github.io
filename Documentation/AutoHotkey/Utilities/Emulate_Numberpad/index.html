@@ -1,0 +1,1847 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>emulate_numpad.ahk</title>
+  <!-- <title>emulate_numpad.ahk &mdash; NewHTMLtitle</title> /*original*/-->
+  
+
+  
+  <link rel="stylesheet" href="/Documentation/o~DocAssets/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="/Documentation/o~DocAssets/pygments.css" type="text/css" />
+
+  
+	<link rel="icon" 
+		type="image/png" 		
+		href="/assets/images/avatar_favicon_gamepad.coder.png">
+  
+  <!--[if lt IE 9]>
+    <script src="/Documentation/o~DocAssets/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="/Documentation/o~DocAssets/documentation_options.js"></script>
+        <script type="text/javascript" src="/Documentation/o~DocAssets/jquery.js"></script>
+        <script type="text/javascript" src="/Documentation/o~DocAssets/underscore.js"></script>
+        <script type="text/javascript" src="/Documentation/o~DocAssets/doctools.js"></script>
+        <script type="text/javascript" src="/Documentation/o~DocAssets/language_data.js"></script>
+    
+    <script type="text/javascript" src="/Documentation/o~DocAssets/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    
+		
+	<link rel="search" title="Search" href="/Documentation/search.html" />
+    <link rel="next" title="Program Launcher" href="../Program_Launcher/index.html" />
+    <link rel="prev" title="My AutoHotkey Utilities" href="../index.html" />
+
+	<link rel="stylesheet" href="/Documentation/o~DocAssets/css/Doc_Subsite.css" type="text/css" />
+
+
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+	
+
+
+	
+  
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+	    
+
+	<a href="/contact.html">
+	<div id="gc_wrapper_pc">
+		<div id="gc_banner__logo">
+
+
+			<img id="gc_banner__picture" src="/assets/images/avatar_gamepad.coder.png" width="50" height="50">
+			<h1 id="gc_banner__email">
+				Gamepad.Coder<span id="gc_banner__email_atSign">@</span>gmail.com
+			</h1>
+
+		</div>
+	</div>
+		</a>	
+			
+			
+	
+<div class="wy-side-nav-search" >
+          
+
+
+          
+			
+          <!--
+            <a href="/Documentation.html" class=""> APIs, Manuals, Tutorials
+		  -->
+          
+
+          
+          <!-- </a> -->
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+			  
+              
+              
+              
+              
+			  
+              
+            
+            
+				<a href="/Documentation.html" class="icon icon-home">&nbsp;Go to Documentation Home</a>
+			        
+			
+              <p class="caption"><a class="caption-manually-inserted-link" href="/Documentation/AutoHotkey/index.html"><span class="caption-text">AutoHotkey:</span></a></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../What_is_AutoHotkey/index.html" style="font-style:italic;">What is AutoHotkey?</a><ul>
+<li class="toctree-l2 samePageSectionHeaderLI"><a class="reference internal samePageSectionHeader" href="../../What_is_AutoHotkey/index.html#autohotkey-overview">AutoHotkey Overview</a></li>
+<li class="toctree-l2 samePageSectionHeaderLI"><a class="reference internal samePageSectionHeader" href="../../What_is_AutoHotkey/index.html#resources-for-autohotkey">Resources for AutoHotkey</a></li>
+<li class="toctree-l2 samePageSectionHeaderLI"><a class="reference internal samePageSectionHeader" href="../../What_is_AutoHotkey/index.html#first-steps-with-autohotkey">First Steps with AutoHotkey</a></li>
+<li class="toctree-l2 samePageSectionHeaderLI"><a class="reference internal samePageSectionHeader" href="../../What_is_AutoHotkey/index.html#examples-of-what-you-can-do-br-with-short-autohotkey-scripts">Examples of what you can do <br /> with short AutoHotkey scripts:</a></li>
+<li class="toctree-l2 samePageSectionHeaderLI"><a class="reference internal samePageSectionHeader" href="../../What_is_AutoHotkey/index.html#baking-an-autohotkey-script-br-into-an-executable-file">Baking an AutoHotkey Script <br /> into an Executable File</a></li>
+<li class="toctree-l2 samePageSectionHeaderLI"><a class="reference internal samePageSectionHeader" href="../../What_is_AutoHotkey/index.html#glossary">Glossary</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">My AutoHotkey Utilities</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Emulate Numberpad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Program_Launcher/index.html">Program Launcher</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Program_Launcher/User_Guide/index.html">User Guide</a><ul>
+<li class="toctree-l4 samePageSectionHeaderLI"><a class="reference internal samePageSectionHeader" href="../Program_Launcher/User_Guide/index.html#basics">Basics</a></li>
+<li class="toctree-l4 samePageSectionHeaderLI"><a class="reference internal samePageSectionHeader" href="../Program_Launcher/User_Guide/index.html#how-to-use-the-settings-window">How to Use the Settings Window</a></li>
+<li class="toctree-l4 samePageSectionHeaderLI"><a class="reference internal samePageSectionHeader" href="../Program_Launcher/User_Guide/index.html#the-settings-file">The Settings File</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../Program_Launcher/Code/index.html">Code</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../Program_Launcher/Code/Walkthrough/index.html">Walkthrough</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../Program_Launcher/Code/Functions_and_Variables/index.html">Functions and Variables</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../Program_Launcher/Code/Functions_and_Variables/Class_Placeholder_1/index.html">Class_PLaceholder_1</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../Program_Launcher/Code/Complete_Script/index.html">Complete Script</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><a class="caption-manually-inserted-link" href="/Documentation/Godot/index.html"><span class="caption-text">Godot:</span></a></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../Godot/index.html" style="font-style:italic;">What is Godot?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Godot/HowTo/index.html">How do I &nbsp; <code class="docutils literal notranslate"><span class="pre">(</span>&#160; <span class="pre">?</span>&#160; <span class="pre">)</span></code> &nbsp; in Godot ?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../Godot/Projects/index.html">My Godot Experiments</a></li>
+</ul>
+
+			  
+            
+          
+        </div>
+        
+      </div>
+      
+      <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+          <a href="../Program_Launcher/index.html" class="btn btn-neutral SIDEBAR-NAV-BTN float-right" title="Program Launcher" accesskey="n" rel="next"> <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <a href="../index.html" class="btn btn-neutral SIDEBAR-NAV-BTN float-left" title="My AutoHotkey Utilities" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> </a>
+      </div>
+
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+		  <a href="/contact.html">Gamepad.Coder@gmail.com</a>
+        
+      </nav>
+
+      
+
+
+	<header id="gc_header">
+				<nav id="gc_navbar">
+					<a href="/" id="navbar_2">
+						<li id="gc_navbar__home">
+							Home
+						</li>
+					</a>
+					<a href="/Documentation.html" id="navbar_3">
+						<li class="gc_navigation_link__current_page">
+							<span id="doc_navbar_button">
+								Documentation for Projects
+							</span>
+						</li>
+						<li class="gc_navigation_link__current_page__toHome">
+							<span id="doc_navbar_button">&nbsp;up to Documentation Home&nbsp;</span>
+						</li>
+					</a>
+					<a href="/Apps.html" id="navbar_4">
+						<li>
+							App Gallery
+						</li>
+					</a><a href="/Philosophy.html" id="navbar_5">
+						<li>
+							Philosophy Blog
+						</li>
+					</a>
+				</nav>
+			
+			</header> <!-- id="gc_header" | css #gc_header -->
+			
+	
+	
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+	  
+      <li>
+		<a href="/Documentation.html" class="icon icon-home" style="color:#2980b9;"></a>&nbsp;<span class="breadcrumb_arrow">&raquo;</span>&nbsp;
+      </li>
+      
+          
+	  <li style="
+        font-family: 'Courier New';"
+      >
+		<a href="../index.html" style="color:#2980b9;">My AutoHotkey Utilities</a>&nbsp;<span class="breadcrumb_arrow">&raquo;</span>&nbsp;
+      </li>
+        
+      <li style="
+        font-family: 'Courier New';"
+      >
+	    emulate_numpad.ahk
+      </li>
+      
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+			
+			<a href="/Documentation/o~SourceFiles/AutoHotkey/Utilities/Emulate_Numberpad/index.rst.txt" rel="nofollow" style="font-size: 14px;"> View page's source<br />(reStructuredText file)</a>
+			
+			
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="emulate-numpad-ahk">
+<h1>emulate_numpad.ahk<a class="headerlink" href="#emulate-numpad-ahk" title="Permalink to this headline">¶</a></h1>
+<p>Do you have a keyboard or laptop which doesn’t have a NumberPad? <br />
+This utility can help.</p>
+<div class="video_wrapper">
+    <video class="docs_video" controls loop autoplay muted>
+        <source src="Emulate_Numberpad_Demo.mp4" type="video/mp4">
+    </video>
+</div><p><h2>What does it do?</h2></p>
+<p>The script <code class="docutils literal notranslate"><span class="pre">emulate_numpad.ahk</span></code> has two modes. When turned off, the keyboard
+functions normally. When turned on, the keys <kbd class="kbd docutils literal notranslate">7</kbd> <kbd class="kbd docutils literal notranslate">8</kbd> <kbd class="kbd docutils literal notranslate">9</kbd>
+and the keys below them function as a Number Pad (instead of sending letters).</p>
+<p>This script only has one hotkey, which toggles the Number Pad feature on and off.</p>
+<p>Pressing the hotkey <kbd class="kbd docutils literal notranslate">Right Control</kbd>+<kbd class="kbd docutils literal notranslate">F12</kbd> will turn the following keys</p>
+<ul class="simple">
+<li><kbd class="kbd docutils literal notranslate">*</kbd> <kbd class="kbd docutils literal notranslate">-</kbd> <kbd class="kbd docutils literal notranslate">+</kbd></li>
+<li><kbd class="kbd docutils literal notranslate">7</kbd> <kbd class="kbd docutils literal notranslate">8</kbd> <kbd class="kbd docutils literal notranslate">9</kbd></li>
+<li><kbd class="kbd docutils literal notranslate">u</kbd> <kbd class="kbd docutils literal notranslate">i</kbd> <kbd class="kbd docutils literal notranslate">o</kbd></li>
+<li><kbd class="kbd docutils literal notranslate">j</kbd> <kbd class="kbd docutils literal notranslate">k</kbd> <kbd class="kbd docutils literal notranslate">l</kbd> <kbd class="kbd docutils literal notranslate">Enter</kbd></li>
+<li><kbd class="kbd docutils literal notranslate">m</kbd> <kbd class="kbd docutils literal notranslate">.</kbd> <kbd class="kbd docutils literal notranslate">/</kbd></li>
+</ul>
+<p>into a NumberPad, which sends the following keycodes:</p>
+<ul class="simple">
+<li><kbd class="kbd docutils literal notranslate">Numpad*</kbd> <kbd class="kbd docutils literal notranslate">Numpad-</kbd> <kbd class="kbd docutils literal notranslate">Numpad+</kbd></li>
+<li><kbd class="kbd docutils literal notranslate">Numpad7</kbd> <kbd class="kbd docutils literal notranslate">Numpad8</kbd> <kbd class="kbd docutils literal notranslate">Numpad9</kbd></li>
+<li><kbd class="kbd docutils literal notranslate">Numpad4</kbd> <kbd class="kbd docutils literal notranslate">Numpad5</kbd> <kbd class="kbd docutils literal notranslate">Numpad6</kbd></li>
+<li><kbd class="kbd docutils literal notranslate">Numpad1</kbd> <kbd class="kbd docutils literal notranslate">Numpad2</kbd> <kbd class="kbd docutils literal notranslate">Numpad3</kbd> <kbd class="kbd docutils literal notranslate">NumpadEnter</kbd></li>
+<li><kbd class="kbd docutils literal notranslate">Numpad0</kbd> <kbd class="kbd docutils literal notranslate">Numpad.</kbd> <kbd class="kbd docutils literal notranslate">Numpad/</kbd></li>
+</ul>
+<p>When the NumberPad mode is enabled, you can restore the keyboard to its normal
+state by pressing <kbd class="kbd docutils literal notranslate">Right Control</kbd>+<kbd class="kbd docutils literal notranslate">F12</kbd> again, or by pressing
+<kbd class="kbd docutils literal notranslate">Esc</kbd>.</p>
+<p><h2>Download Here:</h2></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Project Folder <br /></td>
+<td><a class="reference external" href="https://github.com/gamepad-coder/AutoHotkey_Projects/tree/main/Utilities">https://github.com/gamepad-coder/AutoHotkey_Projects/tree</a> <br /><a class="reference external" href="https://github.com/gamepad-coder/AutoHotkey_Projects/tree/main/Utilities">/main/Utilities</a></td>
+</tr>
+<tr class="row-even"><td>Full Script <br />(with Comments &amp; Hints)</td>
+<td><a class="reference external" href="https://github.com/gamepad-coder/AutoHotkey_Projects/blob/main/Utilities/emulate_numpad.ahk">https://github.com/gamepad-coder/AutoHotkey_Projects/blob</a> <br /><a class="reference external" href="https://github.com/gamepad-coder/AutoHotkey_Projects/blob/main/Utilities/emulate_numpad.ahk">/main/Utilities/emulate_numpad.ahk</a></td>
+</tr>
+<tr class="row-odd"><td>Full Script <br />(minimal Comments)</td>
+<td><a class="reference external" href="https://github.com/gamepad-coder/AutoHotkey_Projects/blob/main/Utilities/emulate_numpad.ahk">https://github.com/gamepad-coder/AutoHotkey_Projects/blob</a> <br /><a class="reference external" href="https://github.com/gamepad-coder/AutoHotkey_Projects/blob/main/Utilities/emulate_numpad.without_commentary.ahk">/main/Utilities/emulate_numpad.without_commentary.ahk</a></td>
+</tr>
+</tbody>
+</table>
+<p><h2>Read The Script Here:</h2></p>
+<p>In this section, you can read the entire code for <code class="docutils literal notranslate"><span class="pre">emulate_numpad.ahk</span></code>.</p>
+<p>If you’d like to read the script with a tutorial, click the dropdown <br />
+<em>“emulate_numpad.ahk with commentary”</em>.</p>
+<p>If you’re familiar with AutoHotkey, or if you only want to see the code,
+click the dropdown <br />
+<em>“emulate_numpad.ahk without commentary”</em>.</p>
+<div class="admonition hint">
+<p class="first admonition-title">Hint</p>
+<p>You can expand and contract sections of code in the scripts below.</p>
+<p>By default, I’ve expanded the code but collapsed the more detailed comments.</p>
+<p><details><summary> Look for the blocks that look like this
+<br />&nbsp; &nbsp; &nbsp; and click either the arrow or the text. </summary></p>
+<p><div style="padding-left:60px;"></p>
+<p><br />
+And the code inside that block</p>
+<p>will be revealed!
+</div></p>
+<p></details></p>
+<p class="last">&nbsp;</p>
+</div>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">Include link to setting up the AutoHotkey language highlighter in Notepad++.</p>
+</div>
+<p><div class="collapsible_wrapper">
+<input  id="collapsible_section_1" class="toggle_collapsible_section" type="checkbox">
+<label for="collapsible_section_1" class="label-toggle_collapsible_section">emulate_numpad.ahk <br />with commentary. </label> <div class="collapsible_section"></p>
+<div class="highlight-AutoHotkey_CustomLexer notranslate"><div class="highlight"><pre><span></span><span class="c1">              ;-------------------------------------;</span>
+<span class="c1">              ;                                     ;</span>
+<span class="c1">              ;           PUBLIC DOMAIN             ;</span>
+<span class="c1">              ;                                     ;</span>
+<span class="c1">              ;       This file is released         ;</span>
+<span class="c1">              ;       under the cc0 license.        ;</span>
+<span class="c1">              ;                                     ;</span>
+<span class="c1">              ;-------------------------------------;</span>
+<span class="c1">              ;                                     ;</span>
+<span class="c1">              ;   Written by:                       ;</span>
+<span class="c1">              ;                    Gamepad-Coder    ;</span>
+<span class="c1">              ;                                     ;</span>
+<span class="c1">              ;-------------------------------------;</span>
+<span class="c1">   </span>
+<span class="c1">   </span>
+<span class="c1">   ;-----------------------------------------------------------------------;</span>
+<span class="c1">   ;  emulate_numpad.ahk                                                   ;</span>
+<span class="c1">   ;-----------------------------------------------------------------------;</span>
+<span class="c1">   ;                                                                       ;</span>
+<span class="c1">   ;                                                     version 2         ;</span>
+<span class="c1">   ;                                                                       ;</span>
+<span class="c1">   ;                                        [2021_05_03]  @  [06-02-35 PM] ;</span>
+<span class="c1">   ;-----------------------------------------------------------------------;</span>
+<span class="c1">   </span>
+<span class="c1">   </span>
+<span class="c1">   ;------------------------------------------------------------------;</span>
+<span class="c1">   ;                                                                  ;</span>
+<span class="c1">   ; Credits for a solution:                                          ;</span>
+<span class="c1">   ;                                                                  ;</span>
+<span class="c1">   ;------------------------------------------------------------------;</span>
+<span class="c1">   ; To create a moving ToolTip which doesn&#39;t flicker,                ;</span>
+<span class="c1">   ; I adapted the implementation of:                                 ;</span>
+<span class="c1">   ;                                                                  ;</span>
+<span class="c1">   ;   Function: FFToolTip()                                          ;</span>
+<span class="c1">   ;   Author:   iPhilip                                              ;</span>
+<span class="c1">   ;                                                                  ;</span>
+<span class="c1">   ;   URL: https://www.autohotkey.com/boards/viewtopic.php?t=62607   ;</span>
+<span class="c1">   ;                                                                  ;</span>
+<span class="c1">   ; Other sources of information I used for the adaptation           ;</span>
+<span class="c1">   ; can be found in the label:                                       ;</span>
+<span class="c1">   ;    Timer_refresh_tooltip_location_while_enabled                  ;</span>
+<span class="c1">   ;------------------------------------------------------------------;</span>
+   
+
+<DETAILS class="leading_tabs_0"><SUMMARY><span class="cm">/* ABOUT </span><span class="cm DETAILS_CLOSE_BRACE">*/</span></SUMMARY>
+
+<span class="cm">  *************************************************************************</span>
+<span class="cm">  </span>
+<span class="cm">   ======================</span>
+<span class="cm">      What does it do?</span>
+<span class="cm">   ======================</span>
+<span class="cm">   </span>
+<span class="cm">   This script allows keyboards without a Number Pad (a.k.a. &quot;numpad&quot;) </span>
+<span class="cm">   (for example, 87 key and other &quot;tenkeyless&quot; keyboards)</span>
+<span class="cm">   </span>
+<span class="cm">   to send the same keycodes normally only sendable with the Number Pad.</span>
+
+<span class="cm">   When this script is run, </span>
+<span class="cm">   the keyboard will function normally until a hotkey is pressed </span>
+<span class="cm">   which toggles keyboard functionality.</span>
+
+<span class="cm">   When the default hotkey is pressed &lt;RightControl + F12&gt; </span>
+<span class="cm">   the script calls a label named Toggle_Emulated_Numpad, </span>
+<span class="cm">   which changes what the following keys do:</span>
+
+<span class="cm">       *   -+</span>
+<span class="cm">      789</span>
+<span class="cm">      uio</span>
+<span class="cm">      jkl     Enter</span>
+<span class="cm">      m .  /</span>
+
+<span class="cm">      Note: This chart is an approximation of </span>
+<span class="cm">           the keys located in the main rows of the keyboard.</span>
+<span class="cm">           </span>
+<span class="cm">           *   represents &lt;shift+8&gt;, </span>
+<span class="cm">           -+  are the minus and plus next to the backspace key.</span>
+<span class="cm">           ./  are the keys close to the space bar.</span>
+<span class="cm">   </span>
+<span class="cm">   </span>
+<span class="cm">   </span>
+<span class="cm">   </span>
+<span class="cm">   ============================================</span>
+<span class="cm">      The following keys are remapped when</span>
+<span class="cm">      _emulate_numpad_on is set to true:</span>
+<span class="cm">   ============================================</span>
+<span class="cm">   </span>
+<span class="cm">   - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="cm">   </span>
+<span class="cm">      The keys:</span>
+<span class="cm">      </span>
+<span class="cm">         789</span>
+<span class="cm">         uio</span>
+<span class="cm">         jkl    Enter</span>
+<span class="cm">         m</span>
+<span class="cm">      </span>
+<span class="cm">      will send the NumberPad keycodes for:</span>
+<span class="cm">      </span>
+<span class="cm">         Numpad7 Numpad8 Numpad9</span>
+<span class="cm">         Numpad4 Numpad5 Numpad6</span>
+<span class="cm">         Numpad1 Numpad2 Numpad3   NumpadEnter</span>
+<span class="cm">         Numpad0</span>
+<span class="cm">         </span>
+<span class="cm">   - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="cm">   </span>
+<span class="cm">      The symbol keys:</span>
+<span class="cm">      </span>
+<span class="cm">         *-+</span>
+<span class="cm">         ./</span>
+<span class="cm">      </span>
+<span class="cm">      will send the NumberPad keycodes for:</span>
+<span class="cm">      </span>
+<span class="cm">         NumpadMult NumpadSub NumpadAdd</span>
+<span class="cm">         NumpadDot NumpadDiv</span>
+<span class="cm">      </span>
+<span class="cm">      For ease of use, </span>
+<span class="cm">      the = key will also send NumpadAdd.</span>
+<span class="cm">      </span>
+<span class="cm">   - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="cm">   </span>
+<span class="cm">      The ? key will be remapped </span>
+<span class="cm">      </span>
+<span class="cm">      to show a help message.</span>
+<span class="cm">      </span>
+<span class="cm">   - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="cm">   </span>
+<span class="cm">      </span>
+<span class="cm">   </span>
+<span class="cm">   ============================================================</span>
+<span class="cm">            Turning off NumberPad Emulation </span>
+<span class="cm">   ============================================================</span>
+
+<span class="cm">      There are two ways to exit NumberPad mode:</span>
+<span class="cm">      </span>
+<span class="cm">      (1) When _emulate_numpad_on is enabled, </span>
+<span class="cm">         pressing the toggle hotkey again </span>
+<span class="cm">         will turn off NumberPad emulation.</span>
+<span class="cm">      </span>
+<span class="cm">      (2) Alternatively, you can press the Escape key </span>
+<span class="cm">         to disable the NumberPad emulation.</span>
+<span class="cm">         </span>
+<span class="cm">         This &lt;Esc&gt; toggle-off feature is a failsafe to help:</span>
+<span class="cm">         </span>
+<span class="cm">         (A) users who forget the hotkey, or</span>
+<span class="cm">         (B) users who are using a PC running this script</span>
+<span class="cm">            (who don&#39;t know about the script) </span>
+<span class="cm">            and are wondering why the keyboard </span>
+<span class="cm">            isn&#39;t functioning normally.</span>
+
+
+<span class="cm">      When _emulate_numpad_on is set to false </span>
+<span class="cm">      the keyboard will function normally </span>
+<span class="cm">      except for the hotkey which toggles the script on.</span>
+<span class="cm">      </span>
+<span class="cm">  *************************************************************************</span>
+<span class="cm">  </span>
+<span class="cm DETAILS__INNER_CLOSE_BRACE">*/</span></DETAILS><span class="c1"></span>
+
+
+
+
+<span class="c1">;-----------------------------------------------------------------------------------------------</span>
+
+
+<span class="c1">;================================================;</span>
+<span class="c1">;                                                ;</span>
+<span class="c1">;             begin autorun section              ;</span>
+<span class="c1">;                                                ;</span>
+<span class="c1">;================================================;</span>
+   
+<DETAILS class="leading_tabs_1"><SUMMARY><span class="c1">;---------</span>
+<span class="c1">   ;    ?    ;</span>
+<span class="c1">   ;--------------------------------------------------------- </span></SUMMARY>
+<span class="c1">   ; For more information about the &quot;auto-execute section&quot;   ;</span>
+<span class="c1">   ; at the beginning of an AutoHotkey script, see:          ;</span>
+<span class="c1">   ;     https://www.autohotkey.com/docs/Scripts.htm#auto    ;</span>
+<span class="c1">   ;--------------------------------------------------------- </span></DETAILS>
+
+
+<span class="c1">;---------------------------------------------------------;</span>
+<span class="c1">;                                                         ;</span>
+<span class="c1">; Just for fun.                                           ;</span>
+<span class="c1">;                                                         ;</span>
+<span class="c1">; Menu, Tray, Icon, ...                                   ;</span>
+<span class="c1">;                                                         ;</span>
+<span class="c1">; Changes the default AHK icon in the notification tray   ;</span>
+<span class="c1">; to a picture of a keybaord + monitor.                   ;</span>
+<span class="c1">;                                                         ;</span>
+<span class="c1">; see AHK DOCS -&gt; Menu -&gt; Sub-commands -&gt; Icon            ;</span>
+<span class="c1">;                                                         ;</span>
+<span class="c1">;---------------------------------------------------------;</span>
+
+<span class="kr">Menu</span><span class="p">,</span> <span class="n">Tray</span><span class="p">,</span> <span class="n">Icon</span><span class="p">,</span> <span class="n">Shell32</span><span class="o">.</span><span class="n">dll</span><span class="p">,</span> <span class="mi">174</span><span class="c1"></span>
+
+
+
+<span class="c1">;------------------------------------------------;</span>
+<span class="c1">;    Initialize our toggle boolean variable.     ;</span>
+<span class="c1">;    Start with NumberPad emulation disabled.    ;</span>
+<span class="c1">;------------------------------------------------;</span>
+
+<span class="vc">_emulate_numpad_on</span> <span class="o">:=</span> <span class="nv">false</span>
+
+
+
+<DETAILS class="leading_tabs_0"><SUMMARY><span class="c1">;----------------------------------------------------------------</span>
+<span class="c1">;                                                                ;</span>
+<span class="c1">;                     HELPER TOOLTIP                             ;</span>
+<span class="c1">;                                                                ;</span>
+<span class="c1">;---------------------------------------------------------------- </span></SUMMARY>
+<span class="c1">;                                                                ;</span>
+<span class="c1">; This script features a tooltip which follows the mouse         ;</span>
+<span class="c1">; whenever NumberPad emulation is turned on.                     ;</span>
+<span class="c1">;                                                                ;</span>
+<span class="c1">; It will disappear when Number Pad emulation is toggled off.    ;</span>
+<span class="c1">;                                                                ;</span>
+<span class="c1">;----------------------------------------------------------------;</span>
+<span class="c1">;                                                                ;</span>
+<span class="c1">;  To disable the tooltip which follows the mouse,               ;</span>
+<span class="c1">;  use this line instead:                                        ;</span>
+<span class="c1">;                                                                ;</span>
+<span class="c1">;      _settings__show_persistent_tooltip_when_enabled := false  ;</span>
+<span class="c1">;                                                                ;</span>
+<span class="c1">;----------------------------------------------------------------;</span>
+<span class="c1">;                                                                ;</span>
+<span class="c1">;  If the persistent tooltip is enabled,                         ;</span>
+<span class="c1">;  whenever NumberPad emulation is turned on:                    ;</span>
+<span class="c1">;                                                                ;</span>
+<span class="c1">;   (1)   The tooltip will display a key legend                  ;</span>
+<span class="c1">;         to remind you which keys are remapped.                 ;</span>
+<span class="c1">;                                                                ;</span>
+<span class="c1">;   (2)   F1 will toggle this legend on or off                   ;</span>
+<span class="c1">;                                                                ;</span>
+<span class="c1">;  To hide the key legend by default:                            ;</span>
+<span class="c1">;  use this line instead:                                        ;</span>
+<span class="c1">;                                                                ;</span>
+<span class="c1">;      _settings__show_legend_in_persistent_tooltip := false     ;</span>
+<span class="c1">;                                                                ;</span>
+<span class="c1">;---------------------------------------------------------------- </span></DETAILS>
+
+<span class="vc">_settings__show_persistent_tooltip_when_enabled</span> <span class="o">:=</span> <span class="nv">true</span>
+<span class="vc">_settings__show_legend_in_persistent_tooltip</span>    <span class="o">:=</span> <span class="nv">true</span><span class="c1"></span>
+
+
+<span class="c1">;--------------------------------------------------;</span>
+<span class="c1">; _tooltip_hwnd       Stores the window &quot;handle&quot;   ;</span>
+<span class="c1">;                     for the persistent tooltip.  ;</span>
+<span class="c1">;--------------------------------------------------;</span>
+
+<span class="vc">_tooltip_hwnd</span> <span class="o">:=</span> <span class="s">&quot;&quot;</span><span class="c1"></span>
+
+
+
+<span class="c1">;================================;</span>
+<span class="c1">; &lt;/&gt;  end of autorun section    ;</span>
+<span class="c1">;================================;</span>
+<span class="c1">   </span>
+
+<span class="c1">;-----------------------------------------------------------------------------------------------</span>
+<span class="c1">  </span>
+
+<span class="c1">;================================================;</span>
+<span class="c1">;                                                ;</span>
+<span class="c1">;                   Hotkeys                      ;</span>
+<span class="c1">;                                                ;</span>
+<span class="c1">;================================================;</span>
+
+
+
+<DETAILS class="leading_tabs_0"><SUMMARY><span class="c1">;----------------------------------------------------------------</span>
+<span class="c1">;           Enable or Disable : Numberpad Emulation              ;</span>
+<span class="c1">;---------------------------------------------------------------- </span></SUMMARY>
+<span class="c1">; &gt;^F12::                                                        ;</span>
+<span class="c1">;          will toggle our numpad emulation hotkeys              ;</span>
+<span class="c1">;          on or off when we press &lt;RCtrl+F12&gt;                   ;</span>
+<span class="c1">;                                                                ;</span>
+<span class="c1">; ^   means &quot;the Control modifier key&quot;                           ;</span>
+<span class="c1">; &gt;   means &quot;use the modifier on the right side of the keyboard&quot; ;</span>
+<span class="c1">; &gt;^  means &quot;use the right Control modifier&quot;                     ;</span>
+<span class="c1">;---------------------------------------------------------------- </span></DETAILS>
+
+<span class="o">&gt;^</span><span class="kp">F12</span><span class="o">::</span>
+   <span class="k">gosub</span><span class="p">,</span> <span class="n">Toggle_Emulated_Numpad</span>
+<span class="k">return</span>
+
+<DETAILS class="leading_tabs_2"><SUMMARY><span class="c1">;--------------------------------</span>
+<span class="c1">      ;                                ;</span>
+<span class="c1">      ;  Alternative &quot;Toggle&quot; Hotkey   ;</span>
+<span class="c1">      ;                                ;</span>
+<span class="c1">      ;-------------------------------------------------------- </span></SUMMARY>
+<span class="c1">      ;                                                        ;</span>
+<span class="c1">      ;  Comment the above three lines                         ;</span>
+<span class="c1">      ;     (by adding a &#39;;&#39; to the beginning of the line      ;</span>
+<span class="c1">      ;      to prevent the code from being run).              ;</span>
+<span class="c1">      ;                                                        ;</span>
+<span class="c1">      ;  Then uncomment one of the below blocks of three lines ;</span>
+<span class="c1">      ;  to use a different hotkey.                            ;</span>
+<span class="c1">      ;                                                        ;</span>
+<span class="c1">      ;                                                        ;</span>
+<span class="c1">      ;  Or, if you want to make your own                      ;</span>
+<span class="c1">      ;  but you&#39;re new to AutoHotkey                          ;</span>
+<span class="c1">      ;                                                        ;</span>
+<span class="c1">      ;      check out the official                            ;</span>
+<span class="c1">      ;      AutoHotkey Beginner Tutorial here:                ;</span>
+<span class="c1">      ;      https://www.autohotkey.com/docs/Tutorial.htm#s2   ;</span>
+<span class="c1">      ;                                                        ;</span>
+<span class="c1">      ;--------------------------------------------------------;</span>
+<span class="c1">      </span>
+
+<span class="c1">      ;-----------------------------------------------;</span>
+<span class="c1">      ; To use                                        ;</span>
+<span class="c1">      ;          Win key                              ;</span>
+<span class="c1">      ;          + F12                                ;</span>
+<span class="c1">      ;                                               ;</span>
+<span class="c1">      ; to toggle our emulated numpad mode            ;</span>
+<span class="c1">      ; use these three lines:                        ;</span>
+<span class="c1">      ;-----------------------------------------------;</span>
+<span class="c1">      </span>
+<span class="c1">      ; #F12::  </span>
+<span class="c1">      ;   gosub, Toggle_Emulated_Numpad</span>
+<span class="c1">      ; return</span>
+
+
+
+<span class="c1">      ;---------------------------------------------------------;</span>
+<span class="c1">      ; If your PC only has one Control key (i.e. some laptops) ;</span>
+<span class="c1">      ; but you sill wish to use the Control key and F12        ;</span>
+<span class="c1">      ;                                                         ;</span>
+<span class="c1">      ; you can use                                             ;</span>
+<span class="c1">      ;                                                         ;</span>
+<span class="c1">      ;         any Control key                                 ;</span>
+<span class="c1">      ;         + F12                                           ;</span>
+<span class="c1">      ;                                                         ;</span>
+<span class="c1">      ; by using the following three lines:                     ;</span>
+<span class="c1">      ;---------------------------------------------------------;</span>
+<span class="c1">      </span>
+<span class="c1">      ; ^F12::</span>
+<span class="c1">      ;    gosub, Toggle_Emulated_Numpad</span>
+<span class="c1">      ; return</span>
+
+
+<span class="c1">      ;-------------------------------;</span>
+<span class="c1">      ; &lt;/&gt; Alternative Hotkey Blocks ;</span>
+<span class="c1">      ;------------------------------- </span></DETAILS>
+
+
+<DETAILS class="leading_tabs_0"><SUMMARY><span class="c1">;-------------------------------------------------------------</span>
+<span class="c1">;               Disable : Numberpad Emulation                 ;</span>
+<span class="c1">;------------------------------------------------------------- </span></SUMMARY>
+<span class="c1">; &lt;Esc&gt; is another way to turn off our emulation hotkeys.     ;</span>
+<span class="c1">;-------------------------------------------------------------;</span>
+<span class="c1">; Escape will only turn it off.                               ;</span>
+<span class="c1">; Escape will not turn on NumberPad emulation.                ;</span>
+<span class="c1">;                                                             ;</span>
+<span class="c1">; When the emulator is off, Escape will function like normal. ;</span>
+<span class="c1">; When the emulator is on,  Escape will function like normal, ;</span>
+<span class="c1">;    but our emulator will turn off.                          ;</span>
+<span class="c1">;------------------------------------------------------------- </span></DETAILS>
+
+<DETAILS open class="leading_tabs_0"><SUMMARY><span class="o">~</span><span class="kp">Escape</span><span class="o">::</span>
+<span class="p">{</span><span class="DETAILS_CLOSE_BRACE">}</span></SUMMARY>
+<DETAILS open class="leading_tabs_1"><SUMMARY><span class="k">if</span><span class="ss">(</span> <span class="nv">true</span> <span class="o">==</span> <span class="vc">_emulate_numpad_on</span> <span class="ss">)</span><span class="p">{</span><span class="DETAILS_CLOSE_BRACE">}</span></SUMMARY>
+      <span class="k">gosub</span><span class="p">,</span> <span class="n">Toggle_Emulated_Numpad</span>
+   <span class="p">}</span></DETAILS>
+   <span class="k">return</span>
+<span class="p">}</span></DETAILS>
+
+<DETAILS class="leading_tabs_1"><SUMMARY><span class="c1">;---------</span>
+<span class="c1">   ;    ?    ;</span>
+<span class="c1">   ;-----------------------------------------------------;</span>
+<span class="c1">   ;    What does putting a ~ before a hotkey do?        ;</span>
+<span class="c1">   ;----------------------------------------------------- </span></SUMMARY>
+<span class="c1">   ; DOCS -&gt; &quot;Hotkeys&quot; page -&gt; &quot;Modifier Symbols&quot; -&gt; &quot;~&quot; ;</span>
+<span class="c1">   ;                                                     ;</span>
+<span class="c1">   ;   &quot;When the hotkey fires, its key&#39;s                 ;</span>
+<span class="c1">   ;    native function will not be blocked&quot;             ;</span>
+<span class="c1">   ;                                                     ;</span>
+<span class="c1">   ; https://www.autohotkey.com/docs/Hotkeys.htm#Symbols ;</span>
+<span class="c1">   ;----------------------------------------------------- </span></DETAILS>
+
+
+
+
+<span class="c1">;-------------------------------------------;</span>
+<span class="c1">;                                           ;</span>
+<span class="c1">;           EMULATE  NUMBER PAD             ;</span>
+<span class="c1">;                                           ;</span>
+<span class="c1">;-------------------------------------------;</span>
+<span class="c1">;                                           ;</span>
+<span class="c1">; The following hotkeys are only active     ;</span>
+<span class="c1">; when  _emulate_numpad_on  is set to true. ;</span>
+<span class="c1">;                                           ;</span>
+<span class="c1">;-------------------------------------------;</span>
+
+<DETAILS open class="leading_tabs_0"><SUMMARY><span class="n">#If</span> <span class="ss">(</span><span class="vc">_emulate_numpad_on</span> <span class="o">==</span> <span class="nv">true</span><span class="ss">)</span>
+<span class="p">{</span><span class="DETAILS_CLOSE_BRACE">}</span></SUMMARY>
+   
+   <span class="n">j</span><span class="o">::</span><span class="kp">Numpad1</span>
+   
+   <span class="n">k</span><span class="o">::</span><span class="kp">Numpad2</span>
+   
+   <span class="n">l</span><span class="o">::</span><span class="kp">Numpad3</span>
+   
+   <span class="n">u</span><span class="o">::</span><span class="kp">Numpad4</span>
+   
+   <span class="n">i</span><span class="o">::</span><span class="kp">Numpad5</span>
+   
+   <span class="n">o</span><span class="o">::</span><span class="kp">Numpad6</span>
+   
+   <span class="mi">7</span><span class="o">::</span><span class="kp">Numpad7</span>
+   
+   <span class="mi">8</span><span class="o">::</span><span class="kp">Numpad8</span>
+   
+   <span class="mi">9</span><span class="o">::</span><span class="kp">Numpad9</span>
+   
+   <span class="n">m</span><span class="o">::</span><span class="kp">Numpad0</span><span class="c1"></span>
+<span class="c1">   </span>
+<span class="c1">   ;------------------------------------------------;</span>
+<span class="c1">   ;  Full Support                                  ;</span>
+<span class="c1">   ;------------------------------------------------;</span>
+<span class="c1">   ; If you&#39;re using Blender or another app         ;</span>
+<span class="c1">   ; which uses the numpad for hotkeys              ;</span>
+<span class="c1">   ; then our script will send the following as if  ;</span>
+<span class="c1">   ; they were pressed on the NumberPad:            ;</span>
+<span class="c1">   ;------------------------------------------------;</span>
+   
+   <span class="o">*::</span><span class="kp">NumpadMult</span>
+   
+   <span class="o">/::</span><span class="kp">NumpadDiv</span>
+   
+   <span class="o">-::</span><span class="kp">NumpadSub</span>
+   
+   <span class="o">+::</span><span class="kp">NumpadAdd</span>
+   <span class="o">=::</span><span class="kp">NumpadAdd</span><span class="c1">         ; for ease of use</span>
+   
+   <span class="kp">Enter</span><span class="o">::</span><span class="kp">NumpadEnter</span>
+   
+   <span class="o">.::</span><span class="kp">NumpadDot</span>
+   
+   <span class="o">?::</span><span class="k">gosub</span> <span class="n">Show_Help</span>
+   <span class="kp">F1</span><span class="o">::</span><span class="k">gosub</span> <span class="n">Toggle_Key_Legend</span>
+   
+<span class="p">}</span></DETAILS>
+<span class="nb">#If</span>
+<DETAILS class="leading_tabs_2"><SUMMARY><span class="c1">;--------</span>
+<span class="c1">      ;   ?    ;</span>
+<span class="c1">      ;------------------------------------------------------;</span>
+<span class="c1">      ;     How are these hotkeys conditionally active?      ;</span>
+<span class="c1">      ;------------------------------------------------------ </span></SUMMARY>
+<span class="c1">      ; DOCS -&gt; &quot;Mouse and Keyboard&quot;                         ;</span>
+<span class="c1">      ;      -&gt; &quot;Hotkeys and Hotstrings&quot;                     ;</span>
+<span class="c1">      ;      -&gt; &quot;#If&quot;                                        ;</span>
+<span class="c1">      ;                                                      ;</span>
+<span class="c1">      ;   The #If directive:                                 ;</span>
+<span class="c1">      ;                                                      ;</span>
+<span class="c1">      ;   &quot;Creates context-sensitive hotkeys and hotstrings. ;</span>
+<span class="c1">      ;    Such hotkeys perform a different action           ;</span>
+<span class="c1">      ;    (or none at all) depending on                     ;</span>
+<span class="c1">      ;    the result of an expression.&quot;                     ;</span>
+<span class="c1">      ;                                                      ;</span>
+<span class="c1">      ; https://www.autohotkey.com/docs/commands/_If.htm     ;</span>
+<span class="c1">      ;------------------------------------------------------ </span></DETAILS>
+<span class="c1">   </span>
+<span class="c1">   </span>
+
+<span class="c1">;==================================;</span>
+<span class="c1">; &lt;/&gt;  end of Hotkey definitions   ;</span>
+<span class="c1">;==================================;</span>
+
+
+<span class="c1">;-----------------------------------------------------------------------------------------------</span>
+
+
+<span class="c1">;================================================;</span>
+<span class="c1">;                                                ;</span>
+<span class="c1">;                    Labels                      ;</span>
+<span class="c1">;                                                ;</span>
+<span class="c1">;================================================;</span>
+
+
+<DETAILS class="leading_tabs_0"><SUMMARY><span class="c1">;----------------------------------------------------------------</span>
+<span class="c1">; Toggle_Emulated_Numpad                                         ;</span>
+<span class="c1">;---------------------------------------------------------------- </span></SUMMARY>
+<span class="c1">;                                                                ;</span>
+<span class="c1">; Turn on  Numpad Emulation when it&#39;s off.                       ;</span>
+<span class="c1">; Turn off Numpad Emulation when it&#39;s on.                        ;</span>
+<span class="c1">;                                                                ;</span>
+<span class="c1">; The hotkeys nested above inside the #If directive              ;</span>
+<span class="c1">; will only be triggered when _emulate_numpad_on is set to true. ;</span>
+<span class="c1">;                                                                ;</span>
+<span class="c1">;---------------------------------------------------------------- </span></DETAILS>
+
+<DETAILS open class="leading_tabs_0"><SUMMARY><span class="n">Toggle_Emulated_Numpad</span><span class="o">:</span>
+<span class="p">{</span><span class="DETAILS_CLOSE_BRACE">}</span></SUMMARY>
+<DETAILS class="leading_tabs_1"><SUMMARY><span class="c1">;---------------------------------------------------------</span>
+<span class="c1">   ; Flip the boolean&#39;s state each time we goto this label   ;</span>
+<span class="c1">   ;--------------------------------------------------------- </span></SUMMARY>
+<span class="c1">   ;                                                         ;</span>
+<span class="c1">   ; If it is currently false, it will be set to true.       ;</span>
+<span class="c1">   ; If it is currently true,  it will be set to false.      ;</span>
+<span class="c1">   ;                                                         ;</span>
+<span class="c1">   ;---------------------------------------------------------;</span>
+<span class="c1">   ;                                                         ;</span>
+<span class="c1">   ; This var is used in the directive expression above:     ;</span>
+<span class="c1">   ;                                                         ;</span>
+<span class="c1">   ;      #If (_emulate_numpad_on == true)                   ;</span>
+<span class="c1">   ;                                                         ;</span>
+<span class="c1">   ;--------------------------------------------------------- </span></DETAILS>
+   
+   <span class="vc">_emulate_numpad_on</span> <span class="o">:=</span> <span class="o">!</span><span class="vc">_emulate_numpad_on</span><span class="c1"></span>
+<span class="c1">   </span>
+<span class="c1">   ;-----------------------------;</span>
+<span class="c1">   ;  just for fun, tooltip nfo  ;</span>
+<span class="c1">   ;-----------------------------;</span>
+   
+   <span class="k">gosub</span><span class="p">,</span> <span class="n">Show_User_Tooltip_About_Emulation_State</span>
+   
+   <span class="k">return</span>
+<span class="p">}</span></DETAILS>
+
+
+
+<DETAILS class="leading_tabs_0"><SUMMARY><span class="c1">;------------------------------------------------------------------</span>
+<span class="c1">; Show_User_Tooltip_About_Emulation_State                          ;</span>
+<span class="c1">;------------------------------------------------------------------ </span></SUMMARY>
+<span class="c1">;                                                                  ;</span>
+<span class="c1">; Display info tooltip when NumPad Emulation is turned on or off.  ;</span>
+<span class="c1">;                                                                  ;</span>
+<span class="c1">;------------------------------------------------------------------;</span>
+<span class="c1">;                                                                  ;</span>
+<span class="c1">; If _settings__show_persistent_tooltip_when_enabled == false:     ;</span>
+<span class="c1">;                                                                  ;</span>
+<span class="c1">;    Display a tooltip for 1 second                                ;</span>
+<span class="c1">;    telling the user whether it&#39;s on or off.                      ;</span>
+<span class="c1">;                                                                  ;</span>
+<span class="c1">;    A timer is set to automatically turn the tooltip off          ;</span>
+<span class="c1">;    after 1 second, then the timer itself turns off.              ;</span>
+<span class="c1">;                                                                  ;</span>
+<span class="c1">; If _settings__show_persistent_tooltip_when_enabled == true:      ;</span>
+<span class="c1">;                                                                  ;</span>
+<span class="c1">;    Display a helper tooltip which follows the mouse              ;</span>
+<span class="c1">;    until Numpad Emulation is turned off.                         ;</span>
+<span class="c1">;                                                                  ;</span>
+<span class="c1">;    A timer is set to periodically refresh the location           ;</span>
+<span class="c1">;    of the tooltip window. This tooltip will follow the mouse     ;</span>
+<span class="c1">;    until NumberPad Emulation is toggled off.                     ;</span>
+<span class="c1">;                                                                  ;</span>
+<span class="c1">;------------------------------------------------------------------;</span>
+<span class="c1">;                                                                  ;</span>
+<span class="c1">; Note:                                                            ;</span>
+<span class="c1">;         Timers run in their own threads.                         ;</span>
+<span class="c1">;                                                                  ;</span>
+<span class="c1">;         By using a timer, future hotkeys will not be blocked     ;</span>
+<span class="c1">;                                                                  ;</span>
+<span class="c1">;         and the script can proceed normally without delay.       ;</span>
+<span class="c1">;                                                                  ;</span>
+<span class="c1">;------------------------------------------------------------------ </span></DETAILS>
+
+<DETAILS open class="leading_tabs_0"><SUMMARY><span class="n">Show_User_Tooltip_About_Emulation_State</span><span class="o">:</span>
+<span class="p">{</span><span class="DETAILS_CLOSE_BRACE">}</span></SUMMARY>
+<DETAILS class="leading_tabs_1"><SUMMARY><span class="c1">;---------------------------------------------------------------</span>
+<span class="c1">   ; If the NumberPad Emulation was just turned on:                ;</span>
+<span class="c1">   ;--------------------------------------------------------------- </span></SUMMARY>
+<span class="c1">   ; Then display either:                                          ;</span>
+<span class="c1">   ;                                                               ;</span>
+<span class="c1">   ; (1)  A persistent ToolTip                                     ;</span>
+<span class="c1">   ;      until the NumberPad Emulation is disabled.               ;</span>
+<span class="c1">   ;                                                               ;</span>
+<span class="c1">   ;      Handled by Timer_refresh_tooltip_location_while_enabled. ;</span>
+<span class="c1">   ;                                                               ;</span>
+<span class="c1">   ;  or                                                           ;</span>
+<span class="c1">   ;                                                               ;</span>
+<span class="c1">   ; (2)  A short ToolTip which disappears, notifying the user     ;</span>
+<span class="c1">   ;      that the mode has been turned on.                        ;</span>
+<span class="c1">   ;--------------------------------------------------------------- </span></DETAILS>
+<DETAILS open class="leading_tabs_1"><SUMMARY><span class="k">if</span><span class="ss">(</span> <span class="nv">true</span> <span class="o">==</span> <span class="vc">_emulate_numpad_on</span> <span class="ss">)</span><span class="p">{</span><span class="DETAILS_CLOSE_BRACE">}</span></SUMMARY>
+   
+<DETAILS open class="leading_tabs_2"><SUMMARY><span class="k">if</span><span class="ss">(</span> <span class="vc">_settings__show_persistent_tooltip_when_enabled</span> <span class="ss">)</span><span class="p">{</span><span class="DETAILS_CLOSE_BRACE">}</span></SUMMARY>
+      
+         <span class="kr">SetTimer</span><span class="p">,</span> <span class="n">Timer_refresh_tooltip_location_while_enabled</span><span class="p">,</span> <span class="mi">100</span>
+         
+      <span class="p">}</span></DETAILS>
+<DETAILS open class="leading_tabs_2"><SUMMARY><span class="k">else</span><span class="p">{</span><span class="DETAILS_CLOSE_BRACE">}</span></SUMMARY>
+         <span class="n">toast_message</span> <span class="o">:=</span>  <span class="s">&quot;EMULATED NUMBER PAD&quot;</span>
+         <span class="n">toast_message</span>  <span class="o">.=</span> <span class="s">&quot;</span><span class="se">`n`n`t`t</span><span class="s">&quot;</span>
+         <span class="n">toast_message</span>  <span class="o">.=</span> <span class="s">&quot;[+]   ENABLED!</span><span class="se">`n</span><span class="s">&quot;</span>
+      
+         <span class="kr">ToolTip</span><span class="p">,</span> <span class="vi">%toast_message%</span>
+         
+         <span class="kr">SetTimer</span><span class="p">,</span> <span class="n">Timer_turn_tooltip_off</span><span class="p">,</span> <span class="o">-</span><span class="mi">1500</span>
+      <span class="p">}</span></DETAILS>
+      
+   <span class="p">}</span></DETAILS>
+<DETAILS class="leading_tabs_1"><SUMMARY><span class="c1">;-------------------------------------------------------------</span>
+<span class="c1">   ; Else, if the NumberPad Emulation was just turned off:       ;</span>
+<span class="c1">   ;------------------------------------------------------------- </span></SUMMARY>
+<span class="c1">   ; Then display:                                               ;</span>
+<span class="c1">   ;                                                             ;</span>
+<span class="c1">   ;      A short ToolTip which disappears, notifying the user   ;</span>
+<span class="c1">   ;      that the mode has been turned off.                     ;</span>
+<span class="c1">   ;                                                             ;</span>
+<span class="c1">   ; Whether or not                                              ;</span>
+<span class="c1">   ;                                                             ;</span>
+<span class="c1">   ;     _settings__show_persistent_tooltip_when_enabled         ;</span>
+<span class="c1">   ;                                                             ;</span>
+<span class="c1">   ; is true or false, this off message will be the same.        ;</span>
+<span class="c1">   ;------------------------------------------------------------- </span></DETAILS>
+<DETAILS open class="leading_tabs_1"><SUMMARY><span class="k">else</span> <span class="k">if</span><span class="ss">(</span> <span class="nv">false</span> <span class="o">==</span> <span class="vc">_emulate_numpad_on</span> <span class="ss">)</span><span class="p">{</span><span class="DETAILS_CLOSE_BRACE">}</span></SUMMARY>
+      
+      <span class="n">toast_message</span> <span class="o">:=</span>  <span class="s">&quot;EMULATED NUMBER PAD&quot;</span>
+      <span class="n">toast_message</span>  <span class="o">.=</span> <span class="s">&quot;</span><span class="se">`n`n`t`t</span><span class="s">&quot;</span>
+      <span class="n">toast_message</span>  <span class="o">.=</span> <span class="s">&quot;[-]   disabled.</span><span class="se">`n</span><span class="s">&quot;</span>
+      
+      <span class="kr">ToolTip</span><span class="p">,</span> <span class="vi">%toast_message%</span>
+      
+      <span class="kr">SetTimer</span><span class="p">,</span> <span class="n">Timer_turn_tooltip_off</span><span class="p">,</span> <span class="o">-</span><span class="mi">1500</span>
+      
+   <span class="p">}</span></DETAILS>
+
+<DETAILS class="leading_tabs_1"><SUMMARY><span class="c1">;----------------</span>
+<span class="c1">   ;  About Timers  ;</span>
+<span class="c1">   ;------------------------------------------------------------------- </span></SUMMARY>
+<span class="c1">   ; SetTimer command expects its first parameter                      ;</span>
+<span class="c1">   ;                          to be an unquoted string.                ;</span>
+<span class="c1">   ;                                                                   ;</span>
+<span class="c1">   ; Timer_turn_tooltip_off is the name of a label below               ;</span>
+<span class="c1">   ; which will hide the tooltip.                                      ;</span>
+<span class="c1">   ;                                                                   ;</span>
+<span class="c1">   ; The timer will run this label when the timer reaches 0.           ;</span>
+<span class="c1">   ;                                                                   ;</span>
+<span class="c1">   ; To make the timer wait 1 second (1000ms)                          ;</span>
+<span class="c1">   ;  before turning the label off,                                    ;</span>
+<span class="c1">   ;  set the second parameter (for the timer period) to -1000.        ;</span>
+<span class="c1">   ;                                                                   ;</span>
+<span class="c1">   ; Making the period negative does two things:                       ;</span>
+<span class="c1">   ; (1) Run the timer only once, then disable the timer               ;</span>
+<span class="c1">   ; (2) Wait that number of milliseconds before jumping to the label  ;</span>
+<span class="c1">   ;                                                                   ;</span>
+<span class="c1">   ; When a timer&#39;s period is positive,                                ;</span>
+<span class="c1">   ; it will repeat infinitely until turned off.                       ;</span>
+<span class="c1">   ;------------------------------------------------------------------- </span></DETAILS>
+   
+   
+<DETAILS class="leading_tabs_2"><SUMMARY><span class="c1">;--------</span>
+<span class="c1">      ;   ?    ;</span>
+<span class="c1">      ;-------------------------------------------------------------------;</span>
+<span class="c1">      ;  Why use a timer here?                                            ;</span>
+<span class="c1">      ;------------------------------------------------------------------- </span></SUMMARY>
+<span class="c1">      ; Timers are MUCH better than using                                 ;</span>
+<span class="c1">      ;                                                                   ;</span>
+<span class="c1">      ;    ToolTip, Some literal tooltip text without quotes              ;</span>
+<span class="c1">      ;    Sleep, 1000                                                    ;</span>
+<span class="c1">      ;    ToolTip                                                        ;</span>
+<span class="c1">      ;                                                                   ;</span>
+<span class="c1">      ; Because if you use sleep here,                                    ;</span>
+<span class="c1">      ; the entire current thread will be stuck for 1 second here         ;</span>
+<span class="c1">      ; (or for the number of miliseconds in the Sleep, %param%)          ;</span>
+<span class="c1">      ;                                                                   ;</span>
+<span class="c1">      ; and you would&#39;t be able to do anything with this script           ;</span>
+<span class="c1">      ; til it&#39;s done.                                                    ;</span>
+<span class="c1">      ;                                                                   ;</span>
+<span class="c1">      ; Hotkeys would be blocked,                                         ;</span>
+<span class="c1">      ; including the ability to restore the keyboard                     ;</span>
+<span class="c1">      ; to its normal state.                                              ;</span>
+<span class="c1">      ;                                                                   ;</span>
+<span class="c1">      ; Whenever you use SetTimer, AutoHotkey                             ;</span>
+<span class="c1">      ; creates a new thread for the timer,                               ;</span>
+<span class="c1">      ;                                                                   ;</span>
+<span class="c1">      ; This allows the script&#39;s main thread to continue on immediately.  ;</span>
+<span class="c1">      ;------------------------------------------------------------------- </span></DETAILS>
+      
+   
+   <span class="k">return</span>
+<span class="p">}</span></DETAILS>
+
+
+<DETAILS open class="leading_tabs_0"><SUMMARY><span class="n">Toggle_Key_Legend</span><span class="o">:</span>
+<span class="p">{</span><span class="DETAILS_CLOSE_BRACE">}</span></SUMMARY>
+   <span class="vc">_settings__show_legend_in_persistent_tooltip</span> <span class="o">:=</span> <span class="o">!</span><span class="vc">_settings__show_legend_in_persistent_tooltip</span>
+   <span class="vc">_tooltip_hwnd</span> <span class="o">:=</span> <span class="s">&quot;&quot;</span>
+   <span class="k">return</span>
+<span class="p">}</span></DETAILS><span class="c1"></span>
+
+<span class="c1">         </span>
+<span class="c1">;========================================================================;</span>
+<span class="c1">;                                                                        ;</span>
+<span class="c1">;                                                                        ;</span>
+<span class="c1">;   The following ToolTip code was adapted from the following post:      ;</span>
+<span class="c1">;                                                                        ;</span>
+<span class="c1">;      https://www.autohotkey.com/boards/viewtopic.php?t=62607           ;</span>
+<span class="c1">;                                                                        ;</span>
+<span class="c1">;                                                                        ;</span>
+<span class="c1">;========================================================================;</span>
+
+         
+<DETAILS class="leading_tabs_0"><SUMMARY><span class="c1">;-------------------------------------------------------------------------------------------</span>
+<span class="c1">;                                                                                           ;</span>
+<span class="c1">; URLS : Additional Information                                                             ;</span>
+<span class="c1">;                                                                                           ;</span>
+<span class="c1">;------------------------------------------------------------------------------------------- </span></SUMMARY>
+<span class="c1">;                                                                                           ;</span>
+<span class="c1">; Getting a Script&#39;s own Process ID :                                                       ;</span>
+<span class="c1">;   https://autohotkey.com/board/topic/3770-how-does-a-script-gets-its-own-pid/#entry23653  ;</span>
+<span class="c1">;                                                                                           ;</span>
+<span class="c1">; DetectHiddenWindows (Why it&#39;s necessity here) :                                           ;</span>
+<span class="c1">;   https://autohotkey.com/board/topic/3770-how-does-a-script-gets-its-own-pid/#entry23655  ;</span>
+<span class="c1">;                                                                                           ;</span>
+<span class="c1">; WinGet :                                                                                  ;</span>
+<span class="c1">;   https://www.autohotkey.com/docs/commands/WinGet.htm#PID                                 ;</span>
+<span class="c1">;                                                                                           ;</span>
+<span class="c1">; WinExist :                                                                                ;</span>
+<span class="c1">;   https://www.autohotkey.com/docs/commands/WinExist.htm                                   ;</span>
+<span class="c1">;                                                                                           ;</span>
+<span class="c1">; CoordMode :                                                                               ;</span>
+<span class="c1">;   https://www.autohotkey.com/docs/commands/CoordMode.htm                                  ;</span>
+<span class="c1">;                                                                                           ;</span>
+<span class="c1">; MouseGetPos :                                                                             ;</span>
+<span class="c1">;   https://www.autohotkey.com/docs/commands/MouseGetPos.htm                                ;</span>
+<span class="c1">;                                                                                           ;</span>
+<span class="c1">; SetWinDelay :                                                                             ;</span>
+<span class="c1">;   https://www.autohotkey.com/docs/commands/SetWinDelay.htm                                ;</span>
+<span class="c1">;                                                                                           ;</span>
+<span class="c1">; WinMove :                                                                                 ;</span>
+<span class="c1">;    https://www.autohotkey.com/docs/commands/WinMove.htm                                   ;</span>
+<span class="c1">;                                                                                           ;</span>
+<span class="c1">;                                                                                           ;</span>
+<span class="c1">;------------------------------------------------------------------------------------------- </span></DETAILS>
+
+<DETAILS open class="leading_tabs_0"><SUMMARY><span class="n">Timer_refresh_tooltip_location_while_enabled</span><span class="o">:</span>
+<span class="p">{</span><span class="DETAILS_CLOSE_BRACE">}</span></SUMMARY>
+<DETAILS open class="leading_tabs_1"><SUMMARY><span class="k">if</span><span class="ss">(</span> <span class="nv">true</span> <span class="o">==</span> <span class="vc">_emulate_numpad_on</span> <span class="ss">)</span><span class="p">{</span><span class="DETAILS_CLOSE_BRACE">}</span></SUMMARY>
+   
+<DETAILS open class="leading_tabs_2"><SUMMARY><span class="k">if</span><span class="ss">(</span> <span class="s">&quot;&quot;</span> <span class="o">==</span> <span class="vc">_tooltip_hwnd</span> <span class="ss">)</span><span class="p">{</span><span class="DETAILS_CLOSE_BRACE">}</span></SUMMARY><span class="c1"></span>
+<span class="c1">      </span>
+<span class="c1">         ;----------------------------------------------------------------;</span>
+<span class="c1">         ;                                                                ;</span>
+<span class="c1">         ;  :=  means assign                                              ;</span>
+<span class="c1">         ;  .=  means append right hand side to end of toast_message      ;</span>
+<span class="c1">         ;                                                                ;</span>
+<span class="c1">         ;  `n  inserts a new line                                        ;</span>
+<span class="c1">         ;  `t  inserts a tab character                                   ;</span>
+<span class="c1">         ;                                                                ;</span>
+<span class="c1">         ;----------------------------------------------------------------;</span>
+         
+         <span class="n">toast_message</span> <span class="o">:=</span>   <span class="s">&quot;EMULATED NUMBER PAD&quot;</span>
+         <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;</span><span class="se">`n`n`t`t</span><span class="s">&quot;</span>
+         <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;[+]   ENABLED!</span><span class="se">`n</span><span class="s">&quot;</span>
+         <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;</span><span class="se">`n</span><span class="s">&quot;</span>
+         <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;---------------------------------------------------</span><span class="se">`n</span><span class="s">&quot;</span>
+         <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;Press ?      </span><span class="se">`t</span><span class="s"> for help.                          </span><span class="se">`n</span><span class="s">&quot;</span>
+         <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;Press F1     </span><span class="se">`t</span><span class="s"> to toggle legend.                  </span><span class="se">`n</span><span class="s">&quot;</span>
+         <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;Press Escape </span><span class="se">`t</span><span class="s"> to turn off.                       </span><span class="se">`n</span><span class="s">&quot;</span>
+         <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;---------------------------------------------------&quot;</span>
+         
+<DETAILS open class="leading_tabs_3"><SUMMARY><span class="k">if</span><span class="ss">(</span> <span class="vc">_settings__show_legend_in_persistent_tooltip</span> <span class="ss">)</span><span class="p">{</span><span class="DETAILS_CLOSE_BRACE">}</span></SUMMARY>
+            <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;                                                </span><span class="se">`n</span><span class="s">&quot;</span>
+            <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;                                                </span><span class="se">`n</span><span class="s">&quot;</span>
+            <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;The following keys are remapped right now:      </span><span class="se">`n</span><span class="s">&quot;</span>
+            <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;                                                </span><span class="se">`n</span><span class="s">&quot;</span>
+            <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;      *-+       </span><span class="se">`t</span><span class="s">-&gt;</span><span class="se">`t</span><span class="s"> Numpad(Mult,Sub,Add)     </span><span class="se">`n</span><span class="s">&quot;</span>
+            <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;                                                </span><span class="se">`n</span><span class="s">&quot;</span>
+            <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;     789        </span><span class="se">`t</span><span class="s">-&gt;</span><span class="se">`t</span><span class="s"> Numpad(789)              </span><span class="se">`n</span><span class="s">&quot;</span>
+            <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;     uio        </span><span class="se">`t</span><span class="s">-&gt;</span><span class="se">`t</span><span class="s"> Numpad(456)              </span><span class="se">`n</span><span class="s">&quot;</span>
+            <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;     jkl        Enter&quot;</span>
+            <span class="n">toast_message</span>  <span class="o">.=</span>                  <span class="s">&quot;</span><span class="se">`t</span><span class="s">-&gt;</span><span class="se">`t</span><span class="s"> Numpad(123) Numpad(Enter)</span><span class="se">`n</span><span class="s">&quot;</span>
+            <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;     m          </span><span class="se">`t</span><span class="s">-&gt;</span><span class="se">`t</span><span class="s"> Numpad(0)                </span><span class="se">`n</span><span class="s">&quot;</span>
+            <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;                                                </span><span class="se">`n</span><span class="s">&quot;</span>
+            <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;      ./        </span><span class="se">`t</span><span class="s">-&gt;</span><span class="se">`t</span><span class="s"> Numpad(Dot,Div)          </span><span class="se">`n</span><span class="s">&quot;</span>
+            <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot; &quot;</span>
+         <span class="p">}</span></DETAILS>
+         
+         <span class="kr">ToolTip</span><span class="p">,</span> <span class="vi">%toast_message%</span>
+         
+<DETAILS class="leading_tabs_4"><SUMMARY><span class="c1">;--------</span>
+<span class="c1">            ;   ?    ;</span>
+<span class="c1">            ;------------------------------------------------------------------------------;</span>
+<span class="c1">            ;  Why not rapidly recreate the ToolTip here, using a timer and less code?     ;</span>
+<span class="c1">            ;------------------------------------------------------------------------------ </span></SUMMARY>
+<span class="c1">            ;                                                                              ;</span>
+<span class="c1">            ;     Rapidly calling ToolTip with a timer                                     ;</span>
+<span class="c1">            ;     will result in the ToolTip intensely flickering.                         ;</span>
+<span class="c1">            ;                                                                              ;</span>
+<span class="c1">            ;     When a ToolTip is repositioned with WinMove, it doesn&#39;t flicker.         ;</span>
+<span class="c1">            ;                                                                              ;</span>
+<span class="c1">            ;------------------------------------------------------------------------------ </span></DETAILS>
+         
+         
+         <span class="kr">DetectHiddenWindows</span> <span class="n">on</span>
+         <span class="kr">WinGet</span><span class="p">,</span> <span class="n">scriptPID</span><span class="p">,</span> <span class="n">PID</span><span class="p">,</span> <span class="vi">%A_ScriptFullPath%</span>
+         <span class="vc">_tooltip_hwnd</span> <span class="o">:=</span> <span class="kr">WinExist</span><span class="ss">(</span><span class="s">&quot;ahk_class tooltips_class32 ahk_pid &quot;</span> <span class="n">scriptPID</span><span class="ss">)</span>
+         
+      <span class="p">}</span></DETAILS>
+<DETAILS open class="leading_tabs_2"><SUMMARY><span class="k">else</span><span class="p">{</span><span class="DETAILS_CLOSE_BRACE">}</span></SUMMARY>
+      
+         <span class="kr">CoordMode</span><span class="p">,</span> <span class="n">Mouse</span><span class="p">,</span> <span class="n">Screen</span>
+         <span class="kr">CoordMode</span><span class="p">,</span> <span class="kr">ToolTip</span><span class="p">,</span> <span class="n">Screen</span>
+         <span class="kr">MouseGetPos</span><span class="p">,</span> <span class="n">Output_X</span><span class="p">,</span> <span class="n">Output_Y</span>
+         
+         <span class="n">x_for_tooltip</span> <span class="o">:=</span> <span class="n">Output_X</span> <span class="o">+</span> <span class="mi">10</span> 
+         <span class="n">y_for_tooltip</span> <span class="o">:=</span> <span class="n">Output_Y</span> <span class="o">+</span> <span class="mi">10</span>
+         
+         <span class="kr">SetWinDelay</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span>
+         <span class="kr">WinMove</span><span class="p">,</span> <span class="nn">ahk_id</span> <span class="vi">%_tooltip_hwnd%</span><span class="p">,,</span> <span class="vi">%x_for_tooltip%</span><span class="p">,</span> <span class="vi">%y_for_tooltip%</span>
+         
+      <span class="p">}</span></DETAILS>
+      
+   <span class="p">}</span></DETAILS>
+<DETAILS open class="leading_tabs_1"><SUMMARY><span class="k">else</span><span class="p">{</span><span class="DETAILS_CLOSE_BRACE">}</span></SUMMARY>
+   
+      <span class="k">gosub</span> <span class="n">Timer_turn_tooltip_off</span>
+      
+   <span class="p">}</span></DETAILS>
+   
+   <span class="k">return</span>
+<span class="p">}</span></DETAILS>
+
+
+<DETAILS open class="leading_tabs_0"><SUMMARY><span class="n">Timer_turn_tooltip_off</span><span class="o">:</span> 
+<span class="p">{</span><span class="DETAILS_CLOSE_BRACE">}</span></SUMMARY>
+<DETAILS class="leading_tabs_1"><SUMMARY><span class="c1">;------------</span>
+<span class="c1">   ;    Docs    ;</span>
+<span class="c1">   ;-----------------------------------------------;</span>
+<span class="c1">   ;               Tooltip[, Text]                 ;</span>
+<span class="c1">   ;----------------------------------------------- </span></SUMMARY>
+<span class="c1">   ;                                               ;</span>
+<span class="c1">   ; [Text] parameter :                            ;</span>
+<span class="c1">   ;                                               ;</span>
+<span class="c1">   ;   &quot;If blank or omitted, the existing tooltip  ;</span>
+<span class="c1">   ;     (if any) will be hidden.&quot;                 ;</span>
+<span class="c1">   ;----------------------------------------------- </span></DETAILS>
+
+   <span class="kr">ToolTip</span>
+   <span class="vc">_tooltip_hwnd</span> <span class="o">:=</span> <span class="s">&quot;&quot;</span>
+
+   <span class="k">return</span>
+<span class="p">}</span></DETAILS>
+
+
+<DETAILS open class="leading_tabs_0"><SUMMARY><span class="n">Show_Help</span><span class="o">:</span>
+<span class="p">{</span><span class="DETAILS_CLOSE_BRACE">}</span></SUMMARY>
+   <span class="n">Help_Msg</span> <span class="o">:=</span>  <span class="s">&quot;&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;-----------------------------------</span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;emulate_numpad.ahk   v2            </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;-----------------------------------</span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;                                                </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;NumberPad emulation is currently enabled.       </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;                                                </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;Some keyboard keys have been remapped           </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;to send NumberPad keystrokes                    </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;instead of their normal functionality.          </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;                                                </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;The following keys are remapped right now:      </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;                                                </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;      *-+       </span><span class="se">`t</span><span class="s">-&gt;</span><span class="se">`t</span><span class="s"> Numpad(Mult,Sub,Add)     </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;                                                </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;     789        </span><span class="se">`t</span><span class="s">-&gt;</span><span class="se">`t</span><span class="s"> Numpad(789)              </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;     uio        </span><span class="se">`t</span><span class="s">-&gt;</span><span class="se">`t</span><span class="s"> Numpad(456)              </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;     jkl        Enter&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span>                 <span class="s">&quot;</span><span class="se">`t</span><span class="s">-&gt;</span><span class="se">`t</span><span class="s"> Numpad(123) Numpad(Enter)</span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;     m          </span><span class="se">`t</span><span class="s">-&gt;</span><span class="se">`t</span><span class="s"> Numpad(0)                </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;                                                </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;      ./        </span><span class="se">`t</span><span class="s">-&gt;</span><span class="se">`t</span><span class="s"> Numpad(Dot,Div)          </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;                                                </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;     (?)        </span><span class="se">`t</span><span class="s">-&gt;</span><span class="se">`t</span><span class="s"> shows this help box      </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;                                                </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;Press the &lt;Escape&gt; key                          </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;to exit this mode                               </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;and return the Keyboard to normal               </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;                                                </span><span class="se">`n</span><span class="s">&quot;</span>
+   
+   <span class="n">Option_QuestionMark</span> <span class="o">:=</span> <span class="mi">32</span>
+   <span class="n">op</span> <span class="o">:=</span> <span class="n">Option_QuestionMark</span>
+   <span class="n">title</span> <span class="o">:=</span> <span class="s">&quot;( HELP )  emulate_numpad.ahk&quot;</span>
+   
+   <span class="kr">MsgBox</span><span class="p">,</span> <span class="o">%</span> <span class="n">op</span><span class="p">,</span> <span class="vi">%title%</span><span class="p">,</span> <span class="vi">%Help_Msg%</span>
+   
+   <span class="k">return</span> 
+<span class="p">}</span></DETAILS><span class="c1"></span>
+
+
+<span class="c1">;===============================;</span>
+<span class="c1">; &lt;/&gt;   end of Label section    ;</span>
+<span class="c1">;===============================;</span>
+
+
+<span class="c1">;-----------------------------------------------------------------------------------------------</span>
+
+
+<span class="c1">;------------------------------------------;---------------;</span>
+<span class="c1">;  end of file,   emulate_numpad.ahk       ;      cc0      ;</span>
+<span class="c1">;------------------------------------------;---------------;</span>
+   
+
+<DETAILS class="leading_tabs_0"><SUMMARY><span class="cm">/* Fun Tweak: </span><span class="cm DETAILS_CLOSE_BRACE">*/</span></SUMMARY>
+
+<span class="cm">   ===============================================================</span>
+<span class="cm">   Just for fun.</span>
+<span class="cm">   ===============================================================</span>
+
+<span class="cm">      If you have a Scroll Lock key on your laptop </span>
+<span class="cm">      AND if you have an LED that lights up when you press it:</span>
+<span class="cm">      </span>
+<span class="cm">      you can configure this script to turn on the ScrollLock LED </span>
+<span class="cm">      whenever the NumberPad Emulation mode is enabled.</span>
+<span class="cm">   </span>
+<span class="cm">      </span>
+<span class="cm">      =========================================================</span>
+<span class="cm">      Change the toggle Label to this :</span>
+<span class="cm">      =========================================================</span>
+
+
+<span class="cm">         Toggle_Emulated_Numpad:</span>
+<span class="cm">            </span>
+<span class="cm">            _emulate_numpad_on := !_emulate_numpad_on</span>
+<span class="cm">            </span>
+<span class="cm">            ;---------------------------------;</span>
+<span class="cm">            ;  Just for fun, scroll lock LED  ;</span>
+<span class="cm">            ;---------------------------------;</span>
+<span class="cm">            </span>
+<span class="cm">            gosub, Toggle_ScrollLock_LED</span>
+<span class="cm">            </span>
+<span class="cm">            gosub, Show_User_Tooltip_About_Emulation_State</span>
+<span class="cm">            </span>
+<span class="cm">         return </span>
+<span class="cm">            </span>
+<span class="cm">            </span>
+<span class="cm">      =========================================================</span>
+<span class="cm">      And add the following label : </span>
+<span class="cm">      =========================================================</span>
+<span class="cm">      </span>
+<span class="cm">         Toggle_ScrollLock_LED:</span>
+<span class="cm">               </span>
+<span class="cm">4t_ if( _emulate_numpad_on ){ </span>
+<span class="cm">               </span>
+<span class="cm">               SetScrollLockState, On</span>
+<span class="cm">               </span>
+<span class="cm">            } </span>
+<span class="cm">4t_ else if( false == _emulate_numpad_on ){ </span>
+<span class="cm">               </span>
+<span class="cm">               SetScrollLockState, Off</span>
+<span class="cm">               </span>
+<span class="cm">            } </span>
+<span class="cm">            </span>
+<span class="cm">         return</span>
+
+<span class="cm DETAILS__INNER_CLOSE_BRACE">*/</span></DETAILS>
+</pre></div>
+</div>
+<p></div>
+</div></p>
+<p><div class="collapsible_wrapper">
+<input  id="collapsible_section_2" class="toggle_collapsible_section" type="checkbox">
+<label for="collapsible_section_2" class="label-toggle_collapsible_section">emulate_numpad.ahk <br />without commentary. </label> <div class="collapsible_section"></p>
+<div class="highlight-AutoHotkey_CustomLexer notranslate"><div class="highlight"><pre><span></span><span class="c1">              ;-------------------------------------;</span>
+<span class="c1">              ;                                     ;</span>
+<span class="c1">              ;           PUBLIC DOMAIN             ;</span>
+<span class="c1">              ;                                     ;</span>
+<span class="c1">              ;       This file is released         ;</span>
+<span class="c1">              ;       under the cc0 license.        ;</span>
+<span class="c1">              ;                                     ;</span>
+<span class="c1">              ;-------------------------------------;</span>
+<span class="c1">              ;                                     ;</span>
+<span class="c1">              ;   Written by:                       ;</span>
+<span class="c1">              ;                    Gamepad-Coder    ;</span>
+<span class="c1">              ;                                     ;</span>
+<span class="c1">              ;-------------------------------------;</span>
+<span class="c1">   </span>
+<span class="c1">   </span>
+<span class="c1">   ;-----------------------------------------------------------------------;</span>
+<span class="c1">   ;  emulate_numpad.ahk                                                   ;</span>
+<span class="c1">   ;-----------------------------------------------------------------------;</span>
+<span class="c1">   ;                                                                       ;</span>
+<span class="c1">   ;                                                     version 2         ;</span>
+<span class="c1">   ;                                                                       ;</span>
+<span class="c1">   ;                                        [2021_05_03]  @  [06-02-35 PM] ;</span>
+<span class="c1">   ;-----------------------------------------------------------------------;</span>
+<span class="c1">   </span>
+<span class="c1">   </span>
+<span class="c1">   ;------------------------------------------------------------------;</span>
+<span class="c1">   ;                                                                  ;</span>
+<span class="c1">   ; Credits for a solution:                                          ;</span>
+<span class="c1">   ;                                                                  ;</span>
+<span class="c1">   ;------------------------------------------------------------------;</span>
+<span class="c1">   ; To create a moving ToolTip which doesn&#39;t flicker,                ;</span>
+<span class="c1">   ; I adapted the implementation of:                                 ;</span>
+<span class="c1">   ;                                                                  ;</span>
+<span class="c1">   ;   Function: FFToolTip()                                          ;</span>
+<span class="c1">   ;   Author:   iPhilip                                              ;</span>
+<span class="c1">   ;                                                                  ;</span>
+<span class="c1">   ;   URL: https://www.autohotkey.com/boards/viewtopic.php?t=62607   ;</span>
+<span class="c1">   ;                                                                  ;</span>
+<span class="c1">   ; Other sources of information I used for the adaptation           ;</span>
+<span class="c1">   ; can be found in the label:                                       ;</span>
+<span class="c1">   ;    Timer_refresh_tooltip_location_while_enabled                  ;</span>
+<span class="c1">   ;------------------------------------------------------------------;</span>
+   
+
+<DETAILS class="leading_tabs_0"><SUMMARY><span class="cm">/* ABOUT </span><span class="cm DETAILS_CLOSE_BRACE">*/</span></SUMMARY>
+
+<span class="cm">  *************************************************************************</span>
+<span class="cm">  </span>
+<span class="cm">   ======================</span>
+<span class="cm">      What does it do?</span>
+<span class="cm">   ======================</span>
+<span class="cm">   </span>
+<span class="cm">   This script allows keyboards without a Number Pad (a.k.a. &quot;numpad&quot;) </span>
+<span class="cm">   (for example, 87 key and other &quot;tenkeyless&quot; keyboards)</span>
+<span class="cm">   </span>
+<span class="cm">   to send the same keycodes normally only sendable with the Number Pad.</span>
+
+<span class="cm">   When this script is run, </span>
+<span class="cm">   the keyboard will function normally until a hotkey is pressed </span>
+<span class="cm">   which toggles keyboard functionality.</span>
+
+<span class="cm">   When the default hotkey is pressed &lt;RightControl + F12&gt; </span>
+<span class="cm">   the script calls a label named Toggle_Emulated_Numpad, </span>
+<span class="cm">   which changes what the following keys do:</span>
+
+<span class="cm">       *   -+</span>
+<span class="cm">      789</span>
+<span class="cm">      uio</span>
+<span class="cm">      jkl     Enter</span>
+<span class="cm">      m .  /</span>
+
+<span class="cm">      Note: This chart is an approximation of </span>
+<span class="cm">           the keys located in the main rows of the keyboard.</span>
+<span class="cm">           </span>
+<span class="cm">           *   represents &lt;shift+8&gt;, </span>
+<span class="cm">           -+  are the minus and plus next to the backspace key.</span>
+<span class="cm">           ./  are the keys close to the space bar.</span>
+<span class="cm">   </span>
+<span class="cm">   </span>
+<span class="cm">   </span>
+<span class="cm">   </span>
+<span class="cm">   ============================================</span>
+<span class="cm">      The following keys are remapped when</span>
+<span class="cm">      _emulate_numpad_on is set to true:</span>
+<span class="cm">   ============================================</span>
+<span class="cm">   </span>
+<span class="cm">   - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="cm">   </span>
+<span class="cm">      The keys:</span>
+<span class="cm">      </span>
+<span class="cm">         789</span>
+<span class="cm">         uio</span>
+<span class="cm">         jkl    Enter</span>
+<span class="cm">         m</span>
+<span class="cm">      </span>
+<span class="cm">      will send the NumberPad keycodes for:</span>
+<span class="cm">      </span>
+<span class="cm">         Numpad7 Numpad8 Numpad9</span>
+<span class="cm">         Numpad4 Numpad5 Numpad6</span>
+<span class="cm">         Numpad1 Numpad2 Numpad3   NumpadEnter</span>
+<span class="cm">         Numpad0</span>
+<span class="cm">         </span>
+<span class="cm">   - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="cm">   </span>
+<span class="cm">      The symbol keys:</span>
+<span class="cm">      </span>
+<span class="cm">         *-+</span>
+<span class="cm">         ./</span>
+<span class="cm">      </span>
+<span class="cm">      will send the NumberPad keycodes for:</span>
+<span class="cm">      </span>
+<span class="cm">         NumpadMult NumpadSub NumpadAdd</span>
+<span class="cm">         NumpadDot NumpadDiv</span>
+<span class="cm">      </span>
+<span class="cm">      For ease of use, </span>
+<span class="cm">      the = key will also send NumpadAdd.</span>
+<span class="cm">      </span>
+<span class="cm">   - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="cm">   </span>
+<span class="cm">      The ? key will be remapped </span>
+<span class="cm">      </span>
+<span class="cm">      to show a help message.</span>
+<span class="cm">      </span>
+<span class="cm">   - - - - - - - - - - - - - - - - - - - - - - - -</span>
+<span class="cm">   </span>
+<span class="cm">      </span>
+<span class="cm">   </span>
+<span class="cm">   ============================================================</span>
+<span class="cm">            Turning off NumberPad Emulation </span>
+<span class="cm">   ============================================================</span>
+
+<span class="cm">      There are two ways to exit NumberPad mode:</span>
+<span class="cm">      </span>
+<span class="cm">      (1) When _emulate_numpad_on is enabled, </span>
+<span class="cm">         pressing the toggle hotkey again </span>
+<span class="cm">         will turn off NumberPad emulation.</span>
+<span class="cm">      </span>
+<span class="cm">      (2) Alternatively, you can press the Escape key </span>
+<span class="cm">         to disable the NumberPad emulation.</span>
+<span class="cm">         </span>
+<span class="cm">         This &lt;Esc&gt; toggle-off feature is a failsafe to help:</span>
+<span class="cm">         </span>
+<span class="cm">         (A) users who forget the hotkey, or</span>
+<span class="cm">         (B) users who are using a PC running this script</span>
+<span class="cm">            (who don&#39;t know about the script) </span>
+<span class="cm">            and are wondering why the keyboard </span>
+<span class="cm">            isn&#39;t functioning normally.</span>
+
+
+<span class="cm">      When _emulate_numpad_on is set to false </span>
+<span class="cm">      the keyboard will function normally </span>
+<span class="cm">      except for the hotkey which toggles the script on.</span>
+<span class="cm">      </span>
+<span class="cm">  *************************************************************************</span>
+<span class="cm">  </span>
+<span class="cm DETAILS__INNER_CLOSE_BRACE">*/</span></DETAILS><span class="c1"></span>
+
+
+
+
+<span class="c1">;-----------------------------------------------------------------------------------------------</span>
+
+
+<span class="kr">Menu</span><span class="p">,</span> <span class="n">Tray</span><span class="p">,</span> <span class="n">Icon</span><span class="p">,</span> <span class="n">Shell32</span><span class="o">.</span><span class="n">dll</span><span class="p">,</span> <span class="mi">174</span>
+
+<span class="vc">_emulate_numpad_on</span> <span class="o">:=</span> <span class="nv">false</span>
+
+
+<span class="vc">_settings__show_persistent_tooltip_when_enabled</span> <span class="o">:=</span> <span class="nv">true</span>
+<span class="vc">_settings__show_legend_in_persistent_tooltip</span>    <span class="o">:=</span> <span class="nv">true</span>
+<span class="vc">_tooltip_hwnd</span> <span class="o">:=</span> <span class="s">&quot;&quot;</span><span class="c1"></span>
+
+
+<span class="c1">;-----------------------------------------------------------------------------------------------</span>
+<span class="c1">  </span>
+
+<span class="c1">;================================================;</span>
+<span class="c1">;                                                ;</span>
+<span class="c1">;                   Hotkeys                      ;</span>
+<span class="c1">;                                                ;</span>
+<span class="c1">;================================================;</span>
+
+
+<span class="o">&gt;^</span><span class="kp">F12</span><span class="o">::</span>
+   <span class="k">gosub</span><span class="p">,</span> <span class="n">Toggle_Emulated_Numpad</span>
+<span class="k">return</span>
+
+
+<DETAILS open class="leading_tabs_0"><SUMMARY><span class="o">~</span><span class="kp">Escape</span><span class="o">::</span>
+<span class="p">{</span><span class="DETAILS_CLOSE_BRACE">}</span></SUMMARY>
+<DETAILS open class="leading_tabs_1"><SUMMARY><span class="k">if</span><span class="ss">(</span> <span class="nv">true</span> <span class="o">==</span> <span class="vc">_emulate_numpad_on</span> <span class="ss">)</span><span class="p">{</span><span class="DETAILS_CLOSE_BRACE">}</span></SUMMARY>
+      <span class="k">gosub</span><span class="p">,</span> <span class="n">Toggle_Emulated_Numpad</span>
+   <span class="p">}</span></DETAILS>
+   <span class="k">return</span>
+<span class="p">}</span></DETAILS>
+
+
+<DETAILS open class="leading_tabs_0"><SUMMARY><span class="n">#If</span> <span class="ss">(</span><span class="vc">_emulate_numpad_on</span> <span class="o">==</span> <span class="nv">true</span><span class="ss">)</span>
+<span class="p">{</span><span class="DETAILS_CLOSE_BRACE">}</span></SUMMARY>
+   
+   <span class="n">j</span><span class="o">::</span><span class="kp">Numpad1</span>
+   
+   <span class="n">k</span><span class="o">::</span><span class="kp">Numpad2</span>
+   
+   <span class="n">l</span><span class="o">::</span><span class="kp">Numpad3</span>
+   
+   <span class="n">u</span><span class="o">::</span><span class="kp">Numpad4</span>
+   
+   <span class="n">i</span><span class="o">::</span><span class="kp">Numpad5</span>
+   
+   <span class="n">o</span><span class="o">::</span><span class="kp">Numpad6</span>
+   
+   <span class="mi">7</span><span class="o">::</span><span class="kp">Numpad7</span>
+   
+   <span class="mi">8</span><span class="o">::</span><span class="kp">Numpad8</span>
+   
+   <span class="mi">9</span><span class="o">::</span><span class="kp">Numpad9</span>
+   
+   <span class="n">m</span><span class="o">::</span><span class="kp">Numpad0</span>
+   
+   <span class="o">*::</span><span class="kp">NumpadMult</span>
+   
+   <span class="o">/::</span><span class="kp">NumpadDiv</span>
+   
+   <span class="o">-::</span><span class="kp">NumpadSub</span>
+   
+   <span class="o">+::</span><span class="kp">NumpadAdd</span>
+   <span class="o">=::</span><span class="kp">NumpadAdd</span><span class="c1">         ; for ease of use</span>
+   
+   <span class="kp">Enter</span><span class="o">::</span><span class="kp">NumpadEnter</span>
+   
+   <span class="o">.::</span><span class="kp">NumpadDot</span>
+   
+   <span class="o">?::</span><span class="k">gosub</span> <span class="n">Show_Help</span>
+   <span class="kp">F1</span><span class="o">::</span><span class="k">gosub</span> <span class="n">Toggle_Key_Legend</span>
+   
+<span class="p">}</span></DETAILS>
+<span class="nb">#If</span><span class="c1"></span>
+
+
+<span class="c1">;==================================;</span>
+<span class="c1">; &lt;/&gt;  end of Hotkey definitions   ;</span>
+<span class="c1">;==================================;</span>
+
+
+<span class="c1">;-----------------------------------------------------------------------------------------------</span>
+
+
+<span class="c1">;================================================;</span>
+<span class="c1">;                                                ;</span>
+<span class="c1">;                    Labels                      ;</span>
+<span class="c1">;                                                ;</span>
+<span class="c1">;================================================;</span>
+
+
+<DETAILS open class="leading_tabs_0"><SUMMARY><span class="n">Toggle_Emulated_Numpad</span><span class="o">:</span>
+<span class="p">{</span><span class="DETAILS_CLOSE_BRACE">}</span></SUMMARY>
+   
+   <span class="vc">_emulate_numpad_on</span> <span class="o">:=</span> <span class="o">!</span><span class="vc">_emulate_numpad_on</span>
+   <span class="k">gosub</span><span class="p">,</span> <span class="n">Show_User_Tooltip_About_Emulation_State</span>
+   
+   <span class="k">return</span>
+<span class="p">}</span></DETAILS>
+
+<DETAILS open class="leading_tabs_0"><SUMMARY><span class="n">Show_User_Tooltip_About_Emulation_State</span><span class="o">:</span>
+<span class="p">{</span><span class="DETAILS_CLOSE_BRACE">}</span></SUMMARY>
+<DETAILS open class="leading_tabs_1"><SUMMARY><span class="k">if</span><span class="ss">(</span> <span class="nv">true</span> <span class="o">==</span> <span class="vc">_emulate_numpad_on</span> <span class="ss">)</span><span class="p">{</span><span class="DETAILS_CLOSE_BRACE">}</span></SUMMARY>
+   
+<DETAILS open class="leading_tabs_2"><SUMMARY><span class="k">if</span><span class="ss">(</span> <span class="vc">_settings__show_persistent_tooltip_when_enabled</span> <span class="ss">)</span><span class="p">{</span><span class="DETAILS_CLOSE_BRACE">}</span></SUMMARY>
+      
+         <span class="kr">SetTimer</span><span class="p">,</span> <span class="n">Timer_refresh_tooltip_location_while_enabled</span><span class="p">,</span> <span class="mi">100</span>
+         
+      <span class="p">}</span></DETAILS>
+<DETAILS open class="leading_tabs_2"><SUMMARY><span class="k">else</span><span class="p">{</span><span class="DETAILS_CLOSE_BRACE">}</span></SUMMARY>
+         <span class="n">toast_message</span> <span class="o">:=</span>  <span class="s">&quot;EMULATED NUMBER PAD&quot;</span>
+         <span class="n">toast_message</span>  <span class="o">.=</span> <span class="s">&quot;</span><span class="se">`n`n`t`t</span><span class="s">&quot;</span>
+         <span class="n">toast_message</span>  <span class="o">.=</span> <span class="s">&quot;[+]   ENABLED!</span><span class="se">`n</span><span class="s">&quot;</span>
+      
+         <span class="kr">ToolTip</span><span class="p">,</span> <span class="vi">%toast_message%</span>
+         
+         <span class="kr">SetTimer</span><span class="p">,</span> <span class="n">Timer_turn_tooltip_off</span><span class="p">,</span> <span class="o">-</span><span class="mi">1500</span>
+      <span class="p">}</span></DETAILS>
+      
+   <span class="p">}</span></DETAILS>
+<DETAILS open class="leading_tabs_1"><SUMMARY><span class="k">else</span> <span class="k">if</span><span class="ss">(</span> <span class="nv">false</span> <span class="o">==</span> <span class="vc">_emulate_numpad_on</span> <span class="ss">)</span><span class="p">{</span><span class="DETAILS_CLOSE_BRACE">}</span></SUMMARY>
+      
+      <span class="n">toast_message</span> <span class="o">:=</span>  <span class="s">&quot;EMULATED NUMBER PAD&quot;</span>
+      <span class="n">toast_message</span>  <span class="o">.=</span> <span class="s">&quot;</span><span class="se">`n`n`t`t</span><span class="s">&quot;</span>
+      <span class="n">toast_message</span>  <span class="o">.=</span> <span class="s">&quot;[-]   disabled.</span><span class="se">`n</span><span class="s">&quot;</span>
+      
+      <span class="kr">ToolTip</span><span class="p">,</span> <span class="vi">%toast_message%</span>
+      
+      <span class="kr">SetTimer</span><span class="p">,</span> <span class="n">Timer_turn_tooltip_off</span><span class="p">,</span> <span class="o">-</span><span class="mi">1500</span>
+      
+   <span class="p">}</span></DETAILS>
+      
+   <span class="k">return</span>
+<span class="p">}</span></DETAILS>
+
+
+<DETAILS open class="leading_tabs_0"><SUMMARY><span class="n">Toggle_Key_Legend</span><span class="o">:</span>
+<span class="p">{</span><span class="DETAILS_CLOSE_BRACE">}</span></SUMMARY>
+   <span class="vc">_settings__show_legend_in_persistent_tooltip</span> <span class="o">:=</span> <span class="o">!</span><span class="vc">_settings__show_legend_in_persistent_tooltip</span>
+   <span class="vc">_tooltip_hwnd</span> <span class="o">:=</span> <span class="s">&quot;&quot;</span>
+   <span class="k">return</span>
+<span class="p">}</span></DETAILS><span class="c1"></span>
+
+<span class="c1">         </span>
+<span class="c1">;========================================================================;</span>
+<span class="c1">;                                                                        ;</span>
+<span class="c1">;                                                                        ;</span>
+<span class="c1">;   The following ToolTip code was adapted from the following post:      ;</span>
+<span class="c1">;                                                                        ;</span>
+<span class="c1">;      https://www.autohotkey.com/boards/viewtopic.php?t=62607           ;</span>
+<span class="c1">;                                                                        ;</span>
+<span class="c1">;                                                                        ;</span>
+<span class="c1">;========================================================================;</span>
+
+<DETAILS open class="leading_tabs_0"><SUMMARY><span class="n">Timer_refresh_tooltip_location_while_enabled</span><span class="o">:</span>
+<span class="p">{</span><span class="DETAILS_CLOSE_BRACE">}</span></SUMMARY>
+<DETAILS open class="leading_tabs_1"><SUMMARY><span class="k">if</span><span class="ss">(</span> <span class="nv">true</span> <span class="o">==</span> <span class="vc">_emulate_numpad_on</span> <span class="ss">)</span><span class="p">{</span><span class="DETAILS_CLOSE_BRACE">}</span></SUMMARY>
+   
+<DETAILS open class="leading_tabs_2"><SUMMARY><span class="k">if</span><span class="ss">(</span> <span class="s">&quot;&quot;</span> <span class="o">==</span> <span class="vc">_tooltip_hwnd</span> <span class="ss">)</span><span class="p">{</span><span class="DETAILS_CLOSE_BRACE">}</span></SUMMARY>
+      
+         <span class="n">toast_message</span> <span class="o">:=</span>   <span class="s">&quot;EMULATED NUMBER PAD&quot;</span>
+         <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;</span><span class="se">`n`n`t`t</span><span class="s">&quot;</span>
+         <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;[+]   ENABLED!</span><span class="se">`n</span><span class="s">&quot;</span>
+         <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;</span><span class="se">`n</span><span class="s">&quot;</span>
+         <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;---------------------------------------------------</span><span class="se">`n</span><span class="s">&quot;</span>
+         <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;Press ?      </span><span class="se">`t</span><span class="s"> for help.                          </span><span class="se">`n</span><span class="s">&quot;</span>
+         <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;Press F1     </span><span class="se">`t</span><span class="s"> to toggle legend.                  </span><span class="se">`n</span><span class="s">&quot;</span>
+         <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;Press Escape </span><span class="se">`t</span><span class="s"> to turn off.                       </span><span class="se">`n</span><span class="s">&quot;</span>
+         <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;---------------------------------------------------&quot;</span>
+         
+<DETAILS open class="leading_tabs_3"><SUMMARY><span class="k">if</span><span class="ss">(</span> <span class="vc">_settings__show_legend_in_persistent_tooltip</span> <span class="ss">)</span><span class="p">{</span><span class="DETAILS_CLOSE_BRACE">}</span></SUMMARY>
+            <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;                                                </span><span class="se">`n</span><span class="s">&quot;</span>
+            <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;                                                </span><span class="se">`n</span><span class="s">&quot;</span>
+            <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;The following keys are remapped right now:      </span><span class="se">`n</span><span class="s">&quot;</span>
+            <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;                                                </span><span class="se">`n</span><span class="s">&quot;</span>
+            <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;      *-+       </span><span class="se">`t</span><span class="s">-&gt;</span><span class="se">`t</span><span class="s"> Numpad(Mult,Sub,Add)     </span><span class="se">`n</span><span class="s">&quot;</span>
+            <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;                                                </span><span class="se">`n</span><span class="s">&quot;</span>
+            <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;     789        </span><span class="se">`t</span><span class="s">-&gt;</span><span class="se">`t</span><span class="s"> Numpad(789)              </span><span class="se">`n</span><span class="s">&quot;</span>
+            <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;     uio        </span><span class="se">`t</span><span class="s">-&gt;</span><span class="se">`t</span><span class="s"> Numpad(456)              </span><span class="se">`n</span><span class="s">&quot;</span>
+            <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;     jkl        Enter&quot;</span>
+            <span class="n">toast_message</span>  <span class="o">.=</span>                  <span class="s">&quot;</span><span class="se">`t</span><span class="s">-&gt;</span><span class="se">`t</span><span class="s"> Numpad(123) Numpad(Enter)</span><span class="se">`n</span><span class="s">&quot;</span>
+            <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;     m          </span><span class="se">`t</span><span class="s">-&gt;</span><span class="se">`t</span><span class="s"> Numpad(0)                </span><span class="se">`n</span><span class="s">&quot;</span>
+            <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;                                                </span><span class="se">`n</span><span class="s">&quot;</span>
+            <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot;      ./        </span><span class="se">`t</span><span class="s">-&gt;</span><span class="se">`t</span><span class="s"> Numpad(Dot,Div)          </span><span class="se">`n</span><span class="s">&quot;</span>
+            <span class="n">toast_message</span>  <span class="o">.=</span>  <span class="s">&quot; &quot;</span>
+         <span class="p">}</span></DETAILS>
+         
+         <span class="kr">ToolTip</span><span class="p">,</span> <span class="vi">%toast_message%</span>
+         
+         <span class="kr">DetectHiddenWindows</span> <span class="n">on</span>
+         <span class="kr">WinGet</span><span class="p">,</span> <span class="n">scriptPID</span><span class="p">,</span> <span class="n">PID</span><span class="p">,</span> <span class="vi">%A_ScriptFullPath%</span>
+         <span class="vc">_tooltip_hwnd</span> <span class="o">:=</span> <span class="kr">WinExist</span><span class="ss">(</span><span class="s">&quot;ahk_class tooltips_class32 ahk_pid &quot;</span> <span class="n">scriptPID</span><span class="ss">)</span>
+         
+      <span class="p">}</span></DETAILS>
+<DETAILS open class="leading_tabs_2"><SUMMARY><span class="k">else</span><span class="p">{</span><span class="DETAILS_CLOSE_BRACE">}</span></SUMMARY>
+      
+         <span class="kr">CoordMode</span><span class="p">,</span> <span class="n">Mouse</span><span class="p">,</span> <span class="n">Screen</span>
+         <span class="kr">CoordMode</span><span class="p">,</span> <span class="kr">ToolTip</span><span class="p">,</span> <span class="n">Screen</span>
+         <span class="kr">MouseGetPos</span><span class="p">,</span> <span class="n">Output_X</span><span class="p">,</span> <span class="n">Output_Y</span>
+         
+         <span class="n">x_for_tooltip</span> <span class="o">:=</span> <span class="n">Output_X</span> <span class="o">+</span> <span class="mi">10</span> 
+         <span class="n">y_for_tooltip</span> <span class="o">:=</span> <span class="n">Output_Y</span> <span class="o">+</span> <span class="mi">10</span>
+         
+         <span class="kr">SetWinDelay</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span>
+         <span class="kr">WinMove</span><span class="p">,</span> <span class="nn">ahk_id</span> <span class="vi">%_tooltip_hwnd%</span><span class="p">,,</span> <span class="vi">%x_for_tooltip%</span><span class="p">,</span> <span class="vi">%y_for_tooltip%</span>
+         
+      <span class="p">}</span></DETAILS>
+      
+   <span class="p">}</span></DETAILS>
+<DETAILS open class="leading_tabs_1"><SUMMARY><span class="k">else</span><span class="p">{</span><span class="DETAILS_CLOSE_BRACE">}</span></SUMMARY>
+   
+      <span class="k">gosub</span> <span class="n">Timer_turn_tooltip_off</span>
+      
+   <span class="p">}</span></DETAILS>
+   
+   <span class="k">return</span>
+<span class="p">}</span></DETAILS>
+
+
+<DETAILS open class="leading_tabs_0"><SUMMARY><span class="n">Timer_turn_tooltip_off</span><span class="o">:</span> 
+<span class="p">{</span><span class="DETAILS_CLOSE_BRACE">}</span></SUMMARY>
+
+   <span class="kr">ToolTip</span>
+   <span class="vc">_tooltip_hwnd</span> <span class="o">:=</span> <span class="s">&quot;&quot;</span>
+
+   <span class="k">return</span>
+<span class="p">}</span></DETAILS>
+
+
+<DETAILS open class="leading_tabs_0"><SUMMARY><span class="n">Show_Help</span><span class="o">:</span>
+<span class="p">{</span><span class="DETAILS_CLOSE_BRACE">}</span></SUMMARY>
+   <span class="n">Help_Msg</span> <span class="o">:=</span>  <span class="s">&quot;&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;-----------------------------------</span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;emulate_numpad.ahk   v2            </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;-----------------------------------</span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;                                                </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;NumberPad emulation is currently enabled.       </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;                                                </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;Some keyboard keys have been remapped           </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;to send NumberPad keystrokes                    </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;instead of their normal functionality.          </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;                                                </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;The following keys are remapped right now:      </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;                                                </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;      *-+       </span><span class="se">`t</span><span class="s">-&gt;</span><span class="se">`t</span><span class="s"> Numpad(Mult,Sub,Add)     </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;                                                </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;     789        </span><span class="se">`t</span><span class="s">-&gt;</span><span class="se">`t</span><span class="s"> Numpad(789)              </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;     uio        </span><span class="se">`t</span><span class="s">-&gt;</span><span class="se">`t</span><span class="s"> Numpad(456)              </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;     jkl        Enter&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span>                 <span class="s">&quot;</span><span class="se">`t</span><span class="s">-&gt;</span><span class="se">`t</span><span class="s"> Numpad(123) Numpad(Enter)</span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;     m          </span><span class="se">`t</span><span class="s">-&gt;</span><span class="se">`t</span><span class="s"> Numpad(0)                </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;                                                </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;      ./        </span><span class="se">`t</span><span class="s">-&gt;</span><span class="se">`t</span><span class="s"> Numpad(Dot,Div)          </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;                                                </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;     (?)        </span><span class="se">`t</span><span class="s">-&gt;</span><span class="se">`t</span><span class="s"> shows this help box      </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;                                                </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;Press the &lt;Escape&gt; key                          </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;to exit this mode                               </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;and return the Keyboard to normal               </span><span class="se">`n</span><span class="s">&quot;</span>
+   <span class="n">Help_Msg</span>  <span class="o">.=</span> <span class="s">&quot;                                                </span><span class="se">`n</span><span class="s">&quot;</span>
+   
+   <span class="n">Option_QuestionMark</span> <span class="o">:=</span> <span class="mi">32</span>
+   <span class="n">op</span> <span class="o">:=</span> <span class="n">Option_QuestionMark</span>
+   <span class="n">title</span> <span class="o">:=</span> <span class="s">&quot;( HELP )  emulate_numpad.ahk&quot;</span>
+   
+   <span class="kr">MsgBox</span><span class="p">,</span> <span class="o">%</span> <span class="n">op</span><span class="p">,</span> <span class="vi">%title%</span><span class="p">,</span> <span class="vi">%Help_Msg%</span>
+   
+   <span class="k">return</span> 
+<span class="p">}</span></DETAILS><span class="c1"></span>
+
+
+<span class="c1">;===============================;</span>
+<span class="c1">;   end of Label section        ;</span>
+<span class="c1">;===============================;</span>
+
+
+<span class="c1">;-----------------------------------------------------------------------------------------------</span>
+
+
+<span class="c1">;------------------------------------------;---------------;</span>
+<span class="c1">;  end of file,   emulate_numpad.ahk       ;      cc0      ;</span>
+<span class="c1">;------------------------------------------;---------------;</span>
+</pre></div>
+</div>
+<p></div>
+</div></p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <br />
+	<div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../Program_Launcher/index.html" class="btn btn-neutral float-right" title="Program Launcher" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="My AutoHotkey Utilities" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+  </div>
+
+  <br />
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+    </p>
+  </div><div style="
+    text-align: right;
+	font-size: 11px;
+    ">		
+		&copy; Gamepad.Coder 2021
+		<br>
+		Have a wonderful day.
+	</div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+
+<!-- The detached footer floating below the main central box of the page -->
+<footer class="floating_footer">
+	<p class="floating_footer_copyright">
+		
+		&copy; Gamepad.Coder 2021
+		<br>
+		<br> 
+		Have a wonderful day.
+		
+		<!-- ========================================================
+			 Fun technical detail : 
+			 ========================================================
+				main.css -> 
+				p.copyright{line-height: 1em;}
+			
+			 gives this double <br> a nice amount of vertical space.
+			 ======================================================== 
+		-->
+			 
+	</p>
+</footer><!-- class="floating_footer" | css .floating_footer -->
+
+
+</body>
+</html>

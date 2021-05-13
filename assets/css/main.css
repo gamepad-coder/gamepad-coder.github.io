@@ -170,6 +170,10 @@
 		color: #999; 
 	}
 
+	.additional_bottom_margin {
+		/* margin-bottom: 111px; */
+		margin-bottom: 125px;
+	}
 	.more_indented_ordered_list{
 		padding-left: 60px;
 	}
@@ -961,7 +965,7 @@
 		/* Sets the expanded section's height to be nonzero 
 		   to allow animating between the changes. */
 		.toggle_collapsible_section:checked + .label-toggle_collapsible_section + .collapsible_section {
-			max-height: 2000px;
+			max-height: 3000px;
 			
 			/* Animation */
 			/* transition: max-height 0.75s ease-in-out 0s; */
@@ -1002,26 +1006,7 @@
 	
 	
 	
-	@media all and (max-width: 900px) {
-		/* #asideBar {
-			border-top: 1px solid rgba(000, 222, 999, .21); 
-			border-bottom: 1px solid rgba(000, 222, 999, .31); 
-		}
-		aside p {
-			border-bottom: 1px solid rgba(222, 222, 222, .3); 
-		}
-		#aside_contact{
-			color: white;
-		} */
-	}
 	
-	
-	@media all and (min-width: 1px) and (max-width: 350px) {
-		/******************************************************************
-		text goes out of bounds without this @media on small small screens
-		******************************************************************/
-		
-	}
 	@media all and (max-width: 701px) {
 		#the_page{
 			/* width: 60%; */
@@ -1070,6 +1055,9 @@
 			padding-left: 2px;
 		}
 	} 
+    
+	
+    
 	/* @media all and (orientation:portrait)  { */
 	@media all and (orientation:portrait), 
 	       all and (orientation:landscape) and (min-width: 1px) and (max-width: 600px)
@@ -1207,8 +1195,25 @@
 		.hide_when_portrait_mode {
 			display: none;
 		}
+        
+        
+        .label-toggle_collapsible_section {
+            /* margin-right: -15px;
+            margin-left: -12px; */
+        }
+        .collapsible_section {
+            margin-left: -5px;
+            margin-right: -5px;
+            padding: 0;
+            
+            font-size: 15px;
+            font-family: monospace;
+        }
+        .content-inner {
+            padding: 0.5rem 0.5rem;
+        }
 	}
-	
+    
 	@media all and (orientation: portrait),
 		   all and (orientation:landscape) and (min-width: 1px) and (max-width: 700px),
 		   all and (orientation:landscape) and (max-height: 500px)
@@ -1263,6 +1268,23 @@
 		}		
 	}
 	
+	@media all and (max-width: 600px){
+		#the_page__main_content {
+			font-size: 14px;
+			font-family: monospace;
+		}
+        
+        article {
+            padding: 0;
+        }
+        article.welcome_article {
+            font-size: 17px;
+        }
+        article ol {
+            padding-left: 30px;
+        }
+        
+	}
 	@media all and (max-width: 230px) {
 		#the_page{
 			/* width: 60%; */

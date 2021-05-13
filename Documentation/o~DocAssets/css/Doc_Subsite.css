@@ -94,11 +94,54 @@
 
 }
 
+    /* ******************************************************* */
+    /*   Add color to the custom <details> folding blocks      */
+    /*    (these are manually inserted with a python script)   */
+    /* ******************************************************* */
+    summary::marker {
+        color: #27ae60;
+    }
 
 /* ========================================= */
 /* </> custom code-block highlighting        */
 /* ========================================= */
 
+
+
+
+
+
+	
+  /* ============================= */
+ /*  :kbd:`keyname` highlighting  */
+/* ============================= */
+
+/* ------------------------------------------------------------------ */
+/*  Added to _Sphinx/sphinx_rtd_theme__modified/static/css/theme.css  */
+/*                                                                    */
+/*   easier to check in Sphinx baked output                           */
+/*   without having to additionally bake with Jekyll.                 */
+/* ------------------------------------------------------------------ */
+
+			/* kbd.kbd.docutils { */
+				/* margin: 0 .1em; */
+				/* padding: .1em 0.4em; */
+				
+				/* background-color: #e4e4e4; */
+				
+				/* border: 1px solid #ccc; */
+				/* border-radius: 3px; */
+				/* box-shadow: 0 1px 0 rgb(0 0 0 / 20%), 0 0 0 2px #fff inset; */
+				
+				/* white-space: nowrap; */
+				/* line-height: 1; */
+				/* display: inline-block; */
+				/* text-shadow: 0 1px 0 #dbdbdb;     */
+			/* } */
+
+  /* ============================= */
+ /*  </>  :kbd:                   */
+/* ============================= */
 
 
 

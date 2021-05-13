@@ -204,7 +204,12 @@ class AhkTestLexer(RegexLexer):
         #---------------------
         #String                                                   class: 's'    #fff7ab - light yellow
         'strings': [
-            (r'[^"\n]+', String),
+            # MOD
+            # Original was eating any `n which existed
+            # After the begging of a String's opening " ch
+            # Added the ` to the "not" group
+            # Now escapes are painted!!!!!!!
+            (r'[^"\n`]+', String),
         ],
         #---------------------
         #String                                                   class: 's'
@@ -226,8 +231,8 @@ class AhkTestLexer(RegexLexer):
         
         #---------------------
         #Keyword                                                  class: 'k'    #efeb66 - yellow
-        #Keyword                                                  class: 'k'    #fff385 - yellow            
-        #Keyword                                                  class: 'k'    #ffeb36 - yellow            *
+        #Keyword                                                                #fff385 - yellow            
+        #Keyword                                                                #ffeb36 - yellow            *
         'keywords': [
             (r'(?i)(class|Return|Break|Catch|Continue|Else|Finally|For|Gosub|Goto|'
              r'If|IfEqual|IfExist|IfGreaterOrEqual|IfGreater|'

@@ -11,7 +11,8 @@ APIs, Manuals, Tutorials
 Welcome to my documentation.
 
 | All of my programs here are free and open source, 
-| released under the `Community Commons Zero <https://creativecommons.org/share-your-work/public-domain/cc0/>`_  (cc0) license.
+| released under the `Community Commons Zero <https://creativecommons.org/share-your-work/public-domain/cc0/>`_  
+  (cc0) license.
 
 
 .. note:: 
@@ -27,12 +28,10 @@ Have a great day, and enjoy.
 
 
 .. toctree::
-   :maxdepth: -1
+   :maxdepth: 3
    :caption: AutoHotkey:
-   :titlesonly:
    
-   What is AutoHotkey? <AutoHotkey/index>
-   AutoHotkey/Object-Oriented GUI Framework/index.rst
+   What is AutoHotkey? <AutoHotkey/What_is_AutoHotkey/index>
    AutoHotkey/Utilities/index.rst
 
 
@@ -43,6 +42,6 @@ Have a great day, and enjoy.
    :titlesonly:
 
    What is Godot? <Godot/index.rst>
-   Godot/Projects/index
    Godot/HowTo/index
+   Godot/Projects/index
 

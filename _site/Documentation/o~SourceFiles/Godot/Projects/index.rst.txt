@@ -1,4 +1,8 @@
 My Godot Experiments
 =====================
 
-Placeholder
+.. TODO:: 
+    
+    **Text Editor in Godot:**
+    
+    Overview + Demo coming soon.

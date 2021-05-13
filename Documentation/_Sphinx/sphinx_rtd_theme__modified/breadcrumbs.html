@@ -42,7 +42,7 @@
 	  {% else %}
       {# MOD -#}
 	  <li>
-		<a href="{{ pathto(master_doc) }}" class="icon icon-home" style="color:#2980b9;"></a> &raquo;
+		<a href="{{ pathto(master_doc) }}" class="icon icon-home" style="color:#2980b9;"></a>&nbsp;<span class="breadcrumb_arrow">&raquo;</span>&nbsp;
       </li>
       {# MOD -#}
         {% for doc in parents %}
@@ -50,7 +50,7 @@
 	  <li style="
         font-family: 'Courier New';"
       >
-		<a href="{{ doc.link|e }}" style="color:#2980b9;">{{ doc.title }}</a> &raquo;
+		<a href="{{ doc.link|e }}" style="color:#2980b9;">{{ doc.title }}</a>&nbsp;<span class="breadcrumb_arrow">&raquo;</span>&nbsp;
       </li>
         {% endfor %}
       <li style="

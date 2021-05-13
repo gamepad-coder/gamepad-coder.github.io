@@ -69,7 +69,14 @@ language = None
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = [
+    '_build', 
+    'Thumbs.db', 
+    '.DS_Store',
+    'AutoHotkey/Object-Oriented_GUI_Framework',
+    'AutoHotkey/Utilities/2do_Tree',
+    'AutoHotkey/Utilities/Clock',
+]
 
 # The name of the Pygments (syntax highlighting) style to use.
 # pygments_style = 'sphinx'
@@ -147,15 +154,33 @@ html_theme_path = ["."]
 #
 # html_theme_options = {}
 html_theme_options = {
-    # 'sticky_navigation': False
-    
-    #  Only display the logo image, do not display the project name at the top of the sidebar
-    # 'logo_only' : False,
-    # 'show_source_at_top' : False,    
-    # 'navigation_depth': -1,
-    # 'collapse_navigation': True,
+        # Default Options:
+        # 'analytics_id': 'UA-XXXXXXX-1',  #  Provided by Google in your dashboard
+        # 'analytics_anonymize_ip': False,
+        # 'logo_only': False,
+        # 'display_version': True,
+        # 'prev_next_buttons_location': 'bottom',
+        # 'style_external_links': False,
+        # 'vcs_pageview_mode': '',
+        # 'style_nav_header_background': 'white',
+        # # Toc options
+        # 'collapse_navigation': True,
+        # 'sticky_navigation': True,
+        # 'navigation_depth': 4,
+        # 'includehidden': True,
+        # 'titles_only': False
+        #
+        # docs: https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html
+        
+        #  Only display the logo image, do not display the project name at the top of the sidebar
+        # 'logo_only' : False,
+        # 'show_source_at_top' : False,    
+        # 'navigation_depth': -1,
+        # 'sticky_navigation': False
+        # 'collapse_navigation': True,
     'collapse_navigation': False,
     'navigation_depth': -1,
+    'titles_only': False,
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
@@ -175,7 +200,7 @@ html_static_path = ['_static']
 
 #from
 #https://stackoverflow.com/questions/18969093/how-to-include-the-toctree-in-the-sidebar-of-each-page
-# html_sidebars = { '**': ['globaltoc.html', 'relations.html', 'sourcelink.html', 'searchbox.html'] }
+html_sidebars = { '**': ['globaltoc.html', 'relations.html', 'sourcelink.html', 'searchbox.html'] }
 
 
 # html_show_copyright
