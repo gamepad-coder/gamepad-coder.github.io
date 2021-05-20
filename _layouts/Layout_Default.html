@@ -17,6 +17,10 @@
 <!doctype html>
 <html>
 	<head>
+		<meta property='og:image' content='{{ "/assets/images/app_highlights/this.jpg" | absolute_url }}'>
+		<meta property='og:title' content='{% if page.title != "Gamepad.Coder" %}Gamepad.Coder - {% endif %}{{page.title}}'/>
+		<meta property='og:url' content='{{ page.url | absolute_url }}'/>
+
 		<meta charset="UTF-8" />
 		
 		<title>{{ page.title }}</title>
@@ -27,13 +31,13 @@
 		type="image/png" 		
 		href="{{ "/assets/images/avatar_favicon_gamepad.coder.png" | absolute_url }}">
 		
-		<meta name="description" 
-			  content="The professional website of Gamepad.Coder, programmer
-					  , technical writer, philospher, and all aroung great guy.
-					  -- Description written by my Wife <3; {{ page.meta_description }}" />
+		<meta property='og:description'
+			name="description" 
+			content="&quot;The professional website of Gamepad.Coder, programmer,
+				  	technical writer, philospher, and all aroung great guy.&quot;
+			  		-- Description written by my Wife <3 [{{ page.meta_description }}]" />
 		<meta name="keywords" content="professional, resume, programmer, technical writer, {{ page.meta_keywords }}" />
 		<meta name="robots" content="nofollow" />
-		<meta property="og:image" content="{{ "/assets/images/app_highlights/this.jpg" | absolute_url }}">
 		<meta http-equiv="author" content="Gamepad.Coder, Gamepad-Coder" />
 		<meta http-equiv="pragma" content="no-cache" />
 		
