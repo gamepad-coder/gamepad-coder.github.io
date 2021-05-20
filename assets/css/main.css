@@ -78,7 +78,9 @@
 	/*** font : positioning ***/
 	span.indentation {  padding-left: 30px;  }
 
-	
+	.only_indent_on_wide_screens {
+		padding-left: 40px;
+	}
 	/*** font ***/
 	h1{	
 		font-family: Consolas;
@@ -599,6 +601,9 @@
 		#the_page__main_content.contact_content{
 			flex: 0 0 65%;
 		}
+		#the_page__main_content.contact_content .content-inner > * {
+			overflow-wrap: anywhere;
+		}
 
     /* --------------------------- */
    /*                             */
@@ -688,7 +693,10 @@
 			aside a.nav_ref {
 				margin-right: 5px;				
 			}
-		
+			#aside_contact a.nav_ref {
+				margin-right: 0;
+				padding: 1px 5px;
+			}
 			.nav_ref { 
 				background-color: #000000; 
 			}
@@ -1217,7 +1225,7 @@
 				padding-bottom: 30px;
 				/* padding: 60px; */
 				
-				margin-top: 30px;
+				margin-top: 50px;
 				margin-bottom: -10px;
 			}
 			#aside_contact_tools {
@@ -1338,6 +1346,20 @@
         article ol {
             padding-left: 30px;
         }
+		#aside_contact ul {
+			padding-inline-start: 40px;
+			padding: 0 20px;
+		}
+		#aside_contact_tools ~ ul li {
+			line-height: 1.2em;
+			font-size: smaller !important;
+		}
+		.only_indent_on_wide_screens {
+			padding-left: 0px;
+		}
+		#the_page__main_content.contact_content .content-inner > div > * {
+			font-size: smaller;
+		}
         
 	}
 	@media all and (max-width: 230px) {
