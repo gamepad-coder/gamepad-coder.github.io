@@ -4138,7 +4138,11 @@ _____IF_DETAILS_BEGIN_____2t_ if ( "I" = A_GuiEvent ){ _____SUMMARY_END_____
 _____IF_DETAILS_BEGIN_____3t_ if( is_a_selection_event ){ _____SUMMARY_END_____
             LV_GetText(sel_act_id, A_EventInfo,1)
             GuiConfigPopup._LV_selected_action_id := sel_act_id
-            ; msgbox gui tab2 actions selected row[%A_EventInfo%] id[%sel_act_id%] is_sel[%is_a_selection_event%] er[%ErrorLevel%]
+            
+            ; debug := "gui tab2 actions selected row[" A_EventInfo "]"
+            ; debug .= " id[" sel_act_id "] is_sel[" is_a_selection_event "]"
+            ; debug .= " er[%ErrorLevel%]"
+            ; msgbox, %debug% 
          } _____DETAILS_END_____
          GuiConfigPopup.GUI_FN_ButtonSubmit_Refresh_Text()
       } _____DETAILS_END_____

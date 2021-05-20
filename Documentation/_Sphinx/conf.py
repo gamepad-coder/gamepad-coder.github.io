@@ -223,6 +223,13 @@ rst_prolog = """
     
     </span></code></i>
 
+.. |blue_code| raw:: HTML
+
+    <code class="docutils literal notranslate"><span class="pre" style="color: blue;">
+    
+.. |blue_code_close| raw:: HTML
+
+    </span></code>
 
 .. |br| raw:: HTML
 

@@ -292,7 +292,7 @@
 <p><br /></p>
 <p><h2>How Program Launcher is Organized</h2></p>
 <p>Program Launcher is divided into two files.</p>
-<p>The first file <code class="docutils literal notranslate"><span class="pre">program_launcher.ahk</span></code> contains</p>
+<p>The first file <code class="docutils literal notranslate"><span class="pre" style="color: blue;">program_launcher.ahk</span></code> contains</p>
 <ul class="simple">
 <li>The initialization code.</li>
 <li>A label which displays a command prompt when the hotkey is pressed.
@@ -309,14 +309,66 @@ doesn’t find a savefile in the folder where its script lives.)</li>
 <li>The GUI code for the popup window to configure actions.</li>
 <li>The GUI code for the popup window to configure commands.</li>
 </ul>
-<p>When <code class="docutils literal notranslate"><span class="pre">program_launcher.ahk</span></code> is run, it automatically imports
+<p>When <code class="docutils literal notranslate"><span class="pre" style="color: blue;">program_launcher.ahk</span></code> is run, it automatically imports
 the code contained in <code class="docutils literal notranslate"><span class="pre">program_launcher_settings_window.ahk</span></code>.</p>
 <p><br /></p>
 <p><h2>Download</h2></p>
-<div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Todo</p>
-<p class="last">Next iteration.</p>
-</div>
+<p>You need both <code class="docutils literal notranslate"><span class="pre" style="color: blue;">program_launcher.ahk</span></code> and <code class="docutils literal notranslate"><span class="pre">program_launcher_settings_window.ahk</span></code> to run this app.
+<br /><em>(Place them in the same folder, but that folder can be anywhere)</em>.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>Project Folder</strong></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://github.com/gamepad-coder/AutoHotkey_Projects/tree/main/Utilities/Program_Launcher">https://github.com/gamepad-coder/AutoHotkey_Projects/tree/main</a></td>
+</tr>
+<tr class="row-odd"><td>&nbsp; &nbsp; &nbsp; <a class="reference external" href="https://github.com/gamepad-coder/AutoHotkey_Projects/tree/main/Utilities/Program_Launcher">/Utilities/Program_Launcher</a></td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><strong>program_launcher.ahk</strong></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://github.com/gamepad-coder/AutoHotkey_Projects/blob/main/Utilities/Program_Launcher/program_launcher.ahk">https://github.com/gamepad-coder</a></td>
+</tr>
+<tr class="row-odd"><td>&nbsp; &nbsp; &nbsp; <a class="reference external" href="https://github.com/gamepad-coder/AutoHotkey_Projects/blob/main/Utilities/Program_Launcher/program_launcher.ahk">/AutoHotkey_Projects/blob/main/Utilities</a></td>
+</tr>
+<tr class="row-even"><td>&nbsp; &nbsp; &nbsp; <a class="reference external" href="https://github.com/gamepad-coder/AutoHotkey_Projects/blob/main/Utilities/Program_Launcher/program_launcher.ahk">/Program_Launcher/program_launcher.ahk</a></td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+</tr>
+<tr class="row-even"><td><strong>program_launcher_settings_window.ahk</strong></td>
+</tr>
+<tr class="row-odd"><td><a class="reference external" href="https://github.com/gamepad-coder/AutoHotkey_Projects/blob/main/Utilities/Program_Launcher/program_launcher_settings_window.ahk">https://github.com/gamepad-coder</a></td>
+</tr>
+<tr class="row-even"><td>&nbsp; &nbsp; &nbsp; <a class="reference external" href="https://github.com/gamepad-coder/AutoHotkey_Projects/blob/main/Utilities/Program_Launcher/program_launcher_settings_window.ahk">/AutoHotkey_Projects/blob/main/Utilities</a></td>
+</tr>
+<tr class="row-odd"><td>&nbsp; &nbsp; &nbsp; <a class="reference external" href="https://github.com/gamepad-coder/AutoHotkey_Projects/blob/main/Utilities/Program_Launcher/program_launcher_settings_window.ahk">/Program_Launcher/program_launcher_settings_window.ahk</a></td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+</tr>
+<tr class="row-odd"><td><strong>Sample Settings File</strong></td>
+</tr>
+<tr class="row-even"><td><a class="reference external" href="https://github.com/gamepad-coder/AutoHotkey_Projects/blob/main/Utilities/Program_Launcher/program_launcher_settings.ini">https://github.com/gamepad-coder</a></td>
+</tr>
+<tr class="row-odd"><td>&nbsp; &nbsp; &nbsp; <a class="reference external" href="https://github.com/gamepad-coder/AutoHotkey_Projects/blob/main/Utilities/Program_Launcher/program_launcher_settings.ini">/AutoHotkey_Projects/blob/main/Utilities</a></td>
+</tr>
+<tr class="row-even"><td>&nbsp; &nbsp; &nbsp; <a class="reference external" href="https://github.com/gamepad-coder/AutoHotkey_Projects/blob/main/Utilities/Program_Launcher/program_launcher_settings.ini">/Program_Launcher/program_launcher_settings.ini</a></td>
+</tr>
+</tbody>
+</table>
+<p>To download these individual files on GitHub:</p>
+<ol class="arabic simple">
+<li>Navigating to the file you want.</li>
+<li>Right-click the button that says <kbd class="kbd docutils literal notranslate">Raw</kbd>.</li>
+<li>Click “Save Link As…” and save your script file.</li>
+</ol>
+<p>Alternatively:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/gamepad-coder/AutoHotkey_Projects/archive/refs/heads/main.zip">Download a .zip of my entire AutoHotkey_Projects repository on Github</a>.</li>
+</ul>
+<p><br /></p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">If you want to look at AutoHotkey scripts in a text editor with highlighted code, see the links
@@ -324,7 +376,7 @@ at the bottom of my <a class="reference internal" href="../../../../What_is_Auto
 </div>
 <p><br /></p>
 <p><h2>Read The Full Script On This Page</h2></p>
-<p>In this section, you can read the entire code for <code class="docutils literal notranslate"><span class="pre">program_launcher.ahk</span></code>.</p>
+<p>In this section, you can read the entire code for <code class="docutils literal notranslate"><span class="pre" style="color: blue;">program_launcher.ahk</span></code> and <code class="docutils literal notranslate"><span class="pre">program_launcher_settings_window.ahk</span></code>.</p>
 <div class="admonition hint">
 <p class="first admonition-title">Hint</p>
 <p><strong>Folding and Unfolding:</strong></p>
@@ -7570,7 +7622,11 @@ click a foldable text block to change the activated region, then use</em>
 <DETAILS open class="control_flow_block leading_tabs_3"><SUMMARY><span class="k">if</span><span class="ss">(</span> <span class="n">is_a_selection_event</span> <span class="ss">)</span><span class="p">{</span><span class="DETAILS_CLOSE_BRACE">}</span></SUMMARY>
             <span class="kr">LV_GetText</span><span class="ss">(</span><span class="n">sel_act_id</span><span class="p">,</span> <span class="nv">A_EventInfo</span><span class="p">,</span><span class="mi">1</span><span class="ss">)</span>
             <span class="n">GuiConfigPopup</span><span class="o">.</span><span class="vc">_LV_selected_action_id</span> <span class="o">:=</span> <span class="n">sel_act_id</span><span class="c1"></span>
-<span class="c1">            ; msgbox gui tab2 actions selected row[%A_EventInfo%] id[%sel_act_id%] is_sel[%is_a_selection_event%] er[%ErrorLevel%]</span>
+<span class="c1">            </span>
+<span class="c1">            ; debug := &quot;gui tab2 actions selected row[&quot; A_EventInfo &quot;]&quot;</span>
+<span class="c1">            ; debug .= &quot; id[&quot; sel_act_id &quot;] is_sel[&quot; is_a_selection_event &quot;]&quot;</span>
+<span class="c1">            ; debug .= &quot; er[%ErrorLevel%]&quot;</span>
+<span class="c1">            ; msgbox, %debug% </span>
          <span class="p">}</span></DETAILS>
          <span class="n">GuiConfigPopup</span><span class="o">.</span><span class="nf">GUI_FN_ButtonSubmit_Refresh_Text</span><span class="ss">()</span>
       <span class="p">}</span></DETAILS>

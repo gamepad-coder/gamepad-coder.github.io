@@ -17,7 +17,7 @@ Code
 
 Program Launcher is divided into two files. 
 
-The first file ``program_launcher.ahk`` contains 
+The first file |blue_code|\ program_launcher.ahk\ |blue_code_close| contains 
 
 * The initialization code.
 * A label which displays a command prompt when the hotkey is pressed. 
@@ -34,27 +34,49 @@ The second file ``program_launcher_settings_window.ahk`` contains
 * The GUI code for the popup window to configure actions.
 * The GUI code for the popup window to configure commands.
 
-When ``program_launcher.ahk`` is run, it automatically imports 
+When |blue_code|\ program_launcher.ahk\ |blue_code_close| is run, it automatically imports 
 the code contained in ``program_launcher_settings_window.ahk``. 
 
 |br|
 
 |h2|\ Download\ |h2_close|
 
-.. TODO::
-    
-    Next iteration.
+You need both |blue_code|\ program_launcher.ahk\ |blue_code_close| and ``program_launcher_settings_window.ahk`` to run this app.
+|br|\ *(Place them in the same folder, but that folder can be anywhere)*.
 
-..
-    [ ~ ]    [ ~ ]    [ ~ ]    [ ~ ]    [ ~ ]    [ ~ ]    [ ~ ]    [ ~ ]    [ ~ ]    [ ~ ]    [ ~ ]    
-    
-    upload after clean and update these links
-    
-        .. csv-table::
+.. csv-table::
 
-           "Project Folder |br| ", "`https://github.com/gamepad-coder/AutoHotkey_Projects/tree <https://github.com/gamepad-coder/AutoHotkey_Projects/tree/main/Utilities>`__ |br|\ `/main/Utilities <https://github.com/gamepad-coder/AutoHotkey_Projects/tree/main/Utilities>`__"
-           "Full Script |br|\ (with Comments & Hints)", "`https://github.com/gamepad-coder/AutoHotkey_Projects/blob <https://github.com/gamepad-coder/AutoHotkey_Projects/blob/main/Utilities/emulate_numpad.ahk>`__ |br|\ `/main/Utilities/emulate_numpad.ahk <https://github.com/gamepad-coder/AutoHotkey_Projects/blob/main/Utilities/emulate_numpad.ahk>`__"
-           "Full Script |br|\ (minimal Comments)", "`https://github.com/gamepad-coder/AutoHotkey_Projects/blob <https://github.com/gamepad-coder/AutoHotkey_Projects/blob/main/Utilities/emulate_numpad.ahk>`__ |br|\ `/main/Utilities/emulate_numpad.without_commentary.ahk <https://github.com/gamepad-coder/AutoHotkey_Projects/blob/main/Utilities/emulate_numpad.without_commentary.ahk>`__"
+   "**Project Folder**"
+   "`https://github.com/gamepad-coder/AutoHotkey_Projects/tree/main <https://github.com/gamepad-coder/AutoHotkey_Projects/tree/main/Utilities/Program_Launcher>`__"
+   "|nbsp| |nbsp| |nbsp| `/Utilities/Program_Launcher <https://github.com/gamepad-coder/AutoHotkey_Projects/tree/main/Utilities/Program_Launcher>`__"
+   ""
+   "**program_launcher.ahk**"
+   "`https://github.com/gamepad-coder <https://github.com/gamepad-coder/AutoHotkey_Projects/blob/main/Utilities/Program_Launcher/program_launcher.ahk>`__"
+   "|nbsp| |nbsp| |nbsp| `/AutoHotkey_Projects/blob/main/Utilities <https://github.com/gamepad-coder/AutoHotkey_Projects/blob/main/Utilities/Program_Launcher/program_launcher.ahk>`__"
+   "|nbsp| |nbsp| |nbsp| `/Program_Launcher/program_launcher.ahk <https://github.com/gamepad-coder/AutoHotkey_Projects/blob/main/Utilities/Program_Launcher/program_launcher.ahk>`__"
+   ""
+   "**program_launcher_settings_window.ahk**"
+   "`https://github.com/gamepad-coder <https://github.com/gamepad-coder/AutoHotkey_Projects/blob/main/Utilities/Program_Launcher/program_launcher_settings_window.ahk>`__"
+   "|nbsp| |nbsp| |nbsp| `/AutoHotkey_Projects/blob/main/Utilities <https://github.com/gamepad-coder/AutoHotkey_Projects/blob/main/Utilities/Program_Launcher/program_launcher_settings_window.ahk>`__"
+   "|nbsp| |nbsp| |nbsp| `/Program_Launcher/program_launcher_settings_window.ahk <https://github.com/gamepad-coder/AutoHotkey_Projects/blob/main/Utilities/Program_Launcher/program_launcher_settings_window.ahk>`__"
+   ""
+   "**Sample Settings File**"
+   "`https://github.com/gamepad-coder <https://github.com/gamepad-coder/AutoHotkey_Projects/blob/main/Utilities/Program_Launcher/program_launcher_settings.ini>`__"
+   "|nbsp| |nbsp| |nbsp| `/AutoHotkey_Projects/blob/main/Utilities <https://github.com/gamepad-coder/AutoHotkey_Projects/blob/main/Utilities/Program_Launcher/program_launcher_settings.ini>`__"
+   "|nbsp| |nbsp| |nbsp| `/Program_Launcher/program_launcher_settings.ini <https://github.com/gamepad-coder/AutoHotkey_Projects/blob/main/Utilities/Program_Launcher/program_launcher_settings.ini>`__"
+    
+
+To download these individual files on GitHub: 
+
+#. Navigating to the file you want.
+#. Right-click the button that says :kbd:`Raw`.
+#. Click "Save Link As..." and save your script file.
+
+Alternatively:
+
+- `Download a .zip of my entire AutoHotkey_Projects repository on Github <https://github.com/gamepad-coder/AutoHotkey_Projects/archive/refs/heads/main.zip>`__.
+
+|br|
     
 .. note::
     
@@ -65,7 +87,7 @@ the code contained in ``program_launcher_settings_window.ahk``.
 
 |h2|\ Read The Full Script On This Page\ |h2_close|
 
-In this section, you can read the entire code for ``program_launcher.ahk``.
+In this section, you can read the entire code for |blue_code|\ program_launcher.ahk\ |blue_code_close| and ``program_launcher_settings_window.ahk``.
 
 .. hint::
     
