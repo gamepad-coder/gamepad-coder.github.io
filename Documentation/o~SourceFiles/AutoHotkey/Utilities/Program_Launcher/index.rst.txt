@@ -30,4 +30,4 @@ Program Launcher
    :maxdepth: 2
 
    User_Guide/index.rst
-   Code <Code/index.rst>
+   Code <Code/Complete_Script/index.rst>

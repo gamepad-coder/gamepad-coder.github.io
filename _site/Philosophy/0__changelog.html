@@ -215,7 +215,174 @@
 
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ```````````````````````````````````````````````````````````````````````````````````````````````````
-[v18]                                                                   
+[v19]                                                                
+
+
+========
+Summary:
+========
+
+   Lots of finishing tweaks to Documentation.
+   Added history of this Website to Apps.html
+   Added README.md for GitHub repo.
+   Lots of polish.
+
+========
+Details:
+========
+
+----------------
+< new Content >
+----------------
+│
+├── + [Docs]
+│        │
+│        └──>   Added tutorials for the foldable text regions.
+│               Basic use + keyboard nav on PC.
+│
+├── + [ReadMe.md]
+│        │
+│        └──>   Wrote a README.md to display a summary 
+│               and overview of the website's build files 
+│               on the GitHub repository's page.
+│
+├── + [Application Gallery]
+│        │
+│        └──>   Wrote a summary about this website.
+│        └──>   Wrote a summary about my Godot Rich Text Editor.
+│
+├── + [Home]
+│        │
+│        └──>   Added a changelog button to the bottom left corner.
+└
+
+----------------
+< new features >
+----------------
+│
+├── + [Docs]
+│        │
+│        └──>  Rewrote the collapsible section which wrapped code-blocks
+│              to use &lt;details&gt; instead of &lt;input&gt; and &lt;label&gt;.
+│              (To be more specific, this feature is a foldable section of text
+│               that allows scripts to be minimized/hidden/collapsed
+│               until the user clicks the button for the section, revealing the script.)
+│      
+│              Now that these blocks also use the &lt;details&gt; tag, users can 
+│              use keyboard navigation to move 
+│      
+│                 -> from the topmost part of my AHK script demo pages, 
+│                 -> to go to and unfold the codeblock container box,
+│                 -> to go through the foldable sections of code inside
+│      
+│              by using TAB and SHIFT+TAB to navigate to next and prev respectively
+│              and using SPACE to toggle the fold/unfold state.
+│      
+│              Most importantly, keyboard navigation with TAB is now consistent, 
+│              and users can even skip over the codeblock containers and reach 
+│              the previous page / next page buttons. I added visual outlines 
+│              to these buttons (when navigated to using the keyboard) 
+│              by using the CSS pseudoelement :focus-visible.
+│
+└
+
+----------------
+[polish]
+----------------
+│
+├── + [Docs]
+│        │
+│        ├──>  Program Launcher tidying:
+│        │       │
+│        │       ├──>  Wrapped code in collapsible region.
+│        │       └──>  Minimized scope for portfolio goals,
+│        │             now more streamlined number of & organization of pages. 
+│        │             Cleaner TOC.
+│        │
+│        ├──>  Codeblock folding ::before arrows: 
+│        │       │
+│        │       ├──>  More space between codeblock folding arrows and text.
+│        │       └──>  Lighter color grey when folded to make it stand out a little.
+│        │
+│        ├──>  More padding in codeblock &lt;pre&gt;, 
+│        │     but kept padding as-is for mobile view.
+│        │
+│        └──>  Refactored out commonly used |substitution| blocks of raw HTML in .rst files 
+│              and moved them to /Documentation/_Sphinx/conf.py's rst_prologue variable
+│              (which makes these |substitutions| available anywhere 
+│               without needing to define them in the .rst file.)
+│      
+├── + [Toplvl CSS]
+│        │
+│        └──>  Added "Changelog" button to floating footer at the bottom.
+│      
+├── + [Contact.html Sidebar]
+│        │
+│        ├──>  Updated Programming Languages, polished layout & colors.
+│        └──>  [+] Added "Tools" Section 
+│      
+├── + [Home: Content]
+│        │
+│        └──>  Minor rewording and a few additions.
+│
+└
+
+----------------
+[bugfix]
+----------------
+│
+├── [Docs]
+│   -------
+│     │   
+│   Sidebar
+│     │
+│     ├──>  Fixed sidebar footer button positioning, patched off-screen elements.
+│     │     
+│     │                  Details:
+│     │     
+│     │     In v18 I added navigation buttons to the sidebar, 
+│     │     and Sphinx's output HTML files looked fine.
+│     │     However, Sphinx doesn't have access to the toplvl assets 
+│     │     in the Jekyll build dir, and the fully baked site 
+│     │     (after Jekyll processes it) had the topmost part of the sidebar 
+│     │     nudged up and off the top of the screen.
+│     │     
+│     │     This was due to the added margin for the new sidebar footer buttons.
+│     │     
+│     │     Sidebar footer buttons are now set to position:fixed 
+│     │     and the height of the original sidebar is now (through trial and error)
+│     │     minimized to "height: 93%". This works well, even in mobile view.
+│     │     
+│     │     Added a small box shadow to these footer buttons while I was patching this.
+│     │     
+│   Footer
+│     │
+│     ├──>  Removed an invisible element that was only there by oversight.
+│     │     
+│     │                  Details:
+│     │     
+│     │     In my initial layout draft for the Docs subsite, I adapted the toplvl CSS 
+│     │     for the topmost Documentation page (so navigation between Home.html, 
+│     │     Documentation.html, Apps.html, and Philosophy.html would have consistent
+│     │     header bars and layouts to make the whole thing feel like a menu rather 
+│     │     than seperate pages). Then all other Documentation pages use a different 
+│     │     CSS file (to match the feel of other ReadTheDocs themed websites, with a
+│     │     few tweaks here and there, like the added nav bar).
+│     │     
+│     │     Unfortunately, I forgot a conditional for the sub-pages of the 
+│     │     Documentation subsite, and the floating footer from the Home.html page 
+│     │     was being copied to every sub Documentation page.
+│     │
+│     │     This footer was incompatible with the ReadTheDocs CSS, and was invisible.
+│     │     Not a huge bug, but it was taking up space unnecessarily, and not quaintly.
+│     │     Fixed.
+│     └
+│
+└
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+```````````````````````````````````````````````````````````````````````````````````````````````````
+[v18]                                                                [2021_05_12]  @  [11-45-49 PM]
 
 
 ========
@@ -473,7 +640,8 @@ Details:
 │             I'm using Jekyll to copy my changelog into the Blog Entry #0.
 │             
 │             Since some of the comments refer to Jekyll code, 
-│             the entire block is wrapped in a {&#x25; raw &#x25;} and {&#x25; endraw &#x25;} tag pair,
+│             the entire block is wrapped in a 
+│                 {&#x25; raw &#x25;} and {&#x25; endraw &#x25;} tag pair,
 │             which tells Jekyll not to process anything in between.
 │             
 │             However, I forgot that HTML will interpret (sometimes) 
@@ -496,7 +664,8 @@ Details:
 │             mentioned with entity encodings only, and this changelog page should no longer 
 │             be severely broken :)
 │             
-│             See the file Jekyll inserts into Blog #0 here: https://gamepad-coder.github.io/changelog
+│             See the file Jekyll inserts into Blog #0 here:
+│                https://gamepad-coder.github.io/changelog
 └
 
 ----------------
@@ -636,7 +805,8 @@ Summary:
 Infinite thanks to this blog post which saved me from spending days 
 learning how to hack and inject a lexer and styler from scratch using Python:
 
-https://samprocter.com/2014/06/documenting-a-language-using-a-custom-sphinx-domain-and-pygments-lexer/
+   https://samprocter.com/2014/06/documenting-a
+   -language-using-a-custom-sphinx-domain-and-pygments-lexer/
 
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ```````````````````````````````````````````````````````````````````````````````````````````````````
@@ -1447,7 +1617,8 @@ main progress and
 exploration yesterday
 -----------------------------
 
-Added a blue background to the body and made the page gradient as a &lt;div&gt; with ID website_background.
+Added a blue background to the body 
+and made the page gradient as a &lt;div&gt; with ID website_background.
 
 Chrome + Firefox on Android (phones + tablets at least) 
 have a (known) glitch due to implementation of the virtual viewport and height calculation :
@@ -1530,7 +1701,8 @@ Put all the layouts together.
 And had a little fun with comment headers 🎨
 
 // dev note
-Might leave the nav links alone for now, and focus on getting the main content to display well on mobile.
+Might leave the nav links alone for now, 
+and focus on getting the main content to display well on mobile.
 
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ```````````````````````````````````````````````````````````````````````````````````````````````````
@@ -1574,7 +1746,7 @@ Summary:
 
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ```````````````````````````````````````````````````````````````````````````````````````````````````
-[v_._]                                                                  [yyyy_mm_dd]  @  [hh-mm ap]  
+[v_._]                                                                  [yyyy_mm_dd]  @  [hh-mm ap]
 ========
 Summary:
 ========

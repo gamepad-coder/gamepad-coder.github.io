@@ -1,16 +1,8 @@
-.. |nbsp| unicode:: 0xA0 
-
-
+=======================================================
 How do I |nbsp| ``(  ?  )`` |nbsp| in Godot ?
 =======================================================
 
-.. |i| raw:: HTML 
-    
-    <i>
 
-.. |i_close| raw:: HTML 
-    
-    </i>
 
 .. TODO:: 
     
@@ -25,7 +17,7 @@ How do I |nbsp| ``(  ?  )`` |nbsp| in Godot ?
     So the documentation here will be a little more niche. 
     
     With any application or programming framework, there are always many
-    ways to approach solving the same problem. And there are always edge
+    ways to solve the same problem. And there are always edge
     cases which no one has documented in detail yet.
     
     Any time I encounter a problem or use case in Godot and it takes me longer

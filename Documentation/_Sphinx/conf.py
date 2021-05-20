@@ -76,12 +76,31 @@ exclude_patterns = [
     'AutoHotkey/Object-Oriented_GUI_Framework',
     'AutoHotkey/Utilities/2do_Tree',
     'AutoHotkey/Utilities/Clock',
+    'AutoHotkey/Utilities/Program_Launcher/Code/Functions_and_Variables',
+    'AutoHotkey/Utilities/Program_Launcher/Code/Walkthrough',
+    'AutoHotkey/Utilities/Program_Launcher/Code/index.rst',
 ]
 
+
+    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    #
+    #               Code Lexer + Pygments (custom colors)
+    #
+    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    
+    
 # The name of the Pygments (syntax highlighting) style to use.
 # pygments_style = 'sphinx'
 # pygments_style = None
 
+#-----------------------------------------------------------------------------
+# Initially I was going to use a default pygments style, 
+# but then I modified the default Lexer 
+# and used custom CSS to modify the "monokai" pygment. 
+#
+# The Monokai pygment is awesome because it adds a specific 
+# css class to each element type, which made creating the CSS styles a breeze. 
+#-----------------------------------------------------------------------------
 #                                      rank                bg
 #                                  ============       =============
 # pygments_style = 'default'
@@ -112,6 +131,7 @@ exclude_patterns = [
 # pygments_style = 'rrt'              #             night
 # pygments_style = 'paraiso-dark'     #             night
 # pygments_style = 'native'           # ***         night
+# pygments_style = 'monokai'          # ***         night
                                           # good support for if else winget substr
 
 #------------------------------------------------------------------------------------
@@ -135,6 +155,414 @@ pygments_style = 'monokai'          # ***         night
 # highlight_language = 'autohotkey'
 highlight_language = 'autohotkey'
 # highlight_language = 'pygments.lexers.automation.AutohotkeyLexer'
+
+
+
+
+    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    #
+    #               HTML SUBSTITUTION DEFINITIONS
+    #
+    # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+#------------------------------------------------------------------------------
+# Docs: Conf.py -> option: rst_prolog 
+#------------------------------------------------------------------------------
+# A string of reStructuredText that will be included at the beginning of every
+# source file that is read. This is a possible place to add substitutions that
+# should be available in every file (another being rst_epilog).
+#------------------------------------------------------------------------------
+
+rst_prolog = """
+
+..    
+    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+    
+    =============================================
+    |Substitutions| allow manual HTML insertions
+    =============================================
+
+
+
+..
+        ------------------------------
+            Basic <html> tags
+        ------------------------------
+
+.. |h2| raw:: HTML
+
+    <h2>
+
+.. |h2_close| raw:: HTML
+
+    </h2>
+
+
+.. |i| raw:: HTML 
+    
+    <i>
+
+.. |i_close| raw:: HTML 
+    
+    </i>
+
+.. |ib| raw:: HTML 
+    
+    <i><b>
+
+.. |ib_close| raw:: HTML 
+    
+    </b></i>
+
+
+.. |i_code| raw:: HTML 
+    
+    <i><code class="docutils literal notranslate"><span class="pre">
+
+.. |i_code_close| raw:: HTML 
+    
+    </span></code></i>
+
+
+.. |br| raw:: HTML
+
+   <br />
+
+.. |br_small| raw:: HTML
+
+    <p style="
+        height: 10px;
+    "></p>
+
+.. |hr| raw:: HTML
+
+    <hr style="
+        border-top: 1px solid #75b4ca;
+    ">
+    
+.. |nbsp| raw:: HTML
+
+    &nbsp;
+   
+.. |unicode_nbsp| unicode:: 0xA0 
+
+
+..
+        ------------------------------------------
+            <details>   (collapsible region)
+        ------------------------------------------
+
+.. |details_open| raw:: HTML
+
+    <details><summary>
+
+.. |summary_close| raw:: HTML 
+
+    </summary>
+
+.. |details_close| raw:: HTML
+
+    </details>
+
+.. |indented_block| raw:: HTML
+
+    <div style="padding-left:60px;">
+
+.. |less_indented_block| raw:: HTML
+
+    <div style="padding-left:40px;">
+
+.. |barely_indented_block| raw:: HTML
+
+    <div style="padding-left:10px;">
+
+.. |indented_block_close| raw:: HTML
+
+    </div>
+
+
+
+..
+        ---------------------------------------
+            (>) Collapsible Section Wrapper
+        ---------------------------------------
+        
+.. |collapsible_wrapper| raw:: HTML 
+
+    <div class="collapsible_wrapper">
+
+.. |collapsible_wrapper_close| raw:: HTML 
+
+    </div>
+
+
+.. |collapsible_label_1| raw:: HTML
+
+   <input  id="collapsible_section_1" class="toggle_collapsible_section" type="checkbox">
+   <label for="collapsible_section_1" class="label-toggle_collapsible_section">
+
+.. |collapsible_label_2| raw:: HTML
+
+   <input  id="collapsible_section_2" class="toggle_collapsible_section" type="checkbox">
+   <label for="collapsible_section_2" class="label-toggle_collapsible_section">
+
+.. |collapsible_label_close| raw:: HTML 
+
+    </label>
+    
+    
+.. |collapsible_section| raw:: HTML
+
+   <div class="collapsible_codeblock_section">
+
+.. |collapsible_section_close| raw:: HTML 
+
+    </div>
+
+.. |alt_collapsible_label_open| raw:: HTML
+
+    <details class="collapsible_section_via_details"><summary>
+
+.. |alt_collapsible_label_endopen| raw:: HTML
+
+    </summary>
+    
+.. |alt_collapsible_label_close| raw:: HTML
+
+    </details>
+
+
+
+
+..
+        ------------------------------
+            Embed clickable Image 
+        ------------------------------
+    
+.. |picture_pt1_a_open_href| raw:: HTML
+
+    <a class="reference external image-reference" href="
+
+.. |picture_pt2_close_href_a| raw:: HTML
+
+    ">
+
+.. |picture_pt3_img_open_alt| raw:: HTML
+
+    <img alt="
+
+.. |picture_pt4_img_src| raw:: HTML
+
+    " src="
+
+.. |picture_pt5_close_img_a| raw:: HTML 
+    
+    "/></a>
+    
+
+
+
+..
+        ------------------------------
+            Embed YouTube Video
+        ------------------------------
+
+.. |youtube_open| raw:: HTML
+
+
+    <div class="videoWrapper" 
+        style="
+            position: relative;
+            padding-bottom: 57.25%; /* 16:9 */
+            height: 0; "
+    >
+        <iframe src="
+
+
+.. |youtube_muted_close| raw:: HTML
+    
+    ?mute=1" 
+                frameborder="0" 
+                allowfullscreen="" 
+                style="
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%; "
+        ></iframe>
+    </div>
+
+.. |youtube_close| raw:: HTML
+    
+    " 
+                frameborder="0" 
+                allowfullscreen="" 
+                style="
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%; "
+        ></iframe>
+    </div>
+    
+..
+                        ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+                        COMMENT 
+                        
+                        Aspect-ratio auto-size trick found here:
+                        https://css-tricks.com/fluid-width-video/#iframe-video-youtube-vimeo-etc
+                        
+                        Original Code: 
+                        ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+                            
+                            <div class="videoWrapper" 
+                                style="
+                                    position: relative;
+                                    padding-bottom: 57.25%; /* 16:9 */
+                                    height: 0; "
+                            >
+                                <iframe src="https://www.youtube.com/embed/XptlVErsL-o?mute=1" 
+                                        frameborder="0" 
+                                        allowfullscreen="" 
+                                        style="
+                                            position: absolute;
+                                            top: 0;
+                                            left: 0;
+                                            width: 100%;
+                                            height: 100%; "
+                                ></iframe>
+                            </div>
+                            
+                        ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+
+
+..
+        ----------------------------------
+            USER TUTORIAL
+            
+            Codeblock Navigation on PC
+        ----------------------------------
+
+.. |hint_tutorial__navigating_codeblocks| raw:: HTML 
+
+    <div class="admonition hint">
+    <p class="first admonition-title">Hint</p>
+    <p></p><details><summary> <strong>Scrolling Horizontally (On PC):</strong> </summary>
+    <div style="padding-left:10px;">
+    <p style="
+        height: 20px;
+    "></p>
+    If your mouse has a wheel, you can scroll horizontally using the mouse.
+    Place your mouse cursor over the code, hold shift, then move the wheel up or down.<p></p>
+    <p>If you are using a laptop which supports two-finger-scrolling,
+    hold shift and move two fingers up or down on the touchpad <em>(both in the same direction)</em>,
+    and the region under the mouse will scroll horizontally.</p>
+    <p>This only works if</p>
+    <ol class="arabic simple">
+    <li>The mouse is hovering over the area to scroll.</li>
+    <li>The area under the mouse has a horizontal scroll bar.</li>
+    </ol>
+    <p>If nothing happens, then your window is big enough to display the entire
+    width of the box. <em>(In this scenario, horizontal scroll bar will be
+    greyed out, if it exists)</em>.
+    </p></div>
+    </details>
+    <br> <hr style="
+        border-top: 1px solid #75b4ca;
+    ">
+    <details><summary> <strong>Quick Navigation (On PC):</strong> </summary>
+    <div style="padding-left:10px;">
+    <p style="
+        height: 20px;
+    "></p>
+    I’ve used the HTML <code class="docutils literal notranslate"><span class="pre">&lt;details&gt;</span></code> tag to add text folding to:
+    <ul class="simple" style="margin-top:0;">
+    <li style="
+        margin-top: 0;
+    ">these Hint boxes,</li>
+    <li style="
+        margin-top: 0;
+    ">the blue-outlined boxes below (which contain entire scripts),</li>
+    <li style="
+        margin-top: 0;
+    ">and blocks of AutoHotkey code <code class="docutils literal notranslate" style="
+        color: blue;
+    "><span class="pre">{</span></code> with curly braces <code class="docutils literal notranslate" style="
+        color: blue;
+    "><span class="pre">}</span></code>.</li>
+    </ul>
+    <p>On PC, you can quickly navigate between these foldable <code class="docutils literal notranslate"><span class="pre">&lt;details&gt;</span></code> tags:</p>
+    <ol><li style="
+        margin-top: 20px;
+    "><p>First click any block of code or text which has a folding arrow to activate it.</p></li>
+    <li style="
+        margin-top: 20px;
+    "><p>Once you’ve activated one of the folding text blocks,
+    you can use <kbd class="kbd docutils literal notranslate">Tab</kbd> to go to the next foldable region, and
+    <kbd class="kbd docutils literal notranslate">Shift</kbd>+<kbd class="kbd docutils literal notranslate">Tab</kbd> to go to the previous region. If the region is outside your current view, your browser will scroll the window for you.</p></li>
+    <li style="
+        margin-top: 20px;
+    "><p>After pressing (<kbd class="kbd docutils literal notranslate">Shift</kbd>+) <kbd class="kbd docutils literal notranslate">Tab</kbd>, the selected region
+    should be outlined by your web browser. Press <kbd class="kbd docutils literal notranslate">Space</kbd> when a region
+        is outlined to toggle its fold/unfold state!</p></li></ol>
+    <hr style="
+        border-top: 1px solid #75b4ca;
+        margin-top: 34px;
+        margin-left: 2vw;
+        margin-right: 2vw;
+    "><div style="
+        padding: 30px;
+        padding-top: 10px;
+        padding-right: 50px;
+    "><p><em>Note 1:<br><br> If</em> <i><b>”Quick Navigation (On PC)”</b></i> <em>was the last thing
+    you clicked, then the</em> <i><code class="docutils literal notranslate"><span class="pre">&lt;details&gt;</span></code></i> <em>containing
+    this block is currently activated. Go ahead and try pressing</em> <kbd class="kbd docutils literal notranslate">Tab</kbd> <em>now!</em></p></div>
+    <hr style="
+        border-top: 1px solid #75b4ca;
+        margin-left: 2vw;
+        margin-right: 2vw;
+    "><div style="
+        padding: 30px;
+        padding-top: 10px;
+        padding-right: 50px;
+    "><p><em>Note 2:<br><br>This navigation trick only works after clicking a foldable region,
+    or clicking somewhere in the middle of the page, outside of the sidebar. If you load the page then immediately press</em> <kbd class="kbd docutils literal notranslate">Tab</kbd><em>,  the
+    Table of Contents in the Sidebar will be outlined first.  If this happens,
+    click a foldable text block to change the activated region, then use</em>
+        <kbd class="kbd docutils literal notranslate">Tab</kbd><em>.</em><br>
+    </p></div> </div>
+    </details>
+    <p style="
+        height: 10px;
+    "></p><p></p>
+    </div>
+    
+    
+    
+    
+.. 
+    =============================================
+    </> end of section defining  |Substitutions| 
+    =============================================
+
+..    
+    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+    
+"""
+
+
+
+
+
+# =========================================================================================
+#
+#               Options per specific output format below this line. 
+#
+# =========================================================================================
+
 
 # -- Options for HTML output -------------------------------------------------
 

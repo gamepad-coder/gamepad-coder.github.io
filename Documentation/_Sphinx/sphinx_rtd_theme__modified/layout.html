@@ -205,7 +205,8 @@
       
       {# MOD -#}
       {# Added additional back|prev buttons to sidebar, just arrows, no "Next"|"Prev" text -#}
-      <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      {%- if title != 'APIs, Manuals, Tutorials' %}
+      <div class="SIDEBAR-NAV-BUTTONS rst-footer-buttons" role="navigation" aria-label="footer navigation">
         {%- if next %}
           <a href="{{ next.link|e }}" class="btn btn-neutral SIDEBAR-NAV-BTN float-right" title="{{ next.title|striptags|e }}" accesskey="n" rel="next"> <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         {%- endif %}
@@ -213,6 +214,7 @@
           <a href="{{ prev.link|e }}" class="btn btn-neutral SIDEBAR-NAV-BTN float-left" title="{{ prev.title|striptags|e }}" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> </a>
         {%- endif %}
       </div>
+      {% endif %}
       {#- MOD END #}
 
     </nav>

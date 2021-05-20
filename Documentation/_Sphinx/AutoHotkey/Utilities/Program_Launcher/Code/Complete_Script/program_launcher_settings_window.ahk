@@ -38,9 +38,10 @@
 
 
 _____DETAILS_BEGIN_____0t_ class GuiConfigMain { _____SUMMARY_END_____
+
    ;----------------------------------------------------------------------
-   ; Text specific to the checkbox at the bottom of Tab1 of this window, 
-   ; these vars won't be altered, only accessed.
+   ; These text strings are specific to the checkbox at the bottom 
+   ; of Tab1 of this window. These vars won't be altered, only accessed.
    ;
    static CheckboxShowAll_TextForChecked  := "SHOW ALL   (Uncheck to hide disabled commands)   "
    static CheckboxShowAll_TextForUnchecked := "SHOW ALL   (Check to also show disabled commands)"
@@ -555,7 +556,7 @@ _____DETAILS_BEGIN_____1t_ Init_ReadProgramArraysIntoGui() { _____SUMMARY_END___
       ;-----------------------------------------------------------------;
       ;   _COMMANDS := { "godot" : {"action_id":1, "enabled":true} }    ;
       ;-----------------------------------------------------------------;
-_____DETAILS_BEGIN_____2t_ for cmd, cmd_info in _COMMANDS { _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ for cmd, cmd_info in _COMMANDS { _____SUMMARY_END_____
 
          action      := ""
          action_type := ""
@@ -577,7 +578,7 @@ _____DETAILS_BEGIN_____2t_ for cmd, cmd_info in _COMMANDS { _____SUMMARY_END____
          ; Get the Command's Action Data
          ;==================================
          
-_____DETAILS_BEGIN_____3t_ if( _ACTIONS.HasKey(cmd_action_id) ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( _ACTIONS.HasKey(cmd_action_id) ){ _____SUMMARY_END_____
             action := _ACTIONS[cmd_action_id]
             action_type := action["type"]
             action_path := action["path"]
@@ -589,7 +590,7 @@ _____DETAILS_BEGIN_____3t_ if( _ACTIONS.HasKey(cmd_action_id) ){ _____SUMMARY_EN
          ; Add the Command to GuiConfigMain's Command ListView 
          ;======================================================
          
-_____DETAILS_BEGIN_____3t_ if( cmd_action_id!="" and action_type!="" and action_path!="" ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( cmd_action_id!="" and action_type!="" and action_path!="" ){ _____SUMMARY_END_____
             
             LV_Add(lv_cmd_options   ; Check row if Command is enabled
                , cmd                 ; row 1
@@ -600,7 +601,7 @@ _____DETAILS_BEGIN_____3t_ if( cmd_action_id!="" and action_type!="" and action_
                , action_arg )        ; row 6
             
          } _____DETAILS_END_____
-_____DETAILS_BEGIN_____3t_ else if( "SETTINGS" = cmd_action_id
+_____IF_DETAILS_BEGIN_____3t_ else if( "SETTINGS" = cmd_action_id
          or       "QUIT"     = cmd_action_id ){ _____SUMMARY_END_____
             
             LV_Add(lv_cmd_options   ; Check row if Command is enabled
@@ -612,7 +613,7 @@ _____DETAILS_BEGIN_____3t_ else if( "SETTINGS" = cmd_action_id
                , "" )                ; row 6
                
          } _____DETAILS_END_____
-_____DETAILS_BEGIN_____3t_ else{ ;error; _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ else{ ;error; _____SUMMARY_END_____
             error_msg :=  "Error in Initialization of Main.LV.Cmds `n "
             error_msg  .= "cmd_action_id [" cmd_action_id "] `n "
             error_msg  .= "action_type   ["  action_type  "] `n "
@@ -644,7 +645,7 @@ _____DETAILS_BEGIN_____1t_ GUI_EVENT_ButtonHiddenDefault() { _____SUMMARY_END___
 
       Gui, ConfigMain:Submit, NoHide 
 
-_____DETAILS_BEGIN_____2t_ if( GuiConfigMain_Tabs == "Commands" ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( GuiConfigMain_Tabs == "Commands" ){ _____SUMMARY_END_____
 
          ;-----------------------------------------------------
          ; Edit the currently selected Command (if selection)
@@ -653,7 +654,7 @@ _____DETAILS_BEGIN_____2t_ if( GuiConfigMain_Tabs == "Commands" ){ _____SUMMARY_
          ; GuiConfigMain.Create_Popup_Command()
          GuiConfigMain.Create_Popup("command")
       } _____DETAILS_END_____
-_____DETAILS_BEGIN_____2t_ else if( GuiConfigMain_Tabs == "Actions" ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ else if( GuiConfigMain_Tabs == "Actions" ){ _____SUMMARY_END_____
 
          ;-----------------------------------------------------
          ; Edit the currently selected Action (if selection)
@@ -742,7 +743,7 @@ _____DETAILS_BEGIN_____1t_ GUI_EVENT_OnSize( FLAG:="" ) { _____SUMMARY_END_____
       ; when we call this "OnSize" event function manually
       ;---------------------------------------------------------------------
       ;
-_____DETAILS_BEGIN_____2t_ if( "" != A_GuiHeight 
+_____IF_DETAILS_BEGIN_____2t_ if( "" != A_GuiHeight 
       and "" != A_GuiWidth ){ _____SUMMARY_END_____
          GuiHeight := A_GuiHeight
          GuiWidth := A_GuiWidth
@@ -759,7 +760,7 @@ _____DETAILS_BEGIN_____2t_ if( "" != A_GuiHeight
       ; Initialize static vars & control offsets
       ;==========================================
       
-_____DETAILS_BEGIN_____2t_ if( "Gui up and running" == FLAG){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( "Gui up and running" == FLAG){ _____SUMMARY_END_____
          is_MainGui_baked  := true 
          
          ;----------------------------------------------
@@ -779,7 +780,7 @@ _____DETAILS_BEGIN_____2t_ if( "Gui up and running" == FLAG){ _____SUMMARY_END__
          ; (2) Upon window resize, 
          ;     reposition the y-coordinate to maintain this offset consistently.
          ;
-_____DETAILS_BEGIN_____3t_ for i, c in ar_reposition_ctrls
+_____IF_DETAILS_BEGIN_____3t_ for i, c in ar_reposition_ctrls
          { _____SUMMARY_END_____
             GuiControlGet, ctrl_, Pos, %c%
             
@@ -797,7 +798,7 @@ _____DETAILS_BEGIN_____3t_ for i, c in ar_reposition_ctrls
          ; (2) Upon window resize, stretch Control's height 
          ;     to maintain this bottom offset consistently.
          ;
-_____DETAILS_BEGIN_____3t_ for i, c in ar_resize_ctrls
+_____IF_DETAILS_BEGIN_____3t_ for i, c in ar_resize_ctrls
          { _____SUMMARY_END_____
             GuiControlGet, ctrl_, Pos, %c%
          
@@ -817,7 +818,7 @@ _____DETAILS_BEGIN_____3t_ for i, c in ar_resize_ctrls
          return 
 
       } _____DETAILS_END_____
-_____DETAILS_BEGIN_____2t_ else if( "RESET" == FLAG ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ else if( "RESET" == FLAG ){ _____SUMMARY_END_____
          is_MainGui_baked  := false
          GuiHeight := ""
          GuiWidth := ""
@@ -836,7 +837,7 @@ _____DETAILS_BEGIN_____2t_ else if( "RESET" == FLAG ){ _____SUMMARY_END_____
       ; when Gui Window is resized.
       ;==========================================
          
-_____DETAILS_BEGIN_____2t_ if( true == is_MainGui_baked) ; ensures this is only called after our static vars are initialized
+_____IF_DETAILS_BEGIN_____2t_ if( true == is_MainGui_baked) ; ensures this is only called after our static vars are initialized
       { _____SUMMARY_END_____
          
          ;---------------------------------
@@ -847,7 +848,7 @@ _____DETAILS_BEGIN_____2t_ if( true == is_MainGui_baked) ; ensures this is only 
          ; GuiConfigMain_ButtonNewAction
          ;---------------------------------
          
-_____DETAILS_BEGIN_____3t_ for j, c in ar_reposition_ctrls
+_____IF_DETAILS_BEGIN_____3t_ for j, c in ar_reposition_ctrls
          { _____SUMMARY_END_____
             offset :=  ar_offset_from_bottom[c]
             destination_y := A_GuiHeight - offset
@@ -913,11 +914,11 @@ _____DETAILS_BEGIN_____3t_ for j, c in ar_reposition_ctrls
          ; GuiControl, ConfigMain: , %c%, ""
          GuiControl, ConfigMain: , %c%, %about_text%
          ; msgbox %about_text%
-_____DETAILS_BEGIN_____3t_ if( A_GuiWidth < 585){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( A_GuiWidth < 585){ _____SUMMARY_END_____
             ; GuiControl, ConfigMain: MoveDraw,     %c%, %options_info%
             GuiControl, ConfigMain: Move,     %c%, %options_about%
          } _____DETAILS_END_____
-_____DETAILS_BEGIN_____3t_ else{ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ else{ _____SUMMARY_END_____
             GuiControl, ConfigMain: Move,     %c%, w527
          } _____DETAILS_END_____
          
@@ -975,26 +976,26 @@ _____DETAILS_BEGIN_____1t_ GUI_EVENT_OnDropFiles() { _____SUMMARY_END_____
       
       Gui, ConfigMain:Submit, NoHide 
       
-_____DETAILS_BEGIN_____2t_ if( GuiConfigMain_Tabs == "Actions" ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( GuiConfigMain_Tabs == "Actions" ){ _____SUMMARY_END_____
       
          ;--------------------------------------------
          ; Populate GUI data with drag-n-dropped file.
          ;--------------------------------------------
          ; User dropped 1 file onto GuiConfigPopup GUI 
          ;--------------------------------------------
-_____DETAILS_BEGIN_____3t_ if( A_EventInfo == 1 ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( A_EventInfo == 1 ){ _____SUMMARY_END_____
             
             is_dragNdrop_valid := FileExist(A_GuiEvent)
       
-_____DETAILS_BEGIN_____4t_ if( "" !=  is_dragNdrop_valid ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ if( "" !=  is_dragNdrop_valid ){ _____SUMMARY_END_____
             
-_____DETAILS_BEGIN_____5t_ if( _o_Gui_Config_Popup == "" ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____5t_ if( _o_Gui_Config_Popup == "" ){ _____SUMMARY_END_____
                   _o_Gui_Config_Popup := new GuiConfigPopup("action"
                                                 , "add"
                                                 , NA_lv_row:=""
                                                 , silent:=true)
                   
-_____DETAILS_BEGIN_____6t_ if( InStr(is_dragNdrop_valid, "D") ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____6t_ if( InStr(is_dragNdrop_valid, "D") ){ _____SUMMARY_END_____
                      ; populate as dir 
                      
                      GuiControl,, GuiConfigPopup_ActionConfig_RadioFolder, 1
@@ -1002,7 +1003,7 @@ _____DETAILS_BEGIN_____6t_ if( InStr(is_dragNdrop_valid, "D") ){ _____SUMMARY_EN
                      
                      GuiControl,, GuiConfigPopup_ActionConfig_InputPath, %A_GuiEvent%
                   } _____DETAILS_END_____
-_____DETAILS_BEGIN_____6t_ else { _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____6t_ else { _____SUMMARY_END_____
                      ; populate as file 
                      
                      GuiControl,, GuiConfigPopup_ActionConfig_RadioFolder, 0
@@ -1020,7 +1021,7 @@ _____DETAILS_BEGIN_____6t_ else { _____SUMMARY_END_____
          ;----------------------------------------------------
          ; User dropped more than 1 file onto GuiConfigPopup GUI 
          ;----------------------------------------------------
-_____DETAILS_BEGIN_____3t_ else if( A_EventInfo > 1 ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ else if( A_EventInfo > 1 ){ _____SUMMARY_END_____
             str_for_usr_output := "_program_launcher.ahk`n`n"
             str_for_usr_output .= "--------------`nOops`n--------------`n"
             str_for_usr_output .= """Edit a Command"" can't process more than one file.`n`n"
@@ -1046,10 +1047,10 @@ _____DETAILS_BEGIN_____1t_ GUI_EVENT_Tabs() { _____SUMMARY_END_____
 
       Gui, ConfigMain:Submit, NoHide 
       
-_____DETAILS_BEGIN_____2t_ if( GuiConfigMain_Tabs == "Actions" ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( GuiConfigMain_Tabs == "Actions" ){ _____SUMMARY_END_____
          GuiControl, ConfigMain: -Hidden, GuiConfigMain_ButtonRunAction
       } _____DETAILS_END_____
-_____DETAILS_BEGIN_____2t_ else{ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ else{ _____SUMMARY_END_____
          GuiControl, ConfigMain: +Hidden, GuiConfigMain_ButtonRunAction
       } _____DETAILS_END_____
       return
@@ -1063,12 +1064,12 @@ _____DETAILS_BEGIN_____1t_ GUI_EVENT_ListViewActions() { _____SUMMARY_END_____
       ; while the popup is altering or inserting new entries
       ; ignore event.
       ;
-_____DETAILS_BEGIN_____2t_ if("" != _o_Gui_Config_Popup ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if("" != _o_Gui_Config_Popup ){ _____SUMMARY_END_____
          return
       } _____DETAILS_END_____
       
       ; msgbox A_EventInfo %A_EventInfo%
-_____DETAILS_BEGIN_____2t_ if (A_GuiEvent = "DoubleClick")
+_____IF_DETAILS_BEGIN_____2t_ if (A_GuiEvent = "DoubleClick")
       { _____SUMMARY_END_____
          ; GuiConfigMain.Create_Popup_Action()
          GuiConfigMain.Create_Popup("action")
@@ -1076,7 +1077,7 @@ _____DETAILS_BEGIN_____2t_ if (A_GuiEvent = "DoubleClick")
 
       ;--------------------------------------
       ; user has edited first field of a row 
-_____DETAILS_BEGIN_____2t_ if (A_GuiEvent = "e")
+_____IF_DETAILS_BEGIN_____2t_ if (A_GuiEvent = "e")
       { _____SUMMARY_END_____
          GuiConfigMain.ListViewActions_ReadjustAllCols()
       } _____DETAILS_END_____
@@ -1084,7 +1085,7 @@ _____DETAILS_BEGIN_____2t_ if (A_GuiEvent = "e")
       ;--------------------------
       ; An Item Changed
       ;
-_____DETAILS_BEGIN_____2t_ if ( "I" = A_GuiEvent ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if ( "I" = A_GuiEvent ){ _____SUMMARY_END_____
          
          ;===================================================
          ; ENABLE / DISABLE state changed for a Command
@@ -1093,7 +1094,7 @@ _____DETAILS_BEGIN_____2t_ if ( "I" = A_GuiEvent ){ _____SUMMARY_END_____
          ;-------------------------------------------
          ; Event was either Select (S) or Deselect (s)
          ;
-_____DETAILS_BEGIN_____3t_ if( InStr(ErrorLevel, "S") ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( InStr(ErrorLevel, "S") ){ _____SUMMARY_END_____
             
             ; Tells future ListView operations to operate on this specific ListView control
             GuiConfigMain.ListViewActions_Activate()
@@ -1154,14 +1155,14 @@ _____DETAILS_BEGIN_____3t_ if( InStr(ErrorLevel, "S") ){ _____SUMMARY_END_____
             ; If QUIT or SETTINGS selected, disable edit + delete buttons.
             ; If anything else selected, enable edit + delete buttons.
             ;
-_____DETAILS_BEGIN_____4t_ if( was_item_selected ){ _____SUMMARY_END_____
-_____DETAILS_BEGIN_____5t_ if( "QUIT"     != sel_act_id 
+_____IF_DETAILS_BEGIN_____4t_ if( was_item_selected ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____5t_ if( "QUIT"     != sel_act_id 
                and "SETTINGS" != sel_act_id ){ _____SUMMARY_END_____
                   GuiConfigMain.Fn_Action_Buttons_Enable()
                } _____DETAILS_END_____
-_____DETAILS_BEGIN_____5t_ else{ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____5t_ else{ _____SUMMARY_END_____
                   allow_run := false 
-_____DETAILS_BEGIN_____6t_ if( "QUIT" == sel_act_id ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____6t_ if( "QUIT" == sel_act_id ){ _____SUMMARY_END_____
                      allow_run := true
                   } _____DETAILS_END_____
                   GuiConfigMain.Fn_Action_Buttons_Disable( allow_run )
@@ -1172,7 +1173,7 @@ _____DETAILS_BEGIN_____6t_ if( "QUIT" == sel_act_id ){ _____SUMMARY_END_____
             ; If nothing is selected
             ; disable edit + delete buttons.
             ;
-_____DETAILS_BEGIN_____4t_ if( 0 == LV_GetNext(0) ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ if( 0 == LV_GetNext(0) ){ _____SUMMARY_END_____
                GuiConfigMain.Fn_Action_Buttons_Disable()               
             } _____DETAILS_END_____
             
@@ -1192,7 +1193,7 @@ _____DETAILS_BEGIN_____1t_ GUI_EVENT_ListViewCommands() { _____SUMMARY_END_____
       ; while the popup is altering or inserting new entries
       ; ignore event.
       ;
-_____DETAILS_BEGIN_____2t_ if("" != _o_Gui_Config_Popup ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if("" != _o_Gui_Config_Popup ){ _____SUMMARY_END_____
          return
       } _____DETAILS_END_____
       
@@ -1200,7 +1201,7 @@ _____DETAILS_BEGIN_____2t_ if("" != _o_Gui_Config_Popup ){ _____SUMMARY_END_____
       ; If Gui not initialized yet, 
       ; don't respond to checkmark events.
       ;
-_____DETAILS_BEGIN_____2t_ if(false == GuiConfigMain._is_gui_baked){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if(false == GuiConfigMain._is_gui_baked){ _____SUMMARY_END_____
          return
       } _____DETAILS_END_____
       
@@ -1208,7 +1209,7 @@ _____DETAILS_BEGIN_____2t_ if(false == GuiConfigMain._is_gui_baked){ _____SUMMAR
       ; User Double-Clicked 
       ; either a row or a blank space.
       ;
-_____DETAILS_BEGIN_____2t_ if ( "DoubleClick" = A_GuiEvent )
+_____IF_DETAILS_BEGIN_____2t_ if ( "DoubleClick" = A_GuiEvent )
       { _____SUMMARY_END_____
          GuiConfigMain.Create_Popup("command")
       } _____DETAILS_END_____
@@ -1216,7 +1217,7 @@ _____DETAILS_BEGIN_____2t_ if ( "DoubleClick" = A_GuiEvent )
       ;--------------------------------------
       ; user has edited first field of a row 
       ;
-_____DETAILS_BEGIN_____2t_ if ( "e" = A_GuiEvent )
+_____IF_DETAILS_BEGIN_____2t_ if ( "e" = A_GuiEvent )
       { _____SUMMARY_END_____
          GuiConfigMain.ListViewCommands_ReadjustAllCols()
       } _____DETAILS_END_____
@@ -1224,7 +1225,7 @@ _____DETAILS_BEGIN_____2t_ if ( "e" = A_GuiEvent )
       ;--------------------------
       ; An Item Changed
       ;
-_____DETAILS_BEGIN_____2t_ if ( "I" = A_GuiEvent ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if ( "I" = A_GuiEvent ){ _____SUMMARY_END_____
          
          ;===================================================
          ; ENABLE / DISABLE state changed for a Command
@@ -1233,7 +1234,7 @@ _____DETAILS_BEGIN_____2t_ if ( "I" = A_GuiEvent ){ _____SUMMARY_END_____
          ;-------------------------------------------
          ; Event was either Checkmark (C) or Uncheckmark (c)
          ;
-_____DETAILS_BEGIN_____3t_ if( InStr(ErrorLevel, "c") ){             _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( InStr(ErrorLevel, "c") ){             _____SUMMARY_END_____
             
             ; Tells future ListView operations to operate on this specific ListView control
             GuiConfigMain.ListViewCommands_Activate()
@@ -1255,10 +1256,10 @@ _____DETAILS_BEGIN_____3t_ if( InStr(ErrorLevel, "c") ){             _____SUMMAR
             was_item_checked := InStr(ErrorLevel, "C", CaseSensitive:=true)
             was_item_unchecked := InStr(ErrorLevel, "c", CaseSensitive:=true)
             
-_____DETAILS_BEGIN_____4t_ if( was_item_checked ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ if( was_item_checked ){ _____SUMMARY_END_____
                GuiConfigMain.Fn_EnableCommand( cmd )
             } _____DETAILS_END_____
-_____DETAILS_BEGIN_____4t_ if( was_item_unchecked ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ if( was_item_unchecked ){ _____SUMMARY_END_____
                GuiConfigMain.Fn_DisableCommand( cmd )
             }                _____DETAILS_END_____
             
@@ -1277,7 +1278,7 @@ _____DETAILS_BEGIN_____1t_ GUI_EVENT_ButtonRunAction() { _____SUMMARY_END_____
       
       which_row := LV_GetNext(0)      
       
-_____DETAILS_BEGIN_____2t_ if( 0 != which_row ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( 0 != which_row ){ _____SUMMARY_END_____
          LV_GetText(action_id_is, which_row, 1)
          run_action_id := action_id_is 
          gosub RunActionID
@@ -1314,7 +1315,7 @@ _____DETAILS_BEGIN_____1t_ GUI_EVENT_ButtonDeleteAction() { _____SUMMARY_END____
       
       which_row := LV_GetNext(0)
       
-_____DETAILS_BEGIN_____2t_ if( 0 == which_row ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( 0 == which_row ){ _____SUMMARY_END_____
          ; User pressed Delete Action button with no selection.
          return
       } _____DETAILS_END_____
@@ -1331,9 +1332,9 @@ _____DETAILS_BEGIN_____2t_ if( 0 == which_row ){ _____SUMMARY_END_____
       ;~ ar_cmds_which_use_this_action     := []
       string_cmds_which_use_this_action := ""
       
-_____DETAILS_BEGIN_____2t_ for cmd, cmd_dat in _COMMANDS{ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ for cmd, cmd_dat in _COMMANDS{ _____SUMMARY_END_____
          
-_____DETAILS_BEGIN_____3t_ if( aID == cmd_dat["action_id"] ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( aID == cmd_dat["action_id"] ){ _____SUMMARY_END_____
             ; msgbox command has aid [%aID%]
             ;~ ar_cmds_which_use_this_action.Push(cmd)
             string_cmds_which_use_this_action .= cmd "`n`n"
@@ -1366,7 +1367,7 @@ _____DETAILS_BEGIN_____3t_ if( aID == cmd_dat["action_id"] ){ _____SUMMARY_END__
       msgbox_prompt  .= "  will all be erased from your savefile.)`n`n"
                   
       ;~ if( ar_cmds_which_use_this_action.Count() > 0 )
-_____DETAILS_BEGIN_____2t_ if( StrLen(string_cmds_which_use_this_action) > 0 ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( StrLen(string_cmds_which_use_this_action) > 0 ){ _____SUMMARY_END_____
          msgbox_prompt  .= "`n"
          msgbox_prompt  .= "------------------------------------------------------`n"
          msgbox_prompt  .= "WARNING    `n`n"
@@ -1384,13 +1385,13 @@ _____DETAILS_BEGIN_____2t_ if( StrLen(string_cmds_which_use_this_action) > 0 ){ 
       
       IfMsgBox, Cancel
          return 
-_____DETAILS_BEGIN_____2t_ IfMsgBox, OK
+_____IF_DETAILS_BEGIN_____2t_ IfMsgBox, OK
       { _____SUMMARY_END_____
          ; delete all cmds in string_cmds_which_use_this_action
          ; delete action
          
-_____DETAILS_BEGIN_____3t_ if( StrLen(string_cmds_which_use_this_action) > 0 ){ _____SUMMARY_END_____
-_____DETAILS_BEGIN_____4t_ Loop, Parse, string_cmds_which_use_this_action, `n`n
+_____IF_DETAILS_BEGIN_____3t_ if( StrLen(string_cmds_which_use_this_action) > 0 ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ Loop, Parse, string_cmds_which_use_this_action, `n`n
             { _____SUMMARY_END_____
                GuiConfigMain.Fn_DeleteCommand( A_LoopField )
             } _____DETAILS_END_____
@@ -1419,10 +1420,10 @@ _____DETAILS_BEGIN_____1t_ Fn_Action_Buttons_Disable( flag_allow_run:=false ) { 
       GuiControl, ConfigMain: Disable, GuiConfigMain_ButtonEditAction
       GuiControl, ConfigMain: Disable, GuiConfigMain_ButtonDeleteAction
       
-_____DETAILS_BEGIN_____2t_ if(false == flag_allow_run){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if(false == flag_allow_run){ _____SUMMARY_END_____
          GuiControl, ConfigMain: Disable, GuiConfigMain_ButtonRunAction
       } _____DETAILS_END_____
-_____DETAILS_BEGIN_____2t_ else{ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ else{ _____SUMMARY_END_____
          GuiControl, ConfigMain: Enable, GuiConfigMain_ButtonRunAction         
       } _____DETAILS_END_____
       
@@ -1447,10 +1448,8 @@ _____DETAILS_BEGIN_____1t_ GUI_EVENT_ButtonEditCmd() { _____SUMMARY_END_____
       return
    } _____DETAILS_END_____
 
-; [~] option checkbox: Show confirmation warning before deleting an Action or Command.
-; [~] option checkbox: Show confirmation warning before deleting an Action or Command.
-; [~] option checkbox: Show confirmation warning before deleting an Action or Command.
-;
+; [~] TODO: new option checkbox: Show confirmation warning before deleting an Action or Command.
+
 _____DETAILS_BEGIN_____1t_ GUI_EVENT_ButtonDeleteCmd() { _____SUMMARY_END_____
    global
    
@@ -1462,7 +1461,7 @@ _____DETAILS_BEGIN_____1t_ GUI_EVENT_ButtonDeleteCmd() { _____SUMMARY_END_____
       
       which_row := LV_GetNext(0)
       
-_____DETAILS_BEGIN_____2t_ if( 0 == which_row ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( 0 == which_row ){ _____SUMMARY_END_____
          ; User pressed Delete Command button with no selection.
          return
       } _____DETAILS_END_____
@@ -1542,12 +1541,12 @@ _____DETAILS_BEGIN_____1t_ GUI_EVENT_CheckboxShowAll() { _____SUMMARY_END_____
       
       GuiControlGet,show_all_state,, GuiConfigMain_CheckboxShowAll
       
-_____DETAILS_BEGIN_____2t_ if( show_all_state ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( show_all_state ){ _____SUMMARY_END_____
          txt := GuiConfigMain.CheckboxShowAll_TextForChecked
          
          GuiConfigMain.ListViewCommands_ShowAll()
       } _____DETAILS_END_____
-_____DETAILS_BEGIN_____2t_ else{ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ else{ _____SUMMARY_END_____
          txt := GuiConfigMain.CheckboxShowAll_TextForUnchecked
          
          GuiConfigMain.ListViewCommands_ShowOnlyEnabled()
@@ -1562,7 +1561,7 @@ _____DETAILS_BEGIN_____2t_ else{ _____SUMMARY_END_____
 _____DETAILS_BEGIN_____1t_ GUI_EVENT_Settings_ButtonIcon() { _____SUMMARY_END_____
    global 
    
-_____DETAILS_BEGIN_____2t_ if( "" == _o_Gui_Config_IconPicker ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( "" == _o_Gui_Config_IconPicker ){ _____SUMMARY_END_____
          _o_Gui_Config_IconPicker := new GuiConfigIconPicker()
       } _____DETAILS_END_____
       
@@ -1738,7 +1737,7 @@ _____DETAILS_BEGIN_____1t_ ListViewCommands_ShowOnlyEnabled() { _____SUMMARY_END
       i_lv_rows := LV_GetCount()
       ;-----------------------
       ; iterate ListView items
-_____DETAILS_BEGIN_____2t_ while(i_lv_rows > 0)
+_____IF_DETAILS_BEGIN_____2t_ while(i_lv_rows > 0)
       { _____SUMMARY_END_____
          ;----------------------------------
          ; get the cmd in each ListView row
@@ -1746,11 +1745,11 @@ _____DETAILS_BEGIN_____2t_ while(i_lv_rows > 0)
          
          ;-----------------------------------------
          ; ensure cmd is present in _COMMANDS array 
-_____DETAILS_BEGIN_____3t_ if( _COMMANDS.HasKey(cmd) ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( _COMMANDS.HasKey(cmd) ){ _____SUMMARY_END_____
             ; msgbox has key [%cmd%]
             ; if the Command is disabled,  
             ; then remove that Command's ListView entry
-_____DETAILS_BEGIN_____4t_ if( false == _COMMANDS[cmd]["enabled"] ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ if( false == _COMMANDS[cmd]["enabled"] ){ _____SUMMARY_END_____
                LV_Delete( i_lv_rows )
             } _____DETAILS_END_____
             
@@ -1773,7 +1772,7 @@ _____DETAILS_BEGIN_____1t_ ListViewCommands_ShowAll() { _____SUMMARY_END_____
       
       ;-----------------------
       ; iterate ListView items
-_____DETAILS_BEGIN_____2t_ Loop % LV_GetCount()
+_____IF_DETAILS_BEGIN_____2t_ Loop % LV_GetCount()
       { _____SUMMARY_END_____
          ;----------------------------------
          ; get the cmd in each ListView row
@@ -1782,8 +1781,8 @@ _____DETAILS_BEGIN_____2t_ Loop % LV_GetCount()
          ar_enabled[cmd] := true
       } _____DETAILS_END_____
       
-_____DETAILS_BEGIN_____2t_ for cmd, cmd_data in _COMMANDS { _____SUMMARY_END_____
-_____DETAILS_BEGIN_____3t_ if ar_enabled.HasKey(cmd){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ for cmd, cmd_data in _COMMANDS { _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if ar_enabled.HasKey(cmd){ _____SUMMARY_END_____
             continue
          } _____DETAILS_END_____
          
@@ -1821,17 +1820,17 @@ _____DETAILS_BEGIN_____1t_ ListViewCommands_UpdateAllWhichUseAction( p_actionID 
       GuiConfigMain.ListViewCommands_Activate()
       
       ; iterate ListView items
-_____DETAILS_BEGIN_____2t_ Loop % LV_GetCount()
+_____IF_DETAILS_BEGIN_____2t_ Loop % LV_GetCount()
       { _____SUMMARY_END_____
          ; get the cmd in each ListView row
          LV_GetText(cmd, A_Index)
          
          ; ensure cmd is present in _COMMANDS array 
-_____DETAILS_BEGIN_____3t_ if( _COMMANDS.HasKey(cmd) ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( _COMMANDS.HasKey(cmd) ){ _____SUMMARY_END_____
          
             ; if the Command uses this updated Action 
             ; then update that Command's ListView entry with updated Action config
-_____DETAILS_BEGIN_____4t_ if( aID == _COMMANDS[cmd]["action_id"] ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ if( aID == _COMMANDS[cmd]["action_id"] ){ _____SUMMARY_END_____
                
                ;------------------------------------------------------
                ; AutoHotkey Docs, Ternary Operator: 
@@ -1881,13 +1880,13 @@ _____DETAILS_BEGIN_____1t_ Create_Popup(mode, purpose:="") { _____SUMMARY_END___
       ;-----------------------------------------------------------------
       
       
-_____COMMENT_DETAILS_BEGIN_____4t_ ;===================================================================
+_____COMMENT_DETAILS_BEGIN_____4t_ ;====================================================================
             ;
             ; Note:
             ;
             ; AutoHotkey Info : Dynamically Calling + Function References
             ;
-            ;=================================================================== _____COMMENT_SUMMARY_END_____
+            ;==================================================================== _____COMMENT_SUMMARY_END_____
             ;
             ; The line `GuiConfigMain[fn]()` will call one of these two functions
             ;
@@ -1901,17 +1900,17 @@ _____COMMENT_DETAILS_BEGIN_____4t_ ;============================================
             ;    https://www.autohotkey.com/docs/Objects.htm#Function_References
             ;    https://www.autohotkey.com/docs/Objects.htm#Usage_Objects 
             ;      -> end of first section begins with `x.y[z]()` example.
-            ;=================================================================== _____COMMENT_DETAILS_END_____
+            ;==================================================================== _____COMMENT_DETAILS_END_____
             ;
       fn := "ListView" plural "_Activate"
       GuiConfigMain[fn]()
          
       
-_____DETAILS_BEGIN_____2t_ if("" == purpose){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if("" == purpose){ _____SUMMARY_END_____
       
-_____COMMENT_DETAILS_BEGIN_____3t_ ;----------------------------------------------------------
+_____COMMENT_DETAILS_BEGIN_____3t_ ;-----------------------------------------------------------
          ; If LV_GetNext(0) succeeds, then a row is selected. 
-         ;---------------------------------------------------------- _____COMMENT_SUMMARY_END_____
+         ;----------------------------------------------------------- _____COMMENT_SUMMARY_END_____
          ; The user either hit <Enter> or double-clicked that row.
          ; An "Edit Action/Command" popup will appear for this item.
          ;
@@ -1921,35 +1920,35 @@ _____COMMENT_DETAILS_BEGIN_____3t_ ;--------------------------------------------
          ; The user either hit <Enter> w/o a selection or 
          ; double-clicked a blank area, not a row.
          ; A "New Action/Command" popup will appear.
-         ;---------------------------------------------------------- _____COMMENT_DETAILS_END_____
+         ;----------------------------------------------------------- _____COMMENT_DETAILS_END_____
          
-_____DETAILS_BEGIN_____3t_ if( 0 != LV_GetNext(0) ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( 0 != LV_GetNext(0) ){ _____SUMMARY_END_____
             purpose := "edit"
          } _____DETAILS_END_____
-_____DETAILS_BEGIN_____3t_ else{ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ else{ _____SUMMARY_END_____
             purpose := "add"            
          } _____DETAILS_END_____
          
       } _____DETAILS_END_____
       
-_____DETAILS_BEGIN_____2t_ if( "command" == mode
+_____IF_DETAILS_BEGIN_____2t_ if( "command" == mode
       or  "action"  == mode)
       { _____SUMMARY_END_____
       
          ;=============================================
          ;   Create Popup to Add a (Command or Action)
          ;=============================================
-_____DETAILS_BEGIN_____3t_ if( "add" == purpose ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( "add" == purpose ){ _____SUMMARY_END_____
          
             ;------------------------------------------
             ; Create Popup, 
             ; if this global var is empty.
             ;------------------------------------------
             ;
-_____DETAILS_BEGIN_____4t_ if( _o_Gui_Config_Popup == "" ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ if( _o_Gui_Config_Popup == "" ){ _____SUMMARY_END_____
                _o_Gui_Config_Popup := new GuiConfigPopup(mode, "add")
             } _____DETAILS_END_____
-_____DETAILS_BEGIN_____4t_ else{ ;error; _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ else{ ;error; _____SUMMARY_END_____
                MsgBox, 16,  [ PROGRAM ERROR ], % "Whoops, big bug, a Popup is already open!`n"
             } _____DETAILS_END_____
             
@@ -1957,7 +1956,7 @@ _____DETAILS_BEGIN_____4t_ else{ ;error; _____SUMMARY_END_____
          ;=============================================
          ;   Create Popup to Edit a (Command or Action)
          ;=============================================
-_____DETAILS_BEGIN_____3t_ else 
+_____IF_DETAILS_BEGIN_____3t_ else 
          if( "edit" == purpose ){ _____SUMMARY_END_____
             
             
@@ -1972,7 +1971,7 @@ _____DETAILS_BEGIN_____3t_ else
             ; Exit if no selection to edit.
             ;================================
             
-_____DETAILS_BEGIN_____4t_ if( 0 == which_row ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ if( 0 == which_row ){ _____SUMMARY_END_____
                
                return   ; User pressed "Edit Selected..." Button
                       ; with no selection. 
@@ -1989,9 +1988,9 @@ _____DETAILS_BEGIN_____4t_ if( 0 == which_row ){ _____SUMMARY_END_____
             LV_GetText(aID_or_cmd, which_row, 1)
             
             
-_____COMMENT_DETAILS_BEGIN_____4t_ ;-------------------------------------------------------------
+_____COMMENT_DETAILS_BEGIN_____4t_ ;--------------------------------------------------------------
             ; AutoHotkey Info, using a %variable_name% stored in a string
-            ;------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
+            ;-------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
             ; Here, I'd like to showcase a language feature of AutoHotkey, 
             ; 
             ; where you can %resolve% a variable stored in a string 
@@ -2029,7 +2028,7 @@ _____COMMENT_DETAILS_BEGIN_____4t_ ;--------------------------------------------
             ; https://www.autohotkey.com/docs/Functions.htm#DynCall
             ; https://www.autohotkey.com/docs/Variables.htm#operators
             ;               (see %Var% in the operators table ^)
-            ;------------------------------------------------------------- _____COMMENT_DETAILS_END_____
+            ;-------------------------------------------------------------- _____COMMENT_DETAILS_END_____
             
             ;===============================================
             ; Ensure the row is still valid in main array
@@ -2037,7 +2036,7 @@ _____COMMENT_DETAILS_BEGIN_____4t_ ;--------------------------------------------
             
             AR := ("command" == mode) ? "_COMMANDS" : "_ACTIONS"
             
-_____DETAILS_BEGIN_____4t_ if( %AR%.HasKey( aID_or_cmd ) ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ if( %AR%.HasKey( aID_or_cmd ) ){ _____SUMMARY_END_____
                
                
                ;===============================================
@@ -2071,15 +2070,15 @@ _____DETAILS_BEGIN_____4t_ if( %AR%.HasKey( aID_or_cmd ) ){ _____SUMMARY_END____
                ;     Create Popup  :  Command Edit     ;
                ;=======================================;
                
-_____DETAILS_BEGIN_____5t_ if( _o_Gui_Config_Popup == "" ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____5t_ if( _o_Gui_Config_Popup == "" ){ _____SUMMARY_END_____
                   _o_Gui_Config_Popup := new GuiConfigPopup(mode, "edit", row_dat)
                } _____DETAILS_END_____
-_____DETAILS_BEGIN_____5t_ else{ ;then bug; _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____5t_ else{ ;then bug; _____SUMMARY_END_____
                   MsgBox, 16,  [ PROGRAM ERROR ], % "Whoops, a Popup is already open.`n"
                } _____DETAILS_END_____
                
             } _____DETAILS_END_____
-_____DETAILS_BEGIN_____4t_ else{ ;then bug; _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ else{ ;then bug; _____SUMMARY_END_____
                debug_out := "mode[" mode "] purpose[" purpose "] `n"
                debug_out .= "Trying to open config Popup window, `n"
                debug_out .= "but array " AR " does not have key[" aID_or_cmd "], `n"
@@ -2099,7 +2098,7 @@ _____DETAILS_BEGIN_____4t_ else{ ;then bug; _____SUMMARY_END_____
 _____DETAILS_BEGIN_____1t_ Pluck_Selected_Command_From_COMMANDS(p_row_cmd) { _____SUMMARY_END_____
    global 
    
-_____COMMENT_DETAILS_BEGIN_____1t_ ;------------------------------------------------------------------------
+_____COMMENT_DETAILS_BEGIN_____1t_ ;-------------------------------------------------------------------------
    ; Note
    ;-------------------------------------------------------------------------
    ;
@@ -2113,7 +2112,7 @@ _____COMMENT_DETAILS_BEGIN_____1t_ ;--------------------------------------------
    ;   add the key + value back into _ACTIONS or _COMMANDS 
    ;   (which is potentially the same, or potentially entirely modified).
    ;
-   ;------------------------------------------------------------------------ _____COMMENT_SUMMARY_END_____
+   ;------------------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
    ; Why this implementation?
    ;-------------------------------------------------------------------------
    ;
@@ -2165,13 +2164,13 @@ _____COMMENT_DETAILS_BEGIN_____1t_ ;--------------------------------------------
    ;   but the benefit of the simplicity of verification logic 
    ;   was appealing enough to me to go this route. 
    ;
-   ;------------------------------------------------------------------------ _____COMMENT_DETAILS_END_____
+   ;------------------------------------------------------------------------- _____COMMENT_DETAILS_END_____
    
-_____COMMENT_DETAILS_BEGIN_____2t_ ;================================================================
+_____COMMENT_DETAILS_BEGIN_____2t_ ;=================================================================
       ; Pluck and save current row's command data                       
       ; from _COMMANDS array                                            
       ; into _plucked_command variable.                                 
-      ;================================================================ _____COMMENT_SUMMARY_END_____
+      ;================================================================= _____COMMENT_SUMMARY_END_____
       ; How _plucked_command will be used:                              
       ;                                                                 
       ;   If user cancels,                                              
@@ -2183,7 +2182,7 @@ _____COMMENT_DETAILS_BEGIN_____2t_ ;============================================
       ;     we'll assign new command data to the _COMMANDS array,       
       ;     and make _plucked_command empty to prevent                  
       ;       GUI_EVENT_GuiConfigPopup_OnClose from restoring it.         
-      ;================================================================ _____COMMENT_DETAILS_END_____
+      ;================================================================= _____COMMENT_DETAILS_END_____
       
       
       GuiConfigMain._plucked_command := { "" 
@@ -2233,7 +2232,7 @@ _____DETAILS_BEGIN_____1t_ Restore_Plucked_Command_If_User_Cancelled() { _____SU
       ; then restore the original Command to the _COMMANDS array.
       ;-----------------------------------------------------------
       
-_____DETAILS_BEGIN_____2t_ if( "" != GuiConfigMain._plucked_command )
+_____IF_DETAILS_BEGIN_____2t_ if( "" != GuiConfigMain._plucked_command )
       { _____SUMMARY_END_____
          cmd        := GuiConfigMain._plucked_command["command"]
          is_enabled := GuiConfigMain._plucked_command["enabled"]
@@ -2279,7 +2278,7 @@ _____DETAILS_BEGIN_____1t_ Restore_Plucked_Action_If_User_Cancelled() { _____SUM
       ; then restore the original Command to the _COMMANDS array.
       ;-----------------------------------------------------------
       
-_____DETAILS_BEGIN_____2t_ if( "" != GuiConfigMain._plucked_action )
+_____IF_DETAILS_BEGIN_____2t_ if( "" != GuiConfigMain._plucked_action )
       { _____SUMMARY_END_____
          aID   := GuiConfigMain._plucked_action["action_id"]
          aType := GuiConfigMain._plucked_action["action_type"]
@@ -2303,9 +2302,9 @@ _____DETAILS_BEGIN_____1t_ Get_Associative_Array_Of_Selected_LV_Row_Data( select
    local  got_cmd, got_cmd_is_enabled 
    local  got_actionId, got_actionType, got_actionType, got_actionArg
    
-_____COMMENT_DETAILS_BEGIN_____2t_ ;----------------------------------------------------
+_____COMMENT_DETAILS_BEGIN_____2t_ ;-----------------------------------------------------
       ; Parameter: selected_row
-      ;---------------------------------------------------- _____COMMENT_SUMMARY_END_____
+      ;----------------------------------------------------- _____COMMENT_SUMMARY_END_____
       ;
       ; - ListView row ID (integer)
       ;   for the active ListView in GuiConfigMain
@@ -2319,7 +2318,7 @@ _____COMMENT_DETAILS_BEGIN_____2t_ ;--------------------------------------------
       ;   it modifies the ListView row with this ID
       ;   to reflect the edited action or command.
       ; 
-      ;---------------------------------------------------- _____COMMENT_DETAILS_END_____
+      ;----------------------------------------------------- _____COMMENT_DETAILS_END_____
       
       
       ;========================================================
@@ -2342,7 +2341,7 @@ _____COMMENT_DETAILS_BEGIN_____2t_ ;--------------------------------------------
       ; Copy selected ListView Row's data 
       ;========================================
       
-_____DETAILS_BEGIN_____2t_ if( "Actions" == GuiConfigMain_Tabs ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( "Actions" == GuiConfigMain_Tabs ){ _____SUMMARY_END_____
          
          GuiConfigMain.ListViewActions_Activate()
          
@@ -2355,13 +2354,13 @@ _____DETAILS_BEGIN_____2t_ if( "Actions" == GuiConfigMain_Tabs ){ _____SUMMARY_E
          LV_GetText(got_actionArg,  selected_row,4)
          
       } _____DETAILS_END_____
-_____DETAILS_BEGIN_____2t_ else if( "Commands" == GuiConfigMain_Tabs ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ else if( "Commands" == GuiConfigMain_Tabs ){ _____SUMMARY_END_____
          
          GuiConfigMain.ListViewCommands_Activate()
          
-_____COMMENT_DETAILS_BEGIN_____3t_ ;----------------------------------------------------------------
+_____COMMENT_DETAILS_BEGIN_____3t_ ;-----------------------------------------------------------------
          ; AutoHotkey Docs:
-         ;---------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
+         ;----------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
          ; LV_GetNext(StartingRowNumber, RowType)
          ;
          ;    "... the search begins at the row after StartingRowNumber"
@@ -2372,7 +2371,7 @@ _____COMMENT_DETAILS_BEGIN_____3t_ ;--------------------------------------------
          ;     or "F" or "Focused" to find the focused row ..."
          ;
          ; https://www.autohotkey.com/docs/commands/ListView.htm#LV_GetNext
-         ;---------------------------------------------------------------- _____COMMENT_DETAILS_END_____
+         ;----------------------------------------------------------------- _____COMMENT_DETAILS_END_____
          got_cmd_is_enabled := LV_GetNext(selected_row-1, "C")
          
          LV_GetText(got_cmd,        selected_row,1)
@@ -2407,7 +2406,7 @@ _____COMMENT_DETAILS_BEGIN_____3t_ ;--------------------------------------------
 _____DETAILS_BEGIN_____1t_ Fn_EnableCommand( cmd ) { _____SUMMARY_END_____
    global 
    
-_____DETAILS_BEGIN_____2t_ if( _COMMANDS.HasKey(cmd) ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( _COMMANDS.HasKey(cmd) ){ _____SUMMARY_END_____
             
          _COMMANDS[cmd]["enabled"] := true
          
@@ -2420,7 +2419,7 @@ _____DETAILS_BEGIN_____2t_ if( _COMMANDS.HasKey(cmd) ){ _____SUMMARY_END_____
 _____DETAILS_BEGIN_____1t_ Fn_DisableCommand( cmd ) { _____SUMMARY_END_____
    global 
       
-_____DETAILS_BEGIN_____2t_ if( _COMMANDS.HasKey(cmd) ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( _COMMANDS.HasKey(cmd) ){ _____SUMMARY_END_____
             
          _COMMANDS[cmd]["enabled"] := false
          
@@ -2434,7 +2433,7 @@ _____DETAILS_BEGIN_____2t_ if( _COMMANDS.HasKey(cmd) ){ _____SUMMARY_END_____
          ;----------------------------------------------
          
          GuiControlGet,show_all_state,, GuiConfigMain_CheckboxShowAll
-_____DETAILS_BEGIN_____3t_ if( false == show_all_state ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( false == show_all_state ){ _____SUMMARY_END_____
             GuiConfigMain.ListViewCommands_ShowOnlyEnabled()
          } _____DETAILS_END_____
                   
@@ -2449,15 +2448,15 @@ _____DETAILS_BEGIN_____1t_ Fn_DeleteCommand( cmd_to_delete ) { _____SUMMARY_END_
       GuiConfigMain.ListViewCommands_Activate()
       
       ; iterate ListView items
-_____DETAILS_BEGIN_____2t_ Loop % LV_GetCount()
+_____IF_DETAILS_BEGIN_____2t_ Loop % LV_GetCount()
       { _____SUMMARY_END_____
          ; get the cmd in each ListView row
          LV_GetText(cmd, A_Index, 1)
          
          ; ensure cmd is present in _COMMANDS array 
-_____DETAILS_BEGIN_____3t_ if( _COMMANDS.HasKey(cmd) ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( _COMMANDS.HasKey(cmd) ){ _____SUMMARY_END_____
             
-_____DETAILS_BEGIN_____4t_ if( cmd_to_delete == cmd ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ if( cmd_to_delete == cmd ){ _____SUMMARY_END_____
                LV_Delete( A_Index )
                
                p1 := "command"
@@ -2478,15 +2477,15 @@ _____DETAILS_BEGIN_____1t_ Fn_DeleteAction( action_id_to_delete ) { _____SUMMARY
       GuiConfigMain.ListViewActions_Activate()
       
       ; iterate ListView items
-_____DETAILS_BEGIN_____2t_ Loop % LV_GetCount()
+_____IF_DETAILS_BEGIN_____2t_ Loop % LV_GetCount()
       { _____SUMMARY_END_____
          ; get the ID in each ListView row
          LV_GetText(actionID, A_Index, 1)
          
          ; ensure ID is present in _ACTIONS array 
-_____DETAILS_BEGIN_____3t_ if( _ACTIONS.HasKey(actionID) ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( _ACTIONS.HasKey(actionID) ){ _____SUMMARY_END_____
             
-_____DETAILS_BEGIN_____4t_ if( action_id_to_delete == actionID ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ if( action_id_to_delete == actionID ){ _____SUMMARY_END_____
                LV_Delete( A_Index )
                
                p1 := "action"
@@ -2540,7 +2539,7 @@ _____DETAILS_BEGIN_____1t_ Fn_AboutTab_Get_Text(g_width:="") { _____SUMMARY_END_
       
       text := "" 
       
-_____DETAILS_BEGIN_____2t_ if( "" != g_width 
+_____IF_DETAILS_BEGIN_____2t_ if( "" != g_width 
       and g_width < 585 ){ _____SUMMARY_END_____
          12spaces := "    "
       } _____DETAILS_END_____
@@ -2601,20 +2600,20 @@ _____DETAILS_BEGIN_____1t_ __New() { _____SUMMARY_END_____
 
       ; Preload fn should be run during config window launch to (potentially) reduce lag.
       ;
-_____DETAILS_BEGIN_____2t_ if("" == GuiConfigIconPicker._LV_IconList){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if("" == GuiConfigIconPicker._LV_IconList){ _____SUMMARY_END_____
          GuiConfigIconPicker.Preload_IconList()
       } _____DETAILS_END_____
       
       GuiConfigIconPicker.Init_AddControls()
       
-_____COMMENT_DETAILS_BEGIN_____2t_ ;--------------------------------------------------------------
+_____COMMENT_DETAILS_BEGIN_____2t_ ;--------------------------------------------------------------;
       ; Temporarily disable GuiConfigMain while this popup exists.   ;
-      ;-------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
+      ;--------------------------------------------------------------; _____COMMENT_SUMMARY_END_____
       ;                                                              ;
       ; GuiConfigIconPicker will be a child window of GuiConfigMain, ;
       ; which will prevent GuiConfigMain                             ;
       ; from displaying on top of this popup.                        ;
-      ;-------------------------------------------------------------- _____COMMENT_DETAILS_END_____
+      ;--------------------------------------------------------------; _____COMMENT_DETAILS_END_____
       
       Gui, IconConfig:+OwnerConfigMain
       Gui, IconConfig: Show
@@ -2665,7 +2664,7 @@ _____DETAILS_BEGIN_____1t_ Preload_IconList() { _____SUMMARY_END_____
       ;--------------------------------------------
       ; Load the ImageList with system icons.
       ;--------------------------------------------
-_____DETAILS_BEGIN_____2t_ Loop 329
+_____IF_DETAILS_BEGIN_____2t_ Loop 329
       { _____SUMMARY_END_____
          IL_Add(ImageListID_large, "shell32.dll", A_Index)
       } _____DETAILS_END_____
@@ -2699,14 +2698,14 @@ _____DETAILS_BEGIN_____1t_ Init_AddControls() { _____SUMMARY_END_____
       select_this_one := "" 
       TV_Delete()
       parent_id := 0
-_____DETAILS_BEGIN_____2t_ Loop 329 { _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ Loop 329 { _____SUMMARY_END_____
          tv_id := TV_Add("Icon " A_Index, %parent_id%, "Icon" A_Index) 
-_____DETAILS_BEGIN_____3t_ if( A_Index == _ICON_INDEX ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( A_Index == _ICON_INDEX ){ _____SUMMARY_END_____
             select_this_one := tv_id 
          } _____DETAILS_END_____
       } _____DETAILS_END_____
       
-_____DETAILS_BEGIN_____2t_ if( select_this_one ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( select_this_one ){ _____SUMMARY_END_____
          TV_Modify( select_this_one )
       } _____DETAILS_END_____
       
@@ -2722,9 +2721,9 @@ _____DETAILS_BEGIN_____1t_ GUI_EVENT_OnEscape() { _____SUMMARY_END_____
 _____DETAILS_BEGIN_____1t_ GUI_EVENT_OnClose() { _____SUMMARY_END_____
    global
    
-_____COMMENT_DETAILS_BEGIN_____2t_ ;------------------------------------------------------
+_____COMMENT_DETAILS_BEGIN_____2t_ ;------------------------------------------------------;
       ; Call the Destructor method for class GuiConfigPopup. ;
-      ;------------------------------------------------------ _____COMMENT_SUMMARY_END_____
+      ;------------------------------------------------------; _____COMMENT_SUMMARY_END_____
       ;                                                      ;
       ; GuiConfigPopup.__Delete() will:                      ;
       ;                                                      ;
@@ -2732,7 +2731,7 @@ _____COMMENT_DETAILS_BEGIN_____2t_ ;--------------------------------------------
       ; - restore control to GuiConfigMain                   ;
       ; - delete and free any vars this object is using      ;
       ; - destroy the popup GUI                              ;
-      ;------------------------------------------------------ _____COMMENT_DETAILS_END_____
+      ;------------------------------------------------------; _____COMMENT_DETAILS_END_____
       
       ;-----------------------------------------------------------------
       ; AutoHotkey Info 
@@ -2784,7 +2783,7 @@ _____DETAILS_BEGIN_____1t_ GUI_EVENT_TreeView() { _____SUMMARY_END_____
    
       ;---------------------------------------------------------------
       ; If event triggered because user double-clicked 
-_____DETAILS_BEGIN_____2t_ if ( "DoubleClick" = A_GuiEvent ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if ( "DoubleClick" = A_GuiEvent ){ _____SUMMARY_END_____
       
          ;------------------------------------------------------------
          ; Extract the icon number from selected TreeView Item's text.
@@ -2798,7 +2797,7 @@ _____DETAILS_BEGIN_____2t_ if ( "DoubleClick" = A_GuiEvent ){ _____SUMMARY_END__
       } _____DETAILS_END_____
       ;---------------------------------------------------------------
       ; If event triggered because of TreeView item selection changed 
-_____DETAILS_BEGIN_____2t_ else if ( "S" == A_GuiEvent ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ else if ( "S" == A_GuiEvent ){ _____SUMMARY_END_____
          
          ;------------------------------------------------------------
          ; Extract the icon number from selected TreeView Item's text.
@@ -2817,7 +2816,7 @@ _____DETAILS_BEGIN_____2t_ else if ( "S" == A_GuiEvent ){ _____SUMMARY_END_____
 _____DETAILS_BEGIN_____1t_ SubmitIcon( icon_id ) { _____SUMMARY_END_____
    global
    
-_____DETAILS_BEGIN_____2t_ if( "" != icon_id 
+_____IF_DETAILS_BEGIN_____2t_ if( "" != icon_id 
       and  0 != icon_id ){ _____SUMMARY_END_____
          
          ;-----------------------------------------------------
@@ -2967,9 +2966,9 @@ _____DETAILS_BEGIN_____1t_ __New(mode, purpose, row_data_if_editing:="", silent:
       GuiConfigPopup.Init_AddControls_4_Both_SubmitButton()
 
       
-_____COMMENT_DETAILS_BEGIN_____2t_ ;--------------------------------------------------------------------
+_____COMMENT_DETAILS_BEGIN_____2t_ ;--------------------------------------------------------------------;
       ; Note:                                                              ;
-      ;-------------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
+      ;--------------------------------------------------------------------; _____COMMENT_SUMMARY_END_____
       ;                                                                    ;
       ;   The name "PopupConfig" is arbitrarily used here                  ;
       ;   to tell commands like                                            ;
@@ -2989,7 +2988,7 @@ _____COMMENT_DETAILS_BEGIN_____2t_ ;--------------------------------------------
       ;     - nor with "_o_Gui_Config_Popup",                              ;
       ;       which is an instatiated object of the class "GuiConfigPopup".;
       ;                                                                    ;
-      ;-------------------------------------------------------------------- _____COMMENT_DETAILS_END_____
+      ;--------------------------------------------------------------------; _____COMMENT_DETAILS_END_____
       
       ;==========================================================;
       ; Render + Display GuiConfigPopup's GUI window             ;
@@ -3008,7 +3007,7 @@ _____COMMENT_DETAILS_BEGIN_____2t_ ;--------------------------------------------
       
       Gui, PopupConfig:+OwnerConfigMain
       
-_____DETAILS_BEGIN_____2t_ if( false == silent ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( false == silent ){ _____SUMMARY_END_____
       
          Gui, PopupConfig: Show
          
@@ -3040,10 +3039,10 @@ _____DETAILS_BEGIN_____1t_ __Delete() { _____SUMMARY_END_____
       ; If PopupCommand successfully edited a command, this will be ignored.
       ; If PopupCommand was cancelled by User, then this will restore the command.
       
-_____DETAILS_BEGIN_____2t_ if( "action" == GuiConfigPopup._popup_mode ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( "action" == GuiConfigPopup._popup_mode ){ _____SUMMARY_END_____
          GuiConfigMain.Restore_Plucked_Action_If_User_Cancelled()
       } _____DETAILS_END_____
-_____DETAILS_BEGIN_____2t_ if( "command" == GuiConfigPopup._popup_mode ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( "command" == GuiConfigPopup._popup_mode ){ _____SUMMARY_END_____
          GuiConfigMain.Restore_Plucked_Command_If_User_Cancelled()
       } _____DETAILS_END_____
       
@@ -3095,11 +3094,11 @@ _____DETAILS_BEGIN_____1t_ Initialize_Gui_gVariables() { _____SUMMARY_END_____
       GuiConfigPopup_ActionConfig_LabelVerified    := ""
       GuiConfigPopup_ButtonSubmit                  := ""
       
-_____COMMENT_DETAILS_BEGIN_____2t_ ;------------------------------------------------------------------------
+_____COMMENT_DETAILS_BEGIN_____2t_ ;-------------------------------------------------------------------------
       ; footnote[1]
       ;-------------------------------------------------------------------------
       ; GuiConfigPopup_Cmd_Tabs
-      ;------------------------------------------------------------------------ _____COMMENT_SUMMARY_END_____
+      ;------------------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
       ; Used for dynamically changing the submit button for Add|Edit Command.
       ; If not cleared here, it will persist between popups, 
       ; and exiting an "Edit Command" popup on the 2nd tab 
@@ -3110,7 +3109,7 @@ _____COMMENT_DETAILS_BEGIN_____2t_ ;--------------------------------------------
       ;
       ; Hence it's a good practice to clear global variables 
       ; for GUIs which are created multiple times over the lifespan of a script.
-      ;------------------------------------------------------------------------ _____COMMENT_DETAILS_END_____
+      ;------------------------------------------------------------------------- _____COMMENT_DETAILS_END_____
       
       return
    } _____DETAILS_END_____
@@ -3145,13 +3144,13 @@ _____DETAILS_BEGIN_____1t_ Init_Config_GuiWindow_Options() { _____SUMMARY_END___
             
       return
       
-_____COMMENT_DETAILS_BEGIN_____2t_ ;---------------------------------------------------------------------
+_____COMMENT_DETAILS_BEGIN_____2t_ ;----------------------------------------------------------------------
       ; AutoHotkey Info : Ternary Operator
-      ;--------------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
+      ;---------------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
       ; myVar := (ifThisEvalsToTrue) ? thenAssignThis : otherwiseAssignThis
       ;----------------------------------------------------------------------
       ; https://www.autohotkey.com/docs/Variables.htm#ternary
-      ;--------------------------------------------------------------------- _____COMMENT_DETAILS_END_____
+      ;---------------------------------------------------------------------- _____COMMENT_DETAILS_END_____
    } _____DETAILS_END_____
    
 _____DETAILS_BEGIN_____1t_ Init_AddControls_1() { _____SUMMARY_END_____
@@ -3171,7 +3170,7 @@ _____DETAILS_BEGIN_____1t_ Init_AddControls_1() { _____SUMMARY_END_____
       ;   - Command Add                              
       ;   - Command Edit                             
       ;
-_____DETAILS_BEGIN_____2t_ if("command" == this._popup_mode){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if("command" == this._popup_mode){ _____SUMMARY_END_____
       
          ;===================================
          ; Add `Text` labled "Command:" and  
@@ -3182,10 +3181,10 @@ _____DETAILS_BEGIN_____2t_ if("command" == this._popup_mode){ _____SUMMARY_END__
             ; Label "Command:" before user input field 
             ;-----------------------------------------
             
-_____DETAILS_BEGIN_____4t_ if("add" == this._popup_purpose){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ if("add" == this._popup_purpose){ _____SUMMARY_END_____
                text := "Type the text for your new Command :"
             } _____DETAILS_END_____
-_____DETAILS_BEGIN_____4t_ else if("edit" == this._popup_purpose){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ else if("edit" == this._popup_purpose){ _____SUMMARY_END_____
                text := "Command :"
             } _____DETAILS_END_____
             
@@ -3255,7 +3254,7 @@ _____DETAILS_BEGIN_____4t_ else if("edit" == this._popup_purpose){ _____SUMMARY_
       ;   - Action Add
       ;   - Action Edit
       ;
-_____DETAILS_BEGIN_____2t_ else if("action" == this._popup_mode){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ else if("action" == this._popup_mode){ _____SUMMARY_END_____
          
          row_actionID := GuiConfigPopup._LV_RowData_FromMainGui["row_actionID"]
          
@@ -3292,7 +3291,7 @@ _____DETAILS_BEGIN_____1t_ Init_AddControls_2_Both_ConfigNewAction() { _____SUMM
       ;=========================================================================;
       
       
-_____DETAILS_BEGIN_____2t_ if("command" == this._popup_mode){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if("command" == this._popup_mode){ _____SUMMARY_END_____
       
         ;----------------------------TAB SWITCH----------------------------
         ;
@@ -3363,7 +3362,7 @@ _____DETAILS_BEGIN_____2t_ if("command" == this._popup_mode){ _____SUMMARY_END__
          ; options    .= A_Space "y+15" 
          options    .= A_Space "y+10" 
          
-_____DETAILS_BEGIN_____3t_ if( "folder" = row_actionType ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( "folder" = row_actionType ){ _____SUMMARY_END_____
             options   .= A_Space "+Checked" 
          } _____DETAILS_END_____
          
@@ -3379,7 +3378,7 @@ _____DETAILS_BEGIN_____3t_ if( "folder" = row_actionType ){ _____SUMMARY_END____
          options      :=  A_Space "g" "GuiConfigPopup.GUI_EVENT_ActionConfig_RadioChanged" 
          options       .= A_Space "v"           "GuiConfigPopup_ActionConfig_RadioApp" 
          
-_____DETAILS_BEGIN_____3t_ if( "app" = row_actionType ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( "app" = row_actionType ){ _____SUMMARY_END_____
             options   .= A_Space "+Checked" 
          } _____DETAILS_END_____
          
@@ -3462,7 +3461,7 @@ _____DETAILS_BEGIN_____3t_ if( "app" = row_actionType ){ _____SUMMARY_END_____
             ,    %text%
       
          text := ""
-_____DETAILS_BEGIN_____3t_ if( "app" = row_actionType ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( "app" = row_actionType ){ _____SUMMARY_END_____
             text := GuiConfigPopup._LV_RowData_FromMainGui["row_actionArg"]
          } _____DETAILS_END_____
          
@@ -3503,7 +3502,7 @@ _____DETAILS_BEGIN_____1t_ Init_AddControls_3_Cmd_SecondTab() { _____SUMMARY_END
       ;   - Command Add 
       ;   - Command Edit 
       ;
-_____DETAILS_BEGIN_____2t_ if("command" == this._popup_mode){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if("command" == this._popup_mode){ _____SUMMARY_END_____
       
         ;----------------------------TAB SWITCH----------------------------
         ;
@@ -3544,7 +3543,7 @@ _____DETAILS_BEGIN_____2t_ if("command" == this._popup_mode){ _____SUMMARY_END__
 _____DETAILS_BEGIN_____1t_ Init_AddControls_4_Both_SubmitButton() { _____SUMMARY_END_____
    global
       
-_____DETAILS_BEGIN_____2t_ if("command" == this._popup_mode){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if("command" == this._popup_mode){ _____SUMMARY_END_____
       
         ;----------------------------TAB SWITCH----------------------------
         ;
@@ -3570,9 +3569,9 @@ _____DETAILS_BEGIN_____2t_ if("command" == this._popup_mode){ _____SUMMARY_END__
       ;   - Command Edit                                                        ;
       ;=========================================================================;
       
-_____COMMENT_DETAILS_BEGIN_____2t_ ;--------------------------------------------------------------
+_____COMMENT_DETAILS_BEGIN_____2t_ ;---------------------------------------------------------------
       ;  About the Submit Button's Functionality
-      ;-------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
+      ;--------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
       ; If all the options the user enters into the above Controls 
       ; are valid paths & non-duplicate Command names
       ; this button will either: 
@@ -3603,7 +3602,7 @@ _____COMMENT_DETAILS_BEGIN_____2t_ ;--------------------------------------------
       ;      but it will need to be assigned to a Command 
       ;      before it can be triggered.
       ;
-      ;-------------------------------------------------------------- _____COMMENT_DETAILS_END_____
+      ;--------------------------------------------------------------- _____COMMENT_DETAILS_END_____
 
       ;==========================================
       ; Add `Button` to Submit Command or Action 
@@ -3641,7 +3640,7 @@ _____DETAILS_BEGIN_____1t_ Init_Config_Controls_After_Render() { _____SUMMARY_EN
       c := "GuiConfigPopup_ActionConfig_TextDragAndDrop"
       w := 470 
       
-_____DETAILS_BEGIN_____2t_ if( "action" == this._popup_mode){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( "action" == this._popup_mode){ _____SUMMARY_END_____
          w := w - 15
       } _____DETAILS_END_____
       
@@ -3658,7 +3657,7 @@ _____DETAILS_BEGIN_____2t_ if( "action" == this._popup_mode){ _____SUMMARY_END__
       ;   - Command Edit 
       ;----------------------------
       
-_____DETAILS_BEGIN_____2t_ if( "command" == this._popup_mode ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( "command" == this._popup_mode ){ _____SUMMARY_END_____
          
          c := "GuiConfigPopup_Cmd_Tab2_ListViewActions"
          w := 470 ; - 50
@@ -3708,9 +3707,9 @@ _____DETAILS_BEGIN_____1t_ GUI_EVENT_OnSize(FLAG:="") { _____SUMMARY_END_____
       ; Label: About Drag and Drop
       ;=================================
       
-_____COMMENT_DETAILS_BEGIN_____2t_ ;-----------------------------------------------------------
+_____COMMENT_DETAILS_BEGIN_____2t_ ;------------------------------------------------------------
       ; OnSize() will be called once when the Gui is rendered
-      ;----------------------------------------------------------- _____COMMENT_SUMMARY_END_____
+      ;------------------------------------------------------------ _____COMMENT_SUMMARY_END_____
       ; 
       ; Every time this function is called automatically due 
       ;  to an AutoHotkey event triggering OnSize(), 
@@ -3736,7 +3735,7 @@ _____COMMENT_DETAILS_BEGIN_____2t_ ;--------------------------------------------
       ;
       ; Shout-out to AutoXYWH:
       ;  https://www.autohotkey.com/boards/viewtopic.php?f=6&t=1079
-      ;----------------------------------------------------------- _____COMMENT_DETAILS_END_____
+      ;------------------------------------------------------------ _____COMMENT_DETAILS_END_____
       
       
       static previous_width
@@ -3754,11 +3753,11 @@ _____COMMENT_DETAILS_BEGIN_____2t_ ;--------------------------------------------
       ; Initialize static vars & control offsets
       ;==========================================
       
-_____DETAILS_BEGIN_____2t_ if( "Gui up and running" == FLAG){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( "Gui up and running" == FLAG){ _____SUMMARY_END_____
          is_baked := true
          return ; A_GuiWidth isn't populated when OnSize() is called manually.
       } _____DETAILS_END_____
-_____DETAILS_BEGIN_____2t_ else if( "RESET" == FLAG){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ else if( "RESET" == FLAG){ _____SUMMARY_END_____
          is_baked := false
          return ; in process of calling __Delete() for this popup gui instance.
       } _____DETAILS_END_____
@@ -3770,7 +3769,7 @@ _____DETAILS_BEGIN_____2t_ else if( "RESET" == FLAG){ _____SUMMARY_END_____
      ;
      ;******************************************************************************
      
-_____DETAILS_BEGIN_____2t_ if( true ==  is_baked )
+_____IF_DETAILS_BEGIN_____2t_ if( true ==  is_baked )
       { _____SUMMARY_END_____
       
          ar_ctrls := [ "GuiConfigPopup_Cmd_InputCommandName"
@@ -3781,12 +3780,12 @@ _____DETAILS_BEGIN_____2t_ if( true ==  is_baked )
                   , "GuiConfigPopup_Cmd_Tab2_ListViewActions" 
                   , "GuiConfigPopup_ButtonSubmit" ]
       
-_____DETAILS_BEGIN_____3t_ for i, c in ar_ctrls
+_____IF_DETAILS_BEGIN_____3t_ for i, c in ar_ctrls
          { _____SUMMARY_END_____
             
-_____COMMENT_DETAILS_BEGIN_____4t_ ;-----------------------------------------------------------
+_____COMMENT_DETAILS_BEGIN_____4t_ ;------------------------------------------------------------
             ; Note on algorithm, past and present.
-            ;----------------------------------------------------------- _____COMMENT_SUMMARY_END_____
+            ;------------------------------------------------------------ _____COMMENT_SUMMARY_END_____
             ; I replaced my previous implementation using:
             ;
             ;   delta_w := A_GuiWidth  - previous_width
@@ -3811,7 +3810,7 @@ _____COMMENT_DETAILS_BEGIN_____4t_ ;--------------------------------------------
             ; AutoHotkey Docs:
             ;   https://www.autohotkey.com/docs/commands/Gui.htm#GuiSize
             ;   https://www.autohotkey.com/docs/Variables.htm#GuiWidth
-            ;----------------------------------------------------------- _____COMMENT_DETAILS_END_____
+            ;------------------------------------------------------------ _____COMMENT_DETAILS_END_____
             
             
             ;========================================================
@@ -3820,7 +3819,7 @@ _____COMMENT_DETAILS_BEGIN_____4t_ ;--------------------------------------------
             ;========================================================
             
             w := A_GuiWidth - 20
-_____DETAILS_BEGIN_____4t_ if( c = "GuiConfigPopup_ActionConfig_TextDragAndDrop" ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ if( c = "GuiConfigPopup_ActionConfig_TextDragAndDrop" ){ _____SUMMARY_END_____
                
                ;---------------------------------------------
                ; This layout is reused in:
@@ -3832,42 +3831,42 @@ _____DETAILS_BEGIN_____4t_ if( c = "GuiConfigPopup_ActionConfig_TextDragAndDrop"
                ; so the offsets will differ.
                ;---------------------------------------------
                
-_____DETAILS_BEGIN_____5t_ if( "action" == GuiConfigPopup._popup_mode){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____5t_ if( "action" == GuiConfigPopup._popup_mode){ _____SUMMARY_END_____
                   w := w - 2
                } _____DETAILS_END_____
-_____DETAILS_BEGIN_____5t_ else{ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____5t_ else{ _____SUMMARY_END_____
                   w := w - 30
                } _____DETAILS_END_____
             } _____DETAILS_END_____
-_____DETAILS_BEGIN_____4t_ else if( c = "GuiConfigPopup_ActionConfig_InputPath" ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ else if( c = "GuiConfigPopup_ActionConfig_InputPath" ){ _____SUMMARY_END_____
                
                ;---------------------
                ;   Same as above 
                ;---------------------
                
-_____DETAILS_BEGIN_____5t_ if( "action" == GuiConfigPopup._popup_mode){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____5t_ if( "action" == GuiConfigPopup._popup_mode){ _____SUMMARY_END_____
                   w := w - 57
                } _____DETAILS_END_____
-_____DETAILS_BEGIN_____5t_ else{ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____5t_ else{ _____SUMMARY_END_____
                   w := w - 100
                } _____DETAILS_END_____
             } _____DETAILS_END_____
-_____DETAILS_BEGIN_____4t_ else if( c = "GuiConfigPopup_ActionConfig_InputArguments" ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ else if( c = "GuiConfigPopup_ActionConfig_InputArguments" ){ _____SUMMARY_END_____
                
-_____DETAILS_BEGIN_____5t_ if( "action" == GuiConfigPopup._popup_mode){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____5t_ if( "action" == GuiConfigPopup._popup_mode){ _____SUMMARY_END_____
                   ; w := w - 67
                   w := w
                } _____DETAILS_END_____
-_____DETAILS_BEGIN_____5t_ else{ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____5t_ else{ _____SUMMARY_END_____
                   ; w := w - 110
                   w := w - 43
                } _____DETAILS_END_____
                
             } _____DETAILS_END_____
-_____COMMENT_DETAILS_BEGIN_____4t_ ;=======================================================
+_____COMMENT_DETAILS_BEGIN_____4t_ ;========================================================
             ; Stretch the height for Tab container + ListViews
             ; Reposition y-coordinate for buttons.
-            ;======================================================= _____COMMENT_SUMMARY_END_____
+            ;======================================================== _____COMMENT_SUMMARY_END_____
             ; 
             ; Most of the controls are only stretching their width, 
             ; but some need to 
@@ -3879,9 +3878,9 @@ _____COMMENT_DETAILS_BEGIN_____4t_ ;============================================
             ;   - calculate these specific needs 
             ;   - move the Control, 
             ;   - then continue the for loop.
-            ;======================================================= _____COMMENT_DETAILS_END_____
+            ;======================================================== _____COMMENT_DETAILS_END_____
             ;
-_____DETAILS_BEGIN_____4t_ else { _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ else { _____SUMMARY_END_____
             
                ;-----------------------------------------
                ; output: ctrl_X, ctrl_Y, ctrl_W, ctrl_H
@@ -3889,21 +3888,21 @@ _____DETAILS_BEGIN_____4t_ else { _____SUMMARY_END_____
                GuiControlGet, ctrl_, Pos, %c%
                delta_h := A_GuiHeight - previous_height
                
-_____DETAILS_BEGIN_____5t_ if( c = "GuiConfigPopup_Cmd_Tabs" ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____5t_ if( c = "GuiConfigPopup_Cmd_Tabs" ){ _____SUMMARY_END_____
                   h := delta_h + ctrl_H
                   w := A_GuiWidth - 20 
                   GuiControl, PopupConfig: MoveDraw, %c%, w%w% h%h%
                   
                   continue
                } _____DETAILS_END_____
-_____DETAILS_BEGIN_____5t_ else if( c = "GuiConfigPopup_Cmd_Tab2_ListViewActions" ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____5t_ else if( c = "GuiConfigPopup_Cmd_Tab2_ListViewActions" ){ _____SUMMARY_END_____
                   h := delta_h + ctrl_H
                   w := A_GuiWidth - 50
                   GuiControl, PopupConfig: MoveDraw, %c%, w%w% h%h%
                   
                   continue
                } _____DETAILS_END_____
-_____DETAILS_BEGIN_____5t_ else if( c = "GuiConfigPopup_ButtonSubmit"){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____5t_ else if( c = "GuiConfigPopup_ButtonSubmit"){ _____SUMMARY_END_____
                   y := ctrl_Y + delta_h
                   GuiControl, PopupConfig: MoveDraw, %c%, y%y% 
                   
@@ -3951,9 +3950,9 @@ _____DETAILS_BEGIN_____1t_ GUI_EVENT_OnEscape() { _____SUMMARY_END_____
 _____DETAILS_BEGIN_____1t_ GUI_EVENT_OnClose() { _____SUMMARY_END_____
    global
    
-_____COMMENT_DETAILS_BEGIN_____2t_ ;------------------------------------------------------
+_____COMMENT_DETAILS_BEGIN_____2t_ ;------------------------------------------------------;
       ; Call the Destructor method for class GuiConfigPopup. ;
-      ;------------------------------------------------------ _____COMMENT_SUMMARY_END_____
+      ;------------------------------------------------------; _____COMMENT_SUMMARY_END_____
       ;                                                      ;
       ; GuiConfigPopup.__Delete() will:                      ;
       ;                                                      ;
@@ -3961,7 +3960,7 @@ _____COMMENT_DETAILS_BEGIN_____2t_ ;--------------------------------------------
       ; - restore control to GuiConfigMain                   ;
       ; - delete and free any vars this object is using      ;
       ; - destroy the popup GUI                              ;
-      ;------------------------------------------------------ _____COMMENT_DETAILS_END_____
+      ;------------------------------------------------------; _____COMMENT_DETAILS_END_____
       
       ;-----------------------------------------------------------------
       ; AutoHotkey Info 
@@ -3979,9 +3978,9 @@ _____COMMENT_DETAILS_BEGIN_____2t_ ;--------------------------------------------
 _____DETAILS_BEGIN_____1t_ GUI_EVENT_OnDropFiles() { _____SUMMARY_END_____
    global
    
-_____COMMENT_DETAILS_BEGIN_____2t_ ;--------------------------------------------------------------------
+_____COMMENT_DETAILS_BEGIN_____2t_ ;---------------------------------------------------------------------
       ; AutoHotkey Docs for GuiDropFiles
-      ;-------------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
+      ;--------------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
       ; A_EventInfo and ErrorLevel:
       ;   Both contain the number of files dropped.
       ;---------------------------------------------------------------------
@@ -3990,11 +3989,11 @@ _____COMMENT_DETAILS_BEGIN_____2t_ ;--------------------------------------------
       ;   with each filename except the last terminated by a linefeed (`n).
       ;---------------------------------------------------------------------
       ; https://www.autohotkey.com/docs/commands/Gui.htm#GuiDropFiles
-      ;-------------------------------------------------------------------- _____COMMENT_DETAILS_END_____
+      ;--------------------------------------------------------------------- _____COMMENT_DETAILS_END_____
       
       Gui, PopupConfig:Submit, NoHide 
       
-_____DETAILS_BEGIN_____2t_ if( "action" == GuiConfigPopup._popup_mode
+_____IF_DETAILS_BEGIN_____2t_ if( "action" == GuiConfigPopup._popup_mode
       or  "Add New Action" == GuiConfigPopup_Cmd_Tabs )
       { _____SUMMARY_END_____
          ;--------------------------------------------
@@ -4002,13 +4001,13 @@ _____DETAILS_BEGIN_____2t_ if( "action" == GuiConfigPopup._popup_mode
          ;--------------------------------------------
          ; User dropped 1 file onto GuiConfigPopup GUI 
          ;--------------------------------------------
-_____DETAILS_BEGIN_____3t_ if( A_EventInfo == 1 ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( A_EventInfo == 1 ){ _____SUMMARY_END_____
             
             is_dragNdrop_valid := FileExist(A_GuiEvent)
       
-_____DETAILS_BEGIN_____4t_ if( "" !=  is_dragNdrop_valid ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ if( "" !=  is_dragNdrop_valid ){ _____SUMMARY_END_____
             
-_____DETAILS_BEGIN_____5t_ if( InStr(is_dragNdrop_valid, "D") ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____5t_ if( InStr(is_dragNdrop_valid, "D") ){ _____SUMMARY_END_____
                   ; populate as dir 
                   
                   GuiControl,, GuiConfigPopup_ActionConfig_RadioFolder, 1
@@ -4016,7 +4015,7 @@ _____DETAILS_BEGIN_____5t_ if( InStr(is_dragNdrop_valid, "D") ){ _____SUMMARY_EN
                   
                   GuiControl,, GuiConfigPopup_ActionConfig_InputPath, %A_GuiEvent%
                } _____DETAILS_END_____
-_____DETAILS_BEGIN_____5t_ else { _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____5t_ else { _____SUMMARY_END_____
                   ; populate as file 
                   
                   GuiControl,, GuiConfigPopup_ActionConfig_RadioFolder, 0
@@ -4032,7 +4031,7 @@ _____DETAILS_BEGIN_____5t_ else { _____SUMMARY_END_____
          ;----------------------------------------------------
          ; User dropped more than 1 file onto GuiConfigPopup GUI 
          ;----------------------------------------------------
-_____DETAILS_BEGIN_____3t_ else if( A_EventInfo > 1 ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ else if( A_EventInfo > 1 ){ _____SUMMARY_END_____
             str_for_usr_output := "_program_launcher.ahk`n`n"
             str_for_usr_output .= "--------------`nOops`n--------------`n"
             str_for_usr_output .= """Edit a Command"" can't process more than one file.`n`n"
@@ -4075,11 +4074,11 @@ _____DETAILS_BEGIN_____1t_ GUI_EVENT_ActionConfig_BrowseButton() { _____SUMMARY_
       
       row_actionPath := GuiConfigPopup._LV_RowData_FromMainGui["row_actionPath"]
       
-_____DETAILS_BEGIN_____2t_ if( is_folder_chosen ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( is_folder_chosen ){ _____SUMMARY_END_____
          SplitPath, row_actionPath,, dir
          FileSelectFolder, user_chose_path, *%dir%,, Select Folder To Open With Command
       } _____DETAILS_END_____
-_____DETAILS_BEGIN_____2t_ else if( is_app_chosen ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ else if( is_app_chosen ){ _____SUMMARY_END_____
          FileSelectFile, user_chose_path, 3, %row_actionPath%, Select Program To Open With Command
       } _____DETAILS_END_____
       
@@ -4097,7 +4096,7 @@ _____DETAILS_BEGIN_____1t_ GUI_EVENT_ActionConfig_InputPath() { _____SUMMARY_END
       
       match_without_quotes := "^[""]([^`n`r]*)[""]$"
       
-_____DETAILS_BEGIN_____2t_ if( RegExMatch(pathSoFar, match_without_quotes ) ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( RegExMatch(pathSoFar, match_without_quotes ) ){ _____SUMMARY_END_____
          path_without_quotes := RegExReplace( pathSoFar, match_without_quotes, "$1" )
          
          GuiControl, PopupConfig: , GuiConfigPopup_ActionConfig_InputPath, %path_without_quotes%
@@ -4117,11 +4116,11 @@ _____DETAILS_BEGIN_____1t_ GUI_EVENT_Cmd_Tab2_ListViewActions() { _____SUMMARY_E
       GuiConfigPopup.GUI_FN_Cmd_Tab2_ListView_Activate()
       
       ; msgbox A_EventInfo %A_EventInfo%
-_____DETAILS_BEGIN_____2t_ if ( "DoubleClick" = A_GuiEvent ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if ( "DoubleClick" = A_GuiEvent ){ _____SUMMARY_END_____
          
       } _____DETAILS_END_____
       
-_____DETAILS_BEGIN_____2t_ if ( "I" = A_GuiEvent ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if ( "I" = A_GuiEvent ){ _____SUMMARY_END_____
          
          ;-------------------------------------------------------------
          ; If a row is selected, the if branch will be entered
@@ -4136,7 +4135,7 @@ _____DETAILS_BEGIN_____2t_ if ( "I" = A_GuiEvent ){ _____SUMMARY_END_____
          GuiConfigPopup._LV_selected_action_id := ""
          
          is_a_selection_event := InStr(ErrorLevel, "S", CaseSensitive:=true)
-_____DETAILS_BEGIN_____3t_ if( is_a_selection_event ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( is_a_selection_event ){ _____SUMMARY_END_____
             LV_GetText(sel_act_id, A_EventInfo,1)
             GuiConfigPopup._LV_selected_action_id := sel_act_id
             ; msgbox gui tab2 actions selected row[%A_EventInfo%] id[%sel_act_id%] is_sel[%is_a_selection_event%] er[%ErrorLevel%]
@@ -4206,15 +4205,15 @@ _____DETAILS_BEGIN_____1t_ GUI_FN_LabelPathVerified_CheckAndRefresh() { _____SUM
       
       is_valid_path := FileExist(path)
       
-_____DETAILS_BEGIN_____2t_ if(  is_valid_path != "" ){ _____SUMMARY_END_____
-_____DETAILS_BEGIN_____3t_ if( GuiConfigPopup_ActionConfig_RadioFolder ){ _____SUMMARY_END_____
-_____DETAILS_BEGIN_____4t_ if( InStr(is_valid_path, "D") ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if(  is_valid_path != "" ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( GuiConfigPopup_ActionConfig_RadioFolder ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ if( InStr(is_valid_path, "D") ){ _____SUMMARY_END_____
                string_for_valid_label := "(valid folder)"
                is_path_valid := true
             } _____DETAILS_END_____
          } _____DETAILS_END_____
-_____DETAILS_BEGIN_____3t_ else if( GuiConfigPopup_ActionConfig_RadioApp ){ _____SUMMARY_END_____
-_____DETAILS_BEGIN_____4t_ if( !InStr(is_valid_path, "D") ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ else if( GuiConfigPopup_ActionConfig_RadioApp ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ if( !InStr(is_valid_path, "D") ){ _____SUMMARY_END_____
                string_for_valid_label := "(valid file)"
                is_path_valid := true
             } _____DETAILS_END_____
@@ -4236,7 +4235,7 @@ _____DETAILS_BEGIN_____1t_ GUI_FN_ToggleArgumentsIfNotApp() { _____SUMMARY_END__
    
       Gui, PopupConfig:Submit, NoHide
       
-_____DETAILS_BEGIN_____2t_ if( GuiConfigPopup_ActionConfig_RadioApp ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( GuiConfigPopup_ActionConfig_RadioApp ){ _____SUMMARY_END_____
       
          GuiControl
             ,PopupConfig: -Hidden
@@ -4251,7 +4250,7 @@ _____DETAILS_BEGIN_____2t_ if( GuiConfigPopup_ActionConfig_RadioApp ){ _____SUMM
             ,GuiConfigPopup_ActionConfig_LabelArguments2
          
       } _____DETAILS_END_____
-_____DETAILS_BEGIN_____2t_ else{ ; if GuiConfigPopup_ActionConfig_RadioFolder OR if uninitialized _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ else{ ; if GuiConfigPopup_ActionConfig_RadioFolder OR if uninitialized _____SUMMARY_END_____
       
          GuiControl
             ,PopupConfig: +Hidden
@@ -4275,15 +4274,15 @@ _____DETAILS_BEGIN_____1t_ get_submit_button_text() { _____SUMMARY_END_____
       
       button_text := ""
       
-_____COMMENT_DETAILS_BEGIN_____2t_ ;--------------------------------------------------------------------
+_____COMMENT_DETAILS_BEGIN_____2t_ ;---------------------------------------------------------------------
       ; This "tab_num" var won't be used for Action New or Action Edit, 
       ; so we don't need an if branch checking "this._popup_mode"
-      ;-------------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
+      ;--------------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
       ;
       ; When this function get_submit_button_text() is called from __New(), 
       ; the var "GuiConfigPopup_Cmd_Tabs" won't be populated yet, 
       ; but we can safely default it to "tab1".
-      ;                                                                     _____COMMENT_DETAILS_END_____
+      ;                                                                      _____COMMENT_DETAILS_END_____
       tab_num := ("Use Existing Action" = GuiConfigPopup_Cmd_Tabs) ? "tab2" : "tab1"
       
       
@@ -4305,14 +4304,14 @@ _____COMMENT_DETAILS_BEGIN_____2t_ ;--------------------------------------------
          ; else, Action config popup
          : this.text["action_popup"][this._popup_purpose]
       
-_____DETAILS_BEGIN_____2t_ if( "tab2" == tab_num ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( "tab2" == tab_num ){ _____SUMMARY_END_____
       
          ;------------------------------------------------------------
          ; _LV_selected_action_id, updated on ListView selection events
          ;
          lv_item_actID := GuiConfigPopup._LV_selected_action_id
          
-_____DETAILS_BEGIN_____3t_ if( "" != lv_item_actID ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( "" != lv_item_actID ){ _____SUMMARY_END_____
             
             ;--------------------------------------------------------------------
             ; change "Use Action[]" to "Use Action[123]" on LV selection change
@@ -4356,7 +4355,7 @@ _____DETAILS_BEGIN_____1t_ Submit_Changes() { _____SUMMARY_END_____
       if("command" == mode)
          varsOK := GuiConfigPopup.Submit_Changes_2__VerifyCommandVars()
       
-_____DETAILS_BEGIN_____2t_ if( varsOK == "User notified to try again." ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( varsOK == "User notified to try again." ){ _____SUMMARY_END_____
       
          ; No errors, but Command name conflict.
          ; Cancel submit, keep popup open.
@@ -4364,7 +4363,7 @@ _____DETAILS_BEGIN_____2t_ if( varsOK == "User notified to try again." ){ _____S
          return 
          
       } _____DETAILS_END_____
-_____DETAILS_BEGIN_____2t_ if( varsOK == false ){ ;then bug; _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( varsOK == false ){ ;then bug; _____SUMMARY_END_____
       
          msgbox, 16, [ PROGRAM ERROR ], Failed to submit changes -- var verify failed.
          GuiConfigPopup.Submit_Changes_DEBUG()
@@ -4378,14 +4377,14 @@ _____DETAILS_BEGIN_____2t_ if( varsOK == false ){ ;then bug; _____SUMMARY_END___
       if("command" == mode)
          success := GuiConfigPopup.Submit_Changes_3___CommandSubmit()
       
-_____DETAILS_BEGIN_____2t_ if( success == "notified user of conflict, no errors" ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( success == "notified user of conflict, no errors" ){ _____SUMMARY_END_____
          return 
       } _____DETAILS_END_____
       
       if( true == success )
          GuiConfigPopup.Submit_Changes_4____Finalize_And_Close()
       
-_____DETAILS_BEGIN_____2t_ if( false == success ){ ;then bug; _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( false == success ){ ;then bug; _____SUMMARY_END_____
          msgbox, 16, [ PROGRAM ERROR ], Failed to submit changes.
          GuiConfigPopup.Submit_Changes_DEBUG()
       } _____DETAILS_END_____
@@ -4434,9 +4433,9 @@ _____DETAILS_BEGIN_____1t_ Submit_Changes_DEBUG() { _____SUMMARY_END_____
 _____DETAILS_BEGIN_____1t_ Submit_Changes_1_GatherVariables() { _____SUMMARY_END_____
    global 
    
-_____COMMENT_DETAILS_BEGIN_____1t_ ;-------------------------------------------------------------------------------------
+_____COMMENT_DETAILS_BEGIN_____1t_ ;--------------------------------------------------------------------------------------
    ; Note on scope and globals
-   ;------------------------------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
+   ;-------------------------------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
    ; ABCDEF_vars + TAB_var (in table below)  are all global 
    ;
    ; and will be used in:
@@ -4453,7 +4452,7 @@ _____COMMENT_DETAILS_BEGIN_____1t_ ;--------------------------------------------
    ;         without refactoring these globals into this._class_members.
    ;
    ; For the scope and function of this app, this design works fine.
-   ;------------------------------------------------------------------------------------- _____COMMENT_DETAILS_END_____
+   ;-------------------------------------------------------------------------------------- _____COMMENT_DETAILS_END_____
    
       
 /* _____BLOCK_COMMENT_DETAILS_BEGIN_____2t_  _____BLOCK_COMMENT_SUMMARY_END_____
@@ -4542,11 +4541,11 @@ _____COMMENT_DETAILS_BEGIN_____1t_ ;--------------------------------------------
       F_insertion_point_for_mainLV := ""     ; F ;   edit pop.act, edit pop.cmd
       
       
-_____DETAILS_BEGIN_____2t_ if("edit" == purpose){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if("edit" == purpose){ _____SUMMARY_END_____
       
-_____COMMENT_DETAILS_BEGIN_____3t_ ;----------------------------------------------------------------------
+_____COMMENT_DETAILS_BEGIN_____3t_ ;-----------------------------------------------------------------------
          ; If editing a Command or an Action 
-         ;---------------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
+         ;----------------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
          ;
          ; the original needs a valid insertion point 
          ; in GuiConfigMain's corresponding ListView.
@@ -4559,7 +4558,7 @@ _____COMMENT_DETAILS_BEGIN_____3t_ ;--------------------------------------------
          ;
          ; Their entry inside their ListView is still there in the GUI, unaltered 
          ; (but will be changed upon a successful edit)
-         ;---------------------------------------------------------------------- _____COMMENT_DETAILS_END_____
+         ;----------------------------------------------------------------------- _____COMMENT_DETAILS_END_____
          
          ;---;
          ; F ;
@@ -4567,7 +4566,7 @@ _____COMMENT_DETAILS_BEGIN_____3t_ ;--------------------------------------------
          F_insertion_point_for_mainLV := GuiConfigPopup._LV_RowData_FromMainGui["LV_id"]
       } _____DETAILS_END_____
       
-_____DETAILS_BEGIN_____2t_ if( "command" == mode ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( "command" == mode ){ _____SUMMARY_END_____
       
          ;-----;
          ; TAB ;
@@ -4585,13 +4584,13 @@ _____DETAILS_BEGIN_____2t_ if( "command" == mode ){ _____SUMMARY_END_____
          ; Command Tab2 "Use Existing Action"
          ;-------------------------------------
          ;
-_____DETAILS_BEGIN_____3t_ if( false == TAB_cmd_tab_is_new_action ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( false == TAB_cmd_tab_is_new_action ){ _____SUMMARY_END_____
             ; tmp := GuiConfigPopup._LV_selected_action_id
             ; msgbox in gather lv is %tmp%
             
             action_id := GuiConfigPopup._LV_selected_action_id
             
-_____DETAILS_BEGIN_____4t_ if( _ACTIONS.HasKey(action_id) ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ if( _ACTIONS.HasKey(action_id) ){ _____SUMMARY_END_____
             
                ;---;   ;---;   ;---;
                ; A ;   ; B ;   ; C ;
@@ -4609,17 +4608,17 @@ _____DETAILS_BEGIN_____4t_ if( _ACTIONS.HasKey(action_id) ){ _____SUMMARY_END___
          } _____DETAILS_END_____
       } _____DETAILS_END_____
       
-_____DETAILS_BEGIN_____2t_ if("action" == mode
+_____IF_DETAILS_BEGIN_____2t_ if("action" == mode
       or true     == TAB_cmd_tab_is_new_action){ _____SUMMARY_END_____
          
          
          ;---;
          ; A ;
          ;---;
-_____DETAILS_BEGIN_____3t_ if(GuiConfigPopup_ActionConfig_RadioFolder){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if(GuiConfigPopup_ActionConfig_RadioFolder){ _____SUMMARY_END_____
             A_input_newAction_type := "folder"
          } _____DETAILS_END_____
-_____DETAILS_BEGIN_____3t_ else if( GuiConfigPopup_ActionConfig_RadioApp ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ else if( GuiConfigPopup_ActionConfig_RadioApp ){ _____SUMMARY_END_____
             A_input_newAction_type := "app"
          } _____DETAILS_END_____
          
@@ -4627,7 +4626,7 @@ _____DETAILS_BEGIN_____3t_ else if( GuiConfigPopup_ActionConfig_RadioApp ){ ____
          ; sets GuiConfigPopup._isPathValid to true or false
          ;
          GuiConfigPopup.GUI_FN_LabelPathVerified_CheckAndRefresh()
-_____DETAILS_BEGIN_____3t_ if( GuiConfigPopup._isPathValid ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( GuiConfigPopup._isPathValid ){ _____SUMMARY_END_____
          
             ;---;
             ; B ;
@@ -4642,7 +4641,7 @@ _____DETAILS_BEGIN_____3t_ if( GuiConfigPopup._isPathValid ){ _____SUMMARY_END__
          ; Only actions which open an application
          ; will possibly have a custom Argument provided by the user 
          ;
-_____DETAILS_BEGIN_____3t_ if( GuiConfigPopup_ActionConfig_RadioApp ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( GuiConfigPopup_ActionConfig_RadioApp ){ _____SUMMARY_END_____
          
             ;---;
             ; C ;
@@ -4652,7 +4651,7 @@ _____DETAILS_BEGIN_____3t_ if( GuiConfigPopup_ActionConfig_RadioApp ){ _____SUMM
             C_input_newAction_arg := userInputArg
          } _____DETAILS_END_____
          
-_____DETAILS_BEGIN_____3t_ if( "action" == mode 
+_____IF_DETAILS_BEGIN_____3t_ if( "action" == mode 
          and "edit"   == purpose ){ _____SUMMARY_END_____
             
                ;---;
@@ -4709,7 +4708,7 @@ _____DETAILS_BEGIN_____1t_ Submit_Changes_2__VerifyActionVars() { _____SUMMARY_E
       ;---;   ;---;   ;---;
       ; A ;   ; B ;   ; C ;
       ;---;   ;---;   ;---;
-_____DETAILS_BEGIN_____2t_ if( "" == A_input_newAction_type
+_____IF_DETAILS_BEGIN_____2t_ if( "" == A_input_newAction_type
       or  "" == B_input_newAction_path ){ _____SUMMARY_END_____
       ; it's okay if C_input_newAction_arg is empty
       
@@ -4717,19 +4716,19 @@ _____DETAILS_BEGIN_____2t_ if( "" == A_input_newAction_type
          
       } _____DETAILS_END_____
    
-_____DETAILS_BEGIN_____2t_ if("edit" == purpose){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if("edit" == purpose){ _____SUMMARY_END_____
       
          ;---;
          ; D ;
          ;---;
-_____DETAILS_BEGIN_____3t_ if( "" == D_input_oldAction_id ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( "" == D_input_oldAction_id ){ _____SUMMARY_END_____
             return FAILURE            
          } _____DETAILS_END_____
          
          ;---;
          ; F ;
          ;---;
-_____DETAILS_BEGIN_____3t_ if( "" == F_insertion_point_for_mainLV ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( "" == F_insertion_point_for_mainLV ){ _____SUMMARY_END_____
             return FAILURE
          } _____DETAILS_END_____
          
@@ -4768,7 +4767,7 @@ _____DETAILS_BEGIN_____3t_ if( "" == F_insertion_point_for_mainLV ){ _____SUMMAR
            , B_input_newAction_path
            , C_input_newAction_arg  )
       
-_____DETAILS_BEGIN_____2t_ if( found_duplicate_action ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( found_duplicate_action ){ _____SUMMARY_END_____
          inform_user := "Action already exists.`n`n"
          inform_user .= "Action[" found_duplicate_action "] is already configured to do this:`n"
          inform_user .= "    Type:`t" A_input_newAction_type "`n"
@@ -4838,12 +4837,12 @@ _____DETAILS_BEGIN_____1t_ Submit_Changes_2__VerifyCommandVars() { _____SUMMARY_
       ;--------------------------------
       ; Tab1 -> "Add New Action" tab.
       ;
-_____DETAILS_BEGIN_____2t_ if( is_tab_1 ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( is_tab_1 ){ _____SUMMARY_END_____
       
          ;---;   ;---;   ;---;
          ; A ;   ; B ;   ; C ;
          ;---;   ;---;   ;---;
-_____DETAILS_BEGIN_____3t_ if( "" == A_input_newAction_type
+_____IF_DETAILS_BEGIN_____3t_ if( "" == A_input_newAction_type
          or  "" == B_input_newAction_path ){ _____SUMMARY_END_____
          ; it's okay if C_input_newAction_arg is empty 
          
@@ -4856,12 +4855,12 @@ _____DETAILS_BEGIN_____3t_ if( "" == A_input_newAction_type
       ;---------------------------------------
       ; Tab2 -> "Using Existing Action" tab.
       ;
-_____DETAILS_BEGIN_____2t_ if( is_tab_2 ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( is_tab_2 ){ _____SUMMARY_END_____
       
          ;---;
          ; D ;
          ;---;
-_____DETAILS_BEGIN_____3t_ if( "" == D_input_oldAction_id ){ ; error _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( "" == D_input_oldAction_id ){ ; error _____SUMMARY_END_____
             return FAILURE
          } _____DETAILS_END_____
       
@@ -4874,7 +4873,7 @@ _____DETAILS_BEGIN_____3t_ if( "" == D_input_oldAction_id ){ ; error _____SUMMAR
       ;---;
       ; E ;
       ;---;
-_____DETAILS_BEGIN_____2t_ if( "" == E_input_cmd_theCommand ){ ; error _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( "" == E_input_cmd_theCommand ){ ; error _____SUMMARY_END_____
       ; If Command text is empty 
       
          
@@ -4882,12 +4881,12 @@ _____DETAILS_BEGIN_____2t_ if( "" == E_input_cmd_theCommand ){ ; error _____SUMM
       } _____DETAILS_END_____
       
       
-_____DETAILS_BEGIN_____2t_ if("edit" == purpose){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if("edit" == purpose){ _____SUMMARY_END_____
       
          ;---;
          ; F ;
          ;---;
-_____DETAILS_BEGIN_____3t_ if( "" == F_insertion_point_for_mainLV ){  ; error _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( "" == F_insertion_point_for_mainLV ){  ; error _____SUMMARY_END_____
             return FAILURE
          } _____DETAILS_END_____
          
@@ -4901,7 +4900,7 @@ _____DETAILS_BEGIN_____3t_ if( "" == F_insertion_point_for_mainLV ){  ; error __
       ;---;
       ; E ;
       ;---;
-_____DETAILS_BEGIN_____2t_ if( _COMMANDS.HasKey( E_input_cmd_theCommand ) ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( _COMMANDS.HasKey( E_input_cmd_theCommand ) ){ _____SUMMARY_END_____
       ; If another Command already uses this text 
       
          
@@ -4928,7 +4927,7 @@ _____DETAILS_BEGIN_____2t_ if( _COMMANDS.HasKey( E_input_cmd_theCommand ) ){ ___
       ;--------------------------------
       ; Tab1 -> "Add New Action" tab.
       ;
-_____DETAILS_BEGIN_____2t_ if( is_tab_1 ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( is_tab_1 ){ _____SUMMARY_END_____
       
          ;========================================================
          ; Format Action Path (directory or app) string
@@ -4995,10 +4994,10 @@ _____DETAILS_BEGIN_____1t_ Submit_Changes_3___ActionSubmit() { _____SUMMARY_END_
       
       popup_actionID   := ""
 
-_____DETAILS_BEGIN_____2t_ if( "add" == purpose ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( "add" == purpose ){ _____SUMMARY_END_____
          popup_actionID := _ACTIONS.Length()+1   
       } _____DETAILS_END_____
-_____DETAILS_BEGIN_____2t_ if( "edit" == purpose ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( "edit" == purpose ){ _____SUMMARY_END_____
          popup_actionID := D_input_oldAction_id      
       } _____DETAILS_END_____
       
@@ -5008,7 +5007,7 @@ _____DETAILS_BEGIN_____2t_ if( "edit" == purpose ){ _____SUMMARY_END_____
       ; Submit new or edited Action to _ACTIONS array 
       ;========================================================
       
-_____DETAILS_BEGIN_____2t_ if( !_ACTIONS.HasKey(popup_actionID) ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( !_ACTIONS.HasKey(popup_actionID) ){ _____SUMMARY_END_____
          
          _ACTIONS[popup_actionID] := { "" 
             . "type": popup_actionType
@@ -5029,7 +5028,7 @@ _____DETAILS_BEGIN_____2t_ if( !_ACTIONS.HasKey(popup_actionID) ){ _____SUMMARY_
       
       LV_FAILURE := 0
       
-_____DETAILS_BEGIN_____2t_ if( "add" == purpose ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( "add" == purpose ){ _____SUMMARY_END_____
       
          options := ""
          LV_returned := LV_ADD( ""
@@ -5047,7 +5046,7 @@ _____DETAILS_BEGIN_____2t_ if( "add" == purpose ){ _____SUMMARY_END_____
          ;----------------------------------------------
          ; cancel submit, inform user, return to popup
          ;
-_____DETAILS_BEGIN_____3t_ if(LV_returned == LV_FAILURE ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if(LV_returned == LV_FAILURE ){ _____SUMMARY_END_____
             MSGBOX, Failed to add new action to ListView.
             
             GuiConfigPopup.Submit_Changes_DEBUG()
@@ -5056,7 +5055,7 @@ _____DETAILS_BEGIN_____3t_ if(LV_returned == LV_FAILURE ){ _____SUMMARY_END_____
          } _____DETAILS_END_____
       } _____DETAILS_END_____
       
-_____DETAILS_BEGIN_____2t_ else
+_____IF_DETAILS_BEGIN_____2t_ else
       if( "edit" == purpose){ _____SUMMARY_END_____
       
          modify_this_row := F_insertion_point_for_mainLV
@@ -5068,7 +5067,7 @@ _____DETAILS_BEGIN_____2t_ else
             , popup_actionPath       ; row 3
             , popup_actionArg  )    ; row 4
          
-_____DETAILS_BEGIN_____3t_ if(LV_returned == LV_FAILURE ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if(LV_returned == LV_FAILURE ){ _____SUMMARY_END_____
             msgbox, Failed to edit existing action in ListView.
             
             GuiConfigPopup.Submit_Changes_DEBUG()
@@ -5101,9 +5100,9 @@ _____DETAILS_BEGIN_____3t_ if(LV_returned == LV_FAILURE ){ _____SUMMARY_END_____
       ; Submit changes to Savefile (all above operations were successful)
       ;=======================================================================
       
-_____COMMENT_DETAILS_BEGIN_____2t_ ;------------------------------------------------------------------
+_____COMMENT_DETAILS_BEGIN_____2t_ ;-------------------------------------------------------------------
       ; Syntax Reference
-      ;------------------------------------------------------------------ _____COMMENT_SUMMARY_END_____
+      ;------------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
       ; class:    FILE_HELPER
       ; function: Change_Savefile( p1,p2,p3,p4 )
       ;
@@ -5111,7 +5110,7 @@ _____COMMENT_DETAILS_BEGIN_____2t_ ;--------------------------------------------
       ; p2:  purpose                   add|delete|edit|enable|disable
       ; p2:  action_id__or__cmd        new Action's ID 
       ; p2:  cmd_name_before_rename    not applicable here
-      ;------------------------------------------------------------------ _____COMMENT_DETAILS_END_____
+      ;------------------------------------------------------------------- _____COMMENT_DETAILS_END_____
       
       p1 := "action"
       p2 := purpose 
@@ -5119,7 +5118,7 @@ _____COMMENT_DETAILS_BEGIN_____2t_ ;--------------------------------------------
       p4 := ""
       savefile_updated := FILE_HELPER.Change_Savefile( p1,p2,p3,p4 )
       
-_____DETAILS_BEGIN_____2t_ if( !savefile_updated ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( !savefile_updated ){ _____SUMMARY_END_____
          MSGBOX, 16, ERROR WRITING TO SAVEFILE, [~]
          return FAILURE
       } _____DETAILS_END_____
@@ -5139,13 +5138,13 @@ _____DETAILS_BEGIN_____1t_ does_action_already_exist(action_type, action_path, a
       
       id_exists := 0
       
-_____DETAILS_BEGIN_____2t_ for id, action in _ACTIONS 
+_____IF_DETAILS_BEGIN_____2t_ for id, action in _ACTIONS 
       { _____SUMMARY_END_____
          aType := action["type"]
          aPath := action["path"]
          aArg  := action["arg"]
          
-_____DETAILS_BEGIN_____3t_ if( aType == action_type 
+_____IF_DETAILS_BEGIN_____3t_ if( aType == action_type 
          and aPath == action_path 
          and aArg  == action_arg ){ _____SUMMARY_END_____
          
@@ -5204,11 +5203,11 @@ _____DETAILS_BEGIN_____1t_ Submit_Changes_3___CommandSubmit() { _____SUMMARY_END
       ;--------------------------------
       ; Tab1 -> "Add New Action" tab.
       ;
-_____DETAILS_BEGIN_____2t_ if( is_tab_1 ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( is_tab_1 ){ _____SUMMARY_END_____
          
-_____COMMENT_DETAILS_BEGIN_____3t_ ;-------------------------------------------------------
+_____COMMENT_DETAILS_BEGIN_____3t_ ;--------------------------------------------------------
          ; Determine Action ID - New or use Preexisting
-         ;------------------------------------------------------- _____COMMENT_SUMMARY_END_____
+         ;-------------------------------------------------------- _____COMMENT_SUMMARY_END_____
          ;
          ; If user is on the "Add New Action" tab
          ; an unused ID will be assigned to the new Action.
@@ -5216,7 +5215,7 @@ _____COMMENT_DETAILS_BEGIN_____3t_ ;--------------------------------------------
          ; However, if the entire "Add New Action" config 
          ; matches an identical preexisting Action
          ; that Action will be used instead of creating a new one.
-         ;                                                         _____COMMENT_DETAILS_END_____
+         ;                                                          _____COMMENT_DETAILS_END_____
          use_actionID := _ACTIONS.Length()+1   
          
          duplicate_action_id_found := GuiConfigPopup.does_action_already_exist(""
@@ -5224,10 +5223,10 @@ _____COMMENT_DETAILS_BEGIN_____3t_ ;--------------------------------------------
               , popup_actionPath
               , popup_actionArg)
          
-_____DETAILS_BEGIN_____3t_ if( duplicate_action_id_found ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( duplicate_action_id_found ){ _____SUMMARY_END_____
             use_actionID := duplicate_action_id_found
          } _____DETAILS_END_____
-_____DETAILS_BEGIN_____3t_ else{ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ else{ _____SUMMARY_END_____
          
             is_action_new := true
             
@@ -5236,7 +5235,7 @@ _____DETAILS_BEGIN_____3t_ else{ _____SUMMARY_END_____
       ;---------------------------------------
       ; Tab2 -> "Using Existing Action" tab.
       ;
-_____DETAILS_BEGIN_____2t_ else if( is_tab_2 ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ else if( is_tab_2 ){ _____SUMMARY_END_____
       
          ;--------------------------------------------------
          ; Determine Action ID -- use existing Action's ID
@@ -5265,9 +5264,9 @@ _____DETAILS_BEGIN_____2t_ else if( is_tab_2 ){ _____SUMMARY_END_____
       ; to _COMMANDS array 
       ;========================================================      
       
-_____COMMENT_DETAILS_BEGIN_____2t_ ;--------------------------------------------------------
+_____COMMENT_DETAILS_BEGIN_____2t_ ;---------------------------------------------------------
       ; Assign a key value pair in _COMMANDS 
-      ;-------------------------------------------------------- _____COMMENT_SUMMARY_END_____
+      ;--------------------------------------------------------- _____COMMENT_SUMMARY_END_____
       ;
       ; If this is a new Command, 
       ; then it has never been in _COMMANDS.
@@ -5288,7 +5287,7 @@ _____COMMENT_DETAILS_BEGIN_____2t_ ;--------------------------------------------
       ;         Key:   "action_id" 
       ;         Value: The integer ID for the Action
       ;                  (currently stored in popup_actionID)
-      ;-------------------------------------------------------- _____COMMENT_DETAILS_END_____
+      ;--------------------------------------------------------- _____COMMENT_DETAILS_END_____
       
       cmd        := popup_cmd
       aID        := popup_actionID
@@ -5320,7 +5319,7 @@ _____COMMENT_DETAILS_BEGIN_____2t_ ;--------------------------------------------
       
       ; msgbox cmd submit: purpose is [%purpose%]
       
-_____DETAILS_BEGIN_____2t_ if("add" == purpose){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if("add" == purpose){ _____SUMMARY_END_____
          
          options := "+Check"
          LV_ADD( options      ; enable by default
@@ -5332,7 +5331,7 @@ _____DETAILS_BEGIN_____2t_ if("add" == purpose){ _____SUMMARY_END_____
             , popup_actionArg  )    ; row 6
          
       } _____DETAILS_END_____
-_____DETAILS_BEGIN_____2t_ else 
+_____IF_DETAILS_BEGIN_____2t_ else 
       if("edit" == purpose){ _____SUMMARY_END_____
       
          ;---------------------------------------------------------------------
@@ -5352,9 +5351,9 @@ _____DETAILS_BEGIN_____2t_ else
             , popup_actionPath       ; row 5
             , popup_actionArg  )    ; row 6
             
-_____COMMENT_DETAILS_BEGIN_____3t_ ;---------------------------------------
+_____COMMENT_DETAILS_BEGIN_____3t_ ;----------------------------------------
          ; Remove backup of (now) edited command
-         ;--------------------------------------- _____COMMENT_SUMMARY_END_____
+         ;---------------------------------------- _____COMMENT_SUMMARY_END_____
          ; Making this variable empty will prevent 
          ;
          ;   GUI_EVENT_GuiConfigPopup_OnClose and
@@ -5364,7 +5363,7 @@ _____COMMENT_DETAILS_BEGIN_____3t_ ;---------------------------------------
          ; the old version of this Command
          ;
          ; when the GuiConfigPopup GUI is closed.
-         ;--------------------------------------- _____COMMENT_DETAILS_END_____
+         ;---------------------------------------- _____COMMENT_DETAILS_END_____
          
          GuiConfigMain.Discard_Plucked_Command()
       } _____DETAILS_END_____
@@ -5379,14 +5378,14 @@ _____COMMENT_DETAILS_BEGIN_____3t_ ;---------------------------------------
       ;    Submit new Action to Savefile
       ;========================================================
          
-_____DETAILS_BEGIN_____2t_ if( is_action_new ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( is_action_new ){ _____SUMMARY_END_____
       
          ;========================================
          ; Submit Action 
          ; to GuiConfigMain's Action ListView
          ;========================================
          
-_____DETAILS_BEGIN_____3t_ if( !_ACTIONS.HasKey(popup_actionID) ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( !_ACTIONS.HasKey(popup_actionID) ){ _____SUMMARY_END_____
             
             _ACTIONS[popup_actionID] := {"type":popup_actionType
                                  , "path":popup_actionPath
@@ -5420,7 +5419,7 @@ _____DETAILS_BEGIN_____3t_ if( !_ACTIONS.HasKey(popup_actionID) ){ _____SUMMARY_
          p4 := ""
          savefile_updated := FILE_HELPER.Change_Savefile( p1,p2,p3,p4 )
          
-_____DETAILS_BEGIN_____3t_ if( !savefile_updated ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( !savefile_updated ){ _____SUMMARY_END_____
             MSGBOX, 16, ERROR WRITING NEW ACTION TO SAVEFILE, [~]
             return FAILURE
          } _____DETAILS_END_____
@@ -5452,7 +5451,7 @@ _____DETAILS_BEGIN_____3t_ if( !savefile_updated ){ _____SUMMARY_END_____
       p4 := original_command_name
       savefile_updated := FILE_HELPER.Change_Savefile( p1,p2,p3,p4 )
          
-_____DETAILS_BEGIN_____2t_ if( !savefile_updated ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( !savefile_updated ){ _____SUMMARY_END_____
          MSGBOX, 16, ERROR WRITING COMMAND TO SAVEFILE, [~]
          return FAILURE
       } _____DETAILS_END_____
@@ -5513,7 +5512,7 @@ _____DETAILS_BEGIN_____1t_ create_listview_of_actions( GuiName, GotoFuncOnEvent,
       Gui, %GuiName%:Default
       Gui, %GuiName%:ListView, %ControlNameForLV%
       
-_____DETAILS_BEGIN_____2t_ for id, action in _ACTIONS { _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ for id, action in _ACTIONS { _____SUMMARY_END_____
          action_type := action["type"]
          action_path := action["path"]
          action_arg  := action["arg"]

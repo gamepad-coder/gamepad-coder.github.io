@@ -167,13 +167,13 @@
 ;                                                ;
 ;================================================;
    
-_____COMMENT_DETAILS_BEGIN_____1t_ ;---------
+_____COMMENT_DETAILS_BEGIN_____1t_ ;---------;
    ;    ?    ;
-   ;--------------------------------------------------------- _____COMMENT_SUMMARY_END_____
+   ;---------------------------------------------------------; _____COMMENT_SUMMARY_END_____
    ; For more information about the "auto-execute section"   ;
    ; at the beginning of an AutoHotkey script, see:          ;
    ;     https://www.autohotkey.com/docs/Scripts.htm#auto    ;
-   ;--------------------------------------------------------- _____COMMENT_DETAILS_END_____
+   ;---------------------------------------------------------; _____COMMENT_DETAILS_END_____
 
 
 ;---------------------------------------------------------;
@@ -202,11 +202,11 @@ _emulate_numpad_on := false
 
 
 
-_____COMMENT_DETAILS_BEGIN_____0t_ ;----------------------------------------------------------------
+_____COMMENT_DETAILS_BEGIN_____0t_ ;----------------------------------------------------------------;
 ;                                                                ;
 ;                     HELPER TOOLTIP                             ;
 ;                                                                ;
-;---------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
+;----------------------------------------------------------------; _____COMMENT_SUMMARY_END_____
 ;                                                                ;
 ; This script features a tooltip which follows the mouse         ;
 ; whenever NumberPad emulation is turned on.                     ;
@@ -235,7 +235,7 @@ _____COMMENT_DETAILS_BEGIN_____0t_ ;--------------------------------------------
 ;                                                                ;
 ;      _settings__show_legend_in_persistent_tooltip := false     ;
 ;                                                                ;
-;---------------------------------------------------------------- _____COMMENT_DETAILS_END_____
+;----------------------------------------------------------------; _____COMMENT_DETAILS_END_____
 
 _settings__show_persistent_tooltip_when_enabled := true
 _settings__show_legend_in_persistent_tooltip    := true
@@ -266,9 +266,9 @@ _tooltip_hwnd := ""
 
 
 
-_____COMMENT_DETAILS_BEGIN_____0t_ ;----------------------------------------------------------------
+_____COMMENT_DETAILS_BEGIN_____0t_ ;----------------------------------------------------------------;
 ;           Enable or Disable : Numberpad Emulation              ;
-;---------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
+;----------------------------------------------------------------; _____COMMENT_SUMMARY_END_____
 ; >^F12::                                                        ;
 ;          will toggle our numpad emulation hotkeys              ;
 ;          on or off when we press <RCtrl+F12>                   ;
@@ -276,17 +276,17 @@ _____COMMENT_DETAILS_BEGIN_____0t_ ;--------------------------------------------
 ; ^   means "the Control modifier key"                           ;
 ; >   means "use the modifier on the right side of the keyboard" ;
 ; >^  means "use the right Control modifier"                     ;
-;---------------------------------------------------------------- _____COMMENT_DETAILS_END_____
+;----------------------------------------------------------------; _____COMMENT_DETAILS_END_____
 
 >^F12::
    gosub, Toggle_Emulated_Numpad
 return
 
-_____COMMENT_DETAILS_BEGIN_____2t_ ;--------------------------------
+_____COMMENT_DETAILS_BEGIN_____2t_ ;--------------------------------;
       ;                                ;
       ;  Alternative "Toggle" Hotkey   ;
       ;                                ;
-      ;-------------------------------------------------------- _____COMMENT_SUMMARY_END_____
+      ;--------------------------------------------------------; _____COMMENT_SUMMARY_END_____
       ;                                                        ;
       ;  Comment the above three lines                         ;
       ;     (by adding a ';' to the beginning of the line      ;
@@ -340,12 +340,12 @@ _____COMMENT_DETAILS_BEGIN_____2t_ ;--------------------------------
 
       ;-------------------------------;
       ; </> Alternative Hotkey Blocks ;
-      ;------------------------------- _____COMMENT_DETAILS_END_____
+      ;-------------------------------; _____COMMENT_DETAILS_END_____
 
 
-_____COMMENT_DETAILS_BEGIN_____0t_ ;-------------------------------------------------------------
+_____COMMENT_DETAILS_BEGIN_____0t_ ;-------------------------------------------------------------;
 ;               Disable : Numberpad Emulation                 ;
-;------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
+;-------------------------------------------------------------; _____COMMENT_SUMMARY_END_____
 ; <Esc> is another way to turn off our emulation hotkeys.     ;
 ;-------------------------------------------------------------;
 ; Escape will only turn it off.                               ;
@@ -354,28 +354,28 @@ _____COMMENT_DETAILS_BEGIN_____0t_ ;--------------------------------------------
 ; When the emulator is off, Escape will function like normal. ;
 ; When the emulator is on,  Escape will function like normal, ;
 ;    but our emulator will turn off.                          ;
-;------------------------------------------------------------- _____COMMENT_DETAILS_END_____
+;-------------------------------------------------------------; _____COMMENT_DETAILS_END_____
 
 _____DETAILS_BEGIN_____0t_ ~Escape::
 { _____SUMMARY_END_____
-_____DETAILS_BEGIN_____1t_ if( true == _emulate_numpad_on ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____1t_ if( true == _emulate_numpad_on ){ _____SUMMARY_END_____
       gosub, Toggle_Emulated_Numpad
    } _____DETAILS_END_____
    return
 } _____DETAILS_END_____
 
-_____COMMENT_DETAILS_BEGIN_____1t_ ;---------
+_____COMMENT_DETAILS_BEGIN_____1t_ ;---------;
    ;    ?    ;
    ;-----------------------------------------------------;
    ;    What does putting a ~ before a hotkey do?        ;
-   ;----------------------------------------------------- _____COMMENT_SUMMARY_END_____
+   ;-----------------------------------------------------; _____COMMENT_SUMMARY_END_____
    ; DOCS -> "Hotkeys" page -> "Modifier Symbols" -> "~" ;
    ;                                                     ;
    ;   "When the hotkey fires, its key's                 ;
    ;    native function will not be blocked"             ;
    ;                                                     ;
    ; https://www.autohotkey.com/docs/Hotkeys.htm#Symbols ;
-   ;----------------------------------------------------- _____COMMENT_DETAILS_END_____
+   ;-----------------------------------------------------; _____COMMENT_DETAILS_END_____
 
 
 
@@ -391,7 +391,7 @@ _____COMMENT_DETAILS_BEGIN_____1t_ ;---------
 ;                                           ;
 ;-------------------------------------------;
 
-_____DETAILS_BEGIN_____0t_ #If (_emulate_numpad_on == true)
+_____IF_DETAILS_BEGIN_____0t_ #If (_emulate_numpad_on == true)
 { _____SUMMARY_END_____
    
    j::Numpad1
@@ -441,11 +441,11 @@ _____DETAILS_BEGIN_____0t_ #If (_emulate_numpad_on == true)
    
 } _____DETAILS_END_____
 #If
-_____COMMENT_DETAILS_BEGIN_____2t_ ;--------
+_____COMMENT_DETAILS_BEGIN_____2t_ ;--------;
       ;   ?    ;
       ;------------------------------------------------------;
       ;     How are these hotkeys conditionally active?      ;
-      ;------------------------------------------------------ _____COMMENT_SUMMARY_END_____
+      ;------------------------------------------------------; _____COMMENT_SUMMARY_END_____
       ; DOCS -> "Mouse and Keyboard"                         ;
       ;      -> "Hotkeys and Hotstrings"                     ;
       ;      -> "#If"                                        ;
@@ -458,7 +458,7 @@ _____COMMENT_DETAILS_BEGIN_____2t_ ;--------
       ;    the result of an expression."                     ;
       ;                                                      ;
       ; https://www.autohotkey.com/docs/commands/_If.htm     ;
-      ;------------------------------------------------------ _____COMMENT_DETAILS_END_____
+      ;------------------------------------------------------; _____COMMENT_DETAILS_END_____
    
    
 
@@ -477,9 +477,9 @@ _____COMMENT_DETAILS_BEGIN_____2t_ ;--------
 ;================================================;
 
 
-_____COMMENT_DETAILS_BEGIN_____0t_ ;----------------------------------------------------------------
+_____COMMENT_DETAILS_BEGIN_____0t_ ;----------------------------------------------------------------;
 ; Toggle_Emulated_Numpad                                         ;
-;---------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
+;----------------------------------------------------------------; _____COMMENT_SUMMARY_END_____
 ;                                                                ;
 ; Turn on  Numpad Emulation when it's off.                       ;
 ; Turn off Numpad Emulation when it's on.                        ;
@@ -487,13 +487,13 @@ _____COMMENT_DETAILS_BEGIN_____0t_ ;--------------------------------------------
 ; The hotkeys nested above inside the #If directive              ;
 ; will only be triggered when _emulate_numpad_on is set to true. ;
 ;                                                                ;
-;---------------------------------------------------------------- _____COMMENT_DETAILS_END_____
+;----------------------------------------------------------------; _____COMMENT_DETAILS_END_____
 
 _____DETAILS_BEGIN_____0t_ Toggle_Emulated_Numpad:
 { _____SUMMARY_END_____
-_____COMMENT_DETAILS_BEGIN_____1t_ ;---------------------------------------------------------
+_____COMMENT_DETAILS_BEGIN_____1t_ ;---------------------------------------------------------;
    ; Flip the boolean's state each time we goto this label   ;
-   ;--------------------------------------------------------- _____COMMENT_SUMMARY_END_____
+   ;---------------------------------------------------------; _____COMMENT_SUMMARY_END_____
    ;                                                         ;
    ; If it is currently false, it will be set to true.       ;
    ; If it is currently true,  it will be set to false.      ;
@@ -504,7 +504,7 @@ _____COMMENT_DETAILS_BEGIN_____1t_ ;--------------------------------------------
    ;                                                         ;
    ;      #If (_emulate_numpad_on == true)                   ;
    ;                                                         ;
-   ;--------------------------------------------------------- _____COMMENT_DETAILS_END_____
+   ;---------------------------------------------------------; _____COMMENT_DETAILS_END_____
    
    _emulate_numpad_on := !_emulate_numpad_on
    
@@ -519,9 +519,9 @@ _____COMMENT_DETAILS_BEGIN_____1t_ ;--------------------------------------------
 
 
 
-_____COMMENT_DETAILS_BEGIN_____0t_ ;------------------------------------------------------------------
+_____COMMENT_DETAILS_BEGIN_____0t_ ;------------------------------------------------------------------;
 ; Show_User_Tooltip_About_Emulation_State                          ;
-;------------------------------------------------------------------ _____COMMENT_SUMMARY_END_____
+;------------------------------------------------------------------; _____COMMENT_SUMMARY_END_____
 ;                                                                  ;
 ; Display info tooltip when NumPad Emulation is turned on or off.  ;
 ;                                                                  ;
@@ -553,13 +553,13 @@ _____COMMENT_DETAILS_BEGIN_____0t_ ;--------------------------------------------
 ;                                                                  ;
 ;         and the script can proceed normally without delay.       ;
 ;                                                                  ;
-;------------------------------------------------------------------ _____COMMENT_DETAILS_END_____
+;------------------------------------------------------------------; _____COMMENT_DETAILS_END_____
 
 _____DETAILS_BEGIN_____0t_ Show_User_Tooltip_About_Emulation_State:
 { _____SUMMARY_END_____
-_____COMMENT_DETAILS_BEGIN_____1t_ ;---------------------------------------------------------------
+_____COMMENT_DETAILS_BEGIN_____1t_ ;---------------------------------------------------------------;
    ; If the NumberPad Emulation was just turned on:                ;
-   ;--------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
+   ;---------------------------------------------------------------; _____COMMENT_SUMMARY_END_____
    ; Then display either:                                          ;
    ;                                                               ;
    ; (1)  A persistent ToolTip                                     ;
@@ -571,15 +571,15 @@ _____COMMENT_DETAILS_BEGIN_____1t_ ;--------------------------------------------
    ;                                                               ;
    ; (2)  A short ToolTip which disappears, notifying the user     ;
    ;      that the mode has been turned on.                        ;
-   ;--------------------------------------------------------------- _____COMMENT_DETAILS_END_____
-_____DETAILS_BEGIN_____1t_ if( true == _emulate_numpad_on ){ _____SUMMARY_END_____
+   ;---------------------------------------------------------------; _____COMMENT_DETAILS_END_____
+_____IF_DETAILS_BEGIN_____1t_ if( true == _emulate_numpad_on ){ _____SUMMARY_END_____
    
-_____DETAILS_BEGIN_____2t_ if( _settings__show_persistent_tooltip_when_enabled ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( _settings__show_persistent_tooltip_when_enabled ){ _____SUMMARY_END_____
       
          SetTimer, Timer_refresh_tooltip_location_while_enabled, 100
          
       } _____DETAILS_END_____
-_____DETAILS_BEGIN_____2t_ else{ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ else{ _____SUMMARY_END_____
          toast_message :=  "EMULATED NUMBER PAD"
          toast_message  .= "`n`n`t`t"
          toast_message  .= "[+]   ENABLED!`n"
@@ -590,9 +590,9 @@ _____DETAILS_BEGIN_____2t_ else{ _____SUMMARY_END_____
       } _____DETAILS_END_____
       
    } _____DETAILS_END_____
-_____COMMENT_DETAILS_BEGIN_____1t_ ;-------------------------------------------------------------
+_____COMMENT_DETAILS_BEGIN_____1t_ ;-------------------------------------------------------------;
    ; Else, if the NumberPad Emulation was just turned off:       ;
-   ;------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
+   ;-------------------------------------------------------------; _____COMMENT_SUMMARY_END_____
    ; Then display:                                               ;
    ;                                                             ;
    ;      A short ToolTip which disappears, notifying the user   ;
@@ -603,8 +603,8 @@ _____COMMENT_DETAILS_BEGIN_____1t_ ;--------------------------------------------
    ;     _settings__show_persistent_tooltip_when_enabled         ;
    ;                                                             ;
    ; is true or false, this off message will be the same.        ;
-   ;------------------------------------------------------------- _____COMMENT_DETAILS_END_____
-_____DETAILS_BEGIN_____1t_ else if( false == _emulate_numpad_on ){ _____SUMMARY_END_____
+   ;-------------------------------------------------------------; _____COMMENT_DETAILS_END_____
+_____IF_DETAILS_BEGIN_____1t_ else if( false == _emulate_numpad_on ){ _____SUMMARY_END_____
       
       toast_message :=  "EMULATED NUMBER PAD"
       toast_message  .= "`n`n`t`t"
@@ -616,9 +616,9 @@ _____DETAILS_BEGIN_____1t_ else if( false == _emulate_numpad_on ){ _____SUMMARY_
       
    } _____DETAILS_END_____
 
-_____COMMENT_DETAILS_BEGIN_____1t_ ;----------------
+_____COMMENT_DETAILS_BEGIN_____1t_ ;----------------;
    ;  About Timers  ;
-   ;------------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
+   ;-------------------------------------------------------------------; _____COMMENT_SUMMARY_END_____
    ; SetTimer command expects its first parameter                      ;
    ;                          to be an unquoted string.                ;
    ;                                                                   ;
@@ -637,14 +637,14 @@ _____COMMENT_DETAILS_BEGIN_____1t_ ;----------------
    ;                                                                   ;
    ; When a timer's period is positive,                                ;
    ; it will repeat infinitely until turned off.                       ;
-   ;------------------------------------------------------------------- _____COMMENT_DETAILS_END_____
+   ;-------------------------------------------------------------------; _____COMMENT_DETAILS_END_____
    
    
-_____COMMENT_DETAILS_BEGIN_____2t_ ;--------
+_____COMMENT_DETAILS_BEGIN_____2t_ ;--------;
       ;   ?    ;
       ;-------------------------------------------------------------------;
       ;  Why use a timer here?                                            ;
-      ;------------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
+      ;-------------------------------------------------------------------; _____COMMENT_SUMMARY_END_____
       ; Timers are MUCH better than using                                 ;
       ;                                                                   ;
       ;    ToolTip, Some literal tooltip text without quotes              ;
@@ -666,7 +666,7 @@ _____COMMENT_DETAILS_BEGIN_____2t_ ;--------
       ; creates a new thread for the timer,                               ;
       ;                                                                   ;
       ; This allows the script's main thread to continue on immediately.  ;
-      ;------------------------------------------------------------------- _____COMMENT_DETAILS_END_____
+      ;-------------------------------------------------------------------; _____COMMENT_DETAILS_END_____
       
    
    return
@@ -692,11 +692,11 @@ _____DETAILS_BEGIN_____0t_ Toggle_Key_Legend:
 ;========================================================================;
 
          
-_____COMMENT_DETAILS_BEGIN_____0t_ ;-------------------------------------------------------------------------------------------
+_____COMMENT_DETAILS_BEGIN_____0t_ ;-------------------------------------------------------------------------------------------;
 ;                                                                                           ;
 ; URLS : Additional Information                                                             ;
 ;                                                                                           ;
-;------------------------------------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
+;-------------------------------------------------------------------------------------------; _____COMMENT_SUMMARY_END_____
 ;                                                                                           ;
 ; Getting a Script's own Process ID :                                                       ;
 ;   https://autohotkey.com/board/topic/3770-how-does-a-script-gets-its-own-pid/#entry23653  ;
@@ -723,13 +723,13 @@ _____COMMENT_DETAILS_BEGIN_____0t_ ;--------------------------------------------
 ;    https://www.autohotkey.com/docs/commands/WinMove.htm                                   ;
 ;                                                                                           ;
 ;                                                                                           ;
-;------------------------------------------------------------------------------------------- _____COMMENT_DETAILS_END_____
+;-------------------------------------------------------------------------------------------; _____COMMENT_DETAILS_END_____
 
 _____DETAILS_BEGIN_____0t_ Timer_refresh_tooltip_location_while_enabled:
 { _____SUMMARY_END_____
-_____DETAILS_BEGIN_____1t_ if( true == _emulate_numpad_on ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____1t_ if( true == _emulate_numpad_on ){ _____SUMMARY_END_____
    
-_____DETAILS_BEGIN_____2t_ if( "" == _tooltip_hwnd ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( "" == _tooltip_hwnd ){ _____SUMMARY_END_____
       
          ;----------------------------------------------------------------;
          ;                                                                ;
@@ -751,7 +751,7 @@ _____DETAILS_BEGIN_____2t_ if( "" == _tooltip_hwnd ){ _____SUMMARY_END_____
          toast_message  .=  "Press Escape `t to turn off.                       `n"
          toast_message  .=  "---------------------------------------------------"
          
-_____DETAILS_BEGIN_____3t_ if( _settings__show_legend_in_persistent_tooltip ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( _settings__show_legend_in_persistent_tooltip ){ _____SUMMARY_END_____
             toast_message  .=  "                                                `n"
             toast_message  .=  "                                                `n"
             toast_message  .=  "The following keys are remapped right now:      `n"
@@ -770,18 +770,18 @@ _____DETAILS_BEGIN_____3t_ if( _settings__show_legend_in_persistent_tooltip ){ _
          
          ToolTip, %toast_message%
          
-_____COMMENT_DETAILS_BEGIN_____4t_ ;--------
+_____COMMENT_DETAILS_BEGIN_____4t_ ;--------;
             ;   ?    ;
             ;------------------------------------------------------------------------------;
             ;  Why not rapidly recreate the ToolTip here, using a timer and less code?     ;
-            ;------------------------------------------------------------------------------ _____COMMENT_SUMMARY_END_____
+            ;------------------------------------------------------------------------------; _____COMMENT_SUMMARY_END_____
             ;                                                                              ;
             ;     Rapidly calling ToolTip with a timer                                     ;
             ;     will result in the ToolTip intensely flickering.                         ;
             ;                                                                              ;
             ;     When a ToolTip is repositioned with WinMove, it doesn't flicker.         ;
             ;                                                                              ;
-            ;------------------------------------------------------------------------------ _____COMMENT_DETAILS_END_____
+            ;------------------------------------------------------------------------------; _____COMMENT_DETAILS_END_____
          
          
          DetectHiddenWindows on
@@ -789,7 +789,7 @@ _____COMMENT_DETAILS_BEGIN_____4t_ ;--------
          _tooltip_hwnd := WinExist("ahk_class tooltips_class32 ahk_pid " scriptPID)
          
       } _____DETAILS_END_____
-_____DETAILS_BEGIN_____2t_ else{ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ else{ _____SUMMARY_END_____
       
          CoordMode, Mouse, Screen
          CoordMode, ToolTip, Screen
@@ -804,7 +804,7 @@ _____DETAILS_BEGIN_____2t_ else{ _____SUMMARY_END_____
       } _____DETAILS_END_____
       
    } _____DETAILS_END_____
-_____DETAILS_BEGIN_____1t_ else{ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____1t_ else{ _____SUMMARY_END_____
    
       gosub Timer_turn_tooltip_off
       
@@ -816,17 +816,17 @@ _____DETAILS_BEGIN_____1t_ else{ _____SUMMARY_END_____
 
 _____DETAILS_BEGIN_____0t_ Timer_turn_tooltip_off: 
 { _____SUMMARY_END_____
-_____COMMENT_DETAILS_BEGIN_____1t_ ;------------
+_____COMMENT_DETAILS_BEGIN_____1t_ ;------------;
    ;    Docs    ;
    ;-----------------------------------------------;
    ;               Tooltip[, Text]                 ;
-   ;----------------------------------------------- _____COMMENT_SUMMARY_END_____
+   ;-----------------------------------------------; _____COMMENT_SUMMARY_END_____
    ;                                               ;
    ; [Text] parameter :                            ;
    ;                                               ;
    ;   "If blank or omitted, the existing tooltip  ;
    ;     (if any) will be hidden."                 ;
-   ;----------------------------------------------- _____COMMENT_DETAILS_END_____
+   ;-----------------------------------------------; _____COMMENT_DETAILS_END_____
 
    ToolTip
    _tooltip_hwnd := ""
@@ -929,12 +929,12 @@ _____DETAILS_BEGIN_____0t_ Show_Help:
       
          Toggle_ScrollLock_LED:
                
-_____DETAILS_BEGIN_____4t_ if( _emulate_numpad_on ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ if( _emulate_numpad_on ){ _____SUMMARY_END_____
                
                SetScrollLockState, On
                
             } _____DETAILS_END_____
-_____DETAILS_BEGIN_____4t_ else if( false == _emulate_numpad_on ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ else if( false == _emulate_numpad_on ){ _____SUMMARY_END_____
                
                SetScrollLockState, Off
                

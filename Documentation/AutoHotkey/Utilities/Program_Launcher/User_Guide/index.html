@@ -38,7 +38,7 @@
     
 		
 	<link rel="search" title="Search" href="/Documentation/search.html" />
-    <link rel="next" title="Program Launcher’s Code" href="../Code/index.html" />
+    <link rel="next" title="Code" href="../Code/Complete_Script/index.html" />
     <link rel="prev" title="Program Launcher" href="../index.html" />
 
 	<link rel="stylesheet" href="/Documentation/o~DocAssets/css/Doc_Subsite.css" type="text/css" />
@@ -129,31 +129,17 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../What_is_AutoHotkey/index.html" style="font-style:italic;">What is AutoHotkey?</a><ul>
 <li class="toctree-l2 samePageSectionHeaderLI"><a class="reference internal samePageSectionHeader" href="../../../What_is_AutoHotkey/index.html#autohotkey-overview">AutoHotkey Overview</a></li>
-<li class="toctree-l2 samePageSectionHeaderLI"><a class="reference internal samePageSectionHeader" href="../../../What_is_AutoHotkey/index.html#resources-for-autohotkey">Resources for AutoHotkey</a></li>
-<li class="toctree-l2 samePageSectionHeaderLI"><a class="reference internal samePageSectionHeader" href="../../../What_is_AutoHotkey/index.html#first-steps-with-autohotkey">First Steps with AutoHotkey</a></li>
-<li class="toctree-l2 samePageSectionHeaderLI"><a class="reference internal samePageSectionHeader" href="../../../What_is_AutoHotkey/index.html#examples-of-what-you-can-do-br-with-short-autohotkey-scripts">Examples of what you can do <br /> with short AutoHotkey scripts:</a></li>
-<li class="toctree-l2 samePageSectionHeaderLI"><a class="reference internal samePageSectionHeader" href="../../../What_is_AutoHotkey/index.html#baking-an-autohotkey-script-br-into-an-executable-file">Baking an AutoHotkey Script <br /> into an Executable File</a></li>
+<li class="toctree-l2 samePageSectionHeaderLI"><a class="reference internal samePageSectionHeader" href="../../../What_is_AutoHotkey/index.html#autohotkey-resources">AutoHotkey Resources</a></li>
+<li class="toctree-l2 samePageSectionHeaderLI"><a class="reference internal samePageSectionHeader" href="../../../What_is_AutoHotkey/index.html#first-steps">First Steps</a></li>
+<li class="toctree-l2 samePageSectionHeaderLI"><a class="reference internal samePageSectionHeader" href="../../../What_is_AutoHotkey/index.html#baking-your-autohotkey-scripts">Baking Your AutoHotkey Scripts</a></li>
 <li class="toctree-l2 samePageSectionHeaderLI"><a class="reference internal samePageSectionHeader" href="../../../What_is_AutoHotkey/index.html#glossary">Glossary</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">My AutoHotkey Utilities</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../Emulate_Numberpad/index.html">Emulate Numberpad</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">Program Launcher</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">User Guide</a><ul>
-<li class="toctree-l4 samePageSectionHeaderLI"><a class="reference internal samePageSectionHeader" href="#basics">Basics</a></li>
-<li class="toctree-l4 samePageSectionHeaderLI"><a class="reference internal samePageSectionHeader" href="#how-to-use-the-settings-window">How to Use the Settings Window</a></li>
-<li class="toctree-l4 samePageSectionHeaderLI"><a class="reference internal samePageSectionHeader" href="#the-settings-file">The Settings File</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../Code/index.html">Code</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../Code/Walkthrough/index.html">Walkthrough</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../Code/Functions_and_Variables/index.html">Functions and Variables</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="../Code/Functions_and_Variables/Class_Placeholder_1/index.html">Class_PLaceholder_1</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="../Code/Complete_Script/index.html">Complete Script</a></li>
-</ul>
-</li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">User Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Code/Complete_Script/index.html">Code</a></li>
 </ul>
 </li>
 </ul>
@@ -173,10 +159,12 @@
         
       </div>
       
-      <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-          <a href="../Code/index.html" class="btn btn-neutral SIDEBAR-NAV-BTN float-right" title="Program Launcher’s Code" accesskey="n" rel="next"> <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+      
+      <div class="SIDEBAR-NAV-BUTTONS rst-footer-buttons" role="navigation" aria-label="footer navigation">
+          <a href="../Code/Complete_Script/index.html" class="btn btn-neutral SIDEBAR-NAV-BTN float-right" title="Code" accesskey="n" rel="next"> <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
           <a href="../index.html" class="btn btn-neutral SIDEBAR-NAV-BTN float-left" title="Program Launcher" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> </a>
       </div>
+      
 
     </nav>
 
@@ -300,28 +288,596 @@
             
   <div class="section" id="user-guide">
 <h1>User Guide<a class="headerlink" href="#user-guide" title="Permalink to this headline">¶</a></h1>
-<p>Program Launcher etc.</p>
-<div class="section" id="basics">
-<h2>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external image-reference" href="../HelloProgramLauncher.gif"><img alt="../HelloProgramLauncher.gif" src="../HelloProgramLauncher.gif"/></a></p>
+<p><div class="collapsible_wrapper">
+<details class="collapsible_section_via_details"><summary><strong>About program_launcher.ahk</strong> </summary> <div class="collapsible_codeblock_section"></p>
+<div class="highlight-AutoHotkey_CustomLexer notranslate"><div class="highlight"><pre><span></span><span class="c1">;===========================================================================</span>
+<span class="c1">;                           program_launcher.ahk</span>
+<span class="c1">;===========================================================================</span>
+<span class="c1">;</span>
+<span class="c1">;</span>
+<span class="c1">;  ------------------</span>
+<span class="c1">;  What it does:</span>
+<span class="c1">;  ------------------</span>
+<span class="c1">;</span>
+<span class="c1">;  program_launcher.ahk is a small utility</span>
+<span class="c1">;  to reduce the number of steps to</span>
+<span class="c1">;</span>
+<span class="c1">;     () open programs or</span>
+<span class="c1">;     () navigate to folders.</span>
+<span class="c1">;</span>
+<span class="c1">;  You can register words or phrases as [commands]</span>
+<span class="c1">;  which program_launcher.ahk will associate with an [action].</span>
+<span class="c1">;</span>
+<span class="c1">;</span>
+<span class="c1">;  --------------------</span>
+<span class="c1">;  Commands + Actions:</span>
+<span class="c1">;  --------------------</span>
+<span class="c1">;</span>
+<span class="c1">;  A command can be any single-line series of typable text you desire.</span>
+<span class="c1">;</span>
+<span class="c1">;  Each command triggers one specific action.</span>
+<span class="c1">;  Each action can have multiple commands which trigger it.</span>
+<span class="c1">;</span>
+<span class="c1">;  Example:</span>
+<span class="c1">;</span>
+<span class="c1">;     Register the command &quot;Show me my muisc&quot;</span>
+<span class="c1">;     -&gt; to open the folder C:/Music in a new window.</span>
+<span class="c1">;</span>
+<span class="c1">;     Register (also) the command &quot;mu&quot;</span>
+<span class="c1">;     -&gt; to open the folder C:/Music in a new window.</span>
+<span class="c1">;</span>
+<span class="c1">;  Currently, commands can only be one line long, but can contain:</span>
+<span class="c1">;</span>
+<span class="c1">;     () any alphanumeric text</span>
+<span class="c1">;     () spaces</span>
+<span class="c1">;     () symbols ~!@#$%^&amp;*()_+-=[]\{}|;&#39;:&quot;,./&lt;&gt;?</span>
+<span class="c1">;</span>
+<span class="c1">;  Actions fall into three categories:</span>
+<span class="c1">;</span>
+<span class="c1">;     (1) Open a folder in a new window.</span>
+<span class="c1">;     (2) Open an application.</span>
+<span class="c1">;     (3) program_launcher.ahk functions:</span>
+<span class="c1">;         () Quit</span>
+<span class="c1">;         () Settings</span>
+<span class="c1">;</span>
+<span class="c1">;</span>
+<span class="c1">;  ------------------</span>
+<span class="c1">;  How to use it:</span>
+<span class="c1">;  ------------------</span>
+<span class="c1">;</span>
+<span class="c1">;  Run program_launcher.ahk</span>
+<span class="c1">;</span>
+<span class="c1">;  (1) Add some commands:</span>
+<span class="c1">;</span>
+<span class="c1">;     (1.1)  Hit the hotkey to bring up the command prompt</span>
+<span class="c1">;</span>
+<span class="c1">;            (By default, this is Ctrl+Windows+Space.</span>
+<span class="c1">;            This can be changed using this file,</span>
+<span class="c1">;            or by using the settings window).</span>
+<span class="c1">;</span>
+<span class="c1">;     (1.2)  A popup will appear.</span>
+<span class="c1">;            Type &#39;settings&#39; or &#39;config&#39; or &#39;configuration&#39; here</span>
+<span class="c1">;            (without quotes).</span>
+<span class="c1">;</span>
+<span class="c1">;     (1.3)  Hit &lt;Enter&gt; or press &quot;OK&quot;.</span>
+<span class="c1">;</span>
+<span class="c1">;     (1.4)  The command popup will disappear.</span>
+<span class="c1">;            The settings window will appear.</span>
+<span class="c1">;</span>
+<span class="c1">;            Change or add commands and actions.</span>
+<span class="c1">;</span>
+<span class="c1">;     (1.5)  Close the settings window.</span>
+<span class="c1">;            Your changes will be automatically saved to this file.</span>
+<span class="c1">;</span>
+<span class="c1">;  (2) Use your commands:</span>
+<span class="c1">;</span>
+<span class="c1">;     (2.1)  Hit the hotkey to bring up the command prompt</span>
+<span class="c1">;            (default setting is Ctrl+Windows+Space)</span>
+<span class="c1">;</span>
+<span class="c1">;     (2.2)  Type one of the commands you registered in (1.4)</span>
+<span class="c1">;</span>
+<span class="c1">;     (2.3)  Hit &lt;Enter&gt; or press &quot;OK&quot;.</span>
+<span class="c1">;</span>
+<span class="c1">;     (2.4)  Enjoy!</span>
+<span class="c1">;</span>
+<span class="c1">;</span>
+<span class="c1">;</span>
+<span class="c1">;  -------------------------------</span>
+<span class="c1">;  How do I know if it&#39;s running?</span>
+<span class="c1">;  -------------------------------</span>
+<span class="c1">;</span>
+<span class="c1">;  Run program_launcher.ahk.</span>
+<span class="c1">;  You will see its icon appear in Window&#39;s &quot;Notificaiton Area&quot;</span>
+<span class="c1">;  (located at the right end of the Windows Taskbar, just before the clock).</span>
+<span class="c1">;</span>
+<span class="c1">;  If you hover your mouse over this script&#39;s icon in the Notificaiton Area,</span>
+<span class="c1">;  a tooltip will appear saying &quot;program_launcher.ahk&quot;.</span>
+<span class="c1">;</span>
+<span class="c1">;</span>
+<span class="c1">;  -------------------</span>
+<span class="c1">;  How do I close it?</span>
+<span class="c1">;  -------------------</span>
+<span class="c1">;</span>
+<span class="c1">;  To close program_launcher.ahk either:</span>
+<span class="c1">;</span>
+<span class="c1">;  (1) Right click its icon in the Notificaiton Tray and click &quot;Exit&quot;.</span>
+<span class="c1">;</span>
+<span class="c1">;  (2) Quit using a command:</span>
+<span class="c1">;</span>
+<span class="c1">;      (2.1)  Press the hotkey to display the commandline popup</span>
+<span class="c1">;             (by default, this hotkey is Ctrl+Win+Space).</span>
+<span class="c1">;      (2.2)  Type &#39;q&#39; or &#39;quit&#39; or &#39;exit&#39; without quotes (&#39;).</span>
+<span class="c1">;      (2.3)  Hit enter or click &quot;OK&quot;.</span>
+<span class="c1">;      (2.4)  The program will stop running.</span>
+<span class="c1">;</span>
+<span class="c1">;</span>
+<span class="c1">;===========================================================================</span>
+</pre></div>
+</div>
+<p></div>
+</details>
+</div></p>
+<p><h2> Using Program Launcher </h2></p>
 <div class="admonition-todo admonition" id="index-0">
 <p class="first admonition-title">Todo</p>
-<p class="last">Adapt notes, make user guide, add pictures.</p>
+<p>Add basic tutorial with short video demonstrations.</p>
+<p class="last">How to use the Config window. <br /> Demonstrate drag ‘n drop.</p>
 </div>
+<p><h2> The Settings File </h2></p>
+<p><div class="collapsible_wrapper">
+<details class="collapsible_section_via_details"><summary><strong>Basic Use</strong> </summary> <div class="collapsible_codeblock_section"></p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>;====================================================================
+; About the settings file:         program_launcher_saved_phrases.ini
+;====================================================================
+;
+;  ------------------
+;  Commented lines :
+;  ------------------
+;
+;     program_launcher.ahk will ignore any line
+;     in this config file if it starts with &#39;;&#39;
+;
+;     Feel free to keep, alter, move, or remove any commented lines.
+;     It won&#39;t affect program_launcher.ahk&#39;s behavior.
+;
+;  -----------
+;  Settings :
+;  -----------
+;
+;  Setting name:               &quot;icon&quot;
+;  Value for setting:          Integer number.
+;
+;    How it works:
+;
+;      This number corresponds to a Shell32.dll icon number.
+;      This script will use this icon
+;      (1) in the Windows Notification Tray
+;      (2) in the window title bars for program_launcher.ahk&#39;s
+;          (2.a) commandline popup
+;          (2.b) configuration window
+;
+;
+;  Setting name:               &quot;hotkey_for_commandline_popup&quot;
+;  Value for setting:          Key names separated by spaces.
+;
+;    How it works:
+;
+;      When this hotkey is pressed
+;      program_launcher.ahk displays its commandline popup.
+;
+;
+;  Setting name:               &quot;hotkey_for_quit&quot;
+;  Value for setting:          Key names separated by spaces.
+;
+;    How it works:
+;
+;      When this hotkey is pressed
+;      program_launcher.ahk exits.
+;
+;
+;   ---------------------
+;   Commands + Actions :
+;   ---------------------
+;
+;   Commands can be registered to actions in two ways:
+;
+;      (1) Add them manually to this settings file,
+;          then refresh program_launcher.ahk.
+;
+;          Press the the hotkey associated with
+;          [hotkey_for_commandline_popup]
+;
+;          Type &#39;r&#39; or &#39;reload&#39;, and hit enter.
+;
+;      (2) Add them using the settings window.
+;
+;          Open program_launcher.ahk&#39;s command prompt
+;          (by default, this hotkey is Ctrl+Win+Space)
+;          then type &#39;settings&#39; or &#39;config&#39; or &#39;configuration&#39;
+;          press OK, then the configuration window should appear.
+;
+;   Commands can contain:
+;     (+) spaces*
+;     (+) symbols
+;     (+) any printable ASCII character.
+;     *see note below.
+;
+;   Each Command phrase is associated with a single action.
+;   program_launcher.ahk handles two action types, either :
+;     (1) launch a specific explorer folder, or
+;     (2) launch a program (optionally with a passed default path)
+;
+;====================================================================
+
+
+;===========================================================================
+; Help
+;===========================================================================
+;
+; ------------------------------
+; How do I back up my settings?
+; ------------------------------
+;
+; (1) Using Windows Explorer
+;     copy and paste the file &quot;program_launcher_saved_phrases.ini&quot;
+;     (the settings file you&#39;re reading right now) to make a backup.
+;
+;     If the reader is unfamiliar, these are the steps:
+;
+;       (1.1) Navigate to this file in Windows Explorer.
+;       (1.2) Select this file by clicking it once.
+;       (1.3) Press &lt;Ctrl+C&gt; to copy it.
+;       (1.4) Press &lt;Ctrl+V&gt; to paste it.
+;             This will create a duplicate copy.
+;
+;       Fun trivia: When you paste the file in step (1.4),
+;       it does not matter if the file is still selected (or not).
+;       Windows Explorer ignores what is (or isn&#39;t) selected
+;       when you tell it to paste files,
+;       it only cares about which folder you are currently in.
+;
+;       Conversely, Windows Explorer does care about what is selected
+;       when you copy files in step (1.3), and will copy all selected files.
+;
+;
+; (2) Rename the duplicate file and give it a new name like:
+;     &quot;program_launcher_saved_phrases.ini.backup123&quot;
+;     or any name you prefer.
+;
+;     As long as the backup&#39;s name doesn&#39;t exactly match
+;     &quot;program_launcher_saved_phrases.ini&quot;,
+;     the backup will be ignored.
+;
+;
+; ----------------------------------------------------
+; How to I restore the default settings and commands?
+; ----------------------------------------------------
+;
+; program_launcher.ahk can auto-generate this file.
+;
+; NOTE: This step will not auto-generate your custom commands and actions.
+;       Be sure to make a backup file first.
+;
+;   (a) Move or copy
+;      program_launcher.ahk to a directory without
+;      program_launcher_saved_phrases.ini.
+;
+;      When you run program_launcher.ahk
+;      the default version of this settings file will be auto-generated.
+;
+;   (b) Alternatively
+;===========================================================================
+</pre></div>
 </div>
-<div class="section" id="how-to-use-the-settings-window">
-<h2>How to Use the Settings Window<a class="headerlink" href="#how-to-use-the-settings-window" title="Permalink to this headline">¶</a></h2>
-<div class="admonition-todo admonition" id="index-1">
-<p class="first admonition-title">Todo</p>
-<p class="last">Overview and UI.</p>
+<p></div>
+</details>
+</div></p>
+<p><div class="collapsible_wrapper">
+<details class="collapsible_section_via_details"><summary>Advanced Use: <br /> &nbsp; &nbsp;Syntax and Parsing Overview </summary> <div class="collapsible_codeblock_section"></p>
+<div class="highlight-AutoHotkey_CustomLexer notranslate"><div class="highlight"><pre><span></span><span class="g">(</span>
+
+<span class="g">==================================================</span>
+<span class="g">Parsing the settings file</span>
+<span class="g">==================================================</span>
+
+<span class="g">  program_launcher.ahk&#39;s settings are stored in</span>
+<span class="g">  program_launcher_saved_phrases.ini</span>
+
+<span class="g">  When program_launcher does not detect</span>
+<span class="g">  program_launcher_saved_phrases.ini in its folder</span>
+<span class="g">  program_launcher will generate this settings .ini file</span>
+<span class="g">  with default values.</span>
+
+<span class="g">  More details can be found below</span>
+<span class="g">  and in the settings file itself.</span>
+
+
+<span class="g">==================================================</span>
+<span class="g">Edge case Overview:</span>
+
+<span class="g">Notes about (;) semicolons and ( ) spaces</span>
+<span class="g">in the settings file:</span>
+<span class="g">==================================================</span>
+
+<span class="g">  COMMENTS IN THE SETTINGS FILE:</span>
+
+<span class="g">    Any line in program_launcher_saved_phrases.ini</span>
+<span class="g">    which begins with a semicolon (;) will be ignored or &quot;commented out&quot;</span>
+<span class="g">    when program_launcher reads its settings.</span>
+
+<span class="g">    Any line beginning with spaces and tabs in the settings file are ignored,</span>
+<span class="g">    and lines are parsed beginning at the first non-whitespace character of the line.</span>
+
+<span class="g">    To begin a command with one or more semicolons or</span>
+<span class="g">    to begin a command with one or more leading spaces</span>
+<span class="g">    (or a combination of both)</span>
+<span class="g">    start the command with the phrase:</span>
+
+<span class="g">      \BEGIN_LITERAL\</span>
+
+<span class="g">    For more details:</span>
+<span class="g">    See the COMMANDS sub-section in the SYNTAX section below.</span>
+
+
+<span class="g">  HOW COMMANDS ARE READ INTO THE PROGRAM:</span>
+
+<span class="g">    Each command takes up only one line in the settings file.</span>
+<span class="g">    Each command is located in the &#39;commands[]&#39; section.</span>
+<span class="g">    Each command begins with one or more characters,</span>
+<span class="g">     then ends the line with a (:) colon and an Action ID.</span>
+
+<span class="g">    program_launcher ignores lines in the settings file</span>
+<span class="g">    which begin with a (;) semicolon.</span>
+
+<span class="g">    program_launcher will ignore leading spaces and tabs</span>
+<span class="g">    when reading commands from its settings file.</span>
+
+
+<span class="g">    program_launcher determines which part (of a non-commented line)</span>
+<span class="g">    is the command phrase by:</span>
+
+<span class="g">      [1] Ignoring all spaces and tabs at the beginning of a line</span>
+<span class="g">      [2] Reading from the first non-whitespace character onward until</span>
+<span class="g">      [3] it finds a colon and a number at the end of the line.</span>
+
+<span class="g">    [1] and [3] are stripped, and [2] becomes the resulting command.</span>
+
+<span class="g">    If you wish to use leading spaces or semicolons for commands,</span>
+<span class="g">    use the &quot;\BEGIN_LITERAL\&quot; flag (details below).</span>
+
+
+<span class="g">=======================================================</span>
+<span class="g">Conventions for syntax annotations in the next section:</span>
+<span class="g">=======================================================</span>
+
+<span class="g">  &quot;Double quotes signify verbatim text needed here&quot;.</span>
+<span class="g">  &#39;Single quotes represents a class of acceptable input&#39;.</span>
+<span class="g">  Unquoted phrases reprsent datatypes</span>
+<span class="g">   like integer numbers (possibly with clarifying parenthesis).</span>
+
+
+
+<span class="g">===============================================</span>
+<span class="g">SYNTAX for program_launcher_saved_phrases.ini:</span>
+<span class="g">===============================================</span>
+
+<span class="g">  SETTINGS</span>
+
+<span class="g">    Syntax:</span>
+
+<span class="g">      &quot;settings[&quot;</span>
+<span class="g">        &#39;setting_name&#39; &quot;:&quot; int (for icon)</span>
+<span class="g">        &#39;setting_name&#39; &quot;:&quot; &#39;modifierkey1&#39; &#39;a space character&#39; &#39;key&#39; (for hotkeys)</span>
+<span class="g">        &#39;setting_name&#39; &quot;:&quot; &#39;modifierkey1&#39; &#39;a space character&#39; &#39;modifierkey2&#39; &#39;a space&#39; &#39;key&#39; (for hotkeys)</span>
+<span class="g">      &quot;]&quot;</span>
+
+<span class="g">      Note:</span>
+
+<span class="g">        For valid keynames, see:</span>
+<span class="g">          https://www.autohotkey.com/docs/KeyList.htm</span>
+
+<span class="g">        For information about hotkeys using AutoHotkey, see:</span>
+<span class="g">          https://www.autohotkey.com/docs/Hotkeys.htm</span>
+
+<span class="g">    Example:</span>
+
+<span class="g">      settings[</span>
+<span class="g">        icon:123</span>
+<span class="g">        hotkey_for_commandline_popup:control alt space</span>
+<span class="g">        hotkey_for_quit :            shift ctrl win q</span>
+<span class="g">      ]</span>
+
+<span class="g">    Available:</span>
+
+<span class="g">      [1]  &quot;hotkey_for_commandline_popup&quot; : &#39;mod1&#39; .. &#39;modn&#39; &#39;key&#39;</span>
+<span class="g">      [2]  &quot;hotkey_for_quit&quot; : &#39;mod1&#39; &#39;mod2&#39; etc &#39;key&#39;</span>
+<span class="g">      [3]  &quot;icon&quot; : int</span>
+
+<span class="g">      Minimum:</span>
+
+<span class="g">        [1] is required.</span>
+<span class="g">        [2] and [3] are optional.</span>
+
+<span class="g">    Syntax Rules:</span>
+
+<span class="g">      Capitalization doesn&#39;t matter.</span>
+<span class="g">      Leading tabs or spaces are optional (and ignored).</span>
+<span class="g">      Hotkey key names must be separated from one another by spaces.</span>
+<span class="g">      Hotkey key names must be from the list here:</span>
+<span class="g">        https://www.autohotkey.com/docs/KeyList.htm</span>
+<span class="g">      Spaces directly surrounding the &quot;:&quot; colon</span>
+<span class="g">       in the SETTINGS[] section of program_launcher_saved_phrases.ini</span>
+<span class="g">       are optional and ignored.</span>
+<span class="g">      (Spaces in the &quot;COMMANDS[]&quot; settings section</span>
+<span class="g">       surrounding the final &quot;:&quot; do matter. See next subsection.)</span>
+
+
+<span class="g">  COMMANDS</span>
+
+<span class="g">    Syntax:</span>
+
+<span class="g">      &quot;commands[&quot;</span>
+<span class="g">        &#39;command word or phrase&#39; &quot;:&quot; int (unique action ID)</span>
+<span class="g">        &#39;command word or phrase&#39; &quot;:&quot; &quot;Quit&quot;</span>
+<span class="g">        &#39;command word or phrase&#39; &quot;:&quot; &quot;Settings&quot;</span>
+
+<span class="g">      &quot;]&quot;</span>
+
+
+<span class="g">    Example:</span>
+
+<span class="g">      commands[</span>
+<span class="g">        Play a ~groovy~ tune:234</span>
+<span class="g">      ]</span>
+
+
+<span class="g">    Syntax Rules:</span>
+
+<span class="g">      Each command can only be one line long.</span>
+<span class="g">      Each command can contain any typable symbol.</span>
+<span class="g">      Each command must be followed by a colon and a whole number.</span>
+
+<span class="g">      The colon + wholenumber pair (&quot;: 12&quot; or &quot;:23&quot;) correspond to an Action ID,</span>
+<span class="g">      and any spaces to the right of this colon are optional and ignored.</span>
+
+<span class="g">      Whitespace to the left of the (:) colon will be considered part of the command.</span>
+
+<span class="g">        For example:</span>
+<span class="g">          &quot;command for music: 123&quot; and</span>
+<span class="g">          &quot;command for music : 123&quot;</span>
+<span class="g">        This first command requires &#39;c&#39; as the last character.</span>
+<span class="g">        This second command requires a space as the last character.</span>
+
+<span class="g">      Special (non-int) Action IDs:</span>
+
+<span class="g">        There are only two actions which have no ID number: QUIT and SETTINGS.</span>
+<span class="g">        These are hardcoded to quit the program</span>
+<span class="g">        or pull up the interactive settings window, respectively.</span>
+
+<span class="g">        For commands which trigger &quot;: Quit&quot; or &quot;:Settings&quot;, capitalization is ignored,</span>
+<span class="g">        but there must still be a (:) colon between the command and the action &quot;ID&quot;.</span>
+
+<span class="g">      Leading Spaces:</span>
+
+<span class="g">        Leading tabs or spaces at the beginning</span>
+<span class="g">        of commands in the settings file are ignored.</span>
+
+<span class="g">      Leading Semicolons:</span>
+
+<span class="g">        Lines beginning with a semicolon are ignored.</span>
+<span class="g">        Lines beginning with tabs or spaces then a semicolon are ignored.</span>
+
+
+<span class="g">    The \BEGIN_LITERAL\ flag:</span>
+
+<span class="g">      How:</span>
+
+<span class="g">        To begin a command with a semicolon or</span>
+<span class="g">        to begin a command with whitespace</span>
+
+<span class="g">           (1) Add the phrase &quot;\BEGIN_LITERAL\&quot;</span>
+<span class="g">               (with (\) backslashes, without (&quot;) quotes)</span>
+<span class="g">               to the beginning of the command,</span>
+
+<span class="g">           (2) type whatever you want the command to be verbatim,</span>
+
+<span class="g">           (3) then finish the line with a colon and an action ID number.</span>
+
+
+<span class="g">      Why:</span>
+
+<span class="g">        program_launcher ignores lines beginning with a semicolon (ex: &quot;;line...&quot;)</span>
+<span class="g">        when reading the file program_launcher_saved_phrases.ini.</span>
+
+<span class="g">        This allows lines to be &quot;commented out&quot; instead of deleting them,</span>
+<span class="g">        and allows the user to add notes.</span>
+
+<span class="g">        If the user desires a command which begins with a semicolon (and or whitespace),</span>
+<span class="g">        add the text</span>
+<span class="g">          \BEGIN_LITERAL\</span>
+<span class="g">        to the beginning of the command  (including the (\) backslashes).</span>
+
+<span class="g">        This allows the semicolon comment syntax to remain consistent</span>
+<span class="g">        without adding a multitude of additional rules for parsing.</span>
+
+
+<span class="g">       Example + Elaboration:</span>
+
+<span class="g">        Pretend the user wants to</span>
+<span class="g">           (1) open the commandline popup,</span>
+<span class="g">           (2) type &quot;;calculator&quot; (excluding the (&quot;) quotes)</span>
+<span class="g">           (3) hit enter</span>
+<span class="g">           (4) and have action 235 run.</span>
+
+<span class="g">        The following setting will accomplish that:</span>
+
+<span class="g">          commands[</span>
+<span class="g">            Play a ~groovy~ tune:234</span>
+<span class="g">            \BEGIN_LITERAL\;calculator:235</span>
+<span class="g">          ]</span>
+
+<span class="g">        Now pretend, for reasons undisclosed to us,</span>
+<span class="g">        the user wants to type:</span>
+
+<span class="g">          ;\BEGIN_LITERAL\;calculator:234</span>
+
+<span class="g">        to trigger action 235.</span>
+
+
+<span class="g">        The following setting will accomplish that:</span>
+
+<span class="g">          commands[</span>
+<span class="g">            Play a ~groovy~ tune:234</span>
+<span class="g">            \BEGIN_LITERAL\;\BEGIN_LITERAL\;calculator:234:235</span>
+<span class="g">          ]</span>
+
+<span class="g">        program_launcher will store everything between the first</span>
+<span class="g">          \BEGIN_LITERAL\</span>
+<span class="g">        and the final</span>
+<span class="g">          :235</span>
+<span class="g">        as the command which triggers action 235.</span>
+
+
+
+<span class="g">  ACTIONS</span>
+
+<span class="g">    Syntax:</span>
+
+<span class="g">      int ID, &quot;Folder&quot;, &quot;C:/drive/path&quot;</span>
+<span class="g">      int ID, &quot;Program&quot;, quoted full path, (optional argument) quoted full path</span>
+
+
+<span class="g">    Example:</span>
+
+<span class="g">      236, Program, &quot;C:/apps/winamp.exe&quot;, &quot;C:/music/GroovySpoon.mp3&quot;</span>
+<span class="g">      237, Folder, &quot;D:/music/My Favorite Songs/&quot;</span>
+
+
+<span class="g">    Syntax Rules:</span>
+
+<span class="g">      Actions are single lines.</span>
+<span class="g">      No two actions have the same ID</span>
+
+<span class="g">      File paths (to folders or programs) must be absolute and &quot;quoted&quot;.</span>
+<span class="g">      An action does one of three things:</span>
+<span class="g">      [1]      Open a folder in Windows Explorer.</span>
+<span class="g">      [2]      Open a program</span>
+<span class="g">      [3]      Trigger an internal routine</span>
+<span class="g">               (for now, only &quot;Quit&quot; and &quot;Settings&quot;)</span>
+
+<span class="g">      Each action in category [1] or [2] must have an entry in the settings file,</span>
+<span class="g">      but category [3] actions are referenced directly by commands</span>
+<span class="g">      and are the only actions without an ID.</span>
+
+<span class="g">      Trailing slash for folders is optional.</span>
+
+<span class="g">  )</span>
+</pre></div>
 </div>
-</div>
-<div class="section" id="the-settings-file">
-<h2>The Settings File<a class="headerlink" href="#the-settings-file" title="Permalink to this headline">¶</a></h2>
-<div class="admonition-todo admonition" id="index-2">
-<p class="first admonition-title">Todo</p>
-<p class="last">Paste doc here.</p>
-</div>
-</div>
+<p></div>
+</details>
+</div></p>
 </div>
 
 
@@ -331,8 +887,9 @@
           <footer>
     <br />
 	<div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../Code/index.html" class="btn btn-neutral float-right" title="Program Launcher’s Code" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../index.html" class="btn btn-neutral float-left" title="Program Launcher" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+      <a href="../index.html" class="btn btn-neutral float-left" title="Program Launcher" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../Code/Complete_Script/index.html" class="btn btn-neutral float-right" title="Code" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
 
   <br />
@@ -371,27 +928,8 @@
     
   
 
-<!-- The detached footer floating below the main central box of the page -->
-<footer class="floating_footer">
-	<p class="floating_footer_copyright">
-		
-		&copy; Gamepad.Coder 2021
-		<br>
-		<br> 
-		Have a wonderful day.
-		
-		<!-- ========================================================
-			 Fun technical detail : 
-			 ========================================================
-				main.css -> 
-				p.copyright{line-height: 1em;}
-			
-			 gives this double <br> a nice amount of vertical space.
-			 ======================================================== 
-		-->
-			 
-	</p>
-</footer><!-- class="floating_footer" | css .floating_footer -->
+
+
 
 
 </body>

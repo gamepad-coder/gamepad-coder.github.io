@@ -191,6 +191,32 @@
 	a:hover { color: #03ff3d;	text-decoration: underline;	}
 	a:hover span { color: #03ff3d;	text-decoration: underline;	}
 
+	code .v1 {
+		/* padding: 2px 4px; */
+		/* font-family: ui-monospace,"Cascadia Mono","Segoe UI Mono","Liberation Mono",Menlo,Monaco,Consolas,monospace; */
+		/* background-color: #E4E6E7; */
+		/* border-radius: 4px; */
+		
+		padding: 2px 4px;
+		font-family: Consolas, monospace;
+		background-color: #277da5;
+		border-radius: 4px;
+		font-size: small;
+		color: #0d2b98;
+		font-weight: 700;
+	}
+	code {
+		border-radius: 4px;
+		font-size: small;
+		color: #0d2b98;
+		font-weight: 700;
+		background-color: rgb(30 51 130);
+		color: #39adff;
+		padding: 3px 2px 2px 2px;
+		vertical-align: middle;
+		box-shadow: 0px 1px 0 1px #105298e6;
+	}
+	
 
      /* ---------------------------- */
     /*                              */
@@ -649,13 +675,15 @@
 
 		/*** formatting for navigation link references ***/
 
-		a.nav_ref, .nav_ref {
-			margin-right: 5px;
-			color: #1a9b51;
+			a.nav_ref, .nav_ref {
+				color: #1a9b51;
+				
+				border-radius: 6px;
+				padding: 4px 5px;
 			
-			border-radius: 6px;
-			padding: 4px 5px;
-			
+			}
+			aside a.nav_ref {
+				margin-right: 5px;				
 			}
 		
 			.nav_ref { 
@@ -674,21 +702,26 @@
 			/* overflow: hidden; */
 			/* overflow: auto; */
 		}
-		#aside_contact_proficiencies {
-			
+		#aside_contact_proficiencies {			
 			background-image: url("http://localhost:4000/assets/images/contact/stock_typewriter_plants.png"),url("http://localhost:4000/assets/images/contact/stock_typewriter_plants_lowQ.jpg");
 		}
 		#aside_contact_languages {
 			background-image: url("http://localhost:4000/assets/images/contact/stock_trackpoint.png"),url("http://localhost:4000/assets/images/contact/stock_trackpoint_lowQ.jpg");
 		}
+		#aside_contact_tools {
+			background-image: url("http://localhost:4000/assets/images/contact/stock_tools.jpg"),url("http://localhost:4000/assets/images/contact/stock_tools_lowQ.jpg");
+			
+			background-position-y: center;
+			background-position-x: -40px;
+		}
 		#aside_contact_interests {
 			background-image: url("http://localhost:4000/assets/images/contact/stock_plant.png"),url("http://localhost:4000/assets/images/contact/stock_plant_lowQ.jpg");
 		}
-		#aside_contact_proficiencies, #aside_contact_languages, #aside_contact_interests {
+		#aside_contact_proficiencies, #aside_contact_languages, #aside_contact_tools, #aside_contact_interests {
 			/* border: 3px solid white; */
 			background-size: cover; 
 			border-radius: 25px;
-			margin: 5;
+			/* margin: 5px; */
 			padding: 10px;
 		}
 		#h_prof, #h_prog_lang, #h_interests {
@@ -839,6 +872,15 @@
 		footer p.floating_footer_copyright{
 			line-height: 1em;
 			float: right;
+		}
+		footer p.floating_footer_changelog{			
+			float: left;
+			line-height: 1em;
+		}
+		footer p.floating_footer_changelog a{
+			background-color: #00455d;
+			padding: 5px;
+			margin-left: 7px;
 		}
 	
     /* ---------------- */
@@ -1167,10 +1209,23 @@
 				padding-inline-start: 40px;
 				padding: 0px 60px;
 			}
-			#aside_contact_proficiencies, #aside_contact_languages, #aside_contact_interests {
+			#aside_contact_proficiencies, #aside_contact_languages, #aside_contact_tools, #aside_contact_interests {
 				padding-top: 30px;
 				padding-bottom: 30px;
 				/* padding: 60px; */
+				
+				margin-top: 30px;
+				margin-bottom: -10px;
+			}
+			#aside_contact_tools {
+				/* background-position-y: unset; */
+				/* background-position-x: unset; */
+				/* background-size: cover; */
+				background-position-y: -90px;
+				background-position-x: -90px;
+			}
+			#aside_contact_proficiencies {
+				margin-top: 5px;
 			}
 			#aside_contact_interests{
 				background-position: center;

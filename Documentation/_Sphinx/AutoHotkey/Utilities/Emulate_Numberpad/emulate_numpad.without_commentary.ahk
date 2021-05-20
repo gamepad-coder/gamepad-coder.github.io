@@ -188,14 +188,14 @@ return
 
 _____DETAILS_BEGIN_____0t_ ~Escape::
 { _____SUMMARY_END_____
-_____DETAILS_BEGIN_____1t_ if( true == _emulate_numpad_on ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____1t_ if( true == _emulate_numpad_on ){ _____SUMMARY_END_____
       gosub, Toggle_Emulated_Numpad
    } _____DETAILS_END_____
    return
 } _____DETAILS_END_____
 
 
-_____DETAILS_BEGIN_____0t_ #If (_emulate_numpad_on == true)
+_____IF_DETAILS_BEGIN_____0t_ #If (_emulate_numpad_on == true)
 { _____SUMMARY_END_____
    
    j::Numpad1
@@ -264,14 +264,14 @@ _____DETAILS_BEGIN_____0t_ Toggle_Emulated_Numpad:
 
 _____DETAILS_BEGIN_____0t_ Show_User_Tooltip_About_Emulation_State:
 { _____SUMMARY_END_____
-_____DETAILS_BEGIN_____1t_ if( true == _emulate_numpad_on ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____1t_ if( true == _emulate_numpad_on ){ _____SUMMARY_END_____
    
-_____DETAILS_BEGIN_____2t_ if( _settings__show_persistent_tooltip_when_enabled ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( _settings__show_persistent_tooltip_when_enabled ){ _____SUMMARY_END_____
       
          SetTimer, Timer_refresh_tooltip_location_while_enabled, 100
          
       } _____DETAILS_END_____
-_____DETAILS_BEGIN_____2t_ else{ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ else{ _____SUMMARY_END_____
          toast_message :=  "EMULATED NUMBER PAD"
          toast_message  .= "`n`n`t`t"
          toast_message  .= "[+]   ENABLED!`n"
@@ -282,7 +282,7 @@ _____DETAILS_BEGIN_____2t_ else{ _____SUMMARY_END_____
       } _____DETAILS_END_____
       
    } _____DETAILS_END_____
-_____DETAILS_BEGIN_____1t_ else if( false == _emulate_numpad_on ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____1t_ else if( false == _emulate_numpad_on ){ _____SUMMARY_END_____
       
       toast_message :=  "EMULATED NUMBER PAD"
       toast_message  .= "`n`n`t`t"
@@ -318,9 +318,9 @@ _____DETAILS_BEGIN_____0t_ Toggle_Key_Legend:
 
 _____DETAILS_BEGIN_____0t_ Timer_refresh_tooltip_location_while_enabled:
 { _____SUMMARY_END_____
-_____DETAILS_BEGIN_____1t_ if( true == _emulate_numpad_on ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____1t_ if( true == _emulate_numpad_on ){ _____SUMMARY_END_____
    
-_____DETAILS_BEGIN_____2t_ if( "" == _tooltip_hwnd ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( "" == _tooltip_hwnd ){ _____SUMMARY_END_____
       
          toast_message :=   "EMULATED NUMBER PAD"
          toast_message  .=  "`n`n`t`t"
@@ -332,7 +332,7 @@ _____DETAILS_BEGIN_____2t_ if( "" == _tooltip_hwnd ){ _____SUMMARY_END_____
          toast_message  .=  "Press Escape `t to turn off.                       `n"
          toast_message  .=  "---------------------------------------------------"
          
-_____DETAILS_BEGIN_____3t_ if( _settings__show_legend_in_persistent_tooltip ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( _settings__show_legend_in_persistent_tooltip ){ _____SUMMARY_END_____
             toast_message  .=  "                                                `n"
             toast_message  .=  "                                                `n"
             toast_message  .=  "The following keys are remapped right now:      `n"
@@ -356,7 +356,7 @@ _____DETAILS_BEGIN_____3t_ if( _settings__show_legend_in_persistent_tooltip ){ _
          _tooltip_hwnd := WinExist("ahk_class tooltips_class32 ahk_pid " scriptPID)
          
       } _____DETAILS_END_____
-_____DETAILS_BEGIN_____2t_ else{ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ else{ _____SUMMARY_END_____
       
          CoordMode, Mouse, Screen
          CoordMode, ToolTip, Screen
@@ -371,7 +371,7 @@ _____DETAILS_BEGIN_____2t_ else{ _____SUMMARY_END_____
       } _____DETAILS_END_____
       
    } _____DETAILS_END_____
-_____DETAILS_BEGIN_____1t_ else{ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____1t_ else{ _____SUMMARY_END_____
    
       gosub Timer_turn_tooltip_off
       

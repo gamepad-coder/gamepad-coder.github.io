@@ -29,36 +29,255 @@
       <h1><a href="http://localhost:4000/">gamepad-coder.github.io</a></h1>
       
 
-      <h2 id="welcome-to-github-pages">Welcome to GitHub Pages</h2>
+      <h2 id="welcome-to-the-github-pages-repository-for-my-website">Welcome to the GitHub Pages Repository for my website!</h2>
 
-<p>Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for</p>
+<p>I am currently using Jekyll, Sphinx, (and a lot of
+pre-processing and post-processing python scripts I wrote) to build my website: 
+<a href="gamepad-coder.github.io">gamepad-coder.github.io</a>.</p>
 
-<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Syntax highlighted code block
+<p>How it works:</p>
+<ol>
+  <li>For development, I build my website offline on my PC using Jekyll.</li>
+  <li>When my changes are ready, I upload my files to GitHub.</li>
+  <li>Then GitHub independently bakes my source files using 
+their own installation of <a href="https://jekyllrb.com/">Jekyll</a>, 
+and publishes the finished product online.
+This service is called GitHub Pages, and you can 
+<a href="https://pages.github.com/">read more about it here</a>!</li>
+</ol>
 
-<span class="gh"># Header 1</span>
-<span class="gu">## Header 2</span>
-<span class="gu">### Header 3</span>
-<span class="p">
--</span> Bulleted
-<span class="p">-</span> List
-<span class="p">
-1.</span> Numbered
-<span class="p">2.</span> List
+<p>It’s awesome, free, and I’m very grateful for the service.</p>
 
-<span class="gs">**Bold**</span> and _Italic_ and <span class="sb">`Code`</span> text
+<h3 id="-to-do">[~] To Do:</h3>
 
-<span class="p">[</span><span class="nv">Link</span><span class="p">](</span><span class="sx">url</span><span class="p">)</span> and !<span class="p">[</span><span class="nv">Image</span><span class="p">](</span><span class="sx">src</span><span class="p">)</span>
-</code></pre></div></div>
+<p>I plan to add a detailed walkthrough of all the tools and steps to the 
+Documentation section of my website sometime this year.</p>
 
-<p>For more details see <a href="https://guides.github.com/features/mastering-markdown/">GitHub Flavored Markdown</a>.</p>
+<p>For now, I’ll write a very brief overview here.</p>
 
-<h3 id="jekyll-themes">Jekyll Themes</h3>
+<h3 id="folder-structure">Folder Structure</h3>
 
-<p>Your Pages site will use the layout and styles from the Jekyll theme you have selected in your <a href="https://github.com/gamepad-coder/gamepad-coder.github.io/settings">repository settings</a>. The name of this theme is saved in the Jekyll <code class="language-plaintext highlighter-rouge">_config.yml</code> configuration file.</p>
+<p>The top level of this repository is the source directory for all the files Jekyll bakes when I type the command 
+<code class="language-plaintext highlighter-rouge">jekyll build</code>. Jekyll takes any page containing <a href="https://jekyllrb.com/docs/front-matter/">front matter</a> and processes it.</p>
 
-<h3 id="support-or-contact">Support or Contact</h3>
+<p><em>The main use of front matter is to tell Jekyll, “Hey, this page isn’t complete. This is just the content in the middle
+of the page. I want you to use the layout I asked for in the front matter, and put all the bells and whistles inside the
+finished HTML page.”</em></p>
 
-<p>Having trouble with Pages? Check out our <a href="https://help.github.com/categories/github-pages-basics/">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
+<p>All the following are the unbaked source files, before Jekyll processes them:</p>
+<ul>
+  <li>The top directory containing
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">/index.html</code></li>
+      <li><code class="language-plaintext highlighter-rouge">/contact.html</code></li>
+      <li><code class="language-plaintext highlighter-rouge">/Apps.html</code></li>
+      <li><code class="language-plaintext highlighter-rouge">/Philosophy.html</code></li>
+    </ul>
+  </li>
+  <li>The <code class="language-plaintext highlighter-rouge">/_Philosophy/</code> directory <em>(Jekyll wants the underscore prefix for a reason)</em></li>
+  <li>The <code class="language-plaintext highlighter-rouge">/Documentation/</code> directory <em>(more about this in the next section)</em></li>
+</ul>
+
+<p>The website files you actually see when you visit <a href="gamepad-coder.github.io">gamepad-coder.github.io</a> are all located in
+the output directory named <code class="language-plaintext highlighter-rouge">/_site/</code>.</p>
+
+<h3 id="the-documentation-sub-website">The Documentation Sub-Website</h3>
+
+<p>In addition to Jekyll, I am using Sphinx to create the base files in the Documentation section of the website. However,
+I take Sphinx’s default output files, and then modify them with additional tweaks, URL corrections, and added
+functionality.</p>
+
+<p>The finished product is here: <a href="https://gamepad-coder.github.io/Documentation.html">https://gamepad-coder.github.io/Documentation.html</a></p>
+
+<h3 id="the-documentation-directory">The Documentation Directory</h3>
+
+<p>The files in <code class="language-plaintext highlighter-rouge">/Documentation/</code> are the files Jekyll uses to bake the Documentation section of my website, but these are
+not actually the source files.</p>
+
+<p><code class="language-plaintext highlighter-rouge">/Documentation/_Sphinx/</code> is the directory for all my Documentation source files.</p>
+
+<p>This is also the root directory for my <a href="https://www.sphinx-doc.org/en/master/">Sphinx</a> project file for my Documentation: <code class="language-plaintext highlighter-rouge">/Documentation/_Sphinx/conf.py</code>.</p>
+
+<p><em>(Jekyll doesn’t actually know this directory exists, and never touches it.</em>
+<em>In my Jekyll configuration file <code class="language-plaintext highlighter-rouge">/_config.yml</code> there is a line which says: <code class="language-plaintext highlighter-rouge">exclude: [Documentation/_Sphinx]</code>.)</em></p>
+
+<h3 id="building-my-documentation-basics">Building my Documentation, Basics</h3>
+
+<p>I made a custom modification of the <a href="https://sphinx-rtd-theme.readthedocs.io/en/stable/">ReadTheDocs</a> theme for Sphinx, 
+located under <code class="language-plaintext highlighter-rouge">/Documentation/_Sphinx/stphinx_rtd_theme__modified/</code>. I use this to insert a miniature version of 
+my <code class="language-plaintext highlighter-rouge">&lt;header&gt;</code> navigation bar from my website’s Home page into the Documentation pages.</p>
+
+<p><code class="language-plaintext highlighter-rouge">/Documentation/_Sphinx/Documentation.rst</code> is the index file for the top of the Documentation section. 
+Sphinx thinks of this as its own project’s root file.</p>
+
+<p>This <code class="language-plaintext highlighter-rouge">Documentation.rst</code> contains the Table of Contents directive which 
+references all other pages in the Documentation. This Table of Contents declared
+in <code class="language-plaintext highlighter-rouge">Documentation.rst</code> is what Sphinx uses to generate the sidebar you see on the lefthand side of my Documentation section.</p>
+
+<p><em>If (a) your window is very narrow or (b) you’re on a mobile device, then this sidebar will show up if you click the menu button in the upper-left hand corner of the page.</em></p>
+
+<p>When I run the command <code class="language-plaintext highlighter-rouge">sphinx make html</code>, Sphinx takes my custom theme and builds
+<code class="language-plaintext highlighter-rouge">Documentation.rst</code> and all the files it references (located in the subdirectories 
+<code class="language-plaintext highlighter-rouge">/Documentation/_Sphinx/AutoHotkey/</code> and <code class="language-plaintext highlighter-rouge">/Documentation/_Sphinx/Godot/</code>) and produces 
+a baked set of files in a folder called <code class="language-plaintext highlighter-rouge">/Documentation/_Sphinx/_build/</code>.</p>
+
+<p>For cleanliness of commits, I have omitted <code class="language-plaintext highlighter-rouge">/Documentation/_Sphinx/_build</code> from this 
+GitHub repository. But if you install Sphinx, download this repo, navigate to 
+<code class="language-plaintext highlighter-rouge">/Documentation/_Sphinx/</code> and run <code class="language-plaintext highlighter-rouge">sphinx make html</code>, then <code class="language-plaintext highlighter-rouge">/Documentation/_Sphinx/_build/</code>
+and all of its files will be generated.</p>
+
+<h3 id="building-my-documentation-complete-steps">Building my Documentation, Complete Steps</h3>
+
+<p>In order to make Sphinx’s output mesh well with the rest of my website, 
+I manually modify URLS to be compatible with Jekyll, and to make the 
+Sphinx files relative to their greater context as a sub-directory 
+of the rest of the Jekyll build files.</p>
+
+<p>Additionally I manually insert code-block folding in the highlighted 
+code sections of my Documentation.</p>
+
+<p>This is where my pre-processing and post-processing scripts come into play.</p>
+
+<p>When I build my Documentation under <code class="language-plaintext highlighter-rouge">/Documentation/_Sphinx/</code>, 
+I run the following commands in Debian’s Bash shell:</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">sphinx_1</code> - custom alias
+    <ul>
+      <li>changes to the Sphinx project directory</li>
+      <li>runs <code class="language-plaintext highlighter-rouge">( A ) run all python pre-processing scripts.py</code><br /><br /></li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">sphinx_2</code> - custom alias
+    <ul>
+      <li>changes to the Sphinx project directory</li>
+      <li>runs Sphinx’s <code class="language-plaintext highlighter-rouge">make clean html</code><br /><br /></li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">sphinx_3</code> - custom alias
+    <ul>
+      <li>changes to the Sphinx project directory</li>
+      <li>runs <code class="language-plaintext highlighter-rouge">( B ) run all python post-processing scripts.py</code></li>
+    </ul>
+  </li>
+</ol>
+
+<p>I sometimes will build run these alias commands in isolation to debug different things.
+But typically I run the final alias <code class="language-plaintext highlighter-rouge">sphinx</code> which runs the above three aliases.</p>
+
+<p>Once these have all run, I check the local build files in <code class="language-plaintext highlighter-rouge">/Documentation/_Sphinx/_build/</code>.</p>
+
+<p>If everything looks good, I run my final post-processing script 
+<code class="language-plaintext highlighter-rouge">( C ) [AHK FINALIZE SCRIPT ]  Post-process Sphinx output and place modified trunk in Jekyll's prebake Docs dir.ahk</code>. This moves the baked files from <code class="language-plaintext highlighter-rouge">/Documentation/_Sphinx/_build/</code> <em>(which Jekyll doesn’t know about)</em> to <code class="language-plaintext highlighter-rouge">/Documentation/</code> <em>(which Jekyll does know about and will use to build the website when I run the command <code class="language-plaintext highlighter-rouge">jekyll build</code>)</em>.</p>
+
+<h3 id="briefly-what-all-my-processing-scripts-in-documentation_sphinx-do">Briefly, what all my processing scripts in <code class="language-plaintext highlighter-rouge">/Documentation/_Sphinx/</code> do.</h3>
+
+<p><strong>Script-Calling Scripts:</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">( A ) run all python pre-processing scripts.py</code></p>
+<ul>
+  <li>Runs <code class="language-plaintext highlighter-rouge">Pre-Process   1 -- Copy AHK scripts to Sphinx source.py</code></li>
+  <li>Runs <code class="language-plaintext highlighter-rouge">Pre-Process   2 -- Insert custom tags into AHK scripts (post-process will replace with html codeblock folding).py</code></li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">( B ) run all python post-processing scripts.py</code></p>
+<ul>
+  <li>Runs <code class="language-plaintext highlighter-rouge">Post-Process 1 -- Remove Section Headers in Documentation.html TOC.py</code></li>
+  <li>Runs <code class="language-plaintext highlighter-rouge">Post-Process 2 -- Add Codeblock Folding To Sphinx output, replace custom tags with HTML details element.py</code></li>
+  <li>Runs <code class="language-plaintext highlighter-rouge">Post-Process 3 -- Add Links to Section Captions in Sidebar TOC.py</code></li>
+  <li>Runs <code class="language-plaintext highlighter-rouge">Post-Process 4 -- Copy Videos to Output Build Directory.py</code></li>
+</ul>
+
+<p><strong>Pre-Processing Scripts:</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">Pre-Process   1 -- Copy AHK scripts to Sphinx source.py</code> :</p>
+<ul>
+  <li>This script takes all my local AutoHotkey scripts located in my AutoHotkey_Projects repo, 
+and copies them into their relative Documentation directories under <code class="language-plaintext highlighter-rouge">/Documentation/_Sphinx/AutoHotkey/(project_path)/script.ahk</code>.</li>
+  <li>From there these scripts are referenced by docs pages using lines like 
+<code class="language-plaintext highlighter-rouge">.. literalinclude:: program_launcher.ahk</code>. This directive inserts a code file 
+with added syntax highlighting into the page.</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">Pre-Process   2 -- Insert custom tags into AHK scripts (post-process will replace with html codeblock folding).py</code></p>
+<ul>
+  <li>Sphinx is awesome at inserting and colorizing blocks of code. Yet there is no support 
+for code-block folding. To remedy this, in the pre-processing phase, 
+I scan all my <code class="language-plaintext highlighter-rouge">.ahk</code> script files which were copied by <code class="language-plaintext highlighter-rouge">Pre-Process   1</code>
+and insert arbitrary tags anywhere there is an open or close curly brace {}.</li>
+  <li>When I run Sphinx’s <code class="language-plaintext highlighter-rouge">make clean html</code> command, these arbitrary tags will be awkwardly present in 
+the files inside <code class="language-plaintext highlighter-rouge">/Documentation/_Sphinx/_build/...</code>. That’s what <code class="language-plaintext highlighter-rouge">Post-Process 1</code> utilizes.</li>
+</ul>
+
+<p><strong>Post-Processing Scripts:</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">Post-Process 1 -- Remove Section Headers in Documentation.html TOC.py</code></p>
+<ul>
+  <li>For my top level Documentation index, I didn’t want a lot of 
+duplicate links which reference different portions of the same page. 
+This short script ensures that the Documentation home doesn’t 
+have a lot of extraneous noise.</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">Post-Process 2 -- Add Codeblock Folding To Sphinx output, replace custom tags with HTML details element.py</code></p>
+<ul>
+  <li>I add code-block folding to highlighted code sections by utilizing the &lt;details&gt; HTML element.
+This element automatically adds text collapse/expand functionality to all of its children tags.</li>
+  <li><code class="language-plaintext highlighter-rouge">Post-Process 2</code> looks for the arbitrary strings of text inserted by <code class="language-plaintext highlighter-rouge">Pre-Process   2</code>, and 
+ replaces them with the &lt;details&gt; and &lt;summary&gt; elements. When this is done, 
+ with the help of some CSS styling located at the bottom of 
+ <code class="language-plaintext highlighter-rouge">/Documentation/_Sphinx/sphinx_rtd_theme__modified/static/css/theme.css</code>, the code-blocks
+ are properly aligned and can be expanded and contracted a.k.a folded.</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">Post-Process 3 -- Add Links to Section Captions in Sidebar TOC.py</code></p>
+<ul>
+  <li>I wanted to have big section headers in the Sidebar TOC which you could also click.
+This is not possible using the normal RTD (ReadTheDocs) Sphinx theme. 
+However, thanks to this script, you can now click the blue Section Headers 
+on my Documentation’s sidebar to see an index of their contents.</li>
+  <li>This is a bit of a hack, but if I had added new sections to the Sphinx TOC, 
+then everything in the sidebar would be nudged down an additional tree level, 
+and I really disliked that amount of noise. 
+Although hacky, this end-result is a lot cleaner.</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">Post-Process 4 -- Copy Videos to Output Build Directory.py</code></p>
+<ul>
+  <li>Probably the simplest script here. I wanted to check the layout and CSS on my 
+video files in my <code class="language-plaintext highlighter-rouge">/Documentation/_Sphinx/_build/</code> output without needing to 
+build the full site with Jekyll. Sphinx builds MUCH faster than Jekyll, even 
+for full rebuilds with all of my scripts.</li>
+</ul>
+
+<p><strong>Final Post-Processing Script</strong></p>
+
+<p>This script moves files across the boundary between Sphinx and Jekyll.</p>
+
+<p><em>(And it processes them a bit to make everything work together in Jekyll’s build process)</em></p>
+
+<p>This was the first script I wrote here, and eventually I’ll port it to Python.</p>
+
+<p><code class="language-plaintext highlighter-rouge">( C ) [AHK FINALIZE SCRIPT ]  Post-process Sphinx output and place modified trunk in Jekyll's prebake Docs dir.ahk</code></p>
+<ul>
+  <li>I run this after all the above scripts and Sphinx have finished. This script copies
+my Sphinx output code located at <code class="language-plaintext highlighter-rouge">/Documentation/_Sphinx/_build/</code> and copies the files 
+to <code class="language-plaintext highlighter-rouge">/Documentation/</code>.</li>
+  <li>The script then patches URLS to fit within Jekyll’s folder structure.</li>
+  <li>This script also copies any pictures inside <code class="language-plaintext highlighter-rouge">/Documentation/_Sphinx/_build/Project/Etc/Img.jpg</code>
+and copies them to <code class="language-plaintext highlighter-rouge">/Documentation/Project/Etc/Img.jpg</code>. I like pictures to be relative 
+to the files which use them. Sphinx doesn’t do this, and by default makes a one 
+directory tree for text and another directory tree for images under <code class="language-plaintext highlighter-rouge">../_build/assets/</code>.
+This isn’t necessary, but I prefer it this way for my personal projects.</li>
+</ul>
+
+<h3 id="conclusion-for-now">Conclusion for Now</h3>
+
+<p>I had a ton of fun with all this, and learned so much in a short period of time.</p>
+
+<p>There are a few details I’ve omitted here, but this should give you a good enough idea of what this repo is, how it’s structured, how it’s built in general, and how all the different areas mesh together.</p>
+
+<p>Have a great day, and enjoy!</p>
 
 
       

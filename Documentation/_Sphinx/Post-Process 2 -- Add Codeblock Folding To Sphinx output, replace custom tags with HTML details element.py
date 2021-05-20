@@ -110,7 +110,11 @@ def insert_details_element_for_curly_brace_blocks():
     #
     find    = "<span class=\"[^\"]*\">_____DETAILS_BEGIN_____([\d]+)t_</span>[ ]*"
     # find    = "<span class=\"[^\"]*\">_____DETAILS_BEGIN_____</span> "
-    replace = "<DETAILS open class=\"leading_tabs_\\1\"><SUMMARY>"
+    replace = "<DETAILS class=\"leading_tabs_\\1\"><SUMMARY>"
+    TheText = re.sub(find, replace, TheText, count, flags)
+
+    find    = "<span class=\"[^\"]*\">_____IF_DETAILS_BEGIN_____([\d]+)t_</span>[ ]*"
+    replace = "<DETAILS open class=\"control_flow_block leading_tabs_\\1\"><SUMMARY>"
     TheText = re.sub(find, replace, TheText, count, flags)
 
 

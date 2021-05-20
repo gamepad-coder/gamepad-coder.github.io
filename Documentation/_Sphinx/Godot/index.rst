@@ -1,68 +1,12 @@
+.. 
+    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+                                       HTML CODE |SUBSTITUTIONS|
+                                       DEFINED IN /conf.py
+    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+=====================
 What is Godot?
 =====================
-
-.. 
-    ---------------------------------------------
-    |Substitutions| allow manual HTML insertions
-    ---------------------------------------------
-
-.. |demo_video| raw:: HTML
-
-    <div class="videoWrapper" 
-        style="
-            position: relative;
-            padding-bottom: 57.25%; /* 16:9 */
-            height: 0; "
-    >
-        <iframe src="https://www.youtube.com/embed/XptlVErsL-o?mute=1" 
-                frameborder="0" 
-                allowfullscreen="" 
-                style="
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%; "
-        ></iframe>
-    </div>
-    
-.. |overview_video| raw:: HTML
-
-    <div class="videoWrapper" 
-        style="
-            position: relative;
-            padding-bottom: 57.25%; /* 16:9 */
-            height: 0; "
-    >
-        <iframe src="https://www.youtube.com/embed/lGZ4RaC4O2w" 
-                frameborder="0" 
-                allowfullscreen="" 
-                style="
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%; "
-        ></iframe>
-    </div>
-    
-..
-    Comment 
-    
-    Alt video demo reel 2019: 
-        https://www.youtube.com/embed/NlKEO1N8wMM
-        
-    Aspect-ratio auto-size trick found here:
-        https://css-tricks.com/fluid-width-video/#iframe-video-youtube-vimeo-etc
-
-.. |br| raw:: HTML
-    
-    <br>
-    
-.. 
-    ---------------------------------------------
-    </> end of section defining  |Substitutions| 
-    ---------------------------------------------
 
 .. image:: Godot_logo.svg
 
@@ -83,6 +27,7 @@ What is Godot?
 
 ---------------------------------------------------------------------------------------
 
+---------------------
 Why Godot?
 ---------------------
 
@@ -107,13 +52,28 @@ self-contained ``scenes``.
 
 ---------------------------------------------------------------------------------------
 
+--------------------------
 Godot 3.0 Release Trailer
 --------------------------
 
-|demo_video|
+.. 
+    |demo_video|
+
+..
+    Comment 
+
+    Alt video demo reel 2019: 
+        https://www.youtube.com/embed/NlKEO1N8wMM
+
+.. |yt_link_1| raw:: HTML 
+    
+    https://www.youtube.com/embed/XptlVErsL-o
+    
+|youtube_open|\ |yt_link_1|\ |youtube_muted_close|
 
 ---------------------------------------------------------------------------------------
 
+-----------------------------
 Official Godot Websites
 -----------------------------
 
@@ -125,6 +85,7 @@ Godot on YouTube:          https://www.youtube.com/c/GodotEngineOfficial
 
 ---------------------------------------------------------------------------------------
 
+-------------------------
 Download Godot Here
 -------------------------
 
@@ -139,6 +100,7 @@ Windows:            https://godotengine.org/download/windows
 
 ---------------------------------------------------------------------------------------
 
+-----------------------------------
 Build Godot from its Source Code
 -----------------------------------
 
@@ -170,6 +132,7 @@ Godot's Compilation Tutorials   | `https://docs.godotengine.org/en/stable <https
 
 ---------------------------------------------------------------------------------------
 
+-----------------
 Resources
 -----------------
 
@@ -186,6 +149,7 @@ expanded and polished. Here's a great place to start:
 
 * `https://docs.godotengine.org/en/latest <https://docs.godotengine.org/en/latest/getting_started/introduction/introduction_to_godot.html>`_\ |br|\ `/getting_started/introduction/introduction_to_godot.html <https://docs.godotengine.org/en/latest/getting_started/introduction/introduction_to_godot.html>`_
 
+-----------------------
 More Intro Info?
 -----------------------
 
@@ -195,7 +159,11 @@ incredible beginner tutorials.
 
 Here's a great Godot introduction video by GDQuest:
 
-|overview_video|
+.. |yt_link_2| raw:: HTML 
+    
+    https://www.youtube.com/embed/lGZ4RaC4O2w
+    
+|youtube_open|\ |yt_link_2|\ |youtube_close|
 
 You can also find more beginner information and tutorials
 at `GDQuest.com <https://www.gdquest.com/>`_

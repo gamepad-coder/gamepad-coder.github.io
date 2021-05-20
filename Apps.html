@@ -143,6 +143,87 @@ meta_keywords: "programs, applications, apps, showcase, works"
 
 			<div class="green_dot_underline_wrapper">
 				<div class="h2_wrapper">
+					<h2 id="h_godot_rte">Rich Text Editor in Godot</h2>
+				</div>
+			</div>
+			<article id="apps_godot_rte_article"  class="additional_bottom_margin">
+				<img id="img_unitySystem" class="app_highlight_item" src="{{ "/assets/images/homepage/GalleryPreview.gif" | absolute_url }}" /> 
+				<p>
+					My current project. 
+				</p>
+				<p>
+					A subset of a larger system I'm working on in Godot.
+				</p>				
+				<p style="border: 1px solid black; margin: auto; padding: 10px; max-width: 80%;">
+					<span class="parenthetical">Currently on hold. I'll be returning to this after I finish this
+					website and secure a job.</span>
+					<br><br>
+					<span class="parenthetical">More details, tutorials, and full code will be available in the
+					Documentation section of this website when it's done.</span>
+				</p>
+				<br>
+				
+				<input  id="apps_godot-rte_collapsible_section_1" class="toggle_collapsible_section" type="checkbox">
+				<label for="apps_godot-rte_collapsible_section_1" class="label-toggle_collapsible_section">Structure</label>
+				<div class="collapsible_section">
+					<p>
+						Each letter is a node, and each line is a node containing zero or more letters.
+					</p>
+					<p>
+						Letters contain internal data for their foreground and background color, 
+						their font name, their font size, and their style.
+					</p>
+					<p>
+						The window itself currently has its graphical style hardcoded, but I plan to extend this (much later).
+					</p>
+					<p>
+						Clicking within the window will activate it, and place the text cursor at the mouse position.
+						Clicking and dragging the mouse will select a region of text.
+						<span clas="parenthetical">
+							(You can also select text by holding SHIFT and pressing: the arrow keys, HOME button, and the END button.)
+						</span>
+					</p>
+					<p>
+						When CTRL is held down before the user clicks the window, the window functions differently:
+						<ul>
+							<li>
+								Holding CTRL and left-click dragging will move the window.
+							</li>
+							<li>
+								Holding CTRL and right-click dragging will resize the window.<br>
+								<span class="parenthetical">
+									(The direction of the resize depends on the quadrant of the window clicked.
+									If the user holds CTRL, right-clicks on the leftmost side of the window, 
+									then drags out, the rightmost side of the window will stay where it is, 
+									and the leftmost side will follow the mouse and expand or contract.)
+								</span>
+							</li>
+						</ul>
+
+
+					</p>
+				</div>
+
+				<input  id="apps_godot-rte_collapsible_section_2" class="toggle_collapsible_section" type="checkbox">
+				<label for="apps_godot-rte_collapsible_section_2" class="label-toggle_collapsible_section">Undo/Redo Support!</label>
+				<div class="collapsible_section">
+					<p>
+						Any action which changes the document is called 
+						through a COMMANDS class, which creates an Action object to track changes.
+					</p>
+					<p>
+						After an Action object is created, its Action.do() function is called, then the Action object is pushed
+						onto an undo stack. When the user presses the hotkey for undo (CTRL+Z), the Action object is popped,
+						its Action.undo() function is called, and the Action object is pushed onto the redo stack.
+					</p>
+				</div>
+				
+			</article>
+
+
+
+			<div class="green_dot_underline_wrapper">
+				<div class="h2_wrapper">
 					<h2 id="h_linux">Linux Framebuffer Windowing System</h2>
 				</div>
 			</div>
@@ -531,7 +612,7 @@ meta_keywords: "programs, applications, apps, showcase, works"
 			<div class="green_dot_underline_wrapper">
 				<div class="h2_wrapper">
 					<h2 id="h_ahk_desktop">AutoHotkey
-						<br> Scrolling Desktop with Nested Windows
+						<br> Scrolling Notes with Nested Windows
 					</h2>
 				</div>
 			</div>
@@ -540,13 +621,14 @@ meta_keywords: "programs, applications, apps, showcase, works"
 					<!-- <a href="">
 						Click here for more pictures + details.
 					</a> -->
+					<span class="parenthetical">Demo coming soon.</span>
 				</p>
 			</article>
 
 
 			<div class="green_dot_underline_wrapper">
 				<div class="h2_wrapper">
-					<h2 id="h_ahk_desktop">AutoHotkey
+					<h2 id="h_ahk_gui_framework">AutoHotkey
 						<br> GUI Abstration Framework</h2>
 					</h2>
 				</div>
@@ -556,6 +638,11 @@ meta_keywords: "programs, applications, apps, showcase, works"
 					<!-- <a href="">
 						Click here for more pictures + details.
 					</a> -->
+					<span class="parenthetical">Functional, but not tidy and not comprehensive in coverage, currently on
+					the backburner.</span>
+				</p>
+				<p>
+					<span class="parenthetical">This large framework powers the above two AutoHotkey projects.</span>
 				</p>
 			</article>
 
@@ -565,7 +652,10 @@ meta_keywords: "programs, applications, apps, showcase, works"
 					<h2 id="h_thisWebsite">This Website</h2>
 				</div>
 			</div>
-			<article class="additional_bottom_margin">
+			<article class="additional_bottom_margin" style="
+				color:#d8d3d3;
+				font-family: Arial, Helvetica, sans-serif;
+			">
 
 				<div class="apps_written_bg_image"			
 					style="background-image: url('{{ app_img_website_loQ | absolute_url }}');"
@@ -575,8 +665,182 @@ meta_keywords: "programs, applications, apps, showcase, works"
 						class="app_highlight_item"/>
 
 				</div>
-				First time studying Web Design with HTML5 + CSS.
-				Began with a portfolio concept, kept working on it because it was fun.
+
+				<h3>A New Journey:</h3>
+				<p>
+					First time studying Web Design with HTML5 + CSS.<br><br>
+					I'd never heard of the <a href="https://jekyllrb.com/">Jekyll</a> static website builder
+					nor the <a href="https://www.sphinx-doc.org/en/master/">Sphinx</a> documentation generator when I started,
+					but I absolutely love both of these tools now.<br><br>
+				</p>
+
+				<h3>Beginning with Jekyll and a Dream:</h3>
+				<p>
+					I had a basic idea in mind when I started, but I soon realized that if I wanted to 
+					make each page have a consistent <code>&lt;header&gt;</code>
+					<span class="parenthetical">
+						(the navigation bar and image at the very top), 
+					</span>
+					then I would be duplicating a lot of code. Coming from my background of using low-level languages,
+					the notion of necessary code duplication was strange to me. But I was mainly worried about keeping
+					it all in sync. 
+				</p>
+				<p>
+					Imagine this scenario. Say I were to start with a homepage and a <code>&lt;header&gt;</code>. Then I make a second page.
+					I copy the homepage's <code>&lt;header&gt;</code> code and paste it into the second page. Any time I create a new page, I
+					need to make sure it contains this code 
+					<span class="parenthetical">
+						(in order to have a consistent presentation as the 
+						user navigates between pages).
+					</span>						
+				</p>
+				<p>
+					If later I were to change even one part of the <code>&lt;header&gt;</code>, then I would have to
+					manually update the <code>&lt;header&gt;</code> code of each and every page to match that
+					change.
+				</p>
+				<p>
+					This approach is not efficient and the product would not be easy to maintain.
+				</p>
+				<p>
+					So I searched the internet. I read that there were tools for building 
+					<a href="https://en.wikipedia.org/wiki/Static_web_page">"static" websites</a>, and I soon discovered
+					the <a href="https://jekyllrb.com/">Jekyll</a>. If you need to make a website, but you're not using
+					a lot of JavaScript to dynamically insert content, I highly recommend Jekyll.
+				</p>
+				<p>
+					Briefly: Jekyll lets you define a basic layout, then you can wrap new pages inside the shared
+					layout. You can define multiple layouts, and use variables to (a) determine what content to
+					insert or (b) to generate content using your variables. It's awesome.					
+				</p>
+				<p>
+					Code duplication exists once Jekyll bakes your website into an output directory. But in your source
+					files, you just write code once (and tell Jekyll where it should be inserted). Instead of
+					duplicating large sections, you just type {% raw %}<code>{{ content }}</code> or <code>{% include
+					some_file.html %}</code>{% endraw %} and you're done! 					
+				</p>
+				<p>
+					For an example, here is a link to this page's content file on GitHub:
+					<a href="https://github.com/gamepad-coder/gamepad-coder.github.io/blob/master/Apps.html">
+						Apps.html</a>. This is the file before Jekyll bakes it into the finished HTML page.
+					You'll notice this file doesn't contain a <code>&lt;header&gt;</code> tag. When Jekyll 
+					bakes this Apps.html page, Jekyll takes the
+					<a href="https://github.com/gamepad-coder/gamepad-coder.github.io/blob/master/_layouts/Layout_Default.html">
+						Layout_Default.html</a> file and pastes the Apps.html file into the 
+					{% raw %}<code>{{ content }}</code>{% endraw%} line inside Layout_Default.html. <br><br>
+					Resulting in: the page you're looking at now!
+				</p>
+				<p>
+					<span class="parenthetical">If this is interesting to your,
+					or if you'd like more details, you can read my initial impressions of Jekyll in 
+					<a class="nav_ref" href="Philosophy/1__PlanningTheSite.html"
+					style="font-size:small;">[Blog Post #1]</a>.</span>
+				</p>
+
+				<h3>Making Manuals:</h3>
+				<p>
+					Long story short, I love the websites for <a href="https://docs.godotengine.org/en/latest/">Godot's documentation</a>
+					and <a href="https://docs.blender.org/manual/en/latest/">Blender's documentation</a>. I knew I
+					wanted to use the <a href="https://sphinx-rtd-theme.readthedocs.io/en/stable/">ReadTheDocs theme for
+					Sphinx</a> for my Documentation section from the beginning. It took a fair amount of time to learn
+					<a href="https://www.sphinx-doc.org/en/master/index.html">Sphinx</a>, <a
+					href="https://pygments.org/docs/">Pygments</a>, and <a
+					href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html">reStructuredText</a>,
+					but it was absolutely worth it, and incredibly fun.
+				</p>
+				<p>
+					However I faced a few minor problems:
+
+					<ol>
+						<li>
+							I wanted to keep my <code>&lt;header&gt;</code> bar on my baked Documentation pages.
+						</li>
+						<li>
+							I needed to find a way to take the HTML structure which Sphinx outputs -> and make it 
+							compatible with my Jekyll processing pipeline.
+						</li>
+					</ol>
+				</p>
+
+				<h3>Automation:</h3>
+				<p>
+					After I discovered Sphinx, I had to be a little creative to make Sphinx's output files 
+					compatible with the needs of Jekyll's input files.
+					<span class="parenthetical">
+						I'm using Sphinx for the entire Documentation section, but I'm using Jekyll for all other pages. 
+					</span>
+				</p>
+				<p>
+					To modify all my Sphinx-generated HTML files, I began automating a lot of manual tweaks and
+					insertions by utilizing <a href="https://en.wikipedia.org/wiki/Regular_expression">Regular Expressions</a>
+					for the first time. 
+					<span class="parenthetical">
+						Then I reached a point where AutoHotkey was malfunctioning when performing
+						Regular Expression replacements across huge files, so I began studying Python for the first
+						time. I ported my AutoHotkey automation into .py scripts, and it's been amazing ever since. Now I can run
+						these pre-processing and post-processing .py scripts from either Windows, or from my Debian 
+						<a href="https://docs.microsoft.com/en-us/windows/wsl/">WSL2</a> command line.
+					</span> 
+				</p>
+
+				<h3>Creating Code-Block Folding:</h3>
+				<p>
+					Recently, I wanted to add code-block folding to my Documentation section.
+					Sphinx was capable of fully highlighting my AutoHotkey code (after a few minor modifications), but had no support 
+					for folding regions of code. So I wrote a pre-processing script in Python to manually insert 
+					arbitrary tags near every open <code>{</code> curly brace and different arbitrary tags near 
+					every close <code>}</code> curly brace.
+				</p>
+				<p>
+					I wrote a post-processing Python script to take the HTML 
+					files which Sphinx generates, and replace my arbitrary tags with the HTML <code>&lt;details&gt;</code> element 
+					(which has built-in functionality for collapsing/folding blocks of text). It was really different for me, 
+					but pretty straightforward, and very fun.
+				</p>
+				<p>
+					You can try out my custom code-block folding here: 
+					<ul>
+						<li>
+							Click this link:&nbsp; <a class="nav_ref" href="/Documentation/AutoHotkey/Utilities/Emulate_Numberpad/index.html">Docs: Emulate Numberpad</a>
+							<br>
+						</li>
+						<li style="
+							margin-top: 1rem;
+						">Then scroll to the bottom and click the box: 
+							<span style="
+								-webkit-box-shadow: -11px 10px 2px -2px rgb(0 0 0 / 30%), 0 1px 0 rgb(255 255 255 / 10%);
+								box-shadow: -11px 10px 2px -2px rgb(0 0 0 / 30%), 0 1px 0 rgb(255 255 255 / 10%);
+								border: 1px solid rgba(28, 160, 189, 0.47);
+								font-size: initial;
+								font-weight: bold;
+								/* display: block; */
+								margin-top: 14px;
+								/* margin-bottom: 24px; */
+								margin-left: 10px;
+								padding: 0.1rem;
+								color: #2a8b9b;
+								background-color: white;
+								margin-top: 20px;
+									">emulate_numpad.ahk</span>
+						</li>
+						<p></p>
+					</ul>
+				</p>
+
+				<h3>Short Writeup:</h3>
+				<p>
+					If you'd like to read more about the toolchains I use (and what my pre-processing 
+					and post-processing scripts do) I've written a short overview on 
+					<a href="https://github.com/gamepad-coder/gamepad-coder.github.io">this website's GitHub repository page</a>.
+				</p>
+
+				<h3>In Summary:</h3>
+				<p>
+					I began this website with a portfolio concept, but I kept working on it because I really enjoyed it.
+				</p>
+				<br>
+				<br>
+				<br>
 				<p>
 					<a href="{{ "/Philosophy/0__changelog.html" | absolute_url }}">
 						View changelog here.
@@ -593,6 +857,8 @@ meta_keywords: "programs, applications, apps, showcase, works"
 						AHK : <a href="https://www.autohotkey.com/">AutoHotkey</a>
 						<br> OOD : <a href="https://en.wikipedia.org/wiki/Object-oriented_design">Object-Oriented Design</a>
 						<br> GUI : <a href="https://en.wikipedia.org/wiki/Graphical_user_interface">Graphical User Interface</a>
+						<br> WSL2 : <a href="https://docs.microsoft.com/en-us/windows/wsl/">Windows Subsystem for Linux 
+							<span class="parenthetical">(run Linux code and apps inside Windows!)</span></a>
 					</p>
 			</article>
 
@@ -608,14 +874,21 @@ meta_keywords: "programs, applications, apps, showcase, works"
 							<a class="nav_ref" href="{{ page.url | append: "#h_unity" | absolute_url}}">Unity Typewriter and Windowing System</a>
 						</li>
 						<li>
-							<a class="nav_ref" href="{{ page.url | append: "#h_linux" | absolute_url}}">Linux Framebuffer Windowing System</a>
+							<a class="nav_ref" href="{{ page.url | append: "#h_godot_rte" | absolute_url}}">Rich Text Editor in Godot</a>
 						</li>
 					</ul>
+				
+				Linux 
+				<ul>
+					<li>
+						<a class="nav_ref" href="{{ page.url | append: "#h_linux" | absolute_url}}">Linux Framebuffer Windowing System</a>
+					</li>
+				</ul>
 
 				AutoHotkey &nbsp; <span class="parenthetical">(AHK)</span>
 					<ul>
 						<li><a class="nav_ref" href="{{ page.url | append: "#h_treeview" | absolute_url}}">TreeView Tasklist</a></li>
-						<li><a class="nav_ref" href="{{ page.url | append: "#h_ahk_desktop" | absolute_url}}">Scrolling Desktop with Nested Windows</a></li>
+						<li><a class="nav_ref" href="{{ page.url | append: "#h_ahk_desktop" | absolute_url}}">Scrolling Notes with Nested Windows</a></li>
 						<li><a class="nav_ref" href="{{ page.url | append: "#h_ahk_gui_framework" | absolute_url}}">GUI Abstration Framework</a></li>
 					</ul>
 					
@@ -639,11 +912,11 @@ meta_keywords: "programs, applications, apps, showcase, works"
 			var clickToExit = document.getElementById("modalClickBox");
 			var counter = 1;
 			
-		var b_clicking = false;
-		var b_dragging = false;
-		var previousX;
-		var previousY;
-		var b_zoomed = false;
+			var b_clicking = false;
+			var b_dragging = false;
+			var previousX;
+			var previousY;
+			var b_zoomed = false;
 
 			// Get the image and insert it inside the modal - use its "alt" text as a caption
 			// var img_tv = document.getElementById("img_treeview");

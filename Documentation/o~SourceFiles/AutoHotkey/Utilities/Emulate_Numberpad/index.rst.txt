@@ -1,82 +1,12 @@
+.. 
+    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+                                       HTML CODE |SUBSTITUTIONS|
+                                       DEFINED IN /conf.py
+    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ 
+
+===========================
 emulate_numpad.ahk
 ===========================
-
-.. 
-    ---------------------------------------------
-    |Substitutions| allow manual HTML insertions
-    ---------------------------------------------
-
-.. |br| raw:: html
-
-   <br />
-
-.. |nbsp| raw:: html
-
-    &nbsp;
-   
-.. |h2| raw:: html
-
-   <h2>
-
-.. |2h| raw:: html
-
-   </h2>
-
-.. |details_open| raw:: html
-
-    <details><summary>
-
-.. |summary_close| raw:: html 
-
-    </summary>
-
-.. |details_close| raw:: html
-
-    </details>
-
-.. |indented_block| raw:: html
-
-    <div style="padding-left:60px;">
-
-.. |indented_block_close| raw:: html
-
-    </div>
-
-  
-.. |collapsible_wrapper| raw:: html 
-
-    <div class="collapsible_wrapper">
-
-.. |collapsible_wrapper_close| raw:: html 
-
-    </div>
-
-.. |collapsible_label_1| raw:: html
-
-   <input  id="collapsible_section_1" class="toggle_collapsible_section" type="checkbox">
-   <label for="collapsible_section_1" class="label-toggle_collapsible_section">
-
-.. |collapsible_label_2| raw:: html
-
-   <input  id="collapsible_section_2" class="toggle_collapsible_section" type="checkbox">
-   <label for="collapsible_section_2" class="label-toggle_collapsible_section">
-
-.. |collapsible_label_close| raw:: html 
-
-    </label>
-    
-.. |collapsible_section| raw:: html
-
-   <div class="collapsible_section">
-
-.. |collapsible_section_close| raw:: html 
-
-    </div>
-
-.. 
-    ---------------------------------------------
-    </> end of section defining  |Substitutions| 
-    ---------------------------------------------
     
 Do you have a keyboard or laptop which doesn't have a NumberPad? |br|
 This utility can help.
@@ -89,7 +19,7 @@ This utility can help.
         </video>
     </div>
 
-|h2|\ What does it do?\ |2h|
+|h2|\ What does it do?\ |h2_close|
 
 The script ``emulate_numpad.ahk`` has two modes. When turned off, the keyboard
 functions normally. When turned on, the keys :kbd:`7` :kbd:`8` :kbd:`9` 
@@ -117,20 +47,28 @@ When the NumberPad mode is enabled, you can restore the keyboard to its normal
 state by pressing :kbd:`Right Control`\ +\ :kbd:`F12` again, or by pressing
 :kbd:`Esc`.
 
-|h2|\ Download Here:\ |2h|
-
-
-..
-    Comment on tables at the end of this .rst document.
+|h2|\ Download\ |h2_close|
 
 .. csv-table::
 
    "Project Folder |br| ", "`https://github.com/gamepad-coder/AutoHotkey_Projects/tree <https://github.com/gamepad-coder/AutoHotkey_Projects/tree/main/Utilities>`__ |br|\ `/main/Utilities <https://github.com/gamepad-coder/AutoHotkey_Projects/tree/main/Utilities>`__"
    "Full Script |br|\ (with Comments & Hints)", "`https://github.com/gamepad-coder/AutoHotkey_Projects/blob <https://github.com/gamepad-coder/AutoHotkey_Projects/blob/main/Utilities/emulate_numpad.ahk>`__ |br|\ `/main/Utilities/emulate_numpad.ahk <https://github.com/gamepad-coder/AutoHotkey_Projects/blob/main/Utilities/emulate_numpad.ahk>`__"
    "Full Script |br|\ (minimal Comments)", "`https://github.com/gamepad-coder/AutoHotkey_Projects/blob <https://github.com/gamepad-coder/AutoHotkey_Projects/blob/main/Utilities/emulate_numpad.ahk>`__ |br|\ `/main/Utilities/emulate_numpad.without_commentary.ahk <https://github.com/gamepad-coder/AutoHotkey_Projects/blob/main/Utilities/emulate_numpad.without_commentary.ahk>`__"
-
+    
+.. note::
+    
+    If you want to look at AutoHotkey scripts in a text editor with highlighted code, see the links 
+    at the bottom of my :ref:`AutoHotkey Resources <Ref-What_is_AutoHotkey-Resources-Text_Editors>` section.
 
 ..
+    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+    Comment: 
+    
+    Notes on tables at the end of this .rst document.
+    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+..
+    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
     Comment:
     
     Sphinx derives from standard docutils reST processing.
@@ -139,7 +77,8 @@ state by pressing :kbd:`Right Control`\ +\ :kbd:`F12` again, or by pressing
     two separate lines which both have the same url.
     
     Sphinx emitted the following error:
-        /mnt/c/GitHub/gamepad-coder/gamepad-coder.github.io/Documentation/_Sphinx/AutoHotkey/Utilities/Emulate_Numberpad/index.rst:2:
+        /mnt/c/GitHub/gamepad-coder/gamepad-coder.github.io/Documentation
+        /_Sphinx/AutoHotkey/Utilities/Emulate_Numberpad/index.rst:2:
         WARNING: Duplicate explicit target name:
         "https://github.com/gamepad-coder/autohotkey_projects/blob".
     
@@ -151,8 +90,10 @@ state by pressing :kbd:`Right Control`\ +\ :kbd:`F12` again, or by pressing
     
     Recipe recommending this solution (when links are duplicates deliberately)
         https://github.com/sphinx-doc/sphinx/issues/3921#issuecomment-315581557
+        
+    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
     
-|h2|\ Read The Script Here:\ |2h|
+|h2|\ Read The Full Script On This Page\ |h2_close|
 
 In this section, you can read the entire code for ``emulate_numpad.ahk``.
 
@@ -182,39 +123,72 @@ click the dropdown |br|
     |details_close|
     
     |nbsp| 
-    
-.. todo::
-    
-    Include link to setting up the AutoHotkey language highlighter in Notepad++.
+
+
+|hint_tutorial__navigating_codeblocks|
 
 |collapsible_wrapper|
-|collapsible_label_1|\ emulate_numpad.ahk |br|\ with commentary. |collapsible_label_close| |collapsible_section| 
+|alt_collapsible_label_open|\ emulate_numpad.ahk |br|\ with commentary. |alt_collapsible_label_endopen| |collapsible_section| 
 
 .. literalinclude:: emulate_numpad.ahk
    :language: AutoHotkey_CustomLexer
    
 
 |collapsible_section_close|
+|alt_collapsible_label_close|
 |collapsible_wrapper_close|
 
 
 |collapsible_wrapper|
-|collapsible_label_2|\ emulate_numpad.ahk |br|\ without commentary. |collapsible_label_close| |collapsible_section| 
+|alt_collapsible_label_open|\ emulate_numpad.ahk |br|\ without commentary. |alt_collapsible_label_endopen| |collapsible_section| 
 
 .. literalinclude:: emulate_numpad.without_commentary.ahk
    :language: AutoHotkey_CustomLexer
    
 |collapsible_section_close|
+|alt_collapsible_label_close|
 |collapsible_wrapper_close|
+
+
+.. 
+    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+    Comment
+    
+    V1 with label and input instead of <details>
+    
+    you can tab & shift+tab nav with <details>
+    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+    
+        |collapsible_wrapper|
+        |collapsible_label_1|\ emulate_numpad.ahk |br|\ with commentary. |collapsible_label_close| |collapsible_section| 
+
+        .. literalinclude:: emulate_numpad.ahk
+           :language: AutoHotkey_CustomLexer
+           
+
+        |collapsible_section_close|
+        |collapsible_wrapper_close|
+
+
+        |collapsible_wrapper|
+        |collapsible_label_2|\ emulate_numpad.ahk |br|\ without commentary. |collapsible_label_close| |collapsible_section| 
+
+        .. literalinclude:: emulate_numpad.without_commentary.ahk
+           :language: AutoHotkey_CustomLexer
+           
+        |collapsible_section_close|
+        |collapsible_wrapper_close|
 
 
 
 ..
+    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
     Comment: 
     
     CSV tables are so much simpler and support nested |replacements|. 
     
     Alternate tables / previous iterations in this comment.
+    ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
     
     I couldn't get multiple rows per subject (1st col) working until I discovered CSV tables
     (not possible with simple tables, couldn't get it to work with the grid table syntax).
@@ -245,3 +219,5 @@ click the dropdown |br|
         | Full Script              | `https://github.com/gamepad-coder/AutoHotkey_Projects/blob <https://github.com/gamepad-coder/AutoHotkey_Projects/blob/main/Utilities/emulate_numpad.without_commentary.ahk>`__    |
         | (minimal Comments)       |  `/main/Utilities/emulate_numpad.without_commentary.ahk <https://github.com/gamepad-coder/AutoHotkey_Projects/blob/main/Utilities/emulate_numpad.without_commentary.ahk>`__       |
         +--------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+     
+     ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~

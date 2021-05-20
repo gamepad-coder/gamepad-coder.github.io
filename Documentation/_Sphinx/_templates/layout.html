@@ -206,8 +206,16 @@
 
 {% block footer %}
 
+{#  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -#}
+{%- if title == 'APIs, Manuals, Tutorials' -%}
+{#- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -#}
+
 <!-- The detached footer floating below the main central box of the page -->
 <footer class="floating_footer">
+	<p class="floating_footer_changelog"><br><br>
+		<!-- <a href="/changelog">Changelog.</a> -->
+		<a href="/Philosophy/0__changelog.html">Changelog.</a>
+	</p>
 	<p class="floating_footer_copyright">
 		
 		&copy; Gamepad.Coder 2021
@@ -227,5 +235,10 @@
 			 
 	</p>
 </footer><!-- class="floating_footer" | css .floating_footer -->
+			
+{#  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -#}
+{%-                 endif                   %}
+{#- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  #}
+
 {% endblock %}
 

@@ -14,28 +14,53 @@
 
 
 ;-----------------------------------------------------------------------;
-;  _program_launcher.ahk                                                ;
+;  program_launcher.ahk                                                 ;
 ;-----------------------------------------------------------------------;
 ;                                                                       ;
 ;                                                     version 2         ;
 ;                                                                       ;
-;                                          detailed instructions        ;
-;                                     at the bottom of this file        ;
+;-----------------------------------------------------------------------;
+;                                                                       ;
+;   ====================                                                ;
+;    About the program:                                                 ;
+;   ====================                                                ;
+;                                                                       ;
+;      ----------------                                                 ;
+;       What it does:                                                   ;
+;      ----------------                                                 ;
+;                                                                       ;
+;       program_launcher.ahk is a small utility                         ;
+;       to reduce the number of steps to                                ;
+;                                                                       ;
+;         (1) open programs or                                          ;
+;         (2) navigate to folders                                       ;
+;             (by opening the folder                                    ;
+;              in a new Windows Explorer window).                       ;
+;                                                                       ;
+;       You can register a word or phrase as a [Command]                ;
+;       which program_launcher.ahk will associate with an [Action].     ;
+;                                                                       ;
+;       Program Launcher's main hotkey will open a small popup.         ;
+;       Type a Command into the popup, then press enter                 ;
+;       and your Action will run!                                       ;
+;                                                                       ;
+;    --------------------------------------                             ;
+;     See the function Default_Save_File()                              ;
+;     at the bottom of this file to read:                               ;
+;    --------------------------------------                             ;
+;                                                                       ;
+;       () an overview,                                                 ;
+;       () user guide,                                                  ;
+;       () and syntax for the sections of the settings file             ;
+;                                                                       ;
+;       Note:                                                           ;
+;                                                                       ;
+;       This script does provide a graphic user interface               ;
+;       to change settings, so the syntax guide is mainly for           ;
+;       debugging and users who want to understand the script better.   ;
+;                                                                       ;
 ;-----------------------------------------------------------------------;
 
-
-; ===================================================
-; AutoHotkey hotkey syntax key:
-; ===================================================
-;    +  shift
-;    ^  ctrl
-;    #  win
-;    !  alt
-;
-; For more information see:
-; https://www.autohotkey.com/docs/commands/Hotkey.htm
-; https://www.autohotkey.com/docs/KeyList.htm
-; ===================================================
 
 
 ;================================================;
@@ -44,43 +69,43 @@
 ;                                                ;
 ;================================================;
    
-_____COMMENT_DETAILS_BEGIN_____1t_ ;---------
+_____COMMENT_DETAILS_BEGIN_____1t_ ;---------;
    ;    ?    ;
-   ;--------------------------------------------------------- _____COMMENT_SUMMARY_END_____
+   ;---------------------------------------------------------; _____COMMENT_SUMMARY_END_____
    ; For more information about the "auto-execute section"   ;
    ; at the beginning of an AutoHotkey script, see:          ;
    ;     https://www.autohotkey.com/docs/Scripts.htm#auto    ;
-   ;--------------------------------------------------------- _____COMMENT_DETAILS_END_____
+   ;---------------------------------------------------------; _____COMMENT_DETAILS_END_____
    
 
-#SingleInstance Force
-SetWinDelay, -1
-SetControlDelay, -1 
-  ;
-  ; more info:
-  ;
-  ;      https://www.autohotkey.com/docs/commands/SetControlDelay.htm
-  ;      https://www.autohotkey.com/boards/viewtopic.php?t=9660
-  ;
-  ;      https://www.autohotkey.com/docs/commands/SetWinDelay.htm
-  ;
-  ;      https://www.autohotkey.com/docs/commands/_SingleInstance.htm
-  ;---------------------------------------------------------------------------
+   #SingleInstance Force
+   SetWinDelay, -1
+   SetControlDelay, -1 
+     ;
+     ; more info:
+     ;
+     ;      https://www.autohotkey.com/docs/commands/SetControlDelay.htm
+     ;      https://www.autohotkey.com/boards/viewtopic.php?t=9660
+     ;
+     ;      https://www.autohotkey.com/docs/commands/SetWinDelay.htm
+     ;
+     ;      https://www.autohotkey.com/docs/commands/_SingleInstance.htm
+     ;---------------------------------------------------------------------------
 
 
-_AHK_DIR := "C:\[autohotkey]\"
+   _AHK_DIR := "C:\[autohotkey]\"
 
 
 
-_____COMMENT_DETAILS_BEGIN_____1t_ ;----------------------------------------------------------------
+_____COMMENT_DETAILS_BEGIN_____1t_ ;-----------------------------------------------------------------
    ; variables
-   ;---------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
+   ;----------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
    ;
    ;
    ;   [_savefile_path]
    ;     
    ;      Default name of the settings file from which 
-   ;      _program_launcher.ahk loads settings and saved commands.
+   ;      program_launcher.ahk loads settings and saved commands.
    ;     
    ;      This filename can be changed here.
    ;
@@ -112,17 +137,17 @@ _____COMMENT_DETAILS_BEGIN_____1t_ ;--------------------------------------------
    ;     Assigned via .ini, by default <^#Q>.
    ;     If unlisted in .ini
    ;       then there will be no hotkey assigned
-   ;       to quit _program_launcher.ahk
+   ;       to quit program_launcher.ahk
    ;     
    ;     If unlisted, program can be quit:
    ;     (1)  by right clicking the Notification Tray icon 
-   ;          for _program_launcher.ahk, then selecting quit, 
+   ;          for program_launcher.ahk, then selecting quit, 
    ;     
    ;     or 
    ;     
    ;     (2)  by opening the commandline popup
    ;          then entering the command assigned to the Quit aciton.
-   ;---------------------------------------------------------------- _____COMMENT_DETAILS_END_____
+   ;----------------------------------------------------------------- _____COMMENT_DETAILS_END_____
 
    
    
@@ -149,7 +174,7 @@ _____COMMENT_DETAILS_BEGIN_____1t_ ;--------------------------------------------
    Menu, Tray, Icon, Shell32.dll, %_ICON_INDEX%
 
 
-return
+   return
 
 
 ;================================;
@@ -167,11 +192,41 @@ return
 ;================================================;
 
 
+;=======================================================;
+;  (KEY) AutoHotkey hotkey syntax :                     ;
+;=======================================================;
+;                                                       ;
+;     +  shift                                          ;
+;     ^  ctrl                                           ;
+;     #  win                                            ;
+;     !  alt                                            ;
+;                                                       ;
+;  For more information see:                            ;
+;  https://www.autohotkey.com/docs/commands/Hotkey.htm  ;
+;  https://www.autohotkey.com/docs/KeyList.htm          ;
+;=======================================================;
 
-^#r::
-^#!r::
-   Reload
-return
+   ;---------------------------------------------;
+   ; These hotkeys are dynamically assigned      ;
+   ; from the settings file when the app starts. ;
+   ;---------------------------------------------;
+   ;
+   ; ^#Space::
+   ;    ProgramLauncherPopupCommand
+   ; return
+   ;
+   ; ^#!q::
+   ;    ProgramLauncherQuit
+   ; return
+   
+   ; TODO
+   ;
+   ; Ran out of time, 
+   ; going to add this to the settings file in the next version.
+   ;
+   ^#!r::
+      Reload
+   return
 
 
 ;==================================;
@@ -218,10 +273,10 @@ return
 
 _____DETAILS_BEGIN_____0t_ ReloadConfigurationWindow:
 { _____SUMMARY_END_____
-_____COMMENT_DETAILS_BEGIN_____1t_ ;-------------------------------------------------------------------
+_____COMMENT_DETAILS_BEGIN_____1t_ ;--------------------------------------------------------------------
    ; When the user selects a new Icon, 
    ; the Configuration Gui should reflect this change.
-   ;------------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
+   ;-------------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
    ;
    ; Progression:
    ;
@@ -253,7 +308,7 @@ _____COMMENT_DETAILS_BEGIN_____1t_ ;--------------------------------------------
    ;        
    ;        https://www.autohotkey.com/boards/viewtopic.php?t=72727
    ;
-   ;------------------------------------------------------------------- _____COMMENT_DETAILS_END_____
+   ;-------------------------------------------------------------------- _____COMMENT_DETAILS_END_____
    
    _o_Gui_Config_Main := ""
    _o_Gui_Config_Main := new GuiConfigMain
@@ -269,10 +324,10 @@ _____COMMENT_DETAILS_BEGIN_____1t_ ;--------------------------------------------
 
 _____DETAILS_BEGIN_____0t_ ProgramLauncherPopupCommand:
 { _____SUMMARY_END_____
-_____COMMENT_DETAILS_BEGIN_____1t_ ;--------------------------------------------------------
+_____COMMENT_DETAILS_BEGIN_____1t_ ;---------------------------------------------------------
    ; This label creates the "Command Line" popup
    ; where the user can type a Command to trigger an Action.
-   ;-------------------------------------------------------- _____COMMENT_SUMMARY_END_____
+   ;--------------------------------------------------------- _____COMMENT_SUMMARY_END_____
    ;
    ; If the Command exists and is not disabled, 
    ; then the Action associated with the Command is run,
@@ -281,7 +336,7 @@ _____COMMENT_DETAILS_BEGIN_____1t_ ;--------------------------------------------
    ; If the Command is disabled, or text is typed 
    ; which does not match any Command, 
    ; then the popup silently closes. 
-   ;-------------------------------------------------------- _____COMMENT_DETAILS_END_____
+   ;--------------------------------------------------------- _____COMMENT_DETAILS_END_____
 
    box_title         := "Program Launcher!"
    box_prompt        := "`nEnter your command...        : ) "
@@ -307,11 +362,11 @@ _____COMMENT_DETAILS_BEGIN_____1t_ ;--------------------------------------------
    ; then don't process the entered text.
    ;
    ;
-_____DETAILS_BEGIN_____1t_ if( 0 != ErrorLevel ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____1t_ if( 0 != ErrorLevel ){ _____SUMMARY_END_____
       return
    } _____DETAILS_END_____
    
-_____DETAILS_BEGIN_____1t_ if( _COMMANDS.HasKey( userEnteredString ) ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____1t_ if( _COMMANDS.HasKey( userEnteredString ) ){ _____SUMMARY_END_____
       cmd := _COMMANDS[ userEnteredString ]
       
       ;------------------------------------------
@@ -319,10 +374,10 @@ _____DETAILS_BEGIN_____1t_ if( _COMMANDS.HasKey( userEnteredString ) ){ _____SUM
       ; exist in the app at runtime, but 
       ; calls to run it will be ignored here:
       ;
-_____DETAILS_BEGIN_____2t_ if( false == cmd["enabled"] ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( false == cmd["enabled"] ){ _____SUMMARY_END_____
          return 
       } _____DETAILS_END_____
-_____DETAILS_BEGIN_____2t_ else{ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ else{ _____SUMMARY_END_____
       
          run_action_id := cmd["action_id"]
          gosub RunActionID
@@ -339,10 +394,10 @@ _____DETAILS_BEGIN_____2t_ else{ _____SUMMARY_END_____
 
 _____DETAILS_BEGIN_____0t_ RunActionID:
 { _____SUMMARY_END_____
-_____COMMENT_DETAILS_BEGIN_____1t_ ;---------------------------------------------------------------------
+_____COMMENT_DETAILS_BEGIN_____1t_ ;----------------------------------------------------------------------
    ; This is the only place in the code 
    ; where Actions are actually run. 
-   ;--------------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
+   ;---------------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
    ;
    ; This label is separate from the "ProgramLauncherPopupCommand" label 
    ; to allow the user to run Actions from both of these windows: 
@@ -350,11 +405,11 @@ _____COMMENT_DETAILS_BEGIN_____1t_ ;--------------------------------------------
    ;   (1) from the Command input popup 
    ;   (2) from the Actions tab of the Configuration Gui.
    ;
-   ;--------------------------------------------------------------------- _____COMMENT_DETAILS_END_____
+   ;---------------------------------------------------------------------- _____COMMENT_DETAILS_END_____
    
-_____COMMENT_DETAILS_BEGIN_____1t_ ;--------------------------------------------------------------
+_____COMMENT_DETAILS_BEGIN_____1t_ ;---------------------------------------------------------------
    ; Currently, the only two Actions which call internal functions 
-   ;-------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
+   ;--------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
    ; for Program Launcher are Quit & Settings.
    ;
    ; The Quit Action :
@@ -369,19 +424,19 @@ _____COMMENT_DETAILS_BEGIN_____1t_ ;--------------------------------------------
    ;  - change settings, including which icon to
    ;    display (this icon appears in the title bar 
    ;    and in the Notification Area of the Windows Taskbar).
-   ;                                                              _____COMMENT_DETAILS_END_____
-_____DETAILS_BEGIN_____1t_ if( run_action_id == "QUIT" ){ _____SUMMARY_END_____
+   ;                                                               _____COMMENT_DETAILS_END_____
+_____IF_DETAILS_BEGIN_____1t_ if( run_action_id == "QUIT" ){ _____SUMMARY_END_____
       ExitApp
    } _____DETAILS_END_____
-_____DETAILS_BEGIN_____1t_ else 
+_____IF_DETAILS_BEGIN_____1t_ else 
    if( cmd.action_id == "SETTINGS" ){ _____SUMMARY_END_____
       
       gosub OpenConfigurationWindow
 
    } _____DETAILS_END_____
-_____COMMENT_DETAILS_BEGIN_____1t_ ;------------------------------------------------------
+_____COMMENT_DETAILS_BEGIN_____1t_ ;-------------------------------------------------------
    ; For all other Actions 
-   ;------------------------------------------------------ _____COMMENT_SUMMARY_END_____
+   ;------------------------------------------------------- _____COMMENT_SUMMARY_END_____
    ; 
    ; Either:
    ; - a specific folder is opened or
@@ -393,18 +448,18 @@ _____COMMENT_DETAILS_BEGIN_____1t_ ;--------------------------------------------
    ;   for a specific user by using the argument: 
    ;
    ;       --profile-directory="Profile 2"
-   ;                                                       _____COMMENT_DETAILS_END_____
-_____DETAILS_BEGIN_____1t_ else
+   ;                                                        _____COMMENT_DETAILS_END_____
+_____IF_DETAILS_BEGIN_____1t_ else
    if( _ACTIONS.HasKey( run_action_id ) ){ _____SUMMARY_END_____
       act := _ACTIONS[ run_action_id ]
       
       act_path := act["path"]
       act_type := act["type"]
       act_arg  := act["arg"]
-_____DETAILS_BEGIN_____2t_ if( "folder" == act_type ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( "folder" == act_type ){ _____SUMMARY_END_____
          run explorer.exe "%act_path%"
       } _____DETAILS_END_____
-_____DETAILS_BEGIN_____2t_ else 
+_____IF_DETAILS_BEGIN_____2t_ else 
       if( "app" == act_type ){ _____SUMMARY_END_____
          run "%act_path%" %act_arg%
       } _____DETAILS_END_____
@@ -434,6 +489,84 @@ _____DETAILS_BEGIN_____2t_ else
 ;===========================================================;
 
 
+_____COMMENT_DETAILS_BEGIN_____0t_ ;====================================================================
+;     About the FILE_HELPER class
+;==================================================================== _____COMMENT_SUMMARY_END_____
+;   
+;   FILE_HELPER contains all the functionality to 
+;   
+;      (1) Read the settings file.
+;      (2) Create a settings file if it doesn't exist.
+;      (3) Update the settings file when the user changes 
+;          settings in the CONFIG graphic user interface window.
+;   
+;   When the app is initialized, FILE_HELPER is called 
+;   to read the savefile.
+;   
+;   When the user alters a setting in the CONFIG window, 
+;   FILE_HELPER is called with the new setting name and value
+;   updates the savefile, then tells the GUI window to proceed.
+;
+;   The GUI knows about the COMMANDS and ACTIONS arrays, 
+;   but it knows nothing of the savefile nor functions to 
+;   alter the savefile. By organizing the app like this, 
+;   functionality is modular and isolated, and each class 
+;   has a specific scope it acts within, instead of having 
+;   one giant class of spaghetti code which handles 
+;   all types of functionality. This is cleaner and easier 
+;   to both maintain and extend.
+;   
+;   
+;   REGULAR EXPRESSIONS:
+;   
+;   FILE_HELPER uses Regular Expressions extensively.
+;   
+;   I have tried to add annotations and breakdowns, 
+;   but if you're unfamiliar with Regular Expressions 
+;   (or if you're unfamiliar with programming in general)
+;   this section might seem a bit arcane without further study.
+;
+;   If you are unfamiliar with Regular Expressions, 
+;   here are some resources to help you get started:
+;
+;     () regex101.com is a phenomenal tool for
+;        learning, writing, and debugging Regular Expressions. 
+;   
+;     () AutoHotkey's RegEx Quick Reference 
+;        is a great resource for starting.              
+;        
+;        And the AHK documentation for RegExReplace and RegExMatch
+;        should help you understand this section better.
+;   
+;         https://www.autohotkey.com/docs/misc/RegEx-QuickRef.htm
+;         https://www.autohotkey.com/docs/commands/RegExMatch.htm
+;         https://www.autohotkey.com/docs/commands/RegExReplace.htm
+;   
+;     () Finally, if you're planning on using Regular Expressions 
+;        in AutoHotkey long-term, or for complicated use cases:
+;   
+;        AHK Forum user "jeeswg" has created an EPIC tutorial post 
+;        detailing how to use Regular Expressions in AutoHotkey 
+;        in great and exhaustive detail:
+;   
+;         https://www.autohotkey.com/boards/viewtopic.php?t=28031
+;   
+;        Shoutout to jeeswg and thanks for all your excellent posts.
+;   
+;   
+;   NOTE:
+;
+;   This class is not meant to be instantiated as an object.
+;   It could have been a collection of isolated functions 
+;   at the toplevel of this script, but for long scripts this 
+;   quickly becomes noisy.
+;
+;   I grouped these functions together in a class to improve 
+;   readability, organization, and to enable NotePad++'s 
+;   code-block folding to quickly expand or contract 
+;   thematically related sections of code.
+;
+;==================================================================== _____COMMENT_DETAILS_END_____
 
 _____DETAILS_BEGIN_____0t_ class FILE_HELPER { _____SUMMARY_END_____
 
@@ -447,7 +580,102 @@ _____DETAILS_BEGIN_____1t_ Load_Settings() { _____SUMMARY_END_____
       FILE_HELPER.Init_Validate_and_Prompt_User_if_Errors()
 
    } _____DETAILS_END_____
-
+   
+_____COMMENT_DETAILS_BEGIN_____1t_ ;======================================================================;
+   ;     About Initialize_Load_Savefile()                                 ;
+   ;======================================================================; _____COMMENT_SUMMARY_END_____
+   ;                                                                      ;
+   ;  ----------                                                          ;
+   ;    First                                                             ;
+   ;  ----------                                                          ;
+   ;                                                                      ;
+   ;  When the script begins,                                             ;
+   ;  the Auto-Execute section at the very beginning of this file         ;
+   ;  initializes some global variables, then immediately calls           ;
+   ;  FILE_HELPER.Load_Settings(), which then calls this function.        ;
+   ;                                                                      ;
+   ;  Before Program Launcher can be useful, it needs to be initialized.  ;
+   ;  Here, FILE_HELPER reads the settings file into memory.              ;
+   ;                                                                      ;
+   ;  ---------------------------------------                             ;
+   ;    Missing settings file? No problem.                                ;
+   ;  ---------------------------------------                             ;
+   ;                                                                      ;
+   ;  Initialize_Load_Savefile() will create a default savefile           ;
+   ;  if the settings file does not exist.                                ;
+   ;                                                                      ;
+   ;  For pre-existing and newly added savefiles,                         ;
+   ;  the process from that point is identical.                           ;
+   ;                                                                      ;
+   ;  -----------------------------                                       ;
+   ;    What is initialized here?                                         ;
+   ;  -----------------------------                                       ;
+   ;                                                                      ;
+   ;  The settings file will be read into the program's memory:           ;
+   ;                                                                      ;
+   ;     (1) settings will be assigned                                    ;
+   ;     (such as the icon to display in the notification area),          ;
+   ;                                                                      ;
+   ;     (2) hotkeys will be assigned,                                    ;
+   ;                                                                      ;
+   ;     (3) Commands will be registered with their Action to call        ;
+   ;                                                                      ;
+   ;     (4) Actions will be registered with their function to run.       ;
+   ;                                                                      ;
+   ;  -----------------------------------------------------               ;
+   ;    Comments a.k.a Ignored lines in the settings file                 ;
+   ;  -----------------------------------------------------               ;
+   ;                                                                      ;
+   ;  This parsing function will ignore                                   ;
+   ;  any line beginning with a ';' in the settings file:                 ;
+   ;                                                                      ;
+   ;     (a) This allows the user to comment out sections of              ;
+   ;     the settings file which they wish to keep,                       ;
+   ;     but don't want to keep active.                                   ;
+   ;                                                                      ;
+   ;     (b) This comment/ignore-a-line feature                           ;
+   ;     allows me to embed a tutorial into the settings file itself.     ;
+   ;                                                                      ;
+   ;  ---------------------------------                                   ;
+   ;    So how does the parsing work?                                     ;
+   ;  ---------------------------------                                   ;
+   ;                                                                      ;
+   ;  Initialize_Load_Savefile() will look for                            ;
+   ;  three sections in the savefile:                                     ;
+   ;  "Settings[", "Commands[" and "Actions[".                            ;
+   ;                                                                      ;
+   ;  The ([) open square bracket must be                                 ;
+   ;  on the same line as the section title (Section[).                   ;
+   ;                                                                      ;
+   ;  Then there will be some lines following the start of a section      ;
+   ;  which correspond to settings for that section.                      ;
+   ;                                                                      ;
+   ;  Then each section ends with a line which contains nothing           ;
+   ;  but a "]" close square bracket.                                     ;
+   ;                                                                      ;
+   ;  For example, the default Settings section                           ;
+   ;  in the settings file looks like this:                               ;
+   ;                                                                      ;
+   ;     SETTINGS[                                                        ;
+   ;     icon: 95                                                         ;
+   ;     hotkey_for_commandline_popup: ctrl win space                     ;
+   ;     hotkey_for_quit: ctrl win alt q                                  ;
+   ;     ]                                                                ;
+   ;                                                                      ;
+   ;                                                                      ;
+   ;  Initialize_Load_Savefile() will keep track of which section         ;
+   ;  it is currently parsing within,                                     ;
+   ;                                                                      ;
+   ;  and for each line it reads within a section,                        ;
+   ;  it will call one of these and pass the current line as a parameter: ;
+   ;                                                                      ;
+   ;     Init_Parse_Savefile_SettingsLine( current_line )                 ;
+   ;     Init_Parse_Savefile_CommandLine( current_line )                  ;
+   ;     Init_Parse_Savefile_ActionLine( current_line )                   ;
+   ;                                                                      ;
+   ;                                                                      ;
+   ;======================================================================; _____COMMENT_DETAILS_END_____
+   
 _____DETAILS_BEGIN_____1t_ Initialize_Load_Savefile() { _____SUMMARY_END_____
    global 
    
@@ -515,7 +743,7 @@ _____DETAILS_BEGIN_____1t_ Initialize_Load_Savefile() { _____SUMMARY_END_____
       ;   Create Savefile if it doesn't exist.  
       ;-------------------------------------------
       
-_____DETAILS_BEGIN_____2t_ if( ! FileExist(_savefile_path) ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( ! FileExist(_savefile_path) ){ _____SUMMARY_END_____
       
          ;---------------------------------------------------------------
          ; Either 1st run, or user renamed, deleted, or moved savefile.
@@ -525,7 +753,8 @@ _____DETAILS_BEGIN_____2t_ if( ! FileExist(_savefile_path) ){ _____SUMMARY_END__
          ;    (2)   create default save file 
          ;---------------------------------------------------------------
          
-         gosub Default_Save_File
+         Default_Save_File() ; located at the bottom of this file.
+         
          FileAppend, %_savefile__default_content%, %_savefile_path%
       } _____DETAILS_END_____
 
@@ -533,7 +762,7 @@ _____DETAILS_BEGIN_____2t_ if( ! FileExist(_savefile_path) ){ _____SUMMARY_END__
       ;   Parse savefile into memory 
       ;------------------------------------
       
-_____DETAILS_BEGIN_____2t_ if( FileExist(_savefile_path) ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( FileExist(_savefile_path) ){ _____SUMMARY_END_____
          ; data := ""
          ; FileRead, data, %_savefile_path%
 
@@ -586,7 +815,7 @@ _____DETAILS_BEGIN_____2t_ if( FileExist(_savefile_path) ){ _____SUMMARY_END____
          ; Read _program_launcher_settings.ini, 
          ; one line at a time.
          ;
-_____DETAILS_BEGIN_____3t_ Loop, Read, %_savefile_path%
+_____IF_DETAILS_BEGIN_____3t_ Loop, Read, %_savefile_path%
          { _____SUMMARY_END_____
             is_comment := RegExMatch(A_LoopReadLine, match_lines_beginning_with_semi)
             is_empty   := RegExMatch(A_LoopReadLine, match_entirely_whitespace_lines)
@@ -599,7 +828,7 @@ _____DETAILS_BEGIN_____3t_ Loop, Read, %_savefile_path%
             ;    (;) at beginning of line or 
             ;    any number of whitespace (anynum spaces and/or anynum tabs) then (;)
             ;
-_____DETAILS_BEGIN_____4t_ if( is_comment or is_empty ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ if( is_comment or is_empty ){ _____SUMMARY_END_____
                continue
             } _____DETAILS_END_____
             
@@ -609,9 +838,9 @@ _____DETAILS_BEGIN_____4t_ if( is_comment or is_empty ){ _____SUMMARY_END_____
             ;    (settings), case insensitive
             ;    followed by ([), spaces before, between, or after are ignored
             ;
-_____DETAILS_BEGIN_____4t_ else if( RegExMatch(A_LoopReadLine, match_settings) ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ else if( RegExMatch(A_LoopReadLine, match_settings) ){ _____SUMMARY_END_____
             
-_____DETAILS_BEGIN_____5t_ if( counter_settings == 0 
+_____IF_DETAILS_BEGIN_____5t_ if( counter_settings == 0 
                and counter_actions   != 1
                and counter_commands  != 1 )
                { _____SUMMARY_END_____
@@ -619,7 +848,7 @@ _____DETAILS_BEGIN_____5t_ if( counter_settings == 0
                   counter_settings := 1
                   continue
                } _____DETAILS_END_____
-_____DETAILS_BEGIN_____5t_ else{ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____5t_ else{ _____SUMMARY_END_____
                   ; either 
                   ;         section actions[  is open but not closed
                   ;         section commands[ is open but not closed
@@ -633,9 +862,9 @@ _____DETAILS_BEGIN_____5t_ else{ _____SUMMARY_END_____
             ;    (commands), case insensitive
             ;    followed by ([), spaces before, between, or after are ignored
             ;
-_____DETAILS_BEGIN_____4t_ else if( RegExMatch(A_LoopReadLine, match_commands) ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ else if( RegExMatch(A_LoopReadLine, match_commands) ){ _____SUMMARY_END_____
 
-_____DETAILS_BEGIN_____5t_ if( counter_commands == 0 
+_____IF_DETAILS_BEGIN_____5t_ if( counter_commands == 0 
                and counter_settings  != 1
                and counter_actions   != 1 )
                { _____SUMMARY_END_____
@@ -643,7 +872,7 @@ _____DETAILS_BEGIN_____5t_ if( counter_commands == 0
                   counter_commands := 1
                   continue
                } _____DETAILS_END_____
-_____DETAILS_BEGIN_____5t_ else{ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____5t_ else{ _____SUMMARY_END_____
                   ; either 
                   ;         section settings[ is open but not closed
                   ;         section actions[  is open but not closed
@@ -657,9 +886,9 @@ _____DETAILS_BEGIN_____5t_ else{ _____SUMMARY_END_____
             ;    (actions), case insensitive
             ;    followed by ([), spaces before, between, or after are ignored
             ;
-_____DETAILS_BEGIN_____4t_ else if( RegExMatch(A_LoopReadLine, match_actions) ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ else if( RegExMatch(A_LoopReadLine, match_actions) ){ _____SUMMARY_END_____
             
-_____DETAILS_BEGIN_____5t_ if( counter_actions == 0 
+_____IF_DETAILS_BEGIN_____5t_ if( counter_actions == 0 
                and counter_commands != 1
                and counter_settings != 1 )
                { _____SUMMARY_END_____
@@ -667,7 +896,7 @@ _____DETAILS_BEGIN_____5t_ if( counter_actions == 0
                   counter_actions := 1
                   continue
                } _____DETAILS_END_____
-_____DETAILS_BEGIN_____5t_ else{ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____5t_ else{ _____SUMMARY_END_____
                   ; either 
                   ;         section commands[  is open but not closed
                   ;         section settings[ is open but not closed
@@ -683,7 +912,7 @@ _____DETAILS_BEGIN_____5t_ else{ _____SUMMARY_END_____
             ;    (commands[), or
             ;    (actions[)
             ;
-_____DETAILS_BEGIN_____4t_ else if( RegExMatch(A_LoopReadLine, match_close_set_group) ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ else if( RegExMatch(A_LoopReadLine, match_close_set_group) ){ _____SUMMARY_END_____
                
                ; ? set counter to 2 if just closed that section, 
                ; : otherwise leave unaltered
@@ -699,32 +928,37 @@ _____DETAILS_BEGIN_____4t_ else if( RegExMatch(A_LoopReadLine, match_close_set_g
             ;    (commands[), or
             ;    (actions[)
             ;
-_____DETAILS_BEGIN_____4t_ else{ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ else{ _____SUMMARY_END_____
             
-_____DETAILS_BEGIN_____5t_ if( counter_settings == 1 ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____5t_ if( counter_settings == 1 ){ _____SUMMARY_END_____
                   FILE_HELPER.Init_Parse_Savefile_SettingsLine( A_LoopReadLine )
                }                _____DETAILS_END_____
-_____DETAILS_BEGIN_____5t_ else
+_____IF_DETAILS_BEGIN_____5t_ else
                if( counter_commands == 1 ){ _____SUMMARY_END_____
                   FILE_HELPER.Init_Parse_Savefile_CommandLine( A_LoopReadLine )
                } _____DETAILS_END_____
                
-_____DETAILS_BEGIN_____5t_ else
+_____IF_DETAILS_BEGIN_____5t_ else
                if( counter_actions == 1 ){ _____SUMMARY_END_____
                   FILE_HELPER.Init_Parse_Savefile_ActionLine( A_LoopReadLine )
                } _____DETAILS_END_____
             }  _____DETAILS_END_____
             
          } _____DETAILS_END_____
-         ; msgbox %str%
-      } _____DETAILS_END_____
-_____DETAILS_BEGIN_____2t_ else{ _____SUMMARY_END_____
-         
          
       } _____DETAILS_END_____
-   return
+      
+      return         
    } _____DETAILS_END_____
 
+   ;=================================;
+   ;                                 ;
+   ;      HELPER FUNCTIONS FOR       ;
+   ;                                 ;
+   ;    Initialize_Load_Savefile()   ;
+   ;                                 ;
+   ;=================================;
+   
 _____DETAILS_BEGIN_____1t_ Init_Parse_Savefile_SettingsLine( full_line_text ) { _____SUMMARY_END_____
    global _ICON_INDEX
    
@@ -739,10 +973,10 @@ _____DETAILS_BEGIN_____1t_ Init_Parse_Savefile_SettingsLine( full_line_text ) { 
       str_hot_pop  := RegExReplace(line, match_set_hot_pop,  "$1", found_pop )
       str_hot_quit := RegExReplace(line, match_set_hot_quit, "$1", found_quit)
       
-_____DETAILS_BEGIN_____2t_ if( found_icon ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( found_icon ){ _____SUMMARY_END_____
          _ICON_INDEX := int_icon 
       } _____DETAILS_END_____
-_____DETAILS_BEGIN_____2t_ else if( found_pop 
+_____IF_DETAILS_BEGIN_____2t_ else if( found_pop 
       or       found_quit )
       { _____SUMMARY_END_____
       
@@ -795,19 +1029,19 @@ _____DETAILS_BEGIN_____1t_ Init_Parse_Savefile_CommandLine( full_line_text ) { _
       
       cmd_enabled := true
       
-_____DETAILS_BEGIN_____2t_ if("DISABLE" = disable_flag
+_____IF_DETAILS_BEGIN_____2t_ if("DISABLE" = disable_flag
       or "Disabled" = disable_flag
       or ";" = disable_flag
       or "x" = disable_flag ){ _____SUMMARY_END_____
          cmd_enabled := false
       } _____DETAILS_END_____
       
-_____DETAILS_BEGIN_____2t_ if( _COMMANDS.HasKey(cmd) ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( _COMMANDS.HasKey(cmd) ){ _____SUMMARY_END_____
          ; add to list of things to notify user about
          
          FILE_HELPER.init__ar_duplicate_commands_found.Push( {"cmd":cmd, "line":line} )
       } _____DETAILS_END_____
-_____DETAILS_BEGIN_____2t_ else{ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ else{ _____SUMMARY_END_____
          _COMMANDS[cmd] := { "action_id":aID, "enabled":cmd_enabled }
       } _____DETAILS_END_____
       
@@ -910,11 +1144,12 @@ _____DETAILS_BEGIN_____1t_ Init_Parse_Savefile_ActionLine( full_line_text ) { __
       ;
       ;    match_csv_actionID_appOrFolder_path_optionallyAlsoArg := ""
       ;
-      ;    . "i)^[ \t]*([\d]+)[ \t]*,[ \t]*(Folder|Application|App)[ \t]*,[ \t]*""([^""]*)""([ \t]*,[ \t]*(.*)[ \t]*)?$"
+      ;    . "i)^[ \t]*([\d]+)[ \t]*,[ \t]*(Folder|Application|App)[ \t]*,"
+      ;    .   "[ \t]*""([^""]*)""([ \t]*,[ \t]*(.*)[ \t]*)?$"
       ;
       ;---------------------------------------------------------------
       
-_____DETAILS_BEGIN_____2t_ if( found_match := RegExMatch( line
+_____IF_DETAILS_BEGIN_____2t_ if( found_match := RegExMatch( line
               , match_csv_actionID_appOrFolder_path_optionallyAlsoArg
               , matched_subpattern_ ) ) { _____SUMMARY_END_____
       
@@ -931,11 +1166,11 @@ _____DETAILS_BEGIN_____2t_ if( found_match := RegExMatch( line
                         ? "folder" 
                         : appOrFolder
          
-_____DETAILS_BEGIN_____3t_ if( "" != aPathUnquoted ){ _____SUMMARY_END_____
-            aPathUnquoted:= FILE_HELPER.Fn_Standardize_Path_String(aPathUnquoted, appOrFolder)   
+_____IF_DETAILS_BEGIN_____3t_ if( "" != aPathUnquoted ){ _____SUMMARY_END_____
+            aPathUnquoted:= FILE_HELPER.Fn_Standardize_Path_String(aPathUnquoted, appOrFolder)
          } _____DETAILS_END_____
       } _____DETAILS_END_____
-_____DETAILS_BEGIN_____2t_ else
+_____IF_DETAILS_BEGIN_____2t_ else
       if( found_match := RegExMatch( line
             , match_program_launcher_behaviour_action
             , matched_subpattern_ ) ) { _____SUMMARY_END_____
@@ -945,20 +1180,20 @@ _____DETAILS_BEGIN_____2t_ else
          aPathUnquoted  := ""
          aArg           := ""
          
-_____DETAILS_BEGIN_____3t_ if( aID = "quit" ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( aID = "quit" ){ _____SUMMARY_END_____
             aID := "QUIT"
          } _____DETAILS_END_____
-_____DETAILS_BEGIN_____3t_ else 
+_____IF_DETAILS_BEGIN_____3t_ else 
          if( aID = "settings" ){ _____SUMMARY_END_____
             aID := "SETTINGS"
          } _____DETAILS_END_____
       } _____DETAILS_END_____
       
-_____DETAILS_BEGIN_____2t_ if( _ACTIONS.HasKey(aID) ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( _ACTIONS.HasKey(aID) ){ _____SUMMARY_END_____
          ; add to list of things to notify user about
          FILE_HELPER.init__ar_duplicate_actions_found.Push( {"action_id":aID, "line":line} )
       } _____DETAILS_END_____
-_____DETAILS_BEGIN_____2t_ else{ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ else{ _____SUMMARY_END_____
          _ACTIONS[aID] := { ""
             .   "type" : appOrFolder
              ,  "path" : aPathUnquoted 
@@ -986,9 +1221,11 @@ _____DETAILS_BEGIN_____1t_ Init_Parse_Settings_Hotkey( hotkey_for:="commandline_
    global _hotkey_for_quit
    
    
+      ;--------------------------------------------------------------------
       ; Called exclusively from Initialize_Settings_And_Load_Saved_Commands
       ; p1: hotkey is either for quit or commandline popup
       ; p2: space sperated value list of keys to use for hotkey
+      ; p3: currently parsed line of text from the savefile
       ;--------------------------------------------------------------------
       
       found_shift := ""
@@ -1000,22 +1237,22 @@ _____DETAILS_BEGIN_____1t_ Init_Parse_Settings_Hotkey( hotkey_for:="commandline_
       
       str_for_output__all_found := "" 
       
-_____DETAILS_BEGIN_____2t_ Loop, parse, ssv_key_list, %A_Tab%%A_Space%
+_____IF_DETAILS_BEGIN_____2t_ Loop, parse, ssv_key_list, %A_Tab%%A_Space%
       { _____SUMMARY_END_____
-_____DETAILS_BEGIN_____3t_ if( A_LoopField = "SHIFT")
+_____IF_DETAILS_BEGIN_____3t_ if( A_LoopField = "SHIFT")
          { _____SUMMARY_END_____
             found_shift := "+"
             
             str_for_output__all_found .= "shift "
          } _____DETAILS_END_____
-_____DETAILS_BEGIN_____3t_ else if( A_LoopField = "CTRL"
+_____IF_DETAILS_BEGIN_____3t_ else if( A_LoopField = "CTRL"
          or  A_LoopField = "control" )
          { _____SUMMARY_END_____
             found_ctrl := "^"
             
             str_for_output__all_found .= "ctrl "
          } _____DETAILS_END_____
-_____DETAILS_BEGIN_____3t_ else if( A_LoopField = "WIN"
+_____IF_DETAILS_BEGIN_____3t_ else if( A_LoopField = "WIN"
          or  A_LoopField = "WINKEY" 
          or  A_LoopField = "WINDOWS" 
          or  A_LoopField = "WINDOWSKEY" )
@@ -1024,18 +1261,18 @@ _____DETAILS_BEGIN_____3t_ else if( A_LoopField = "WIN"
             
             str_for_output__all_found .= "win "
          } _____DETAILS_END_____
-_____DETAILS_BEGIN_____3t_ else if( A_LoopField = "ALT" )
+_____IF_DETAILS_BEGIN_____3t_ else if( A_LoopField = "ALT" )
          { _____SUMMARY_END_____
             found_alt := "!"
             
             str_for_output__all_found .= "alt "
          } _____DETAILS_END_____
-_____DETAILS_BEGIN_____3t_ else if( found_key == "" )
+_____IF_DETAILS_BEGIN_____3t_ else if( found_key == "" )
          { _____SUMMARY_END_____
             found_key := A_LoopField
             str_for_output__all_found .= found_key " "
          } _____DETAILS_END_____
-_____DETAILS_BEGIN_____3t_ else{ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ else{ _____SUMMARY_END_____
             error_msg__changingInvalidHotkey := true
          }                   _____DETAILS_END_____
       } _____DETAILS_END_____
@@ -1043,7 +1280,7 @@ _____DETAILS_BEGIN_____3t_ else{ _____SUMMARY_END_____
       ;---------------------------------------
       ; if no modifiers, exit app for safety
       ;
-_____DETAILS_BEGIN_____2t_ If( found_shift == ""
+_____IF_DETAILS_BEGIN_____2t_ If( found_shift == ""
       and found_ctrl  == ""
       and found_win   == ""
       and found_alt   == "" )
@@ -1055,7 +1292,7 @@ _____DETAILS_BEGIN_____2t_ If( found_shift == ""
       ; Hotkey successfully found
       ;  or successfully assigned by fudging away additional keys
       ;   
-_____DETAILS_BEGIN_____2t_ if( found_key != "" )
+_____IF_DETAILS_BEGIN_____2t_ if( found_key != "" )
       { _____SUMMARY_END_____
          hotkey_for_fn_will_be := found_shift 
                             .  found_ctrl
@@ -1077,15 +1314,15 @@ _____DETAILS_BEGIN_____2t_ if( found_key != "" )
          ;   
          ;     _hotkey_for_quit: ctrl win q
          ;
-_____DETAILS_BEGIN_____3t_ if( error_msg__changingInvalidHotkey ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( error_msg__changingInvalidHotkey ){ _____SUMMARY_END_____
             str_which := ""
-_____DETAILS_BEGIN_____4t_ if(hotkey_for =="commandline_popup"){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ if(hotkey_for =="commandline_popup"){ _____SUMMARY_END_____
                str_which :=  "_hotkey_for_commandline_popup"
             } _____DETAILS_END_____
-_____DETAILS_BEGIN_____4t_ if(hotkey_for =="quit"){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ if(hotkey_for =="quit"){ _____SUMMARY_END_____
                str_which :=  "_hotkey_for_quit"
             } _____DETAILS_END_____
-            str_for_usr_output := "_program_launcher.ahk`n`n"
+            str_for_usr_output := "program_launcher.ahk`n`n"
             str_for_usr_output .= "--------------`nOops`n--------------`n"
             str_for_usr_output .= "Your ( " str_which " ) line`n"
             str_for_usr_output .= "in _program_launcher_settings.ini`n"
@@ -1093,7 +1330,7 @@ _____DETAILS_BEGIN_____4t_ if(hotkey_for =="quit"){ _____SUMMARY_END_____
             str_for_usr_output .= "This would take a lot more code to account for.`n`n"
             str_for_usr_output .= "Your settings file says:`n"
             str_for_usr_output .= "   " full_line "`n`n"
-            str_for_usr_output .= "_program_launcher.ahk will pretend it says:`n"
+            str_for_usr_output .= "program_launcher.ahk will pretend it says:`n"
             str_for_usr_output .= "   " str_which ": " str_for_output__all_found "`n`n"
             str_for_usr_output .= "This hotkey will be reassigned to:.`n`n"
             str_for_usr_output .= "   " . hotkey_for_fn_will_be . "`n`n"
@@ -1106,7 +1343,8 @@ _____DETAILS_BEGIN_____4t_ if(hotkey_for =="quit"){ _____SUMMARY_END_____
             str_for_usr_output .= "[ ! ] = Alt`n`n"
             str_for_usr_output .= "See: https://www.autohotkey.com/docs/KeyList.htm`n`n"
             
-            MSGBOX, 48, [Error] Hotkey for Popup [in _program_launcher_settings.ini], % str_for_usr_output
+            title := "[Error] Hotkey for Popup [in _program_launcher_settings.ini]"
+            MSGBOX, 48, %title%, %str_for_usr_output%
          } _____DETAILS_END_____
       } _____DETAILS_END_____
       ;-------------------------------
@@ -1115,19 +1353,19 @@ _____DETAILS_BEGIN_____4t_ if(hotkey_for =="quit"){ _____SUMMARY_END_____
       ;   ExitApp if it was the popup hotkey 
       ;   Ignore and continue with no hotkey for others
       ;   
-_____DETAILS_BEGIN_____2t_ else{ _____SUMMARY_END_____
-_____DETAILS_BEGIN_____3t_ if( hotkey_for == "commandline_popup" ){ _____SUMMARY_END_____
-            str_for_usr_output := "_program_launcher.ahk`n`n"
+_____IF_DETAILS_BEGIN_____2t_ else{ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( hotkey_for == "commandline_popup" ){ _____SUMMARY_END_____
+            str_for_usr_output := "program_launcher.ahk`n`n"
             str_for_usr_output .= "--------------`n[ERROR]`n--------------`n"
             str_for_usr_output .= "Couldn't process the setting ""_hotkey_for_commandline_popup""`n"
             str_for_usr_output .= "in _program_launcher_settings.ini`n`n"
-            str_for_usr_output .= "_program_launcher.ahk expects a line like this:`n`n"
+            str_for_usr_output .= "program_launcher.ahk expects a line like this:`n`n"
             str_for_usr_output .= "  settings[`n"
             str_for_usr_output .= "    _hotkey_for_commandline_popup: ctrl win space`n"
             str_for_usr_output .= "  ]`n`n"
             str_for_usr_output .= "With one or more modifier keys and one non-modifier.`n"
             str_for_usr_output .= "See https://www.autohotkey.com/docs/KeyList.htm`n`n"
-            str_for_usr_output .= "See details in _program_launcher.ahk or `n"
+            str_for_usr_output .= "See details in program_launcher.ahk or `n"
             str_for_usr_output .= "_program_launcher_settings.ini for help.`n`n"
             str_for_usr_output .= "If you can't get it to work,`n"
             str_for_usr_output .= "try removing the entire line beginning with `n`n"
@@ -1141,20 +1379,20 @@ _____DETAILS_BEGIN_____3t_ if( hotkey_for == "commandline_popup" ){ _____SUMMARY
             ExitApp
          } _____DETAILS_END_____
          
-_____DETAILS_BEGIN_____3t_ if( hotkey_for == "quit" ){ _____SUMMARY_END_____
-            str_for_usr_output := "_program_launcher.ahk`n`n"
+_____IF_DETAILS_BEGIN_____3t_ if( hotkey_for == "quit" ){ _____SUMMARY_END_____
+            str_for_usr_output := "program_launcher.ahk`n`n"
             str_for_usr_output .= "--------------`nOops`n--------------`n"
             str_for_usr_output .= "Couldn't process the setting ""_hotkey_for_quit""`n"
             str_for_usr_output .= "in _program_launcher_settings.ini`n`n"
-            str_for_usr_output .= "_program_launcher.ahk expects a line like this:`n`n"
+            str_for_usr_output .= "program_launcher.ahk expects a line like this:`n`n"
             str_for_usr_output .= "  settings[`n"
             str_for_usr_output .= "    _hotkey_for_quit: ctrl win q`n"
             str_for_usr_output .= "  ]`n`n"
             str_for_usr_output .= "With one or more modifier keys and one non-modifier.`n"
             str_for_usr_output .= "See https://www.autohotkey.com/docs/KeyList.htm`n`n"
-            str_for_usr_output .= "See details in _program_launcher.ahk or `n"
+            str_for_usr_output .= "See details in program_launcher.ahk or `n"
             str_for_usr_output .= "_program_launcher_settings.ini for help.`n`n"
-            str_for_usr_output .= "If you can't get _program_launcher.ahk to run`n"
+            str_for_usr_output .= "If you can't get program_launcher.ahk to run`n"
             str_for_usr_output .= "and you don't care about having a Quit hotkey,`n"
             str_for_usr_output .= "try removing the entire line beginning with: `n`n"
             str_for_usr_output .= "   _hotkey_for_commandline_popup: (...)`n`n"
@@ -1166,7 +1404,9 @@ _____DETAILS_BEGIN_____3t_ if( hotkey_for == "quit" ){ _____SUMMARY_END_____
             str_for_usr_output .= "To Exit:`n"
             str_for_usr_output .= "Right-click the Notification Tray icon`n"
             str_for_usr_output .= "and choose quit.`n`n"
-            MSGBOX, 48, % "[X] Couldn't read line _hotkey_for_quit in settings file", % str_for_usr_output
+            
+            title := "[X] Couldn't read line _hotkey_for_quit in settings file"
+            MSGBOX, 48, % title, % str_for_usr_output
             
             ExitApp
          } _____DETAILS_END_____
@@ -1178,15 +1418,13 @@ _____DETAILS_BEGIN_____3t_ if( hotkey_for == "quit" ){ _____SUMMARY_END_____
       ; Hotkey assignment, 
       ; and save var for use elsewhere.
       ;   
-_____DETAILS_BEGIN_____2t_ if( hotkey_for == "commandline_popup" ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( hotkey_for == "commandline_popup" ){ _____SUMMARY_END_____
          _hotkey_for_commandline_popup := hotkey_for_fn_will_be
          Hotkey, %_hotkey_for_commandline_popup%, ProgramLauncherPopupCommand
       } _____DETAILS_END_____
-_____DETAILS_BEGIN_____2t_ if( hotkey_for == "quit" ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( hotkey_for == "quit" ){ _____SUMMARY_END_____
          _hotkey_for_quit := hotkey_for_fn_will_be
          Hotkey, %_hotkey_for_quit%, ProgramLauncherQuit
-
-   ; msgBOX hotkey for quit %_hotkey_for_quit%
       } _____DETAILS_END_____
 
       
@@ -1204,13 +1442,13 @@ _____DETAILS_BEGIN_____1t_ Init_Validate_and_Prompt_User_if_Errors() { _____SUMM
       ;
       ; Do this before checking Commands for valid actions.
       ;
-_____DETAILS_BEGIN_____2t_ if( !_ACTIONS.HasKey("SETTINGS") ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( !_ACTIONS.HasKey("SETTINGS") ){ _____SUMMARY_END_____
          _ACTIONS["SETTINGS"] := { ""
             .   "type" : ""
              ,  "path" : "" 
              ,  "arg"  : ""     }     
       } _____DETAILS_END_____
-_____DETAILS_BEGIN_____2t_ if( !_ACTIONS.HasKey("QUIT") ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( !_ACTIONS.HasKey("QUIT") ){ _____SUMMARY_END_____
          _ACTIONS["QUIT"] := { ""
             .   "type" : ""
              ,  "path" : "" 
@@ -1222,11 +1460,11 @@ _____DETAILS_BEGIN_____2t_ if( !_ACTIONS.HasKey("QUIT") ){ _____SUMMARY_END_____
       ; if any Command links to a non-existant Action 
       ; remove the Command and notify the user.
       ;
-_____DETAILS_BEGIN_____2t_ for cmd, cmd_dat in _COMMANDS{ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ for cmd, cmd_dat in _COMMANDS{ _____SUMMARY_END_____
          
          aID := cmd_dat["action_id"]
          
-_____DETAILS_BEGIN_____3t_ if( !_ACTIONS.HasKey(aID) ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( !_ACTIONS.HasKey(aID) ){ _____SUMMARY_END_____
             ar_commands_without_valid_actions.Push(cmd)
             _COMMANDS.Delete(cmd)
          } _____DETAILS_END_____
@@ -1240,7 +1478,7 @@ _____DETAILS_BEGIN_____3t_ if( !_ACTIONS.HasKey(aID) ){ _____SUMMARY_END_____
       ; 
       ; Inform the user which entry was imported, and which were ignored.
       ;
-_____DETAILS_BEGIN_____2t_ if( 0 < FILE_HELPER.init__ar_duplicate_commands_found.Count() ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( 0 < FILE_HELPER.init__ar_duplicate_commands_found.Count() ){ _____SUMMARY_END_____
 
          ar_valid_cmds    := {}     ; only used here temporarily
          str_valid_cmds   := ""
@@ -1249,17 +1487,17 @@ _____DETAILS_BEGIN_____2t_ if( 0 < FILE_HELPER.init__ar_duplicate_commands_found
          ;-----------------------------------------------------------------------
          ; Get a list of all valid Commands (which also have ignored duplicates)
          ;
-_____DETAILS_BEGIN_____3t_ for i, dupe in FILE_HELPER.init__ar_duplicate_commands_found { _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ for i, dupe in FILE_HELPER.init__ar_duplicate_commands_found { _____SUMMARY_END_____
             ; FILE_HELPER.init__ar_duplicate_commands_found.Push( {"cmd":cmd, "line":line} )
             
             dupeCmd  := dupe["cmd"]
             dupeLine := dupe["line"]
-_____DETAILS_BEGIN_____4t_ if( !ar_valid_cmds.HasKey(dupeCmd) ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ if( !ar_valid_cmds.HasKey(dupeCmd) ){ _____SUMMARY_END_____
                
                str_valid_cmds  .= "`t"
                str_valid_cmds  .= dupeCmd ": " 
                str_valid_cmds  .= _COMMANDS[dupeCmd]["action_id"] " "
-_____DETAILS_BEGIN_____5t_ if( false == _COMMANDS[dupeCmd]["enabled"] ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____5t_ if( false == _COMMANDS[dupeCmd]["enabled"] ){ _____SUMMARY_END_____
                   str_valid_cmds  .= "DISABLED"
                } _____DETAILS_END_____
                str_valid_cmds  .= "`n"
@@ -1271,14 +1509,14 @@ _____DETAILS_BEGIN_____5t_ if( false == _COMMANDS[dupeCmd]["enabled"] ){ _____SU
          ;-------------------------------------------------
          ; Get a list of all the ignored invalid Commands 
          ;
-_____DETAILS_BEGIN_____3t_ for i, dupe in FILE_HELPER.init__ar_duplicate_commands_found { _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ for i, dupe in FILE_HELPER.init__ar_duplicate_commands_found { _____SUMMARY_END_____
             str_invalid_cmds  .= "`t" dupe["line"] "`n"
          } _____DETAILS_END_____
          
          ;----------------------------------;
          ;          Inform user             ;
          ;                                  ;
-         msg_for_usr :=  "_program_launcher.ahk`n`n"
+         msg_for_usr :=  "program_launcher.ahk`n`n"
          msg_for_usr  .= "--------------`nOops`n--------------`n`n"
          msg_for_usr  .= "Duplicate Commands were found.`n"
          msg_for_usr  .= "The first time a Command is found, it's kept. `n`n"
@@ -1300,7 +1538,7 @@ _____DETAILS_BEGIN_____3t_ for i, dupe in FILE_HELPER.init__ar_duplicate_command
       ; (Any Command which references a duplicate Action
       ;  will be rewired to the resulting unique Action.)
 
-_____DETAILS_BEGIN_____2t_ if( 0 < FILE_HELPER.init__ar_duplicate_actions_found.Count() ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( 0 < FILE_HELPER.init__ar_duplicate_actions_found.Count() ){ _____SUMMARY_END_____
 
          ar_valid_acts    := {}
          str_valid_acts   := ""
@@ -1308,14 +1546,14 @@ _____DETAILS_BEGIN_____2t_ if( 0 < FILE_HELPER.init__ar_duplicate_actions_found.
          
          ch_quote := """"
          
-_____DETAILS_BEGIN_____3t_ for i, dupe in FILE_HELPER.init__ar_duplicate_actions_found { _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ for i, dupe in FILE_HELPER.init__ar_duplicate_actions_found { _____SUMMARY_END_____
          
             ; FILE_HELPER.init__ar_duplicate_actions_found.Push( {"action_id":aID, "line":line} )
             
             dupeAct  := dupe["action_id"]
             dupeLine := dupe["line"]
             
-_____DETAILS_BEGIN_____4t_ if( !ar_valid_acts.HasKey(dupeAct) ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ if( !ar_valid_acts.HasKey(dupeAct) ){ _____SUMMARY_END_____
                
                str_valid_acts  .= "`t"
                str_valid_acts  .= dupeAct ", " 
@@ -1323,7 +1561,7 @@ _____DETAILS_BEGIN_____4t_ if( !ar_valid_acts.HasKey(dupeAct) ){ _____SUMMARY_EN
                str_valid_acts  .= ch_quote
                str_valid_acts  .= _ACTIONS[dupeAct]["path"]
                str_valid_acts  .= ch_quote
-_____DETAILS_BEGIN_____5t_ if( "" != _ACTIONS[dupeAct]["arg"] ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____5t_ if( "" != _ACTIONS[dupeAct]["arg"] ){ _____SUMMARY_END_____
                   str_valid_acts  .= ", "
                   str_valid_acts  .= _ACTIONS[dupeAct]["arg"]
                } _____DETAILS_END_____
@@ -1334,12 +1572,12 @@ _____DETAILS_BEGIN_____5t_ if( "" != _ACTIONS[dupeAct]["arg"] ){ _____SUMMARY_EN
          
          ar_valid_acts := ""
          
-_____DETAILS_BEGIN_____3t_ for i, dupe in FILE_HELPER.init__ar_duplicate_actions_found { _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ for i, dupe in FILE_HELPER.init__ar_duplicate_actions_found { _____SUMMARY_END_____
             str_invalid_acts  .= "`t" dupe["line"] "`n"
          } _____DETAILS_END_____
          
          
-         msg_for_usr :=  "_program_launcher.ahk`n`n"
+         msg_for_usr :=  "program_launcher.ahk`n`n"
          msg_for_usr  .= "--------------`nOops`n--------------`n`n"
          msg_for_usr  .= "Duplicate Actions were found.`n"
          msg_for_usr  .= "The first time an Actions is found, it's kept. `n`n"
@@ -1363,11 +1601,19 @@ _____DETAILS_BEGIN_____3t_ for i, dupe in FILE_HELPER.init__ar_duplicate_actions
    
    } _____DETAILS_END_____
 
+   ;===================================;
+   ;  </> end of helper functions for  ;
+   ;                                   ;
+   ;      Initialize_Load_Savefile()   ;
+   ;===================================;
 
 
 
 
-
+   ;---------------------------------------------------
+   ; This is a shorthand way to call Change_Savefile
+   ; in order to enable a Command.
+   ;
 _____DETAILS_BEGIN_____1t_ Change_Savefile__Enable_Command( command_to_enable ) { _____SUMMARY_END_____
       
       ;-------------------------------------------------------------------
@@ -1391,6 +1637,10 @@ _____DETAILS_BEGIN_____1t_ Change_Savefile__Enable_Command( command_to_enable ) 
       return
    } _____DETAILS_END_____
    
+   ;---------------------------------------------------
+   ; This is a shorthand way to call Change_Savefile
+   ; in order to disable a Command.
+   ;
 _____DETAILS_BEGIN_____1t_ Change_Savefile__Disable_Command( command_to_disable ) { _____SUMMARY_END_____
       
       ;-------------------------------------------------------------------
@@ -1415,20 +1665,89 @@ _____DETAILS_BEGIN_____1t_ Change_Savefile__Disable_Command( command_to_disable 
    } _____DETAILS_END_____
    
    
+   
+_____COMMENT_DETAILS_BEGIN_____1t_ ;======================================================================;
+   ;     About Initialize_Load_Savefile()                                 ;
+   ;======================================================================; _____COMMENT_SUMMARY_END_____
+   ;      Initialize_Load_Savefile()    reads from the savefile.          ;
+   ;      Change_Savefile()              writes to the savefile.          ;
+   ;                                                                      ;
+   ; Change_Savefile() is called from the GUI Configuration window when   ;
+   ;                                                                      ;
+   ;    (1)  The user changes a setting.                                  ;
+   ;                                                                      ;
+   ;    (2)  The user adds a new Command.                                 ;
+   ;                                                                      ;
+   ;    (3)  The user changes the Command's text                          ;
+   ;         or changes the Action associated with the Command.           ;
+   ;                                                                      ;
+   ;    (4)  The user enables or disables an existing Command.            ;
+   ;                                                                      ;
+   ;    (5)  The user adds a new Action.                                  ;
+   ;                                                                      ;
+   ;    (6)  The user changes the functionality of an Action.             ;
+   ;                                                                      ;
+   ;    (7)  The user deletes a Command or deletes an Action.             ;
+   ;                                                                      ;
+   ; If you are new to Regular Expressions, see the resources             ;
+   ; in the comment above the beginning of the FILE_HELPER class above.   ;
+   ;                                                                      ;
+   ;======================================================================; _____COMMENT_DETAILS_END_____
+   
 _____DETAILS_BEGIN_____1t_ Change_Savefile( mode:="action|command|setting"
-      , purpose:="add|delete|edit|enable|disable"     ; only for Commands:  enable|disable
-      , action_id__or__cmd :="passed from popup"      ; only for Commands and Actions
-      , cmd_name_before_rename := ""                  ; only for Commands
-      , setting_to_change := "" )                     ; only for Settings:  {"setting_name":"", "new_value":""}
+      , purpose:="add|delete|edit|enable|disable"
+      , action_id__or__cmd :="passed from popup"
+      , cmd_name_before_rename := ""
+      , setting_to_change := "" )
    { _____SUMMARY_END_____
    global _savefile_path
    global _ACTIONS
    global _COMMANDS
       
-      
-_____DETAILS_BEGIN_____2t_ if( !FileExist(_savefile_path) ){ _____SUMMARY_END_____
-         ; savefile deleted or moved or renamed since _Program_Launcher.ahk was run.
-         MSGBOX, 16, [ SUPER ERROR ], Savefile not found where app last found it.`nOops. Need to implement stuff here. [~]
+_____COMMENT_DETAILS_BEGIN_____2t_ ;---------------------------------------------------------------------------------;
+      ;  Parameters                                                                     ;
+      ;                                                                                 ;
+      ;---------------------------------------------------------------------------------; _____COMMENT_SUMMARY_END_____
+      ;  mode                        Determines type of what to change in savefile.     ;
+      ;                                                                                 ;
+      ;                              Valid values:                                      ;
+      ;                                                                                 ;
+      ;                                             "action", "command", "setting"      ;
+      ;                                                                                 ;
+      ;---------------------------------------------------------------------------------;
+      ;  purpose                     Type of operation.                                 ;
+      ;                                                                                 ;
+      ;                              Valid values:                                      ;
+      ;                                                                                 ;
+      ;                                             "add", "delete", "edit"             ;
+      ;                                                                                 ;
+      ;                              If mode is "command"                               ;
+      ;                              these values are also valid:                       ;
+      ;                                                                                 ;
+      ;                                             "enable", "disable"                 ;
+      ;                                                                                 ;
+      ;---------------------------------------------------------------------------------;
+      ;  action_id__or__cmd          Only used for Commands and Actions.                ;
+      ;                                                                                 ;
+      ;                              Can be empty string if mode is "setting".          ;
+      ;---------------------------------------------------------------------------------;
+      ;  cmd_name_before_rename      Only used for Commands.                            ;
+      ;                                                                                 ;
+      ;                              Can be empty string otherwise.                     ;
+      ;---------------------------------------------------------------------------------;
+      ;  setting_to_change           Only used for Settings.                            ;
+      ;                                                                                 ;
+      ;                              Variable should be in this format:                 ;
+      ;                                  {"setting_name":"", "new_value":""}            ;
+      ;                                                                                 ;
+      ;---------------------------------------------------------------------------------; _____COMMENT_DETAILS_END_____
+   
+   
+_____IF_DETAILS_BEGIN_____2t_ if( !FileExist(_savefile_path) ){ _____SUMMARY_END_____
+         ; savefile deleted or moved or renamed since program_launcher.ahk was run.
+         title := "[ SUPER ERROR ]"
+         msg_for_user := "Savefile not found where app last found it.`n"
+         MSGBOX, 16, % title, % msg_for_user
          return 
       }  _____DETAILS_END_____
       
@@ -1490,13 +1809,13 @@ _____DETAILS_BEGIN_____2t_ if( !FileExist(_savefile_path) ){ _____SUMMARY_END___
       match_line__use_capture_group   := ""
       
       
-_____DETAILS_BEGIN_____2t_ if( "action" == mode ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( "action" == mode ){ _____SUMMARY_END_____
          match_target_section := "i)^[ \t]*ACTIONS[ \t]*\[[ \t]*$"
       } _____DETAILS_END_____
-_____DETAILS_BEGIN_____2t_ else if("command" == mode){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ else if("command" == mode){ _____SUMMARY_END_____
          match_target_section := "i)^[ \t]*COMMANDS[ \t]*\[[ \t]*$"
       } _____DETAILS_END_____
-_____DETAILS_BEGIN_____2t_ else if("setting" == mode){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ else if("setting" == mode){ _____SUMMARY_END_____
          match_target_section := "i)^[ \t]*SETTINGS[ \t]*\[[ \t]*$"
       } _____DETAILS_END_____
       
@@ -1515,7 +1834,7 @@ _____DETAILS_BEGIN_____2t_ else if("setting" == mode){ _____SUMMARY_END_____
       ; Read _program_launcher_settings.ini, 
       ; one line at a time.
       ;
-_____DETAILS_BEGIN_____2t_ Loop, Read, %_savefile_path%
+_____IF_DETAILS_BEGIN_____2t_ Loop, Read, %_savefile_path%
       { _____SUMMARY_END_____
       
          ;---------------------------------------------------------------------
@@ -1523,7 +1842,7 @@ _____DETAILS_BEGIN_____2t_ Loop, Read, %_savefile_path%
          ; and added the new data to the var revised_file_data,
          ; then skip the logic and copy the rest of the file to this var 
          ;
-_____DETAILS_BEGIN_____3t_ if( true == is_insertion_point_changed_yet ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( true == is_insertion_point_changed_yet ){ _____SUMMARY_END_____
          
             revised_file_data .= A_LoopReadLine "`n"
             continue
@@ -1534,7 +1853,7 @@ _____DETAILS_BEGIN_____3t_ if( true == is_insertion_point_changed_yet ){ _____SU
          is_empty   := RegExMatch(A_LoopReadLine, match_entirely_whitespace_lines)
          is_empty   := (A_LoopReadLine=="" or is_empty)
          
-_____DETAILS_BEGIN_____3t_ if( is_comment or is_empty ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( is_comment or is_empty ){ _____SUMMARY_END_____
             revised_file_data .= A_LoopReadLine "`n"
             continue
          }  _____DETAILS_END_____
@@ -1552,7 +1871,7 @@ _____DETAILS_BEGIN_____3t_ if( is_comment or is_empty ){ _____SUMMARY_END_____
          ;
          ; (insertion's target section encountered)
          ;
-_____DETAILS_BEGIN_____3t_ if( RegExMatch(A_LoopReadLine, match_target_section) ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( RegExMatch(A_LoopReadLine, match_target_section) ){ _____SUMMARY_END_____
 
                counter_for_target_section := 1
                
@@ -1570,11 +1889,11 @@ _____DETAILS_BEGIN_____3t_ if( RegExMatch(A_LoopReadLine, match_target_section) 
          ;    (commands[), or
          ;    (settings[)
          ;
-_____DETAILS_BEGIN_____3t_ else if( RegExMatch(A_LoopReadLine, match_close_section) ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ else if( RegExMatch(A_LoopReadLine, match_close_section) ){ _____SUMMARY_END_____
             
-_____DETAILS_BEGIN_____4t_ if( 1 == counter_for_target_section){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ if( 1 == counter_for_target_section){ _____SUMMARY_END_____
                
-_____DETAILS_BEGIN_____5t_ if( "add" == purpose ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____5t_ if( "add" == purpose ){ _____SUMMARY_END_____
                   
                   p1 := mode 
                   p2 := action_id__or__cmd
@@ -1602,7 +1921,7 @@ _____DETAILS_BEGIN_____5t_ if( "add" == purpose ){ _____SUMMARY_END_____
                ;    - Finish collecting the rest of the file into 
                ;       revised_file_data, and write the file.
                ;
-_____DETAILS_BEGIN_____5t_ else
+_____IF_DETAILS_BEGIN_____5t_ else
                if( "setting" == mode ){ _____SUMMARY_END_____
                   
                   p1 := mode 
@@ -1644,14 +1963,14 @@ _____DETAILS_BEGIN_____5t_ else
          ;    (commands[)   or
          ;    (settings[) 
          ;
-_____DETAILS_BEGIN_____3t_ else
+_____IF_DETAILS_BEGIN_____3t_ else
          if( counter_for_target_section == 1 ){ _____SUMMARY_END_____
             
             p1 := mode
             p2 := A_LoopReadLine
             p3 := action_id__or__cmd
             
-_____DETAILS_BEGIN_____4t_ if( "command" == mode 
+_____IF_DETAILS_BEGIN_____4t_ if( "command" == mode 
             and "edit"    == purpose ){ _____SUMMARY_END_____
             
                ;-----------------------------------------------------------
@@ -1661,7 +1980,7 @@ _____DETAILS_BEGIN_____4t_ if( "command" == mode
                p3 := cmd_name_before_rename
                
             } _____DETAILS_END_____
-_____DETAILS_BEGIN_____4t_ else
+_____IF_DETAILS_BEGIN_____4t_ else
             if( "setting" == mode ){ _____SUMMARY_END_____
             
                ;-----------------------------------------------------------
@@ -1674,9 +1993,9 @@ _____DETAILS_BEGIN_____4t_ else
             
             found_it := FILE_HELPER.Change_Helper__IsCurrentLineTheTargetLine( p1,p2,p3 )
             
-_____DETAILS_BEGIN_____4t_ if( found_it ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ if( found_it ){ _____SUMMARY_END_____
                
-_____DETAILS_BEGIN_____5t_ if("delete" == purpose){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____5t_ if("delete" == purpose){ _____SUMMARY_END_____
                
                   ;======================================================
                   ; Delete by omission, 
@@ -1693,7 +2012,7 @@ _____DETAILS_BEGIN_____5t_ if("delete" == purpose){ _____SUMMARY_END_____
                   continue
                   
                } _____DETAILS_END_____
-_____DETAILS_BEGIN_____5t_ else if("edit" == purpose){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____5t_ else if("edit" == purpose){ _____SUMMARY_END_____
                   
                   ;============================================================
                   ; Generate a new line for this entry in the Savefile 
@@ -1707,7 +2026,7 @@ _____DETAILS_BEGIN_____5t_ else if("edit" == purpose){ _____SUMMARY_END_____
                   
                   p1 := mode 
                   p2 := action_id__or__cmd
-_____DETAILS_BEGIN_____6t_ if("setting" == mode){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____6t_ if("setting" == mode){ _____SUMMARY_END_____
                      p2 := setting_to_change ; {"setting_name":__, "new_value":__}
                   } _____DETAILS_END_____
                   edited_line := FILE_HELPER.Change_Helper__TargetLine__Create( p1, p2 )
@@ -1724,7 +2043,7 @@ _____DETAILS_BEGIN_____6t_ if("setting" == mode){ _____SUMMARY_END_____
                   continue 
                   
                } _____DETAILS_END_____
-_____DETAILS_BEGIN_____5t_ else if( "command" == mode
+_____IF_DETAILS_BEGIN_____5t_ else if( "command" == mode
                         and (   "enable"  == purpose
                              or "disable" == purpose )  )
                { _____SUMMARY_END_____
@@ -1772,7 +2091,7 @@ _____DETAILS_BEGIN_____5t_ else if( "command" == mode
       } ; end of file loop _____DETAILS_END_____
       
       ; msgbox newfile`n%revised_file_data%
-_____DETAILS_BEGIN_____2t_ if( "" != revised_file_data ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( "" != revised_file_data ){ _____SUMMARY_END_____
          
          FileDelete, %_savefile_path%
          FileAppend, %revised_file_data%, %_savefile_path%
@@ -1786,7 +2105,14 @@ _____DETAILS_BEGIN_____2t_ if( "" != revised_file_data ){ _____SUMMARY_END_____
       
       return is_insertion_point_changed_yet
    } ; Change_Savefile() _____DETAILS_END_____
-   
+         
+   ;=================================;
+   ;                                 ;
+   ;      HELPER FUNCTIONS FOR       ;
+   ;                                 ;
+   ;        Change_Savefile()        ;
+   ;                                 ;
+   ;=================================;
    
 _____DETAILS_BEGIN_____1t_ Change_Helper__IsCurrentLineTheTargetLine( mode, current_line, id_or_cmd_or_setting ) { _____SUMMARY_END_____
    ; No globals needed.
@@ -1798,7 +2124,7 @@ _____DETAILS_BEGIN_____1t_ Change_Helper__IsCurrentLineTheTargetLine( mode, curr
    
       is_this_the_destination := false 
       
-_____DETAILS_BEGIN_____2t_ if( "action" == mode ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( "action" == mode ){ _____SUMMARY_END_____
          
          ;------------------------------------------------
          ; Each Action entry in the Savefile 
@@ -1856,7 +2182,7 @@ _____DETAILS_BEGIN_____2t_ if( "action" == mode ){ _____SUMMARY_END_____
          unique_token := MatchGroup1
                                  
       } _____DETAILS_END_____
-_____DETAILS_BEGIN_____2t_ else if("command" == mode){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ else if("command" == mode){ _____SUMMARY_END_____
          
          ;------------------------------------------------
          ; Each Command entry in the Savefile 
@@ -1891,7 +2217,7 @@ _____DETAILS_BEGIN_____2t_ else if("command" == mode){ _____SUMMARY_END_____
                                          , match_unique_token
                                          , capture_group_for_unique_token )
       } _____DETAILS_END_____
-_____DETAILS_BEGIN_____2t_ else if("setting" == mode){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ else if("setting" == mode){ _____SUMMARY_END_____
          
          match_unique_token := "" 
          . "i)^[ \t]*(" id_or_cmd_or_setting ")[ \t]*:[ \t]*(\d+)[ \t]*$"
@@ -1904,7 +2230,7 @@ _____DETAILS_BEGIN_____2t_ else if("setting" == mode){ _____SUMMARY_END_____
       } _____DETAILS_END_____
       
       
-_____DETAILS_BEGIN_____2t_ if( unique_token == id_or_cmd_or_setting ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( unique_token == id_or_cmd_or_setting ){ _____SUMMARY_END_____
          is_this_the_destination := true 
       } _____DETAILS_END_____
       
@@ -1915,13 +2241,14 @@ _____DETAILS_BEGIN_____2t_ if( unique_token == id_or_cmd_or_setting ){ _____SUMM
 _____DETAILS_BEGIN_____1t_ Change_Helper__TargetLine__Create( mode, id_or_cmd_or_setting ) { _____SUMMARY_END_____
    global _ACTIONS
    global _COMMANDS
+   
       new_savefile_line_to_insert := ""
    
       ;=======================================
       ; Create Line to Insert into Savefile
       ;=======================================
       
-_____DETAILS_BEGIN_____2t_ if( "action" == mode ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( "action" == mode ){ _____SUMMARY_END_____
       
          action_id := id_or_cmd_or_setting
          
@@ -1937,20 +2264,20 @@ _____DETAILS_BEGIN_____2t_ if( "action" == mode ){ _____SUMMARY_END_____
          ActionID  .= ", "
          
          ; "Folder" 
-_____DETAILS_BEGIN_____3t_ if( "folder" == _ACTIONS[action_id]["type"] ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( "folder" == _ACTIONS[action_id]["type"] ){ _____SUMMARY_END_____
          
             FolderOrApp :=  "Folder"
             FolderOrApp  .= ", "
             
          } _____DETAILS_END_____
          ; or "App"
-_____DETAILS_BEGIN_____3t_ else if( "app" == _ACTIONS[action_id]["type"] ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ else if( "app" == _ACTIONS[action_id]["type"] ){ _____SUMMARY_END_____
          
             FolderOrApp :=  "App"
             FolderOrApp  .= ",    "
             
             ; (Optional) Arguments for App
-_____DETAILS_BEGIN_____4t_ if( "" != _ACTIONS[action_id]["arg"] ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____4t_ if( "" != _ACTIONS[action_id]["arg"] ){ _____SUMMARY_END_____
             
                ActionArg :=  ", "
                ActionArg  .= _ACTIONS[action_id]["arg"]
@@ -1974,7 +2301,7 @@ _____DETAILS_BEGIN_____4t_ if( "" != _ACTIONS[action_id]["arg"] ){ _____SUMMARY_
                                             ;  and custom arguments to call when App is run.
             
       } _____DETAILS_END_____
-_____DETAILS_BEGIN_____2t_ else
+_____IF_DETAILS_BEGIN_____2t_ else
       if( "command" == mode ){ _____SUMMARY_END_____
       
          cmd := id_or_cmd_or_setting
@@ -1983,7 +2310,7 @@ _____DETAILS_BEGIN_____2t_ else
          
          begin_literal_flag := "" ; not needed if cmd doesn't begin with spaces
          
-_____DETAILS_BEGIN_____3t_ if( RegExMatch(cmd, "^[ \t]+.*") ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( RegExMatch(cmd, "^[ \t]+.*") ){ _____SUMMARY_END_____
             begin_literal_flag := "\BEGIN_LITERAL\"
          } _____DETAILS_END_____
          
@@ -2000,7 +2327,7 @@ _____DETAILS_BEGIN_____3t_ if( RegExMatch(cmd, "^[ \t]+.*") ){ _____SUMMARY_END_
             . action_id                       ; Add Action ID the Command's text triggers when typed in Program Launcher.
          
       } _____DETAILS_END_____
-_____DETAILS_BEGIN_____2t_ else
+_____IF_DETAILS_BEGIN_____2t_ else
       if( "setting" == mode ){ _____SUMMARY_END_____
          setting_name := id_or_cmd_or_setting["setting_name"]
          new_value := id_or_cmd_or_setting["new_value"]
@@ -2030,7 +2357,7 @@ _____DETAILS_BEGIN_____1t_ Change_Helper__TargetLine__ToggleCommand( purpose, ta
          , match_command_colon_actionID_optionallyAlsoDisableFlag
          , "$1" )
          
-_____DETAILS_BEGIN_____2t_ if( "disable" == purpose ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( "disable" == purpose ){ _____SUMMARY_END_____
 
          ;=====================================================
          ; Append "DISABLED" to Command's line 
@@ -2041,7 +2368,7 @@ _____DETAILS_BEGIN_____2t_ if( "disable" == purpose ){ _____SUMMARY_END_____
 
          ; msgBOX %   target_line "`t`t" "DISABLED"
       } _____DETAILS_END_____
-_____DETAILS_BEGIN_____2t_ else 
+_____IF_DETAILS_BEGIN_____2t_ else 
       if( "enable" == purpose ){ _____SUMMARY_END_____
          
             
@@ -2052,6 +2379,14 @@ _____DETAILS_BEGIN_____2t_ else
       
       return new_savefile_line_to_insert
    } _____DETAILS_END_____
+
+   ;===================================;
+   ;  </> end of helper functions for  ;
+   ;                                   ;
+   ;         Change_Savefile()         ;
+   ;===================================;
+
+
    
 
 _____DETAILS_BEGIN_____1t_ Fn_Standardize_Path_String(path, path_type) { _____SUMMARY_END_____
@@ -2074,9 +2409,9 @@ _____DETAILS_BEGIN_____1t_ Fn_Standardize_Path_String(path, path_type) { _____SU
       ;------------------------------------------------
       ; append trailing "\" to directory if not there 
       ;------------------------------------------------
-_____DETAILS_BEGIN_____2t_ if( "folder" = path_type ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( "folder" = path_type ){ _____SUMMARY_END_____
          
-_____DETAILS_BEGIN_____3t_ if( RegExMatch(formatted_path, "[^\\]$") ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____3t_ if( RegExMatch(formatted_path, "[^\\]$") ){ _____SUMMARY_END_____
             formatted_path := formatted_path . "\"
          } _____DETAILS_END_____
          
@@ -2085,7 +2420,6 @@ _____DETAILS_BEGIN_____3t_ if( RegExMatch(formatted_path, "[^\\]$") ){ _____SUMM
    }    _____DETAILS_END_____
 
 
-   
 _____DETAILS_BEGIN_____1t_ Fn_Calculate_Number_of_Spaces_Between_CommandColon_and_ActionID( cmd_length ) { _____SUMMARY_END_____
    
       space_string := ""
@@ -2093,14 +2427,14 @@ _____DETAILS_BEGIN_____1t_ Fn_Calculate_Number_of_Spaces_Between_CommandColon_an
       ; Add 1 to the length to account for the colon (:) before tabs begin
       cmd_length := cmd_length + 1 
       
-_____DETAILS_BEGIN_____2t_ if( 28 <= cmd_length ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( 28 <= cmd_length ){ _____SUMMARY_END_____
          space_string := " "
       } _____DETAILS_END_____
-_____DETAILS_BEGIN_____2t_ else if( 2 <= cmd_length ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ else if( 2 <= cmd_length ){ _____SUMMARY_END_____
       
          empty_space_to_fill := 28 - cmd_length
          
-_____DETAILS_BEGIN_____3t_ Loop, %empty_space_to_fill%
+_____IF_DETAILS_BEGIN_____3t_ Loop, %empty_space_to_fill%
          { _____SUMMARY_END_____
             space_string .= " "
          } _____DETAILS_END_____
@@ -2176,18 +2510,18 @@ _____DETAILS_BEGIN_____1t_ Fn_Calculate_Number_of_Tabs_Between_CommandColon_and_
       
       textEditorTabWidth := ""
       
-_____DETAILS_BEGIN_____2t_ if( format_for_notepadPlusPlus ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( format_for_notepadPlusPlus ){ _____SUMMARY_END_____
          textEditorTabWidth := 4.0
       } _____DETAILS_END_____
-_____DETAILS_BEGIN_____2t_ else 
+_____IF_DETAILS_BEGIN_____2t_ else 
       if( format_for_notepadDotExe ){ _____SUMMARY_END_____
          textEditorTabWidth := 8.0
       } _____DETAILS_END_____
       
-_____DETAILS_BEGIN_____2t_ if( 24 <= cmd_length ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ if( 24 <= cmd_length ){ _____SUMMARY_END_____
          tab_string := "`t"
       } _____DETAILS_END_____
-_____DETAILS_BEGIN_____2t_ else if( 2 <= cmd_length ){ _____SUMMARY_END_____
+_____IF_DETAILS_BEGIN_____2t_ else if( 2 <= cmd_length ){ _____SUMMARY_END_____
          empty_space_to_fill := 28 - cmd_length
          num_spaces_with_remainder := empty_space_to_fill / textEditorTabWidth
          
@@ -2203,7 +2537,7 @@ _____DETAILS_BEGIN_____2t_ else if( 2 <= cmd_length ){ _____SUMMARY_END_____
          number_of_tabs := Ceil( num_spaces_with_remainder )
          ; msgbox num tabs %number_of_tabs%
          
-_____DETAILS_BEGIN_____3t_ Loop, %number_of_tabs%
+_____IF_DETAILS_BEGIN_____3t_ Loop, %number_of_tabs%
          { _____SUMMARY_END_____
             tab_string .= "`t"
          } _____DETAILS_END_____
@@ -2223,6 +2557,7 @@ _____DETAILS_BEGIN_____3t_ Loop, %number_of_tabs%
 ;-------------------------------------------;
 
 
+
 ;===============================;
 ; </>   end of Class section    ;
 ;===============================;
@@ -2237,13 +2572,15 @@ _____DETAILS_BEGIN_____3t_ Loop, %number_of_tabs%
 ;                                                ;
 ;================================================;
 
-_____DETAILS_BEGIN_____0t_ Default_Save_File:
-{ _____SUMMARY_END_____
+_____DETAILS_BEGIN_____0t_ Default_Save_File() { _____SUMMARY_END_____
+global _savefile__default_content
+
+
    _savefile__default_content := "
    (
       ;====================================================================
-      ; file:     _program_launcher_saved_phrases.ini
-      ; purpose:  _program_launcher.ahk's saved data + tutorial
+      ; file:     program_launcher_saved_phrases.ini
+      ; purpose:  program_launcher.ahk's saved data + tutorial
       ;====================================================================
 
 
@@ -2289,25 +2626,41 @@ _____DETAILS_BEGIN_____0t_ Default_Save_File:
       ]
 
 
+      
+            ;-----------------------------------------------------;
+            ; Note 1:    Lines beginning with a ';' are ignored.  ;
+            ; Note 2:    Use Notepad++ or Sublime text editor     ;
+            ;                if the formatting looks strange.     ;
+            ;                                                     ;
+            ;     Notepad.exe uses tabs which are 16 spaces wide, ; 
+            ;            and will not display this document well. ; 
+            ;-----------------------------------------------------;
 
 
-      ;====================================================================
-      ; About the program:                            _program_launcher.ahk
-      ;====================================================================
+      ;===========================================================================
+      ; About the program:                                  program_launcher.ahk
+      ;===========================================================================
       ;
       ;
       ;  ------------------
       ;  What it does:
       ;  ------------------
       ;
-      ;  _program_launcher.ahk is a small utility 
+      ;  program_launcher.ahk is a small utility 
       ;  to reduce the number of steps to
       ;
-      ;     () open programs or
-      ;     () navigate to folders.
+      ;         (1) open programs or
+      ;         (2) navigate to folders
+      ;             (by opening the folder
+      ;              in a new Windows Explorer window).
       ;
-      ;  You can register words or phrases as [commands]
-      ;  which _program_launcher.ahk will associate with an [action].
+      ;
+      ;  You can register a word or phrase as a [Command]
+      ;  which program_launcher.ahk will associate with an [Action].
+      ;
+      ;  Program Launcher's main hotkey will open a small popup.
+      ;  Type a command into the popup, then press enter
+      ;  and your action will run!
       ;
       ;
       ;  --------------------
@@ -2337,7 +2690,7 @@ _____DETAILS_BEGIN_____0t_ Default_Save_File:
       ;
       ;     (1) Open a folder in a new window.
       ;     (2) Open an application.
-      ;     (3) _program_launcher.ahk functions: 
+      ;     (3) program_launcher.ahk functions: 
       ;         () Quit 
       ;         () Settings
       ;
@@ -2346,7 +2699,7 @@ _____DETAILS_BEGIN_____0t_ Default_Save_File:
       ;  How to use it:
       ;  ------------------
       ;
-      ;  Run _program_launcher.ahk
+      ;  Run program_launcher.ahk
       ;
       ;  (1) Add some commands:
       ;
@@ -2387,19 +2740,19 @@ _____DETAILS_BEGIN_____0t_ Default_Save_File:
       ;  How do I know if it's running?
       ;  -------------------------------
       ;
-      ;  Run _program_launcher.ahk.
+      ;  Run program_launcher.ahk.
       ;  You will see its icon appear in Window's ""Notificaiton Area"" 
       ;  (located at the right end of the Windows Taskbar, just before the clock).
       ;
       ;  If you hover your mouse over this script's icon in the Notificaiton Area,
-      ;  a tooltip will appear saying ""_program_launcher.ahk"".
+      ;  a tooltip will appear saying ""program_launcher.ahk"".
       ;
       ;
       ;  -------------------
       ;  How do I close it?
       ;  -------------------
       ;
-      ;  To close _program_launcher.ahk either:
+      ;  To close program_launcher.ahk either:
       ;
       ;  (1) Right click its icon in the Notificaiton Tray and click ""Exit"". 
       ;
@@ -2412,22 +2765,22 @@ _____DETAILS_BEGIN_____0t_ Default_Save_File:
       ;      (2.4)  The program will stop running. 
       ;
       ;   
-      ;====================================================================
+      ;===========================================================================
 
 
       ;====================================================================
-      ; About this config file:         _program_launcher_saved_phrases.ini
+      ; About this config file:         program_launcher_saved_phrases.ini
       ;====================================================================
       ;
       ;  ------------------
       ;  Commented lines : 
       ;  ------------------
       ;
-      ;     _program_launcher.ahk will ignore any line
+      ;     program_launcher.ahk will ignore any line
       ;     in this config file if it starts with ';'
       ;  
       ;     Feel free to keep, alter, move, or remove any commented lines.
-      ;     It won't affect _program_launcher.ahk's behavior.
+      ;     It won't affect program_launcher.ahk's behavior.
       ;  
       ;  -----------
       ;  Settings :
@@ -2441,7 +2794,7 @@ _____DETAILS_BEGIN_____0t_ Default_Save_File:
       ;      This number corresponds to a Shell32.dll icon number.
       ;      This script will use this icon
       ;      (1) in the Windows Notification Tray 
-      ;      (2) in the window title bars for _program_launcher.ahk's
+      ;      (2) in the window title bars for program_launcher.ahk's
       ;          (2.a) commandline popup
       ;          (2.b) configuration window
       ;  
@@ -2452,7 +2805,7 @@ _____DETAILS_BEGIN_____0t_ Default_Save_File:
       ;    How it works: 
       ;    
       ;      When this hotkey is pressed
-      ;      _program_launcher.ahk displays its commandline popup.
+      ;      program_launcher.ahk displays its commandline popup.
       ;
       ;
       ;  Setting name:               ""hotkey_for_quit""
@@ -2461,7 +2814,7 @@ _____DETAILS_BEGIN_____0t_ Default_Save_File:
       ;    How it works: 
       ;    
       ;      When this hotkey is pressed
-      ;      _program_launcher.ahk exits.
+      ;      program_launcher.ahk exits.
       ;
       ;
       ;   ---------------------
@@ -2471,7 +2824,7 @@ _____DETAILS_BEGIN_____0t_ Default_Save_File:
       ;   Commands can be registered to actions in two ways:
       ;
       ;      (1) Add them manually to this settings file, 
-      ;          then refresh _program_launcher.ahk.
+      ;          then refresh program_launcher.ahk.
       ;
       ;          Press the the hotkey associated with 
       ;          [hotkey_for_commandline_popup]
@@ -2480,7 +2833,7 @@ _____DETAILS_BEGIN_____0t_ Default_Save_File:
       ;
       ;      (2) Add them using the settings window.
       ;
-      ;          Open _program_launcher.ahk's command prompt 
+      ;          Open program_launcher.ahk's command prompt 
       ;          (by default, this hotkey is Ctrl+Win+Space)
       ;          then type 'settings' or 'config' or 'configuration' 
       ;          press OK, then the configuration window should appear.
@@ -2492,23 +2845,23 @@ _____DETAILS_BEGIN_____0t_ Default_Save_File:
       ;     *see note below.
       ;
       ;   Each Command phrase is associated with a single action.
-      ;   _program_launcher.ahk handles two action types, either :
+      ;   program_launcher.ahk handles two action types, either :
       ;     (1) launch a specific explorer folder, or
       ;     (2) launch a program (optionally with a passed default path)
       ;  
       ;====================================================================
 
 
-      ;====================================================================
+      ;===========================================================================
       ; Help
-      ;====================================================================
+      ;===========================================================================
       ;
       ; ------------------------------
       ; How do I back up my settings?
       ; ------------------------------
       ;
       ; (1) Using Windows Explorer
-      ;     copy and paste the file ""_program_launcher_saved_phrases.ini"" 
+      ;     copy and paste the file ""program_launcher_saved_phrases.ini"" 
       ;     (the settings file you're reading right now) to make a backup.
       ;
       ;     If the reader is unfamiliar, these are the steps: 
@@ -2530,11 +2883,11 @@ _____DETAILS_BEGIN_____0t_ Default_Save_File:
       ;
       ;
       ; (2) Rename the duplicate file and give it a new name like:
-      ;     ""_program_launcher_saved_phrases.ini.backup123""
+      ;     ""program_launcher_saved_phrases.ini.backup123""
       ;     or any name you prefer.
       ;   
       ;     As long as the backup's name doesn't exactly match
-      ;     ""_program_launcher_saved_phrases.ini"", 
+      ;     ""program_launcher_saved_phrases.ini"", 
       ;     the backup will be ignored.
       ;
       ; 
@@ -2542,20 +2895,20 @@ _____DETAILS_BEGIN_____0t_ Default_Save_File:
       ; How to I restore the default settings and commands?
       ; ----------------------------------------------------
       ;
-      ; _program_launcher.ahk can auto-generate this file.
+      ; program_launcher.ahk can auto-generate this file.
       ;
       ; NOTE: This step will not auto-generate your custom commands and actions.
       ;       Be sure to make a backup file first. 
       ;
       ;   (a) Move or copy
-      ;      _program_launcher.ahk to a directory without
-      ;      _program_launcher_saved_phrases.ini.
+      ;      program_launcher.ahk to a directory without
+      ;      program_launcher_saved_phrases.ini.
       ;      
-      ;      When you run _program_launcher.ahk 
+      ;      When you run program_launcher.ahk 
       ;      the default version of this settings file will be auto-generated.
       ;
       ;   (b) Alternatively
-      ;====================================================================
+      ;===========================================================================
       
       
       
@@ -2564,15 +2917,16 @@ _____DETAILS_BEGIN_____0t_ Default_Save_File:
       
    )"
    
-   ;---------------------------------------------------------------------------------
+   
+_____COMMENT_DETAILS_BEGIN_____1t_ ;---------------------------------------------------------------------------------
    ;    Remove leading tabs from continuation section variable.
-   ;---------------------------------------------------------------------------------
+   ;--------------------------------------------------------------------------------- _____COMMENT_SUMMARY_END_____
    ;
    ; To skip this step, 
    ; I could have made the long continuation section above 
    ; flush with the left of the document (with no indentations)
    ;
-   ; I like to keep things indented though. 
+   ; But I like to keep blocks indented. 
    ;
    ; Here's the process for the next few lines:
    ;
@@ -2599,7 +2953,7 @@ _____DETAILS_BEGIN_____0t_ Default_Save_File:
    ;
    ; Read more about the necessity of this conversion here:
    ;    https://autohotkey.com/board/topic/115426-multiline-regexreplace/#entry668977
-   ;---------------------------------------------------------------------------------
+   ;--------------------------------------------------------------------------------- _____COMMENT_DETAILS_END_____
    
    ;-------;
    ;  (1)  ;

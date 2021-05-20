@@ -171,17 +171,34 @@ layout: Layout_Philosophy_Blog
 				So where did I land with this integration + development journey?
 			</p>
 			<p>
-				Someplace amazing.
+				An amazing place.
 			</p>
 			<p>
-				New posts just need a very minimal amount of variables added to the top, 
+				New posts need a very minimal amount of variables added to the top
+				<span class="parenthetical">(Jekyll's 
+					<a href="https://jekyllrb.com/docs/front-matter/"
+					style="font-family: inherit;">"front matter"</a> region)
+				</span>, 
 				then I can just focus on defining the main content of the new post, 
 				entirely omitting the HTML for the site's header, footer, and sidebar.
+				<br><br>
+				You can see the minimal HTML code I needed to make this post here: <br>
+				<a href="https://github.com/gamepad-coder/gamepad-coder.github.io/blob/master/_Philosophy/1__PlanningTheSite.html">
+					https://github.com/gamepad-coder/gamepad-coder.github.io/blob/master/_Philosophy/1__PlanningTheSite.html
+				</a>
+				<br><br>
+				Notice how there's no code for the header, nor for the sidebar, nor for the footer. The unbaked code for
+				this blog post doesn't even contain the code to create the splash screen topic card at the top of the
+				post.
+				<br><br>
+				I defined those once, and now when I write a blog post, I just define the content in the main block of
+				the page. Then Jekyll takes the HTML code for those minimal blog posts and wraps each one with all the bells and
+				whistles and produces the finished page. It's kind of fantastic.
 			</p>
 			<p>
-				Once I have a new post written, Jekyll's templating wraps the rest of the common HTML around it, 
-				and constructs a complete HTML page that is styled similarly to the rest of the Blog Site.
-				This is awesome, because:
+				Once I have a new post written, Jekyll's templating wraps the rest of the HTML they all share in common
+				(or conditionally request) around the central page block, and constructs a complete HTML page that is
+				styled similarly to the rest of the Blog Site. This is awesome, because:
 				<ul>
 					<li>
 						<u>It save a ton of time and work</u> <br>
@@ -205,13 +222,12 @@ layout: Layout_Philosophy_Blog
 				</ul>
 			</p><br>
 			<p>
-				Similarly, I don't need to copy+paste the HTML formatting for each post header,
-				nor do I need to manually add tags below each post:
-				I've written a series of simple Liquid commands to generate the HTML 
-				for these, and call upon these utilities using Jekyll's /_Include/ feature. 
+				Similarly, I don't need to copy+paste the HTML formatting for each post header, nor do I need to
+				manually add tags below each post: I've written a series of simple Liquid commands to generate the HTML
+				for these, and call upon these utilities using Jekyll's {%raw%}{%include%}{%endraw%} feature. 
 			</p>
 			<p>
-				Any new #topics I include in a post are auto-magically added 
+				Any new #topic tags I include in a post are auto-magically added 
 				to the PostsByTopic.html page (along with automatically rendered post-previews under each tag). 
 			</p>
 			<p>
@@ -241,7 +257,7 @@ layout: Layout_Philosophy_Blog
 			<p>
 				I would have started playing with web design a long long time ago had I known about this sooner 
 				(<span class="parenthetical">and if I didn't have a plethora of tasks 
-					surrounding my large AutoHotkey hobby-project</span>).
+					surrounding my large desktop-replacement hobby-project</span>).
 			</p>
 			
 			</article>

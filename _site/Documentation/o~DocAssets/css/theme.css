@@ -19,20 +19,56 @@ html{box-sizing:border-box}*,:after,:before{box-sizing:inherit}article,aside,det
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 
+    /* ************************************************************** */
+   /*                                                                */
+  /*                    Accessibility                               */
+ /*                                                                */
+/* ************************************************************** */
+a.btn:focus-visible {
+    outline: 3px solid #0500d4;
+}
+.btn:focus {
+    box-shadow: inset 0 -1px 0 0 rgb(0 0 0 / 5%), inset 0 2px 0 0 rgb(0 0 0 / 10%);
+    padding: 8px 12px 6px;
+}
 
+/* Uniform bullet point spacing: */
+.rst-content .section ul li, .rst-content .toctree-wrapper ul li, .wy-plain-list-disc li, article ul li {
+    list-style: disc;
+    margin-left: 24px;
+    margin-top: 12px;
+}
+
+    /* ************************************************************** */
+   /*                                                                */
+  /*   Modified styling for Sidebar TOC                             */
+ /*                                                                */
+/* ************************************************************** */
+
+/* Fix sidebar glitch at extreme un-zoom: */
+.wy-side-scroll {
+    /* width: 320px; */
+    /* width: 370px; */
+}
+
+/* [+]/[-] Expand/Collapse box size & hitbox */
 .wy-menu-vertical li span.toctree-expand {
-  font-size:/*MOD.8em*/ 1em;
-  line-height:/*MOD1.6em*/ 1.2em;
-  color:/*MOD #4d4d4d*/ #969696;
-  
-  /* Original values:
-    font-size:.8em;
-    line-height:1.6em;
-    color:#4d4d4d;
-  */
+    
+    /* The Following 
+    increases the size of the collapse/expand boxes */
+
+    font-size:/*MOD.8em*/ 1em;
+    line-height:/*MOD1.6em*/ 1.2em;
+    color:/*MOD #4d4d4d*/ #969696;
+
+    /* Original values:
+        font-size:.8em;
+        line-height:1.6em;
+        color:#4d4d4d;
+    */
 
 
-    /* The below 
+    /* The following 
     is a small hack to make the collapse/expand regions 
     larger and easier to click/touch 
 
@@ -45,6 +81,22 @@ html{box-sizing:border-box}*,:after,:before{box-sizing:inherit}article,aside,det
     margin-right: -1.3px;
     margin-left: -1.7em;
 }
+.wy-menu-vertical li.current > a span.toctree-expand,
+.wy-menu-vertical li.on a span.toctree-expand {
+    display: block;
+    font-size: 1em;
+    line-height: 1.2em;
+    color: #969696;
+    
+  /* Original
+  		
+  line-height: 18px;
+  color: #333;
+  */
+}
+
+
+/* TOC Border, Don't Imply */
 .wy-menu-vertical li.current > a,
 .wy-menu-vertical li.on a {
   border-right: 1px solid #c9c9c9;
@@ -59,6 +111,8 @@ html{box-sizing:border-box}*,:after,:before{box-sizing:inherit}article,aside,det
       visually implied you were on that different page.
   */
 }
+
+/* Cleaner w/o toc entry borders (with my mods) */
 .wy-menu-vertical li.toctree-l1.current > a {
   border-top: unset;
   border-bottom: unset;
@@ -94,20 +148,6 @@ html{box-sizing:border-box}*,:after,:before{box-sizing:inherit}article,aside,det
  /* body > div > nav > div > .wy-menu-vertical > ul.current li.current a.reference.internal.current { background-color: #a8c1f9; } */
 /* .wy-menu-vertical li.current>a:hover,.wy-menu-vertical li.on a:hover{background-color:#adbbff} */
 
-
-.wy-menu-vertical li.current > a span.toctree-expand,
-.wy-menu-vertical li.on a span.toctree-expand {
-    display: block;
-    font-size: 1em;
-    line-height: 1.2em;
-    color: #969696;
-    
-  /* Original
-  		
-  line-height: 18px;
-  color: #333;
-  */
-}
 
 
     /* ************************************************************** */
@@ -229,6 +269,32 @@ div.toctree-wrapper li.samePageSectionHeaderLI a.samePageSectionHeader {
 
 	/* Visible label corresponding to the invisible checkbox. 
 	   Toggles the section's collapsed/hidden state. */
+    
+       details.collapsible_section_via_details,
+    details.collapsible_section_via_details[open] {
+        margin-bottom: 40px;
+        margin-top: 40px;
+    }
+    details.collapsible_section_via_details > summary {
+		-webkit-box-shadow: -11px 10px 2px -2px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1);
+		box-shadow: -11px 10px 2px -2px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1);
+		border: 1px solid rgba(28, 160, 189, 0.47);
+
+		font-size: 21px;
+		font-weight: bold;
+
+		display: block;
+		margin-top: 24px;
+		margin-bottom: 24px; 
+            /*18*/
+        /* margin-left: -10px; */
+		padding: 1rem;
+		color: #2a8b9b;
+		cursor: grabbing;  
+		
+		transition: color 0.25s ease-out;
+
+    }
 	.label-toggle_collapsible_section {
 		-webkit-box-shadow: -11px 10px 2px -2px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1);
 		box-shadow: -11px 10px 2px -2px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1);
@@ -247,15 +313,20 @@ div.toctree-wrapper li.samePageSectionHeaderLI a.samePageSectionHeader {
 		transition: color 0.25s ease-out;
 	}
 		/* Change colors on mouse-over to indicate possible action here. */
+        details.collapsible_section_via_details > summary:hover,
 		.label-toggle_collapsible_section:hover {
 			/* color: #9ffad0; */
             color: #56b68a;
 		}
-
+        details.collapsible_section_via_details[open] > summary::before{
+            content: " ";
+        }
 		/* "::before" adds a pseudo-element before the label. 
 		Used to create a triangle using border quadrants. */
+        details.collapsible_section_via_details > summary::before,
 		.label-toggle_collapsible_section::before {
 			content: " ";
+            color: goldenrod;
 			display: inline-block;
 			border-top: 5px solid transparent;
 			border-bottom: 5px solid transparent;
@@ -268,11 +339,14 @@ div.toctree-wrapper li.samePageSectionHeaderLI a.samePageSectionHeader {
 			transition: transform 0.25s;
 		}
 		/* Rotate the "::before" triangle when the label is clicked. */
+        details.collapsible_section_via_details[open] > summary::before,
 		.toggle_collapsible_section:checked + .label-toggle_collapsible_section::before {
 			transform: rotate(90deg) translateX(-3px);
+            color: cornflowerblue;
 		}
 
 	/* Sets the section to be invisible when collapsed. */
+    .collapsible_codeblock_section,
 	.collapsible_section {
 		max-height: 0px;
 		overflow: hidden;
@@ -286,11 +360,18 @@ div.toctree-wrapper li.samePageSectionHeaderLI a.samePageSectionHeader {
 		/* transition: max-height 0.65s 0s; */
 		transition: max-height 0.55s;
 	}
+    details.collapsible_section_via_details .collapsible_codeblock_section {
+        max-height: unset;
+        padding: unset;
+    }
 
 		/* Sets the expanded section's height to be nonzero 
 		   to allow animating between the changes. */
+        details.collapsible_section_via_details[open] + .collapsible_codeblock_section,
+        details.collapsible_section_via_details[open] + .collapsible_section,
+		.toggle_collapsible_section:checked + .label-toggle_collapsible_section + .collapsible_codeblock_section,
 		.toggle_collapsible_section:checked + .label-toggle_collapsible_section + .collapsible_section {
-			max-height: 20000px;
+			max-height: 200000px;
             
             padding-left: 0;
             margin-top: 20px;
@@ -298,6 +379,14 @@ div.toctree-wrapper li.samePageSectionHeaderLI a.samePageSectionHeader {
 			/* Animation */
 			/* transition: max-height 0.75s ease-in-out 0s; */
 		}
+
+
+    /* Sphinx is inserting an empty paragraph before and after the 
+    directive which injects the codeblock. This just negates those empty paragraphs. */
+    .collapsible_section           > p,
+    .collapsible_codeblock_section > p {
+        margin: 0;
+    }
 
     /* --------------------- */
    /*   </> Collapsible     */
@@ -320,6 +409,76 @@ div.toctree-wrapper li.samePageSectionHeaderLI a.samePageSectionHeader {
   /*   code-folding blocks via the HTML <details> tags.                */
  /*                                                                   */
 /* ***************************************************************** */
+
+/* For each
+      [a] codeblock foldable section
+      [b] any codeblock not placed in a wrapper
+   expand the width via negative margin.
+*/
+
+/* div.collapsible_codeblock_section,
+.rst-content div[class^=highlight] { */
+div.collapsible_codeblock_section {
+    margin: 1px -3.236em 24px -3.236em;
+}
+
+details.collapsible_section_via_details .collapsible_codeblock_section {
+    margin: unset;
+}
+
+/* Expand the collapsible section label when open */
+details.collapsible_section_via_details[open] {
+    
+    margin: 1px -3.236em 24px -3.236em;
+}
+details.collapsible_section_via_details[open] > summary {
+    cursor: grab;
+    margin: 20px;
+    user-select: none;
+}
+details.collapsible_section_via_details > summary {
+    user-select: none;
+}
+
+/* details.collapsible_section_via_details[open], */
+.toggle_collapsible_section:checked + .label-toggle_collapsible_section {
+    margin: 1px -2.236em 24px -2.236em;
+    background: white;
+}
+
+@media screen and (max-width:768px){
+    /* For each
+          [a] codeblock foldable section
+          [b] any codeblock not placed in a wrapper
+       expand the width via negative margin,
+       adjust this to fit in mobile view.
+    */
+    /* div.collapsible_codeblock_section,
+    .rst-content div[class^=highlight] { */
+    div.collapsible_codeblock_section {
+        margin: 1px -1.618em 24px -1.618em;
+        margin-top: 20px;
+	}
+
+    /* Expand the collapsible section label when open 
+       adjust this to fit in mobile view.
+    */
+    details.collapsible_section_via_details[open],
+    .toggle_collapsible_section:checked + .label-toggle_collapsible_section {
+        margin: 1px -0.8em 24px -0.6em;
+    }
+}
+/* For codeblocks which ARE wrapped, 
+   negate the above rule for unwrapped sections.
+*/
+/* div.collapsible_codeblock_section > div[class^=highlight] {
+    margin: 0;
+} */
+
+/* override white border so it doesn't look like unintentional sloppy margins */
+.rst-content div[class^=highlight] {
+    border: 1px solid #005875;
+}
 
 pre {
     padding-left: 22px;
@@ -365,11 +524,13 @@ details       > summary::before {
         black right-pointing small triangle
     */
     content: "▸";
-    color: #626262;
+    /* color: #626262; */
+    color: #706A76;
     /* margin-right: 7px; */
     
     position: relative;
     top: 2.2px;
+    left: -3px;
     
     font-size: 23px;
     line-height: 0px;
@@ -396,7 +557,19 @@ details[open] > summary::before {
         https://css-tricks.com/snippets/css/css-triangle/ 
     */
 }
+/* For details blocks in .. tip:: admonitions */
+.admonition.hint > details > summary::before,
+.admonition.tip  > details > summary::before {
+    color: goldenrod;
+}
+.admonition.hint > details[open] > summary::before,
+.admonition.tip  > details[open] > summary::before {
+    color: cornflowerblue;
+}
 
+
+/* Invisible close brace is painted only when a codeblock is folded 
+   to simulate the final line's } jumping up to the summary text. */
 details[open] > summary > span.DETAILS_CLOSE_BRACE {
     display: none;
 }
@@ -523,8 +696,15 @@ details.leading_tabs_0 {
 
 
 .rst-content div[class^="highlight"] pre {
-    padding-left: 16px;
+    /* padding-left: 16px; */
+    padding-left: 30px;
 }
+@media screen and (max-width:768px){
+    .rst-content div[class^="highlight"] pre {
+        padding-left: 16px;
+    }
+}
+
 
 summary::marker {
     color: cornflowerblue;
@@ -540,8 +720,17 @@ summary::marker {
 }
 .wy-side-scroll {
   padding-bottom: 2em;
+  
+  /* to account for added next/prev buttons */
+  height: 93%;
 }
-
+.wy-nav-side > .rst-footer-buttons {
+    position: fixed;
+    bottom: 0;
+    width: inherit;
+    box-shadow: -2px 0.6px 3px 0px #697171;
+    background: #343131;
+}
 a.SIDEBAR-NAV-BTN {
   background-color: unset !important;
 }

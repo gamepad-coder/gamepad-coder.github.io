@@ -889,8 +889,10 @@ article div.changelog_wrapper {
 	outline-color: steelblue;
 	outline-style: double;
 	padding: 0;
-	padding-left: 1vh; 
 	font-family: Monospace, Palatino, Verdana, serif !important;
+	font-size: 14px;
+	margin-left: -40px;
+	margin-right: -40px;
 }
 article div.changelog__preserveNewines {
 	white-space: pre;
@@ -899,8 +901,9 @@ article div.changelog__preserveNewines {
 	flex: 1 1 auto;
 	/* overflow: hidden; */
 	overflow: scroll;
-	max-height: 85vh;
-	
+	overflow-x: auto;
+	max-height: 95vh;
+	padding-left: 1vh; 	
 		
 }
 
@@ -1238,6 +1241,14 @@ article div.changelog__preserveNewines {
 	
 	/*------------------------------------------------------------------@*/
 	
+	@media all and (max-width: 900px) {
+		
+		article div.changelog_wrapper {			
+			margin-left: auto;
+			margin-right: auto;
+			font-size: 12px;
+		}
+	}
 	@media all and (max-width: 900px) {
 		div.post_card__container{
 			max-width: 12em;

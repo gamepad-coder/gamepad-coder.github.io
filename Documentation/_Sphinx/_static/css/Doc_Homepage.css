@@ -335,6 +335,21 @@
 		margin-block-start: 1em;
 		margin-block-end: 1em;
 	}
+	footer p.floating_footer_changelog{			
+		float: left;
+		line-height: 1em;
+		margin-block-start: 1em;
+		margin-block-end: 1em;
+		font-family: Consolas, Verdana, serif;
+		font-size: 17px;
+	}
+	footer p.floating_footer_changelog a{
+		background-color: #00455d;
+		padding: 5px;
+		margin-left: 7px;
+		color: #03ff3d;
+		text-decoration: none;
+	}
 	
 
 

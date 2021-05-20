@@ -92,10 +92,62 @@ def process_foldable_curly_braces():
     # find = '^(([ \t]*(if|#If|else|class|for|while|and|\,|or|\w*[ ]*\:[ ]*$|(\w*[ ]*\([^){]*\)[ ]*)|loop|Loop)[^\n\{]*\n?)*\n?[ \t]*{[ \t;\w]*$)'
     # find = '^(([ \t]*(if|#If|else|class|for|while|and|\,|or|[^;\/\n]*[ ]*\:[:]?[ ]*$|(\w*[ ]*\([^){]*\)[ ]*)|loop|Loop)[^\n\{]*\n?)*\n?[ \t]*{[ \t;\w]*$)'
     # find = '^(([ \t]*(if|#If|else|class|for|while|and|\,|or|[^;\/\n]*[ ]*\:[:]?[ ]*$|(\w*[ ]*\([^){]*\)[ ]*)|loop|Loop)(;[^\n]*)|[^\n\{]*\n?)*\n?[ \t]*{[ \t;\w]*$)' #BEWARE SUPER SLOW WITH THIS ORDER
-    find = '^(([ \t]*(if|#If|else|class|for|while|and|\,|or|[^;\/\n]*[ ]*\:[:]?[ ]*$|(\w*[ ]*\([^){]*\)[ ]*)|loop|Loop)[^\n\{;]*(;[^\n]*)?\n?)*\n?[ \t]*{[ \t;\w]*)$'
+    # find = '^(([ \t]*(if|#If|else|class|for|while|and|\,|or|[^;\/\n]*[ ]*\:[:]?[ ]*$|(\w*[ ]*\([^){]*\)[ ]*)|loop|Loop)[^\n\{;]*(;[^\n]*)?\n?)*\n?[ \t]*{[ \t;\w]*)$'
+    
+    # slightly optimized, was using * instead of + in some places, still regex101 is showing looping over unmatching lines and idk why yet. Hugely inefficient bc of that.
+    # find = '^(([ \t]*(if|#If|else|class|for|while|and|\,|or|[^;\/\n ]+[ ]*\:[:]?[ ]*$|(\w+[ ]*\([^){]*\)[ ]*)|loop)[^\n\{;]*(;[^\n]*)?\n?)+\n?[ \t]*{[ \t;\w]*)$'
+    
+    # SIGNIFICANTLY FASTER
+    #
+    # More optimized, the leading [ \t]* was consuming leading tab, but then after (a|l|t) group it was looping 
+    #  back to re-eval the line in the case of the [ \t]* matching 0 times (even though it could match)
+    #  and then the leading tab was being consumed by one of the alt cases.
+    #  As a regex learner, this was Unexpected behaviour, mitigated now.
+    #  Now the pattern must non-optionally non-star match a non-whitespace--non-{--non-newline ch to proceed.
+    # find = '^(([ \t]*[^; \n\r\t{](if|#If|else|loop|class|for|while|and|\,|[^;\/\n ]+[ ]*\:[:]?[ ]*$|(\w+[ ]*\([^){]*\)[ ]*)|or)[^\n\{;]*(;[^\n]*)?\n?)+\n?[ \t]*{[ \t;\w]*)$'
+    
+    # bugfix, still sig faster
+    #
+    # positive lookahead instead of consuming first digit, lol
+    # find = '^(([ \t]*(?=[^; \n\r\t{])(if|#If|else|loop|class|for|while|and|\,|[^;\/\n ]+[ ]*\:[:]?[ ]*$|(\w+[ ]*\([^){]*\)[ ]*)|or)[^\n\{;]*(;[^\n]*)?\n?)+\n?[ \t]*{[ \t;\w]*)$'
+    # replace = '_____DETAILS_BEGIN_____\\1 _____SUMMARY_END_____'
+    # TheText = re.sub(find, replace, TheText, count, flags)
+    
+    
+    # refactored out,
+    # only matches flow of control statemetns 
+    #
+    # going to expand these by default, hence hours spent doing this for fun.
+    #
+    # MUST BE PLACED FIRST BEFORE FUNCTIONS (because I watered fn() match down for speed)
+    #
+    find = '^([ \t]*(?=(if|#If|else|loop|for|while))([ \t]*(?=[^; \n\r\t{])(if|#If|else|loop|for|while|and|\,|\.|or)[^\n\{;]*(;[^\n]*)?\n?)+\n?[ \t]*{[ \t;\w]*)$'
+    replace = '_____IF_DETAILS_BEGIN_____\\1 _____SUMMARY_END_____'
+    TheText = re.sub(find, replace, TheText, count, flags)
+    
+    # refactored, 
+    # only matches 
+    #  - #If directive block 
+    #  - class names {
+    #  - labels: {
+    #  - hotkeys:: {
+    #
+    find = '^([ \t]*(?=[^; \n\r\t{])(#If|class|[^;\/\n ]+[ \t]*\:[:]?[ \t]*(;[^\n]*)?$)[^\n\{;]*(((;[^\n]*)?\n)?[ \t]*\{[ \t]*(;[^\n]*)?))$'
     replace = '_____DETAILS_BEGIN_____\\1 _____SUMMARY_END_____'
     TheText = re.sub(find, replace, TheText, count, flags)
     
+    # refactored, 
+    # only matches 
+    #  - fn(){ ; optional comment or { on newline
+    #
+    #  simplified version, doesn't support array assignment nor strings containing ")"
+    #
+    find = '^([ \t]*(?=[^\t; \}\{\/\n\r])(?!(if\b|else\b|loop\b|for\b|while\b|for\b|try\b|catch\b|finally\b|until\b|throw\b|\.|\,|and|or|#))([ \t]*(?=[^; \n\r\t{])(\w+[ ]*\([^){]*[ \t]*\))[^\n\{;]*(;[^\n]*)?\n?[ \t]*\{))$'
+    replace = '_____DETAILS_BEGIN_____\\1 _____SUMMARY_END_____'
+    TheText = re.sub(find, replace, TheText, count, flags)
+    
+    
+    #  - functions() {
     
     #######################################################################
     #  Find:
@@ -145,15 +197,15 @@ def process_comments():
     #  Find:
     #          ;---------;`   Beginning of folding comment block
     #
-    find = '^([ \t]*;[^\n]*)[^`]`[ \t]*$'
+    find = '^([ \t]*;[^\n]*[^`])`[ \t]*$'
     replace = '_____COMMENT_DETAILS_BEGIN_____ \\1'
     TheText = re.sub(find, replace, TheText, count, flags)
 
-    find = '^([ \t]*;[^\n]*)[^`]``[ \t]*$'
+    find = '^([ \t]*;[^\n]*[^`])``[ \t]*$'
     replace = '\\1 _____COMMENT_SUMMARY_END_____'
     TheText = re.sub(find, replace, TheText, count, flags)
 
-    find = '^([ \t]*;[^\n]*)[^`]```[ \t]*$'
+    find = '^([ \t]*;[^\n]*[^`])```[ \t]*$'
     replace = '\\1 _____COMMENT_DETAILS_END_____'
     TheText = re.sub(find, replace, TheText, count, flags)
 
@@ -194,7 +246,7 @@ def tag_with_num_tabs_indentation():
     #                    _____DETAILS_BEGIN_____      next_string 
     #              ->    _____DETAILS_BEGIN_____t2 next_string
     #
-    find = '^(_____DETAILS_BEGIN_____|_____COMMENT_DETAILS_BEGIN_____)([ ]*)'
+    find = '^(_____DETAILS_BEGIN_____|_____IF_DETAILS_BEGIN_____|_____COMMENT_DETAILS_BEGIN_____)([ ]*)'
     
     # Sphinx processes "_____BLOCK_COMMENT_SUMMARY_END_____" weird 
     # if it isn't placed AFTER an opening /*
