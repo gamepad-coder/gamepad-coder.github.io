@@ -613,9 +613,82 @@ html_theme_options = {
         # 'navigation_depth': -1,
         # 'sticky_navigation': False
         # 'collapse_navigation': True,
+        
+    #***************************************************************
+    # DOCS: sphinx_rtd_theme :       collapse_navigation           * 
+    #***************************************************************
+    # Poorly named.                                                *
+    #                                                              *
+    # From     sphinx-rtd-theme.readthedocs.io:                    *
+    #                                                              *
+    #      Type:        boolean                                    *
+    #      Default:     True                                       *
+    #                                                              *
+    #      Description:                                            *
+    #                                                              *
+    #         With collapse_navigation enabled                     *
+    #                                                              * 
+    #            Navigation entries are not expandable             * 
+    #            – the [+] icons next to each entry are removed.   * 
+    #                                                              *
+    #***************************************************************
+    # This really means,                                           *
+    # "Do you want to collapse all the nav                         *
+    #  and not include sub-pages?"                                 *
+    #                                                              *
+    # We want to tell it:                                          *
+    #	"False, I wish to include sub-pages."                      *
+    #***************************************************************
     'collapse_navigation': False,
-    'navigation_depth': -1,
+    
+    #**********************************************************************
+    # DOCS: sphinx_rtd_theme :        navigation_depth                    *
+    #**********************************************************************
+    #                                                                     *
+    # From     sphinx-rtd-theme.readthedocs.io:                           *
+    #                                                                     *
+    #      Type:        integer                                           *
+    #      Default:     4                                                 *
+    #                                                                     *
+    #      Description:                                                   *
+    #                   The maximum depth of the table of contents tree.  *
+    #                   Set this to -1 to allow unlimited depth.          *
+    #                                                                     *
+    #**********************************************************************
+    'navigation_depth': -1,   
+    
+    #************************************************************
+    # DOCS: sphinx_rtd_theme :        titles_only               *
+    #************************************************************
+    #                                                           *
+    # From     sphinx-rtd-theme.readthedocs.io:                 *
+    #                                                           *
+    #      Type:        boolean                                 *
+    #      Default:     False                                   *
+    #                                                           *
+    #      Description:                                         *
+    #                   When enabled, page subheadings          *
+    #                   are not included in the navigation.     *
+    #                                                           *
+    #************************************************************
     'titles_only': False,
+    
+    
+    #************************************************************
+    #  DOCS: sphinx_rtd_theme :           warning               *
+    #************************************************************
+    #                                                           *
+    #  Note:                                                    *
+    #                                                           *
+    #   Setting collapse_navigation to False                    *
+    #   and using a high value for navigation_depth             *
+    #   on projects with many files and a deep file structure   *
+    #                                                           *
+    #   can cause long compilation times                        *
+    #   and can result in HTML files                            *
+    #     that are significantly larger in file size.           *
+    #                                                           *
+    #************************************************************
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
