@@ -62,13 +62,13 @@
 
 	
 	<!-- The "gc_header" contains :
-		[1] the avatar + email banner + "Contact for Hire" button
+		[1] the avatar + email banner + "Contact" button
 		[2] the navigation bar 
 		[3] the backdrop picture 
 	-->
 	<header id="gc_header">
 	
-		<!-- [1] the avatar + email banner + "Contact for Hire" button -->
+		<!-- [1] the avatar + email banner + "Contact" button -->
 		<div id="gc_banner">
 
 			{% comment -%}
@@ -94,24 +94,24 @@
 			-->
 
 			<div id="gc_banner__hire">
-				{%- if page.title != "Contact for Hire" -%}
+				{%- if page.title != "Contact" -%}
 				<a href="/contact.html">
 				{%- endif %}
 						<li 
-							{%-  if page.title == "Contact for Hire"  -%}
+							{%-  if page.title == "Contact"  -%}
 								{{-" "-}}
 								class="gc_navigation_link__current_page"
 							{%-  endif  -%}
 						>
-							Contact for Hire.
+							Contact.
 						</li>
 						
-				{% if page.title != "Contact for Hire" -%}
+				{% if page.title != "Contact" -%}
 				</a>
 				{%- endif %}
 			</div>
 
-			{% if page.title != "Contact for Hire" -%}
+			{% if page.title != "Contact" -%}
 			<a href="/contact.html">
 			{%- endif %}
 				<div id="gc_banner__logo">
@@ -126,7 +126,7 @@
 						</h1>
 					
 				</div> <!-- id="gc_banner__logo" | css #gc_banner__logo -->
-			{% if page.title != "Contact for Hire" -%}
+			{% if page.title != "Contact" -%}
 			</a>
 			{%- endif %}
 		</div> <!-- id="gc_banner" | css #gc_banner -->

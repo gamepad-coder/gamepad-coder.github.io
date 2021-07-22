@@ -255,7 +255,7 @@
 
 		/*** background ***/
 		#gc_header {
-			background-image: url("http://localhost:4000/assets/images/header.jpg"), url("http://localhost:4000/assets/images/header_lowQ.jpg");
+			background-image: url("/assets/images/header.jpg"), url("/assets/images/header_lowQ.jpg");
 			background-size: cover;
 			/* background-position: center center; */
 			/* height: 100%; */
@@ -335,7 +335,7 @@
 			}
 		
 	/* - - - - - - - - - - - - - -  *|
-	|*    "Contact for Hire."       *|
+	|*          "Contact."          *|
 	|* - - - - - - - - - - - - - -  */
 
 		#gc_banner__hire{
@@ -586,7 +586,7 @@
 
 	
 	/* - - - - - - - - - - - *|
-	|*     Contact           *|
+	|*        Contact        *|
 	|* - - - - - - - - - - - */
 
 		#contact_gamepad_coder {
@@ -711,19 +711,19 @@
 			/* overflow: auto; */
 		}
 		#aside_contact_proficiencies {			
-			background-image: url("http://localhost:4000/assets/images/contact/stock_typewriter_plants.png"),url("http://localhost:4000/assets/images/contact/stock_typewriter_plants_lowQ.jpg");
+			background-image: url("/assets/images/contact/stock_typewriter_plants.png"),url("/assets/images/contact/stock_typewriter_plants_lowQ.jpg");
 		}
 		#aside_contact_languages {
-			background-image: url("http://localhost:4000/assets/images/contact/stock_trackpoint.png"),url("http://localhost:4000/assets/images/contact/stock_trackpoint_lowQ.jpg");
+			background-image: url("/assets/images/contact/stock_trackpoint.png"),url("/assets/images/contact/stock_trackpoint_lowQ.jpg");
 		}
 		#aside_contact_tools {
-			background-image: url("http://localhost:4000/assets/images/contact/stock_tools.jpg"),url("http://localhost:4000/assets/images/contact/stock_tools_lowQ.jpg");
+			background-image: url("/assets/images/contact/stock_tools.jpg"),url("/assets/images/contact/stock_tools_lowQ.jpg");
 			
 			background-position-y: center;
 			background-position-x: -40px;
 		}
 		#aside_contact_interests {
-			background-image: url("http://localhost:4000/assets/images/contact/stock_plant.png"),url("http://localhost:4000/assets/images/contact/stock_plant_lowQ.jpg");
+			background-image: url("/assets/images/contact/stock_plant.png"),url("/assets/images/contact/stock_plant_lowQ.jpg");
 		}
 		#aside_contact_proficiencies, #aside_contact_languages, #aside_contact_tools, #aside_contact_interests {
 			/* border: 3px solid white; */
@@ -776,14 +776,14 @@
 					https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Backgrounds_and_Borders/Using_multiple_backgrounds
 					https://stackoverflow.com/a/49585582/13536555
 			*/
-			background-image: url("http://localhost:4000/assets/images/homepage/DocumentationPreview.png"),url("http://localhost:4000/assets/images/homepage/DocumentationPreview_lowQ.jpg");
+			background-image: url("/assets/images/homepage/DocumentationPreview.png"),url("/assets/images/homepage/DocumentationPreview_lowQ.jpg");
 		}
 		#aside_home_GalleryPreview {
-			background-image: url("http://localhost:4000/assets/images/homepage/GalleryPreview.gif"),url("http://localhost:4000/assets/images/homepage/GalleryPreview_lowQ.jpg");
+			background-image: url("/assets/images/homepage/GalleryPreview.gif"),url("/assets/images/homepage/GalleryPreview_lowQ.jpg");
 			background-position-y: center;
 		}
 		#aside_home_BlogPreview {
-			background-image: url("http://localhost:4000/assets/images/homepage/BlogPreview.jpg"),url("http://localhost:4000/assets/images/homepage/BlogPreview_lowQ.jpg");
+			background-image: url("/assets/images/homepage/BlogPreview.jpg"),url("/assets/images/homepage/BlogPreview_lowQ.jpg");
 			background-position: bottom;
 		}		
 

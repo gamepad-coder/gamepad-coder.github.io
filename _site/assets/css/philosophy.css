@@ -178,8 +178,8 @@
 	
 
 	#philosophy_header{
-		background-image: url("http://localhost:4000/assets/images/contact/stock_plant.png")
-		                 ,url("http://localhost:4000/assets/images/contact/stock_plant_mediumQ.jpg");
+		background-image: url("/assets/images/contact/stock_plant.png")
+		                 ,url("/assets/images/contact/stock_plant_mediumQ.jpg");
 		background-size: cover;
 		background-position: center;
 		overflow: auto;
@@ -318,8 +318,8 @@
 		justify-content: space-around;
 		align-items: center;
 
-		background-image:  url("http://localhost:4000/assets/images/contact/stock_plant.png")
-		                 ,url("http://localhost:4000/assets/images/contact/stock_plant_mediumQ.jpg");
+		background-image:  url("/assets/images/contact/stock_plant.png")
+		                 ,url("/assets/images/contact/stock_plant_mediumQ.jpg");
 		
 		background-size: cover;
 		background-position: top;
